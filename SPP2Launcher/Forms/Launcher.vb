@@ -1301,14 +1301,17 @@ Public Class Launcher
                                                            Case 0
                                                                RichTextBox_ConsoleMySQL.AppendText(text)
                                                            Case 500
+                                                               ' Не более 500 строк в окне
                                                                Dim str = RichTextBox_ConsoleMySQL.Lines(0)
                                                                RichTextBox_ConsoleMySQL.Select(0, str.Length + 1)
                                                                RichTextBox_ConsoleMySQL.ReadOnly = False
                                                                RichTextBox_ConsoleMySQL.SelectedText = String.Empty
                                                                RichTextBox_ConsoleMySQL.ReadOnly = True
                                                                RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
+                                                               RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                            Case Else
                                                                RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
+                                                               RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                        End Select
                                                    End Sub)
             End If
@@ -1328,14 +1331,17 @@ Public Class Launcher
                                                        Case 0
                                                            RichTextBox_ConsoleMySQL.AppendText(text)
                                                        Case 500
+                                                           ' Не более 500 строк в окне
                                                            Dim str = RichTextBox_ConsoleMySQL.Lines(0)
                                                            RichTextBox_ConsoleMySQL.Select(0, str.Length + 1)
                                                            RichTextBox_ConsoleMySQL.ReadOnly = False
                                                            RichTextBox_ConsoleMySQL.SelectedText = String.Empty
                                                            RichTextBox_ConsoleMySQL.ReadOnly = True
                                                            RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                        Case Else
                                                            RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                    End Select
                                                End Sub)
         End If
@@ -1353,6 +1359,7 @@ Public Class Launcher
                                                        Case 0
                                                            RichTextBox_ConsoleRealmd.AppendText(text)
                                                        Case 500
+                                                           ' Не более 500 строк в окне
                                                            Dim str = RichTextBox_ConsoleRealmd.Lines(0)
                                                            RichTextBox_ConsoleRealmd.Select(0, str.Length + 1)
                                                            RichTextBox_ConsoleRealmd.ReadOnly = False
@@ -1361,6 +1368,7 @@ Public Class Launcher
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
                                                        Case Else
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                    End Select
                                                End Sub)
         End If
