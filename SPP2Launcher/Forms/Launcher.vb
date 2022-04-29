@@ -127,6 +127,10 @@ Public Class Launcher
         ' Гасим сервера, которых не должно быть априоре...
         ShutdownAll(False)
         UpdateSettings()
+        If My.Settings.AppLocation().X < 0 Or My.Settings.AppLocation().Y < 0 Then
+            ' Исправляем ошибку, если сервер был прихлопнут в свёрнутом состоянии
+            My.Settings.AppLocation() = New Point(0, 0)
+        End If
         Me.Location = My.Settings.AppLocation
         ' Включаем таймеры проверки серверов
         TimerCheckMySQL.Change(2000, 2000)
