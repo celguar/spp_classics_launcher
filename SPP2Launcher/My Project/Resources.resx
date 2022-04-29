@@ -331,9 +331,6 @@
   <data name="cmangos_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_realmd_started.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cmangos_classic_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_classic-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -342,5 +339,8 @@
   </data>
   <data name="cmangos_wotlk_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_wotlk-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_realmd_started.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

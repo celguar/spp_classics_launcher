@@ -629,6 +629,9 @@ Public Class Launcher
                                                              Me.Icon = My.Resources.cmangos_red
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                          End Sub)
+                Else
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                 End If
                 _mysqlON = False
             Else
@@ -637,9 +640,14 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.green_ball
-                                                             Me.Icon = My.Resources.cmangos_orange
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                                             If Not _realmdON Then
+                                                                 Me.Icon = My.Resources.cmangos_orange
+                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                                             End If
                                                          End Sub)
+                Else
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                 End If
                 _mysqlON = True
             End If
@@ -650,6 +658,9 @@ Public Class Launcher
                                                          Me.Icon = My.Resources.cmangos_red
                                                          Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                      End Sub)
+            Else
+                ' Меняем иконку в трее, коли свёрнуты
+                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
             End If
             _mysqlON = False
             GV.Log.WriteException(ex)
@@ -1094,34 +1105,44 @@ Public Class Launcher
         Try
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                 tcpClient.Close()
+                _realmdON = False
                 If Me.Visible Then
+
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.red_ball
                                                              Me.Icon = My.Resources.cmangos_red
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                          End Sub)
-                    _realmdON = False
+                Else
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                 End If
             Else
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
+                _realmdON = True
                 If Me.Visible Then
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.green_ball
                                                              Me.Icon = My.Resources.cmangos_realmd_started
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
                                                          End Sub)
-                    _realmdON = True
+                Else
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
                 End If
             End If
         Catch ex As Exception
             If Me.Visible Then
+                _realmdON = False
                 TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                          TSSL_Realm.Image = My.Resources.red_ball
                                                          Me.Icon = My.Resources.cmangos_orange
                                                          Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                      End Sub)
-                _realmdON = False
+            Else
+                ' Меняем иконку в трее, коли свёрнуты
+                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
             End If
             GV.Log.WriteException(ex)
         End Try
