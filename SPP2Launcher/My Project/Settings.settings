@@ -1,0 +1,291 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Locale" Description="Язык интерфейса" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en-GB</Value>
+    </Setting>
+    <Setting Name="LogLevel" Description="Уровень регистрации ошибок в журнале событий" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="WowClientPath" Description="Путь к файлу запуска клиента WoW" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastLoadedServerType" Description="Предыдущий запущенный сервер" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheAutostart" Description="Автоматический запуск Apache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MySqlAutostart" Description="Автоматический запуск MySQL" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseIntApache" Description="Использовать встроенный Apache" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UseIntMySQL" Description="Использовать встроенный MySQL" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ServerTbcAutostart" Description="Автоматический запуск сервера TBC" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ServerWotlkAutostart" Description="Автоматический запуск сервера WotLK" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3310</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlkarmory</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlkchracters</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlklogs</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlkmangos</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlkplayerbots</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkIntRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wotlkrealmd</Value>
+    </Setting>
+    <Setting Name="MySqlWotlkExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlWotlkExtRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3310</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classicarmory</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classiccharacters</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classiclogs</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classicmangos</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classicplayerbots</Value>
+    </Setting>
+    <Setting Name="MySqlClassicIntRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">classicrealmd</Value>
+    </Setting>
+    <Setting Name="MySqlClassicExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlClassicExtRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3310</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbcarmory</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbccharacters</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbclogs</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbcmangos</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbcplayerbots</Value>
+    </Setting>
+    <Setting Name="MySqlTbcIntRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tbcrealmd</Value>
+    </Setting>
+    <Setting Name="MySqlTbcExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtUserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtArmory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtCharacters" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtLogs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtMangos" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtPlayerbots" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MySqlTbcExtRealmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DirSPP2" Description="Каталог проекта Single Player Project v2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\GAME\SERVER\WOW\SPP_Classics_V2</Value>
+    </Setting>
+    <Setting Name="NextLoadServerType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ServerClassicAutostart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ApacheClassicIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ANY</Value>
+    </Setting>
+    <Setting Name="ApacheClassicIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="ApacheTbcIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ANY</Value>
+    </Setting>
+    <Setting Name="ApacheTbcIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="ApacheWotlkIntHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ANY</Value>
+    </Setting>
+    <Setting Name="ApacheWotlkIntPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="ApacheClassicExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheClassicExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheTbcExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheTbcExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheWotlkExtHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ApacheWotlkExtPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ConsoleTheme" Description="Тема для консоли" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Black Theme</Value>
+    </Setting>
+    <Setting Name="ConsoleFontSize" Roaming="true" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="RealmdConsoleForeColor" Roaming="true" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkCyan</Value>
+    </Setting>
+    <Setting Name="WorldConsoleForeColor" Roaming="true" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SteelBlue</Value>
+    </Setting>
+    <Setting Name="CurrentFileRealmd" Description="Полный путь к запущенному серверу realmd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CurrentFileWorld" Description="Полный путь к запущенному серверу world" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CurrentServerSettings" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ConsoleFontStyle" Type="System.Drawing.FontStyle" Scope="User">
+      <Value Profile="(Default)">Regular</Value>
+    </Setting>
+    <Setting Name="AppSize" Description="Размер окна приложения при открытии" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">640, 380</Value>
+    </Setting>
+    <Setting Name="AppLocation" Description="Расположение окна при открытии" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
