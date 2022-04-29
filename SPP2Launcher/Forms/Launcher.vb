@@ -1366,6 +1366,7 @@ Public Class Launcher
                                                            RichTextBox_ConsoleRealmd.SelectedText = String.Empty
                                                            RichTextBox_ConsoleRealmd.ReadOnly = True
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                        Case Else
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
                                                            RichTextBox_ConsoleMySQL.ScrollToCaret()
