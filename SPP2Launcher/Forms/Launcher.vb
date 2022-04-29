@@ -1330,6 +1330,7 @@ Public Class Launcher
                                                    Select Case RichTextBox_ConsoleMySQL.Lines.Count
                                                        Case 0
                                                            RichTextBox_ConsoleMySQL.AppendText(text)
+                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
                                                        Case 500
                                                            ' Не более 500 строк в окне
                                                            Dim str = RichTextBox_ConsoleMySQL.Lines(0)
@@ -1358,6 +1359,7 @@ Public Class Launcher
                                                    Select Case RichTextBox_ConsoleRealmd.Lines.Count
                                                        Case 0
                                                            RichTextBox_ConsoleRealmd.AppendText(text)
+                                                           RichTextBox_ConsoleRealmd.ScrollToCaret()
                                                        Case 500
                                                            ' Не более 500 строк в окне
                                                            Dim str = RichTextBox_ConsoleRealmd.Lines(0)
@@ -1366,10 +1368,10 @@ Public Class Launcher
                                                            RichTextBox_ConsoleRealmd.SelectedText = String.Empty
                                                            RichTextBox_ConsoleRealmd.ReadOnly = True
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
-                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
+                                                           RichTextBox_ConsoleRealmd.ScrollToCaret()
                                                        Case Else
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
-                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
+                                                           RichTextBox_ConsoleRealmd.ScrollToCaret()
                                                    End Select
                                                End Sub)
         End If
