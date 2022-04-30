@@ -111,7 +111,13 @@ Public Class Launcher
         TimerStartRealmd = New Threading.Timer(AddressOf TimerTik_StartRealmd)
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         ' Загружаем шрифт
-        LoadFont()
+        GetFont()
+        ' Устанавливаем локацию
+        If My.Settings.AppLocation().X < 0 Or My.Settings.AppLocation().Y < 0 Then
+            ' Исправляем ошибку, если сервер был прихлопнут в свёрнутом состоянии
+            My.Settings.AppLocation() = New Point(0, 0)
+        End If
+        Me.Location = My.Settings.AppLocation
     End Sub
 
 #End Region
@@ -127,11 +133,10 @@ Public Class Launcher
         ' Гасим сервера, которых не должно быть априоре...
         ShutdownAll(False)
         UpdateSettings()
-        If My.Settings.AppLocation().X < 0 Or My.Settings.AppLocation().Y < 0 Then
-            ' Исправляем ошибку, если сервер был прихлопнут в свёрнутом состоянии
-            My.Settings.AppLocation() = New Point(0, 0)
-        End If
-        Me.Location = My.Settings.AppLocation
+        Threading.Thread.Sleep(500)
+        OutRec1()
+        Threading.Thread.Sleep(1000)
+
         ' Включаем таймеры проверки серверов
         TimerCheckMySQL.Change(2000, 2000)
         TimerCheckApache.Change(2000, 2000)
@@ -140,6 +145,22 @@ Public Class Launcher
         ' Если автозапуск MySQL сервера
         If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
             TimerStartMySQL.Change(500, 500)
+        End If
+
+    End Sub
+
+    Friend Sub OutRec1()
+        ' Добавляем рекламу
+        If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
+            TabControl1.SelectedTab = TabPage_World
+            TabControl1.Enabled = False
+            Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
+            Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
+                      RegularExpressions.RegexOptions.ExplicitCapture)
+            For Each line As String In s
+                UpdateWorldConsole(line)
+            Next
+            TabControl1.Enabled = True
         End If
     End Sub
 
@@ -1030,6 +1051,7 @@ Public Class Launcher
                 .WindowStyle = ProcessWindowStyle.Normal,
                 .WorkingDirectory = My.Settings.CurrentServerSettings
             }
+
             _realmdProcess = New Process()
             Try
                 _realmdProcess.StartInfo = startInfo
@@ -1084,6 +1106,7 @@ Public Class Launcher
                         Thread.Sleep(100)
                         _realmdON = False
                         _realmdProcess = Nothing
+                        UpdateRealmdConsole("Server Shutdown..." & vbCrLf & "(c) RafStudio inc." & vbCrLf)
                         TSSL_Realm.GetCurrentParent.Invoke(Sub()
                                                                TSSL_Realm.Image = My.Resources.red_ball
                                                            End Sub)
@@ -1372,6 +1395,35 @@ Public Class Launcher
                                                        Case Else
                                                            RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
                                                            RichTextBox_ConsoleRealmd.ScrollToCaret()
+                                                   End Select
+                                               End Sub)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Вывод сообщения в консоль сервера World.
+    ''' </summary>
+    ''' <param name="text">Текст для вывода.</param>
+    Friend Sub UpdateWorldConsole(ByVal text As String)
+        If Not IsNothing(text) AndAlso Me.Visible = True Then
+            Me.RichTextBox_ConsoleWorld.Invoke(Sub()
+                                                   RichTextBox_ConsoleWorld.SelectionColor = My.Settings.RealmdConsoleForeColor
+                                                   Select Case RichTextBox_ConsoleWorld.Lines.Count
+                                                       Case 0
+                                                           RichTextBox_ConsoleWorld.AppendText(text)
+                                                           RichTextBox_ConsoleWorld.ScrollToCaret()
+                                                       Case 500
+                                                           ' Не более 500 строк в окне
+                                                           Dim str = RichTextBox_ConsoleWorld.Lines(0)
+                                                           RichTextBox_ConsoleWorld.Select(0, str.Length + 1)
+                                                           RichTextBox_ConsoleWorld.ReadOnly = False
+                                                           RichTextBox_ConsoleWorld.SelectedText = String.Empty
+                                                           RichTextBox_ConsoleWorld.ReadOnly = True
+                                                           RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleWorld.ScrollToCaret()
+                                                       Case Else
+                                                           RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
+                                                           RichTextBox_ConsoleWorld.ScrollToCaret()
                                                    End Select
                                                End Sub)
         End If

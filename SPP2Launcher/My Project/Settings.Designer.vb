@@ -140,7 +140,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск MySQL"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property MySqlAutostart() As Boolean
             Get
                 Return CType(Me("MySqlAutostart"),Boolean)
@@ -1137,7 +1137,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("8"),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("9"),  _
          Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
         Public Property ConsoleFontSize() As Single
             Get
@@ -1236,7 +1236,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Размер окна приложения при открытии"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("640, 380")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("640, 420")>  _
         Public Property AppSize() As Global.System.Drawing.Size
             Get
                 Return CType(Me("AppSize"),Global.System.Drawing.Size)
@@ -1252,7 +1252,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Расположение окна при открытии"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0, 0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("80, 80")>  _
         Public Property AppLocation() As Global.System.Drawing.Point
             Get
                 Return CType(Me("AppLocation"),Global.System.Drawing.Point)

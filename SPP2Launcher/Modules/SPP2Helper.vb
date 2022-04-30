@@ -110,15 +110,15 @@ Module SPP2Helper
     ''' </summary>
     ''' <returns></returns>
     Friend Function GetFont() As Font
-        Dim FC = New Drawing.Text.PrivateFontCollection
+        F = New Drawing.Text.PrivateFontCollection
         Dim fnt As Font
         Dim buffer() As Byte
         buffer = My.Resources.notomono_regular
         Dim ip As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(GetType(Byte)) * buffer.Length)
         Marshal.Copy(buffer, 0, ip, buffer.Length)
         Try
-            FC.AddMemoryFont(ip, buffer.Length) ' если тип шрифта отличается от ttf будет исключение
-            fnt = New Font(FC.Families(0), My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel)
+            F.AddMemoryFont(ip, buffer.Length) ' если тип шрифта отличается от ttf будет исключение
+            fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel)
         Catch ex As Exception
             fnt = New Font("Segoe UI", My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel) ' подставляем системный если не удалось загрузить из Resources
         End Try

@@ -18,7 +18,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MySqlAutostart" Description="Автоматический запуск MySQL" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="UseIntApache" Description="Использовать встроенный Apache" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -261,7 +261,7 @@
       <Value Profile="(Default)">Black Theme</Value>
     </Setting>
     <Setting Name="ConsoleFontSize" Roaming="true" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">8</Value>
+      <Value Profile="(Default)">9</Value>
     </Setting>
     <Setting Name="RealmdConsoleForeColor" Roaming="true" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkCyan</Value>
@@ -282,10 +282,10 @@
       <Value Profile="(Default)">Regular</Value>
     </Setting>
     <Setting Name="AppSize" Description="Размер окна приложения при открытии" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">640, 380</Value>
+      <Value Profile="(Default)">640, 420</Value>
     </Setting>
     <Setting Name="AppLocation" Description="Расположение окна при открытии" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+      <Value Profile="(Default)">80, 80</Value>
     </Setting>
   </Settings>
 </SettingsFile>

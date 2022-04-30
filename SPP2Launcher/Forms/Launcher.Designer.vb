@@ -463,7 +463,7 @@ Partial Class Launcher
         'RichTextBox_ConsoleWorld
         '
         resources.ApplyResources(Me.RichTextBox_ConsoleWorld, "RichTextBox_ConsoleWorld")
-        Me.RichTextBox_ConsoleWorld.BackColor = System.Drawing.Color.SeaShell
+        Me.RichTextBox_ConsoleWorld.BackColor = System.Drawing.Color.Black
         Me.RichTextBox_ConsoleWorld.ContextMenuStrip = Me.ContextMenuStrip_Console
         Me.RichTextBox_ConsoleWorld.ForeColor = System.Drawing.Color.DarkGreen
         Me.RichTextBox_ConsoleWorld.Name = "RichTextBox_ConsoleWorld"
