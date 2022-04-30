@@ -137,7 +137,7 @@
     <value>..\Resources\ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="P032_RealmdStopped" xml:space="preserve">
-    <value>Сервер Realmd успешно остановлен.</value>
+    <value>Сервер Realmd остановлен.</value>
   </data>
   <data name="Apache002_Start" xml:space="preserve">
     <value>Запуск сервера Apache.</value>
@@ -209,7 +209,7 @@
     <value>Добавлен серверный модуль {0}</value>
   </data>
   <data name="P030_RealmdStart" xml:space="preserve">
-    <value>Запуск сервера Realmd.</value>
+    <value>Запуск сервера Realmd</value>
   </data>
   <data name="Apache005_NotStarted" xml:space="preserve">
     <value>Не удалось запустить сервер Apache.</value>
@@ -342,5 +342,26 @@
   </data>
   <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_realmd_started.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmangos_classic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_classic.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmangos_tbc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_tbc.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="E014_WorldException" xml:space="preserve">
+    <value>World выдал исключение:</value>
+  </data>
+  <data name="P015_WorldStart" xml:space="preserve">
+    <value>Запуск сервера World</value>
+  </data>
+  <data name="P017_WorldStarted" xml:space="preserve">
+    <value>Сервер World успешно запущен.</value>
+  </data>
+  <data name="P018_WorldStopped" xml:space="preserve">
+    <value>Сервер World остановлен.</value>
+  </data>
+  <data name="cmangos_wotlk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_wotlk.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

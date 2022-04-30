@@ -126,6 +126,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        '''</summary>
+        Friend ReadOnly Property cmangos_classic() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cmangos_classic", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property cmangos_classic_core() As System.Drawing.Bitmap
@@ -166,12 +176,32 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        '''</summary>
+        Friend ReadOnly Property cmangos_tbc() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cmangos_tbc", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property cmangos_tbc_core() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cmangos_tbc_core", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        '''</summary>
+        Friend ReadOnly Property cmangos_wotlk() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cmangos_wotlk", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
@@ -299,6 +329,15 @@ Namespace My.Resources
         Friend ReadOnly Property E013_SettingsNotFound() As String
             Get
                 Return ResourceManager.GetString("E013_SettingsNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на World выдал исключение:.
+        '''</summary>
+        Friend ReadOnly Property E014_WorldException() As String
+            Get
+                Return ResourceManager.GetString("E014_WorldException", resourceCulture)
             End Get
         End Property
         
@@ -489,11 +528,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Запуск сервера World.
+        '''</summary>
+        Friend ReadOnly Property P015_WorldStart() As String
+            Get
+                Return ResourceManager.GetString("P015_WorldStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Настройки MySQL.
         '''</summary>
         Friend ReadOnly Property P016_MySqlSettingsCaption() As String
             Get
                 Return ResourceManager.GetString("P016_MySqlSettingsCaption", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер World успешно запущен..
+        '''</summary>
+        Friend ReadOnly Property P017_WorldStarted() As String
+            Get
+                Return ResourceManager.GetString("P017_WorldStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер World остановлен..
+        '''</summary>
+        Friend ReadOnly Property P018_WorldStopped() As String
+            Get
+                Return ResourceManager.GetString("P018_WorldStopped", resourceCulture)
             End Get
         End Property
         
@@ -570,7 +636,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Запуск сервера Realmd..
+        '''  Ищет локализованную строку, похожую на Запуск сервера Realmd.
         '''</summary>
         Friend ReadOnly Property P030_RealmdStart() As String
             Get
@@ -588,7 +654,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер Realmd успешно остановлен..
+        '''  Ищет локализованную строку, похожую на Сервер Realmd остановлен..
         '''</summary>
         Friend ReadOnly Property P032_RealmdStopped() As String
             Get

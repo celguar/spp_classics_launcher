@@ -171,6 +171,9 @@
   <data name="E013_SettingsNotFound" xml:space="preserve">
     <value>The Settings directory of the server modules was not found.</value>
   </data>
+  <data name="E014_WorldException" xml:space="preserve">
+    <value>Some exception: world</value>
+  </data>
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Initialization of basic application settings is complete.</value>
   </data>
@@ -213,8 +216,17 @@
   <data name="P014_ServerAutostart" xml:space="preserve">
     <value>Automatic server start</value>
   </data>
+  <data name="P015_WorldStart" xml:space="preserve">
+    <value>World server launch</value>
+  </data>
   <data name="P016_MySqlSettingsCaption" xml:space="preserve">
     <value>MySQL Settings</value>
+  </data>
+  <data name="P017_WorldStarted" xml:space="preserve">
+    <value>World server started successfully.</value>
+  </data>
+  <data name="P018_WorldStopped" xml:space="preserve">
+    <value>The World server has been stopped.</value>
   </data>
   <data name="P022_ApacheSettingsCaption" xml:space="preserve">
     <value>Apache Settings</value>
@@ -247,7 +259,7 @@
     <value>The Realmd server started successfully.</value>
   </data>
   <data name="P032_RealmdStopped" xml:space="preserve">
-    <value>Realmd server stopped successfully.</value>
+    <value>The Realmd server has stopped.</value>
   </data>
   <data name="SQL001_Shutdown" xml:space="preserve">
     <value>Stop MySQL server.</value>

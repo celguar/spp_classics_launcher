@@ -86,131 +86,6 @@ Module SPP2Helper
 
 #End Region
 
-    ''' <summary>
-    ''' Создаёт новый кортеж сообщения об ошибке.
-    ''' </summary>
-    ''' <returns></returns>
-    Friend Function NewExitCode() As Tuple(Of Integer, String)
-        Return New Tuple(Of Integer, String)(0, "OK")
-    End Function
-
-    ''' <summary>
-    ''' Загружает шрифт из файла.
-    ''' </summary>
-    ''' <returns></returns>
-    Friend Function LoadFont() As Font
-        F = New System.Drawing.Text.PrivateFontCollection()
-        F.AddFontFile("C:\Users\RafStudio\Downloads\notomono-regular.ttf")
-        Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
-    End Function
-
-    ''' <summary>
-    ''' Загружает шрифт из ресурсов.
-    ''' Только ttf!!!
-    ''' </summary>
-    ''' <returns></returns>
-    Friend Function GetFont() As Font
-        F = New Drawing.Text.PrivateFontCollection
-        Dim fnt As Font
-        Dim buffer() As Byte
-        buffer = My.Resources.notomono_regular
-        Dim ip As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(GetType(Byte)) * buffer.Length)
-        Marshal.Copy(buffer, 0, ip, buffer.Length)
-        Try
-            F.AddMemoryFont(ip, buffer.Length) ' если тип шрифта отличается от ttf будет исключение
-            fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel)
-        Catch ex As Exception
-            fnt = New Font("Segoe UI", My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel) ' подставляем системный если не удалось загрузить из Resources
-        End Try
-        Marshal.FreeHGlobal(ip)
-        Return fnt
-    End Function
-
-    ''' <summary>
-    ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
-    ''' </summary>
-    ''' <returns>Список IpV4 адаптеров в системе.</returns>
-    Friend Function GetLocalIpAddresses() As List(Of String)
-        Dim strHostName As String
-        Dim alladdresses() As Net.IPAddress
-        Dim addresses As New List(Of String)
-
-        strHostName = Net.Dns.GetHostName()
-        alladdresses = Net.Dns.GetHostAddresses(strHostName)
-
-        ' Ищем адреса IpV4
-        For Each address As Net.IPAddress In alladdresses
-            ' Собираем найденные в список
-            If address.AddressFamily = Net.Sockets.AddressFamily.InterNetwork Then
-                addresses.Add(address.ToString)
-            End If
-        Next
-
-        ' Добавляем loopback
-        addresses.Add(Net.IPAddress.Loopback.ToString)
-        addresses.Add("ANY")
-
-        Return addresses
-    End Function
-
-    ''' <summary>
-    ''' Возвращает список доступных процессов.
-    ''' </summary>
-    Friend Function GetAllProcesses() As List(Of Process)
-        Dim processlist() As Process = Process.GetProcesses()
-        Dim retlist As New List(Of Process)
-        For Each process As Process In processlist
-            Try
-                'If String.Compare(process.MainModule.FileName, path, StringComparison.OrdinalIgnoreCase) = 0 Then
-                retlist.Add(process)
-                'End If
-            Catch ex As Exception
-            End Try
-        Next process
-        Return retlist
-    End Function
-
-#Region " === ОТПРАВКА СООБЩЕНИЙ В КОНСОЛЬ === "
-
-    ''' <summary>
-    ''' Отправляет в консоль MySQL сообщение.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Friend Sub MySqlOutputDataReceived(ByVal sender As Object, ByVal e As DataReceivedEventArgs)
-        Threading.Thread.Sleep(100)
-        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
-    End Sub
-
-    ''' <summary>
-    ''' Отправляет в консоль MySQL сообщение.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Friend Sub MySqlErrorDataReceived(ByVal sender As Object, ByVal e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
-    End Sub
-
-    ''' <summary>
-    ''' Отправляет в консоль Realmd сообщение.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Friend Sub RealmdOutputDataReceived(ByVal sender As Object, ByVal e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
-    End Sub
-
-    ''' <summary>
-    ''' Отправляет в консоль Realmd сообщение.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Friend Sub RealmdErrorDataReceived(ByVal sender As Object, ByVal e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
-    End Sub
-
-#End Region
-
 #Region " === РАБОТА ТАЙМЕРОВ === "
 
     ''' <summary>
@@ -278,6 +153,8 @@ Module SPP2Helper
         ' Выключаем таймер
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        ' Запускаем World
+        GV.SPP2Launcher.StartWorld(obj)
     End Sub
 
     ''' <summary>
@@ -298,6 +175,187 @@ Module SPP2Helper
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
         ' Запускаем Realmd
         GV.SPP2Launcher.StartRealmd(obj)
+    End Sub
+
+#End Region
+
+#Region " === РАЗНОЕ === "
+
+    ''' <summary>
+    ''' Создаёт новый кортеж сообщения об ошибке.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Function NewExitCode() As Tuple(Of Integer, String)
+        Return New Tuple(Of Integer, String)(0, "OK")
+    End Function
+
+    Sub Test_updates()
+        Dim oFSO As Object, oFile As Object
+        Dim StrDate$
+        Dim curDate As Date, MyFileName$
+        Static LastDate As Date
+        oFSO = CreateObject("Scripting.FileSystemObject")
+        MyFileName = "C:\Temp_Example\File_Transaction_Analysis.txt"
+        If IO.File.Exists(MyFileName) Then
+            oFile = oFSO.GetFile(MyFileName)
+            StrDate = oFile.DateLastModified
+            curDate = DateValue(StrDate) + TimeValue(StrDate)
+            If curDate > LastDate Then
+                ActiveWorkbook.Connections("File_Transaction_Analysis").Refresh
+                LastDate = curDate
+            End If
+        End If
+        ' Для повторного ежесекундного вызова данной процедуры проверки:
+        Application.OnTime Now + TimeValue("00:00:01"), "Test_updates"
+End Sub
+
+    ''' <summary>
+    ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
+    ''' </summary>
+    ''' <returns>Список IpV4 адаптеров в системе.</returns>
+    Friend Function GetLocalIpAddresses() As List(Of String)
+        Dim strHostName As String
+        Dim alladdresses() As Net.IPAddress
+        Dim addresses As New List(Of String)
+
+        strHostName = Net.Dns.GetHostName()
+        alladdresses = Net.Dns.GetHostAddresses(strHostName)
+
+        ' Ищем адреса IpV4
+        For Each address As Net.IPAddress In alladdresses
+            ' Собираем найденные в список
+            If address.AddressFamily = Net.Sockets.AddressFamily.InterNetwork Then
+                addresses.Add(address.ToString)
+            End If
+        Next
+
+        ' Добавляем loopback
+        addresses.Add(Net.IPAddress.Loopback.ToString)
+        addresses.Add("ANY")
+
+        Return addresses
+    End Function
+
+    ''' <summary>
+    ''' Возвращает список доступных процессов.
+    ''' </summary>
+    Friend Function GetAllProcesses() As List(Of Process)
+        Dim processlist() As Process = Process.GetProcesses()
+        Dim retlist As New List(Of Process)
+        For Each process As Process In processlist
+            Try
+                'If String.Compare(process.MainModule.FileName, path, StringComparison.OrdinalIgnoreCase) = 0 Then
+                retlist.Add(process)
+                'End If
+            Catch ex As Exception
+            End Try
+        Next process
+        Return retlist
+    End Function
+
+#End Region
+
+#Region " === ЗАГРУЗКА ШРИФТОВ === "
+
+    ''' <summary>
+    ''' Загружает шрифт из файла, предварительно выгрузив на диск...
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Function LoadFont() As Font
+        Try
+            If Not IO.File.Exists(Application.StartupPath & "\" & "notomono-regular.ttf") Then
+                IO.File.WriteAllBytes(Application.StartupPath & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
+            End If
+            F = New System.Drawing.Text.PrivateFontCollection()
+            F.AddFontFile(Application.StartupPath & "\" & "notomono-regular.ttf")
+            Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
+        Catch
+            ' В случае проблем возвращаем хоть что-то...
+            Return New Font("Consolas", My.Settings.ConsoleFontSize)
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Загружает шрифт из ресурсов.
+    ''' Только ttf!!!
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Function GetFont() As Font
+        F = New Drawing.Text.PrivateFontCollection
+        Dim fnt As Font
+        Dim buffer() As Byte
+        buffer = My.Resources.notomono_regular
+        Dim ip As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(GetType(Byte)) * buffer.Length)
+        Marshal.Copy(buffer, 0, ip, buffer.Length)
+        Try
+            F.AddMemoryFont(ip, buffer.Length) ' если тип шрифта отличается от ttf будет исключение
+            'fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel)
+            Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
+        Catch ex As Exception
+            'fnt = New Font("Segoe UI", My.Settings.ConsoleFontSize, FontStyle.Bold, GraphicsUnit.Pixel) ' подставляем системный если не удалось загрузить из Resources
+            Return New Font("Consolas", My.Settings.ConsoleFontSize)
+        End Try
+        Marshal.FreeHGlobal(ip)
+        Return fnt
+    End Function
+
+#End Region
+
+#Region " === ОТПРАВКА СООБЩЕНИЙ В КОНСОЛЬ === "
+
+    ''' <summary>
+    ''' Отправляет в консоль MySQL сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub MySqlOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
+        Threading.Thread.Sleep(100)
+        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Отправляет в консоль MySQL сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub MySqlErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
+        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Отправляет в консоль Realmd сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub RealmdOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
+        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Отправляет в консоль Realmd сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub RealmdErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
+        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Отправляет в консоль World сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
+        GV.SPP2Launcher.UpdateWorldConsole(e.Data)
+    End Sub
+
+    ''' <summary>
+    ''' Отправляет в консоль World сообщение.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
+        GV.SPP2Launcher.UpdateWorldConsole(e.Data)
     End Sub
 
 #End Region

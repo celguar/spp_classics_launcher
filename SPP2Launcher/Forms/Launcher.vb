@@ -4,6 +4,8 @@ Imports System.Threading
 
 Public Class Launcher
 
+    Public MyLock As New Object
+
 #Region " === ДРУЖЕСТВЕННЫЕ СВОЙСТВА === "
 
     ''' <summary>
@@ -110,8 +112,8 @@ Public Class Launcher
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         TimerStartRealmd = New Threading.Timer(AddressOf TimerTik_StartRealmd)
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        ' Загружаем шрифт
-        GetFont()
+        ' Загружаем шрифт (попытка загрузить в память через GetFont не удалась)
+        LoadFont()
         ' Устанавливаем локацию
         If My.Settings.AppLocation().X < 0 Or My.Settings.AppLocation().Y < 0 Then
             ' Исправляем ошибку, если сервер был прихлопнут в свёрнутом состоянии
@@ -142,6 +144,7 @@ Public Class Launcher
         TimerCheckApache.Change(2000, 2000)
         TimerCheckWorld.Change(2000, 2000)
         TimerCheckRealmd.Change(2000, 2000)
+        TimerCheckWorld.Change(2000, 2000)
         ' Если автозапуск MySQL сервера
         If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
             TimerStartMySQL.Change(500, 500)
@@ -177,9 +180,14 @@ Public Class Launcher
             My.Settings.Save()
         Else
             If CurrentRunningServer <> "" Or EnableClosing = False Then
+                ' Сохраняем параметры окна лаунчера, по крайней мере - стандартно
+                My.Settings.AppSize = Me.Size
+                My.Settings.AppLocation = Me.Location
+                My.Settings.Save()
                 Me.WindowState = FormWindowState.Minimized
                 e.Cancel = True
             Else
+                ' Сохраняем параметры окна лаунчера по факту выхода
                 My.Settings.AppSize = Me.Size
                 My.Settings.AppLocation = Me.Location
                 My.Settings.Save()
@@ -690,23 +698,25 @@ Public Class Launcher
             _mysqlON = False
             GV.Log.WriteException(ex)
         Finally
-            ' Если установлен автозапуск сервера Apache
             If _mysqlON Then
+                ' Если установлен автозапуск сервера Apache
                 If My.Settings.UseIntApache AndAlso My.Settings.ApacheAutostart AndAlso Not _apacheSTOP AndAlso GetApachePid() = 0 Then
                     ' Включаем Apache через 1,5 сек.
                     TimerStartApache.Change(1500, 1500)
                 End If
-            Else
-                If My.Settings.UseIntApache Then
-                    ' Выключаем Apache
-                    ShutdownApache()
+                ' прверить на флаг остановки
+                If Not _needServerStop Then
+                    ' Если установлен автозапуск сервера или...
+                    If autostart Or _needServerStart Then
+                        _needServerStart = False
+                        ' Запускаем World через 1 сек.
+                        TimerStartWorld.Change(1000, 1000)
+                        ' А Realm через 3 сек.
+                        TimerStartRealmd.Change(3000, 3000)
+                    End If
                 End If
-            End If
-            ' Если установлен автозапуск сервера
-            If _mysqlON AndAlso Not _needServerStop AndAlso (autostart OrElse _needServerStart) Then
-                _needServerStart = False
-                ' Запускаем World через 2 сек.
-                TimerStartRealmd.Change(2000, 2000)
+            Else
+                ' MySQL сдох. НЕЧЕГО ДЕЛАТЬ!
             End If
         End Try
         ac.AsyncWaitHandle.Close()
@@ -957,18 +967,253 @@ Public Class Launcher
 #Region " === СЕРВЕР WORLD === "
 
     ''' <summary>
+    ''' Запускает сервер мира...
+    ''' </summary>
+    Friend Sub StartWorld(obj As Object)
+        If _mysqlON AndAlso Not _needServerStop AndAlso Not _worldON AndAlso IsNothing(_worldProcess) Then
+            GV.Log.WriteAll(My.Resources.P015_WorldStart)
+
+            ' Исключаем повторный запуск World
+            _worldON = True
+
+            Dim login As String = ""
+            Dim world As String = ""
+            Dim characters As String = ""
+            Dim logs As String = ""
+            Dim playerbots As String = ""
+            If My.Settings.UseIntMySQL Then
+                Select Case My.Settings.LastLoadedServerType
+                    Case GV.EModule.Classic.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
+                            My.Settings.MySqlClassicIntPort & ";" &
+                            My.Settings.MySqlClassicIntUserName & ";" &
+                            My.Settings.MySqlClassicIntPassword & ";"
+                        login &= base & My.Settings.MySqlClassicIntRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlClassicIntMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlClassicIntCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlClassicIntLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlClassicIntPlayerbots & Chr(34)
+                    Case GV.EModule.Tbc.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
+                            My.Settings.MySqlTbcIntPort & ";" &
+                            My.Settings.MySqlTbcIntUserName & ";" &
+                            My.Settings.MySqlTbcIntPassword & ";"
+                        login &= base & My.Settings.MySqlTbcIntRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlTbcIntMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlTbcIntCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlTbcIntLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlTbcIntPlayerbots & Chr(34)
+                    Case GV.EModule.Wotlk.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlWotlkIntHost & ";" &
+                            My.Settings.MySqlWotlkIntPort & ";" &
+                            My.Settings.MySqlWotlkIntUserName & ";" &
+                            My.Settings.MySqlWotlkIntPassword & ";"
+                        login &= base & My.Settings.MySqlWotlkIntRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlWotlkIntMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlWotlkIntCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlWotlkIntLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlWotlkIntPlayerbots & Chr(34)
+                    Case Else
+                        ' Неизвестный модуль
+                        GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                        Exit Sub
+                End Select
+            Else
+                Select Case My.Settings.LastLoadedServerType
+                    Case GV.EModule.Classic.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlClassicExtHost & ";" &
+                            My.Settings.MySqlClassicExtPort & ";" &
+                            My.Settings.MySqlClassicExtUserName & ";" &
+                            My.Settings.MySqlClassicExtPassword & ";"
+                        login &= base & My.Settings.MySqlClassicExtRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlClassicExtMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlClassicExtCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlClassicExtLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlClassicExtPlayerbots & Chr(34)
+                    Case GV.EModule.Tbc.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlTbcExtHost & ";" &
+                            My.Settings.MySqlTbcExtPort & ";" &
+                            My.Settings.MySqlTbcExtUserName & ";" &
+                            My.Settings.MySqlTbcExtPassword & ";"
+                        login &= base & My.Settings.MySqlTbcExtRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlTbcExtMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlTbcExtCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlTbcExtLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlTbcExtPlayerbots & Chr(34)
+                    Case GV.EModule.Wotlk.ToString
+                        Dim base As String = Chr(34) & My.Settings.MySqlWotlkExtHost & ";" &
+                            My.Settings.MySqlWotlkExtPort & ";" &
+                            My.Settings.MySqlWotlkExtUserName & ";" &
+                            My.Settings.MySqlWotlkExtPassword & ";"
+                        login &= base & My.Settings.MySqlWotlkExtRealmd & Chr(34)
+                        world &= base & My.Settings.MySqlWotlkExtMangos & Chr(34)
+                        characters &= base & My.Settings.MySqlWotlkExtCharacters & Chr(34)
+                        logs &= base & My.Settings.MySqlWotlkExtLogs & Chr(34)
+                        playerbots &= base & My.Settings.MySqlWotlkExtPlayerbots & Chr(34)
+                    Case Else
+                        ' Неизвестный модуль
+                        GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                        Exit Sub
+                End Select
+            End If
+
+            ' Правим файл конфигурации World
+            _iniWorld.Write("MangosdConf", "LoginDatabaseInfo", login)
+            _iniWorld.Write("MangosdConf", "WorldDatabaseInfo", world)
+            _iniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
+            _iniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
+            _iniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
+
+
+            ' Создаём информацию о процессе
+            Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileWorld) With {
+                .CreateNoWindow = False,
+                .RedirectStandardInput = True,
+                .RedirectStandardOutput = True,
+                .RedirectStandardError = True,
+                .UseShellExecute = False,
+                .WindowStyle = ProcessWindowStyle.Normal,
+                .WorkingDirectory = My.Settings.CurrentServerSettings
+            }
+
+            _worldProcess = New Process()
+            Try
+                _worldProcess.StartInfo = startInfo
+                ' Запускаем
+                If _worldProcess.Start() Then
+                    GV.Log.WriteAll(My.Resources.P017_WorldStarted)
+                    AddHandler _worldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
+                    AddHandler _worldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
+                    AddHandler _worldProcess.Exited, AddressOf WorldExited
+                    _worldProcess.BeginOutputReadLine()
+                    _worldProcess.BeginErrorReadLine()
+                Else
+                    _worldProcess = Nothing
+                End If
+            Catch ex As Exception
+                ' World выдал исключение
+                _worldON = False
+                Try
+                    _worldProcess.Dispose()
+                Catch
+                End Try
+                GV.Log.WriteException(ex)
+                MessageBox.Show(My.Resources.E014_WorldException & vbLf & ex.Message,
+                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Выход из world.exe
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub WorldExited(ByVal sender As Object, ByVal e As EventArgs)
+        GV.Log.WriteAll(My.Resources.P018_WorldStopped)
+        RemoveHandler _worldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
+        RemoveHandler _worldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
+        RemoveHandler _worldProcess.Exited, AddressOf RealmdExited
+    End Sub
+
+    ''' <summary>
     ''' Проверяет доступность сервера World.
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub CheckWorld(obj As Object)
+        SyncLock MyLock
+            Dim host = _iniWorld.ReadString("MangosdConf", "BindIP", "127.0.0.1")
+            If host = "0.0.0.0" Then host = "127.0.0.1"
+            Dim port = _iniWorld.ReadString("MangosdConf", "WorldServerPort", "8085")
+            Dim tcpClient = New Net.Sockets.TcpClient
+            Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
+            Try
+                If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
+                    tcpClient.Close()
+                    _worldON = False
+                    If Me.Visible Then
 
+                        TSSL_World.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_World.Image = My.Resources.red_ball
+                                                                 Me.Icon = My.Resources.cmangos_red
+                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                                             End Sub)
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    End If
+                Else
+                    tcpClient.EndConnect(ac)
+                    tcpClient.Close()
+                    _worldON = True
+                    If Me.Visible Then
+                        TSSL_World.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_World.Image = My.Resources.green_ball
+                                                                 Select Case My.Settings.LastLoadedServerType
+                                                                     Case GV.EModule.Classic.ToString
+                                                                         Me.Icon = My.Resources.cmangos_classic
+                                                                     Case GV.EModule.Tbc.ToString
+                                                                         Me.Icon = My.Resources.cmangos_tbc
+                                                                     Case GV.EModule.Wotlk.ToString
+                                                                         Me.Icon = My.Resources.cmangos_wotlk
+                                                                 End Select
+                                                             End Sub)
+
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
+                            Case GV.EModule.Tbc.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
+                            Case GV.EModule.Wotlk.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
+                        End Select
+                    End If
+                End If
+            Catch ex As Exception
+                If Me.Visible Then
+                    _worldON = False
+                    TSSL_Realm.GetCurrentParent().Invoke(Sub()
+                                                             TSSL_World.Image = My.Resources.red_ball
+                                                             Me.Icon = My.Resources.cmangos_orange
+                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                                         End Sub)
+                Else
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                End If
+                GV.Log.WriteException(ex)
+            End Try
+            ac.AsyncWaitHandle.Close()
+        End SyncLock
     End Sub
 
     ''' <summary>
     ''' Останавливает сервер World.
     ''' </summary>
-    Friend Sub ShutdownWorld(processes As List(Of Process))
-
+    Friend Sub ShutdownWorld(listpc As List(Of Process))
+        If Not IsNothing(_worldProcess) Then WorldExited(Me, Nothing)
+        Dim pc = listpc.FindAll(Function(p) p.ProcessName = "mangosd")
+        For Each process In pc
+            Try
+                If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
+                    Try
+                        process.Kill()
+                        Thread.Sleep(100)
+                        _worldON = False
+                        _worldProcess = Nothing
+                        UpdateWorldConsole("Server Shutdown..." & vbCrLf & "(c) RafStudio inc." & vbCrLf)
+                        TSSL_World.GetCurrentParent.Invoke(Sub()
+                                                               TSSL_World.Image = My.Resources.red_ball
+                                                           End Sub)
+                    Catch
+                    End Try
+                End If
+            Catch
+                ' Нет доступа.
+            End Try
+        Next
     End Sub
 
 #End Region
@@ -976,10 +1221,10 @@ Public Class Launcher
 #Region " === СЕРВЕР REALMD === "
 
     ''' <summary>
-    ''' Запуск сервера Realmd.
+    ''' Запускает сервер авторизации.
     ''' </summary>
     Friend Sub StartRealmd(ob As Object)
-        If _mysqlON AndAlso Not _needServerStop AndAlso Not _realmdON AndAlso IsNothing(_realmdProcess) Then
+        If _mysqlON AndAlso Not _needServerStop AndAlso Not _worldON AndAlso IsNothing(_worldProcess) Then
             GV.Log.WriteAll(My.Resources.P030_RealmdStart)
 
             ' Исключаем повторный запуск Realmd
@@ -1124,56 +1369,62 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub CheckRealmd(obj As Object)
-        Dim host = _iniRealmd.ReadString("RealmdConf", "BindIP", "127.0.0.1")
-        If host = "0.0.0.0" Then host = "127.0.0.1"
-        Dim port = _iniRealmd.ReadString("RealmdConf", "RealmServerPort", "3724")
-        Dim tcpClient = New Net.Sockets.TcpClient
-        Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
         Try
-            If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
-                tcpClient.Close()
-                _realmdON = False
-                If Me.Visible Then
+            Dim host = _iniRealmd.ReadString("RealmdConf", "BindIP", "127.0.0.1")
+            If host = "0.0.0.0" Then host = "127.0.0.1"
+            Dim port = _iniRealmd.ReadString("RealmdConf", "RealmServerPort", "3724")
+            Dim tcpClient = New Net.Sockets.TcpClient
+            Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
+            Try
+                If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
+                    tcpClient.Close()
+                    _realmdON = False
+                    If Me.Visible Then
 
+                        TSSL_Realm.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_Realm.Image = My.Resources.red_ball
+                                                                 Me.Icon = My.Resources.cmangos_red
+                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                                             End Sub)
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    End If
+                Else
+                    tcpClient.EndConnect(ac)
+                    tcpClient.Close()
+                    _realmdON = True
+                    If Me.Visible Then
+                        TSSL_Realm.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_Realm.Image = My.Resources.green_ball
+                                                                 Me.Icon = My.Resources.cmangos_realmd_started
+                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                                                             End Sub)
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                    End If
+                End If
+            Catch ex As Exception
+                If Me.Visible Then
+                    _realmdON = False
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.red_ball
-                                                             Me.Icon = My.Resources.cmangos_red
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                                             Me.Icon = My.Resources.cmangos_orange
+                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                          End Sub)
                 Else
                     ' Меняем иконку в трее, коли свёрнуты
                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                 End If
-            Else
-                tcpClient.EndConnect(ac)
-                tcpClient.Close()
-                _realmdON = True
-                If Me.Visible Then
-                    TSSL_Realm.GetCurrentParent().Invoke(Sub()
-                                                             TSSL_Realm.Image = My.Resources.green_ball
-                                                             Me.Icon = My.Resources.cmangos_realmd_started
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                                                         End Sub)
-                Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                End If
-            End If
+                GV.Log.WriteException(ex)
+            End Try
+            ac.AsyncWaitHandle.Close()
         Catch ex As Exception
-            If Me.Visible Then
-                _realmdON = False
-                TSSL_Realm.GetCurrentParent().Invoke(Sub()
-                                                         TSSL_Realm.Image = My.Resources.red_ball
-                                                         Me.Icon = My.Resources.cmangos_orange
-                                                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                                                     End Sub)
-            Else
-                ' Меняем иконку в трее, коли свёрнуты
-                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-            End If
             GV.Log.WriteException(ex)
+            MessageBox.Show(ex.Message,
+                            My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        ac.AsyncWaitHandle.Close()
     End Sub
 
 #End Region
@@ -1199,6 +1450,11 @@ Public Class Launcher
         NotifyIcon_SPP2.Visible = False
         _EnableClosing = True
         If CurrentRunningServer <> "" Then AutoSave()
+        ' Сохраняем параметры окна лаунчера, через стандартый выход нам не ходить...
+        My.Settings.AppSize = Me.Size
+        My.Settings.AppLocation = Me.Location
+        My.Settings.Save()
+        ' Продолжаем закрытие
         ShutdownAll(True)
         Application.Exit()
     End Sub
@@ -1405,6 +1661,7 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
     Friend Sub UpdateWorldConsole(ByVal text As String)
+        Exit Sub
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             Me.RichTextBox_ConsoleWorld.Invoke(Sub()
                                                    RichTextBox_ConsoleWorld.SelectionColor = My.Settings.RealmdConsoleForeColor
