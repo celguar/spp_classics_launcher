@@ -29,7 +29,7 @@ Partial Class Launcher
         Me.TSSL_Apache = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Realm = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_World = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TSSL_ALL = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Online = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip_SPP2 = New System.Windows.Forms.MenuStrip()
         Me.TSMI_RunWow = New System.Windows.Forms.ToolStripMenuItem()
@@ -98,7 +98,7 @@ Partial Class Launcher
         'StatusStrip_SPP2
         '
         Me.StatusStrip_SPP2.BackColor = System.Drawing.Color.LightGray
-        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_Realm, Me.TSSL_World, Me.ToolStripStatusLabel1, Me.TSSL_Online})
+        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_Realm, Me.TSSL_World, Me.TSSL_ALL, Me.TSSL_Online})
         resources.ApplyResources(Me.StatusStrip_SPP2, "StatusStrip_SPP2")
         Me.StatusStrip_SPP2.Name = "StatusStrip_SPP2"
         Me.StatusStrip_SPP2.SizingGrip = False
@@ -127,11 +127,11 @@ Partial Class Launcher
         Me.TSSL_World.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.red_ball
         Me.TSSL_World.Name = "TSSL_World"
         '
-        'ToolStripStatusLabel1
+        'TSSL_ALL
         '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        resources.ApplyResources(Me.ToolStripStatusLabel1, "ToolStripStatusLabel1")
-        Me.ToolStripStatusLabel1.Spring = True
+        Me.TSSL_ALL.Name = "TSSL_ALL"
+        resources.ApplyResources(Me.TSSL_ALL, "TSSL_ALL")
+        Me.TSSL_ALL.Spring = True
         '
         'TSSL_Online
         '
@@ -524,7 +524,7 @@ Partial Class Launcher
     Friend WithEvents TSSL_Apache As ToolStripStatusLabel
     Friend WithEvents TSSL_Realm As ToolStripStatusLabel
     Friend WithEvents TSSL_World As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents TSSL_ALL As ToolStripStatusLabel
     Friend WithEvents TSMI_MySqlStart As ToolStripMenuItem
     Friend WithEvents TSMI_MySqlRestart As ToolStripMenuItem
     Friend WithEvents TSMI_MySqlStop As ToolStripMenuItem

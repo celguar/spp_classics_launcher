@@ -291,6 +291,12 @@
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>The server is not ready to accept commands...</value>
   </data>
+  <data name="P038_SavingProgress" xml:space="preserve">
+    <value>Saving in progress...</value>
+  </data>
+  <data name="P039_WaitEnd" xml:space="preserve">
+    <value>Wait for the end...</value>
+  </data>
   <data name="SQL001_Shutdown" xml:space="preserve">
     <value>Stop MySQL server.</value>
   </data>

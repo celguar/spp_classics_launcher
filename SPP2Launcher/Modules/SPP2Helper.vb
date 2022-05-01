@@ -361,6 +361,9 @@ Module SPP2Helper
 
 #Region " === ПОТОКИ === "
 
+    ''' <summary>
+    ''' Выводит в консоль World информацию о разработчиках.
+    ''' </summary>
     Friend Sub PreStart()
 
         ' Добавляем bинформацию по разработчикам
@@ -370,7 +373,7 @@ Module SPP2Helper
                       RegularExpressions.RegexOptions.ExplicitCapture)
             For Each line As String In s
                 GV.SPP2Launcher.UpdateWorldConsole(line)
-                Threading.Thread.Sleep(300)
+                Threading.Thread.Sleep(50)
             Next
         End If
 
@@ -386,6 +389,41 @@ Module SPP2Helper
             TimerStartMySQL.Change(500, 500)
         End If
 
+    End Sub
+
+    ''' <summary>
+    ''' Выводит в строку состояния просьбу ожидания завершения процесса mangosd
+    ''' Следует отметить, что на деле контролится вывод сообщения "mangos>Halting process..."
+    ''' в процедуре "OutWorldConsole(text As String)
+    ''' </summary>
+    Friend Sub StoppingWorld(processID As Integer)
+        Do
+            ' Выводим первое сообщение - Идёт сохранение...
+            GV.Log.WriteInfo("Shutdown...")
+            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_SavingProgress)
+            Threading.Thread.Sleep(1000)
+            Dim pw = Process.GetProcessById(processID)
+            Try
+                If Not GV.SPP2Launcher.ReadyToDie Then
+                    ' Процесс ещё продолжается - Дождитесь окончания...
+                    GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_SavingProgress)
+                Else
+                    ' Процесс завершился
+                    GV.Log.WriteInfo("Shutdown is OK!")
+                    GV.SPP2Launcher.WorldProcess = Nothing
+                    Exit Do
+                End If
+            Catch ex As Exception
+                ' Нет доступа
+            End Try
+        Loop
+        Dim processes = GetAllProcesses()
+        ' Выходим из приложения.
+        GV.SPP2Launcher.ShutdownRealmd(processes)
+        GV.SPP2Launcher.ShutdownApache()
+        GV.SPP2Launcher.ShutdownMySQL(processes)
+        StoppingCheckTimers()
+        Application.Exit()
     End Sub
 
     ''' <summary>
@@ -423,6 +461,7 @@ Module SPP2Helper
                 If control.WasLaunched Then
                     ' Да, этот процесс уже был однажды запущен
                     Dim processes = lp.FindAll(Function(p) p.ProcessName = control.Name)
+
                     Dim ok = False
                     For Each existing In processes
                         Try

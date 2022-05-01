@@ -161,8 +161,8 @@
   <data name="TSSL_World.Text" xml:space="preserve">
     <value>World</value>
   </data>
-  <data name="ToolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 17</value>
+  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 17</value>
   </data>
   <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 17</value>
@@ -1894,10 +1894,10 @@
   <data name="&gt;&gt;TSSL_World.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripStatusLabel1.Name" xml:space="preserve">
-    <value>ToolStripStatusLabel1</value>
+  <data name="&gt;&gt;TSSL_ALL.Name" xml:space="preserve">
+    <value>TSSL_ALL</value>
   </data>
-  <data name="&gt;&gt;ToolStripStatusLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;TSSL_ALL.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TSSL_Online.Name" xml:space="preserve">

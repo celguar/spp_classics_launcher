@@ -753,6 +753,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Идёт сохранение....
+        '''</summary>
+        Friend ReadOnly Property P038_SavingProgress() As String
+            Get
+                Return ResourceManager.GetString("P038_SavingProgress", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Дождитесь окончания....
+        '''</summary>
+        Friend ReadOnly Property P039_WaitEnd() As String
+            Get
+                Return ResourceManager.GetString("P039_WaitEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property red_ball() As System.Drawing.Bitmap

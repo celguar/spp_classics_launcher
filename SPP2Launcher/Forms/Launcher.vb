@@ -4,9 +4,9 @@ Imports System.Threading
 
 Public Class Launcher
 
-    Private lockWorld As New Object
+    Private ReadOnly lockWorld As New Object
 
-    Private lockRealmd As New Object
+    Private ReadOnly lockRealmd As New Object
 
 #Region " === ДРУЖЕСТВЕННЫЕ СВОЙСТВА === "
 
@@ -21,6 +21,11 @@ Public Class Launcher
     ''' </summary>
     ''' <returns></returns>
     Friend ReadOnly Property IsShutdown As Boolean
+
+    ''' <summary>
+    ''' Возвращает флаг готовности выхода из программы...
+    ''' </summary>
+    Friend ReadOnly Property ReadyToDie As Boolean
 
     ''' <summary>
     ''' Возвращает состояние стартового потока.
@@ -312,6 +317,20 @@ Public Class Launcher
             ' Эта штука переводит приложение в фоновый режим
             ' А ОНО НАДО?
             Me.Hide()
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Вывод сообщения в StatusStrip
+    ''' </summary>
+    ''' <param name="text"></param>
+    Friend Sub OutMessageStatusStrip(text As String)
+        If TSSL_ALL.GetCurrentParent.InvokeRequired Then
+            TSSL_ALL.GetCurrentParent.Invoke(Sub()
+                                                 TSSL_ALL.Text = text
+                                             End Sub)
+        Else
+            TSSL_ALL.Text = text
         End If
     End Sub
 
@@ -1013,7 +1032,7 @@ Public Class Launcher
         ' Ожидаем завершения первоначального запуска
         If StartThreadCompleted Then
             SyncLock lockWorld
-                If _mysqlON AndAlso Not _NeedServerStop AndAlso Not _worldON AndAlso IsNothing(_WorldProcess) Then
+                If _mysqlON AndAlso Not _IsShutdown AndAlso Not _NeedServerStop AndAlso Not _worldON AndAlso IsNothing(_WorldProcess) Then
                     GV.Log.WriteAll(My.Resources.P015_WorldStart)
 
                     ' Исключаем повторный запуск World
@@ -1171,25 +1190,37 @@ Public Class Launcher
     ''' <summary>
     ''' Останавливает сервер World.
     ''' </summary>
-    Friend Sub ShutdownWorld(listpc As List(Of Process))
-        If Not IsNothing(_worldProcess) Then WorldExited(Me, Nothing)
-        Dim pc = listpc.FindAll(Function(p) p.ProcessName = "mangosd")
+    Friend Sub ShutdownWorld(processes As List(Of Process))
+        Dim pc = processes.FindAll(Function(p) p.ProcessName = "mangosd")
         For Each process In pc
             Try
                 If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
-                    ' Отправляем команду Save согласно требованиям разработчиков
-                    ' не важно - готов или нет сервер принимать команды
-                    SendCommandToWorld(".save")
-                    ' поскольку тут мы проводим автосохранение БД
+                    UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                    ' Выполняем автосохранение БД
                     AutoSave()
-                    Try
-                        process.Kill()
-                        Thread.Sleep(100)
-                        _worldON = False
-                        _WorldProcess = Nothing
-                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
-                    Catch
-                    End Try
+                    If _worldON Then
+                        ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
+                        SendCommandToWorld(".saveall")
+                        SendCommandToWorld("server shutdown 0")
+                        Dim sw As New Threading.Thread(Sub() StoppingWorld(process.Id)) With {.IsBackground = True}
+                        sw.Start()
+                    Else
+                        ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
+                        If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+                        Try
+                            process.Kill()
+                            _worldON = False
+                            Thread.Sleep(100)
+                            _WorldProcess = Nothing
+                        Catch
+                        End Try
+                        ShutdownRealmd(processes)
+                        ShutdownApache()
+                        ShutdownMySQL(processes)
+                        StoppingCheckTimers()
+                        _ReadyToDie = True
+                    End If
+                    GV.Log.WriteInfo(My.Resources.P018_WorldStopped)
                 End If
             Catch
                 ' Нет доступа.
@@ -1535,7 +1566,6 @@ Public Class Launcher
         My.Settings.Save()
         ' Продолжаем закрытие
         ShutdownAll(True)
-        Application.Exit()
     End Sub
 
     ''' <summary>
@@ -1601,7 +1631,6 @@ Public Class Launcher
     Friend Sub ServerStop()
         _IsShutdown = False
         Dim processes = GetAllProcesses()
-        ShutdownRealmd(processes)
         ShutdownWorld(processes)
         If My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then ShutdownMySQL(processes)
     End Sub
@@ -1612,11 +1641,10 @@ Public Class Launcher
     Friend Sub ShutdownAll(shutdown As Boolean)
         _IsShutdown = shutdown
         Dim processes = GetAllProcesses()
+        ' Запускаем процесс остановки World а дальше он всё выполнит либо напрямую, либо через поток. 
         ShutdownWorld(processes)
-        ShutdownRealmd(processes)
-        ShutdownApache()
-        ShutdownMySQL(processes)
-        StoppingCheckTimers()
+        ' Если всё готово - можно уходить...
+        If ReadyToDie Then Application.Exit()
     End Sub
 
 #End Region
@@ -1677,6 +1705,56 @@ Public Class Launcher
             End If
         Else
             OutWorldConsole(My.Resources.P037_WorldNotStarted)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Вывод сообщения в консоль сервера World.
+    ''' </summary>
+    ''' <param name="text">Текст для вывода.</param>
+    Friend Sub UpdateWorldConsole(text As String)
+        If Not IsNothing(text) AndAlso Me.Visible = True Then
+            If Me.RichTextBox_ConsoleWorld.InvokeRequired Then
+                Me.RichTextBox_ConsoleWorld.Invoke(Sub()
+                                                       OutWorldConsole(text)
+                                                   End Sub)
+            Else
+                OutWorldConsole(text)
+            End If
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Прямой вывод в консоль World.
+    ''' </summary>
+    ''' <param name="text"></param>
+    Private Sub OutWorldConsole(text As String)
+        RichTextBox_ConsoleWorld.SelectionColor = My.Settings.WorldConsoleForeColor
+        Select Case RichTextBox_ConsoleWorld.Lines.Count
+            Case 0
+                RichTextBox_ConsoleWorld.AppendText(text)
+                RichTextBox_ConsoleWorld.ScrollToCaret()
+            Case 500
+                ' Не более 500 строк в окне
+                Dim str = RichTextBox_ConsoleWorld.Lines(0)
+                RichTextBox_ConsoleWorld.Select(0, str.Length + 1)
+                RichTextBox_ConsoleWorld.ReadOnly = False
+                RichTextBox_ConsoleWorld.SelectedText = String.Empty
+                RichTextBox_ConsoleWorld.ReadOnly = True
+                RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
+                RichTextBox_ConsoleWorld.ScrollToCaret()
+            Case Else
+                RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
+                RichTextBox_ConsoleWorld.ScrollToCaret()
+        End Select
+        RichTextBox_ConsoleWorld.Select(RichTextBox_ConsoleWorld.GetFirstCharIndexOfCurrentLine(), 0)
+        If text.Contains("mangos>Halting process") Then
+            ' Удаляем хандлеры
+            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+            ' Фиксируем факт гибели
+            WorldProcess = Nothing
+            _ReadyToDie = True
+            _worldON = False
         End If
     End Sub
 
@@ -1792,48 +1870,6 @@ Public Class Launcher
                 RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
                 RichTextBox_ConsoleRealmd.ScrollToCaret()
         End Select
-    End Sub
-
-    ''' <summary>
-    ''' Вывод сообщения в консоль сервера World.
-    ''' </summary>
-    ''' <param name="text">Текст для вывода.</param>
-    Friend Sub UpdateWorldConsole(text As String)
-        If Not IsNothing(text) AndAlso Me.Visible = True Then
-            If Me.RichTextBox_ConsoleWorld.InvokeRequired Then
-                Me.RichTextBox_ConsoleWorld.Invoke(Sub()
-                                                       OutWorldConsole(text)
-                                                   End Sub)
-            Else
-                OutWorldConsole(text)
-            End If
-        End If
-    End Sub
-
-    ''' <summary>
-    ''' Прямой вывод в консоль World.
-    ''' </summary>
-    ''' <param name="text"></param>
-    Private Sub OutWorldConsole(text As String)
-        RichTextBox_ConsoleWorld.SelectionColor = My.Settings.WorldConsoleForeColor
-        Select Case RichTextBox_ConsoleWorld.Lines.Count
-            Case 0
-                RichTextBox_ConsoleWorld.AppendText(text)
-                RichTextBox_ConsoleWorld.ScrollToCaret()
-            Case 500
-                ' Не более 500 строк в окне
-                Dim str = RichTextBox_ConsoleWorld.Lines(0)
-                RichTextBox_ConsoleWorld.Select(0, str.Length + 1)
-                RichTextBox_ConsoleWorld.ReadOnly = False
-                RichTextBox_ConsoleWorld.SelectedText = String.Empty
-                RichTextBox_ConsoleWorld.ReadOnly = True
-                RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
-                RichTextBox_ConsoleWorld.ScrollToCaret()
-            Case Else
-                RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
-                RichTextBox_ConsoleWorld.ScrollToCaret()
-        End Select
-        RichTextBox_ConsoleWorld.Select(RichTextBox_ConsoleWorld.GetFirstCharIndexOfCurrentLine(), 0)
     End Sub
 
     ''' <summary>
