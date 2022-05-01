@@ -753,11 +753,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Идёт сохранение....
+        '''  Ищет локализованную строку, похожую на Идёт остановка серверов....
         '''</summary>
-        Friend ReadOnly Property P038_SavingProgress() As String
+        Friend ReadOnly Property P038_StoppingWoW() As String
             Get
-                Return ResourceManager.GetString("P038_SavingProgress", resourceCulture)
+                Return ResourceManager.GetString("P038_StoppingWoW", resourceCulture)
             End Get
         End Property
         

@@ -398,15 +398,16 @@ Module SPP2Helper
     ''' </summary>
     Friend Sub StoppingWorld(processID As Integer)
         Do
-            ' Пишем в лог
-            GV.Log.WriteInfo("Waiting...")
-            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_SavingProgress)
+            ' Пишем в лог - Идёт остановка серверов
+            GV.Log.WriteInfo(My.Resources.P038_StoppingWoW)
+            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_StoppingWoW)
             Threading.Thread.Sleep(1000)
             Dim pw = Process.GetProcessById(processID)
             Try
                 If Not GV.SPP2Launcher.ReadyToDie Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
-                    GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_SavingProgress)
+                    GV.Log.WriteInfo(My.Resources.P039_WaitEnd)
+                    GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd)
                 Else
                     ' Процесс завершился
                     GV.Log.WriteInfo("Shutdown is OK!")
@@ -418,12 +419,19 @@ Module SPP2Helper
             End Try
         Loop
         Dim processes = GetAllProcesses()
-        ' Выходим из приложения.
-        GV.SPP2Launcher.ShutdownRealmd(processes)
-        GV.SPP2Launcher.ShutdownApache()
-        GV.SPP2Launcher.ShutdownMySQL(processes)
-        StoppingCheckTimers()
-        Application.Exit()
+        ' Гасим оставшееся и выясняем - выходим или нет?
+        If Not GV.SPP2Launcher.NeedServerStop Then
+            ' Не, это полный выход
+            GV.SPP2Launcher.ShutdownRealmd(processes)
+            GV.SPP2Launcher.ShutdownApache()
+            GV.SPP2Launcher.ShutdownMySQL(processes)
+            StoppingCheckTimers()
+            ' Уходим
+            Application.Exit()
+        Else
+            ' Слава Господу - гасим только Realmd
+            GV.SPP2Launcher.ShutdownRealmd(processes)
+        End If
     End Sub
 
     ''' <summary>

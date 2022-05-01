@@ -205,7 +205,10 @@ Public Class Launcher
                 My.Settings.AppSize = Me.Size
                 My.Settings.AppLocation = Me.Location
                 My.Settings.Save()
-                Me.WindowState = FormWindowState.Minimized
+                Try
+                    Me.WindowState = FormWindowState.Minimized
+                Catch
+                End Try
                 e.Cancel = True
             Else
                 ' Сохраняем параметры окна лаунчера по факту выхода
@@ -1210,39 +1213,49 @@ Public Class Launcher
     ''' </summary>
     Friend Sub ShutdownWorld(processes As List(Of Process))
         Dim pc = processes.FindAll(Function(p) p.ProcessName = "mangosd")
-        For Each process In pc
-            Try
-                If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
-                    UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
-                    ' Выполняем автосохранение БД
-                    AutoSave()
-                    If _worldON Then
-                        ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
-                        SendCommandToWorld(".saveall")
-                        SendCommandToWorld("server shutdown 0")
-                        Dim sw As New Threading.Thread(Sub() StoppingWorld(process.Id)) With {.IsBackground = True}
-                        sw.Start()
-                    Else
-                        ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
-                        If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
-                        Try
-                            process.Kill()
-                            _worldON = False
-                            Thread.Sleep(100)
-                            _WorldProcess = Nothing
-                        Catch
-                        End Try
-                        ShutdownRealmd(processes)
-                        ShutdownApache()
-                        ShutdownMySQL(processes)
-                        StoppingCheckTimers()
-                        _ReadyToDie = True
+        If Not pc.Count > 0 Then
+            For Each process In pc
+                Try
+                    If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
+                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                        ' Выполняем автосохранение БД
+                        AutoSave()
+                        If _worldON Then
+                            ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
+                            SendCommandToWorld(".saveall")
+                            SendCommandToWorld("server shutdown 0")
+                            Dim sw As New Threading.Thread(Sub() StoppingWorld(process.Id)) With {.IsBackground = True}
+                            sw.Start()
+                        Else
+                            ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
+                            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+                            Try
+                                process.Kill()
+                                _worldON = False
+                                Thread.Sleep(100)
+                                _WorldProcess = Nothing
+                            Catch
+                            End Try
+                            ShutdownRealmd(processes)
+                            'ShutdownApache()
+                            'ShutdownMySQL(processes)
+                            StoppingCheckTimers()
+                            _ReadyToDie = True
+                        End If
                     End If
-                End If
-            Catch
-                ' Нет доступа.
-            End Try
-        Next
+                Catch
+                    ' Нет доступа.
+                End Try
+            Next
+        Else
+            _worldON = False
+            ' Снимаем хандлеры
+            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+            _WorldProcess = Nothing
+            ShutdownRealmd(processes)
+            StoppingCheckTimers()
+            _ReadyToDie = True
+        End If
     End Sub
 
     ''' <summary>
@@ -1463,22 +1476,26 @@ Public Class Launcher
     Friend Sub ShutdownRealmd(listpc As List(Of Process))
         If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
         Dim pc = listpc.FindAll(Function(p) p.ProcessName = "realmd")
-        For Each process In pc
-            Try
-                If process.MainModule.FileName = My.Settings.CurrentFileRealmd Then
-                    Try
-                        process.Kill()
-                        Thread.Sleep(100)
-                        _realmdON = False
-                        _RealmdProcess = Nothing
-                        UpdateRealmdConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
-                    Catch
-                    End Try
-                End If
-            Catch
-                ' Нет доступа.
-            End Try
-        Next
+        If pc.Count > 0 Then
+            For Each process In pc
+                Try
+                    If process.MainModule.FileName = My.Settings.CurrentFileRealmd Then
+                        Try
+                            process.Kill()
+                            Thread.Sleep(100)
+                            _realmdON = False
+                            _RealmdProcess = Nothing
+                            UpdateRealmdConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                        Catch
+                        End Try
+                    End If
+                Catch
+                    ' Нет доступа.
+                End Try
+            Next
+        Else
+            ' Нет никого
+        End If
     End Sub
 
     ''' <summary>

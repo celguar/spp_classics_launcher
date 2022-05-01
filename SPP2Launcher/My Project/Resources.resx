@@ -394,8 +394,8 @@
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>Сервер не готов принимать команды...</value>
   </data>
-  <data name="P038_SavingProgress" xml:space="preserve">
-    <value>Идёт сохранение...</value>
+  <data name="P038_StoppingWoW" xml:space="preserve">
+    <value>Идёт остановка серверов...</value>
   </data>
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Дождитесь окончания...</value>
