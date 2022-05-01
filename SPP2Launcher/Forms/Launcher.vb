@@ -1666,7 +1666,9 @@ Public Class Launcher
 
     Private Sub SendCommandToWorld(text As String)
         ConsoleCommandBuffer.Add(text)
-        OutWorldConsole(String.Format(My.Resources.P036_YourSendCommand, text))
+        Dim t = String.Format(My.Resources.P036_YourSendCommand, text)
+        GV.Log.WriteInfo(t)
+        OutWorldConsole(t)
         If Not IsNothing(_WorldProcess) Then
             _WorldProcess.StandardInput.WriteLine(text)
             If Not _worldON Then
