@@ -726,6 +726,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Пока есть проблемы для запуска сервера World. Отложено на 2 сек....
+        '''</summary>
+        Friend ReadOnly Property P035_ThereIsProblems() As String
+            Get
+                Return ResourceManager.GetString("P035_ThereIsProblems", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Вы пишите: {0}.
+        '''</summary>
+        Friend ReadOnly Property P036_YourSendCommand() As String
+            Get
+                Return ResourceManager.GetString("P036_YourSendCommand", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер не готов принимать команды....
+        '''</summary>
+        Friend ReadOnly Property P037_WorldNotStarted() As String
+            Get
+                Return ResourceManager.GetString("P037_WorldNotStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property red_ball() As System.Drawing.Bitmap

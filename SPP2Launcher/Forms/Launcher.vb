@@ -69,6 +69,11 @@ Public Class Launcher
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
 
     ''' <summary>
+    ''' Буфер команд отправленных с консоли
+    ''' </summary>
+    Private ReadOnly ConsoleCommandBuffer As New ConsoleBuffer
+
+    ''' <summary>
     ''' Поток при запуске лаунчера.
     ''' </summary>
     Private _isStart As Threading.Thread
@@ -647,21 +652,17 @@ Public Class Launcher
     ''' </summary>
     Friend Sub CheckMySQL(obj As Object)
         Dim host, port As String
-        Dim autostart As Boolean
         If My.Settings.UseIntMySQL Then
             Select Case My.Settings.LastLoadedServerType
                 Case GV.EModule.Classic.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerClassicAutostart
                 Case GV.EModule.Tbc.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerTbcAutostart
                 Case GV.EModule.Wotlk.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerWotlkAutostart
                 Case Else
                     ' Неизвестный модуль
                     GV.Log.WriteAll(My.Resources.E008_UnknownModule)
@@ -672,15 +673,12 @@ Public Class Launcher
                 Case GV.EModule.Classic.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerClassicAutostart
                 Case GV.EModule.Tbc.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerTbcAutostart
                 Case GV.EModule.Wotlk.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerWotlkAutostart
                 Case Else
                     ' Неизвестный модуль
                     GV.Log.WriteAll(My.Resources.E008_UnknownModule)
@@ -1147,6 +1145,9 @@ Public Class Launcher
                         MessageBox.Show(My.Resources.E014_WorldException & vbLf & ex.Message,
                                         My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
+                Else
+                    TimerStartWorld.Change(2000, 2000)
+                    GV.Log.WriteWarning(My.Resources.P035_ThereIsProblems)
                 End If
             End SyncLock
         Else
@@ -1187,6 +1188,8 @@ Public Class Launcher
                         Catch
                         End Try
                     Else
+                        ' Сохраняем настройки
+                        If Not IsNothing(_WorldProcess) Then _WorldProcess.StandardInput.WriteLine(".save")
                         ' Необходимо проверить мероприятия Autosave
 
                     End If
@@ -1387,6 +1390,9 @@ Public Class Launcher
                     MessageBox.Show(My.Resources.E012_RealmdException & vbLf & ex.Message,
                                     My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
+            Else
+                ' Первоначальный запуск не сработал, перенастраиваем таймер
+                TimerStartRealmd.Change(1000, 1000)
             End If
         End SyncLock
     End Sub
@@ -1619,6 +1625,57 @@ Public Class Launcher
 #Region " === КОНСОЛЬ === "
 
     ''' <summary>
+    ''' ПРИ НАЖАТИИ КЛАВИШ В КОМАНДНОЙ СТРОКЕ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TextBox_Command_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_Command.KeyDown
+        If Not Me.TextBox_Command.IsHandleCreated Then Return
+
+        Select Case e.KeyData
+
+            Case Keys.Enter
+                e.Handled = True
+                e.SuppressKeyPress = True
+                If TabControl1.SelectedTab.Name = "TabPage_MySQL" Then
+                    If Not IsNothing(_mysqlProcess) Then _mysqlProcess.StandardInput.WriteLine(Me.TextBox_Command.Text)
+                ElseIf TabControl1.SelectedTab.Name = "TabPage_Realmd" Then
+                    If Not IsNothing(_RealmdProcess) Then _RealmdProcess.StandardInput.WriteLine(Me.TextBox_Command.Text)
+                ElseIf TabControl1.SelectedTab.Name = "TabPage_World" Then
+                    If Me.TextBox_Command.Text <> "" Then
+                        SendCommandToWorld(Me.TextBox_Command.Text)
+                    End If
+                End If
+                Me.TextBox_Command.Text = ""
+
+            Case Keys.Up
+                Dim text = ConsoleCommandBuffer.GetUp
+                If Not IsNothing(text) OrElse text <> "" Then TextBox_Command.Text = text
+
+            Case Keys.Down
+                Dim text = ConsoleCommandBuffer.GetDown
+                If Not IsNothing(text) OrElse text <> "" Then TextBox_Command.Text = text
+
+            Case Keys.Escape
+                Me.TextBox_Command.Text = ""
+
+        End Select
+    End Sub
+
+    Private Sub SendCommandToWorld(text As String)
+        ConsoleCommandBuffer.Add(text)
+        OutWorldConsole(String.Format(My.Resources.P036_YourSendCommand, text))
+        If Not IsNothing(_WorldProcess) Then
+            _WorldProcess.StandardInput.WriteLine(text)
+            If Not _worldON Then
+                OutWorldConsole(My.Resources.P037_WorldNotStarted)
+            End If
+        Else
+            OutWorldConsole(My.Resources.P037_WorldNotStarted)
+        End If
+    End Sub
+
+    ''' <summary>
     ''' Вывод сообщения в консоль сервера MySQL.
     ''' </summary>
     ''' <param name="text"></param>
@@ -1772,32 +1829,6 @@ Public Class Launcher
                 RichTextBox_ConsoleWorld.ScrollToCaret()
         End Select
         RichTextBox_ConsoleWorld.Select(RichTextBox_ConsoleWorld.GetFirstCharIndexOfCurrentLine(), 0)
-    End Sub
-
-    ''' <summary>
-    ''' ПРИ НАЖАТИИ КЛАВИШ В КОМАНДНОЙ СТРОКЕ
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub TextBox_Command_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_Command.KeyDown
-        If Not Me.TextBox_Command.IsHandleCreated Then Return
-
-        Select Case e.KeyData
-            Case Keys.Enter
-
-                e.Handled = True
-                e.SuppressKeyPress = True
-                If TabControl1.SelectedTab.Name = "TabPage_MySQL" Then
-                    If Not IsNothing(_mysqlProcess) Then _mysqlProcess.StandardInput.WriteLine(Me.TextBox_Command.Text)
-                ElseIf TabControl1.SelectedTab.Name = "TabPage_Realmd" Then
-                    If Not IsNothing(_RealmdProcess) Then _RealmdProcess.StandardInput.WriteLine(Me.TextBox_Command.Text)
-                ElseIf TabControl1.SelectedTab.Name = "TabPage_World" Then
-                    If Not IsNothing(_WorldProcess) Then _WorldProcess.StandardInput.WriteLine(Me.TextBox_Command.Text)
-                End If
-                Me.TextBox_Command.Text = ""
-            Case Keys.Escape
-                Me.TextBox_Command.Text = ""
-        End Select
     End Sub
 
     ''' <summary>

@@ -392,14 +392,30 @@ Module SPP2Helper
     ''' Поток контролирующий наличие процессов серверов WoW после их запуска.
     ''' </summary>
     Friend Sub Controller()
+
         ' Ожидаем завершения стартового потока
         Threading.Thread.Sleep(1000)
         Do While GV.SPP2Launcher.StartThreadCompleted = True
             Threading.Thread.Sleep(50)
         Loop
+
         GV.SPP2Launcher.StartThreadCompleted = Nothing
         GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf)
         GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf)
+
+        ' Автостарт серверов WoW
+        Select Case My.Settings.LastLoadedServerType
+            Case GV.EModule.Classic.ToString
+                TimerStartRealmd.Change(2000, 2000)
+                TimerStartWorld.Change(1000, 1000)
+            Case GV.EModule.Tbc.ToString
+                TimerStartRealmd.Change(2000, 2000)
+                TimerStartWorld.Change(1000, 1000)
+            Case GV.EModule.Wotlk.ToString
+                TimerStartRealmd.Change(2000, 2000)
+                TimerStartWorld.Change(1000, 1000)
+        End Select
+
         Do
             Threading.Thread.Sleep(500)
             Dim lp = GetAllProcesses()

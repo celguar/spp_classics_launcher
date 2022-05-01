@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\ConsoleBuffer.vb" />
     <Compile Include="Classes\ProcessController.vb" />
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />

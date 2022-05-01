@@ -385,4 +385,13 @@
   <data name="P034_LaunchAttempt" xml:space="preserve">
     <value>Попытка запуска сервера {0}</value>
   </data>
+  <data name="P035_ThereIsProblems" xml:space="preserve">
+    <value>Пока есть проблемы для запуска сервера World. Отложено на 2 сек...</value>
+  </data>
+  <data name="P036_YourSendCommand" xml:space="preserve">
+    <value>Вы пишите: {0}</value>
+  </data>
+  <data name="P037_WorldNotStarted" xml:space="preserve">
+    <value>Сервер не готов принимать команды...</value>
+  </data>
 </root>

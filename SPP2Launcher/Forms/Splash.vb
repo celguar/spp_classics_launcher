@@ -92,6 +92,8 @@ Public Class Splash
         If Opacity >= 1 Then
             ' Останавливаем фэйдер и проверяем наличие уже запущенного лаунчера
             FadeIn.Stop()
+            ' Наслаждаемся видом...
+            Threading.Thread.Sleep(2000)
 
             ' Запускаем полную инициализацию приложения
             If GV.ErrorCode = GV.ECode.ErrorLauncherAlready Then
@@ -119,7 +121,6 @@ Public Class Splash
         Loop
         ' Останавливаем фэйдер и проверяем код ошибки
         FadeOut.Stop()
-        Threading.Thread.Sleep(1000)
         ' Выход если приложение уже запущено или не удалось загрузить конфигурацию лаунчера
         If GV.ErrorCode = GV.ECode.ErrorLauncherAlready Or
             GV.ErrorCode = GV.ECode.ErrorLauncherConfig Then
