@@ -162,6 +162,24 @@
   <data name="E010_ApacheException" xml:space="preserve">
     <value>Some exception: httpd</value>
   </data>
+  <data name="E011_ErrorMainConfig" xml:space="preserve">
+    <value>Error loading main configuration!</value>
+  </data>
+  <data name="E012_RealmdException" xml:space="preserve">
+    <value>Some exception: realmd</value>
+  </data>
+  <data name="E013_SettingsNotFound" xml:space="preserve">
+    <value>The Settings directory of the server modules was not found.</value>
+  </data>
+  <data name="E014_WorldException" xml:space="preserve">
+    <value>Some exception: world</value>
+  </data>
+  <data name="E015_RealmdCrashed" xml:space="preserve">
+    <value>The REALMD server suddenly stopped working...</value>
+  </data>
+  <data name="E016_WorldCrashed" xml:space="preserve">
+    <value>The WORLD server suddenly stopped working...</value>
+  </data>
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Initialization of basic application settings is complete.</value>
   </data>
@@ -195,8 +213,8 @@
   <data name="P011_LauncherSettingsCaption" xml:space="preserve">
     <value>Launcher Settings</value>
   </data>
-  <data name="P012_Parameters" xml:space="preserve">
-    <value>Parameters</value>
+  <data name="P012_FirstStart" xml:space="preserve">
+    <value>This is the first launch of the application. Run through the settings...</value>
   </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
@@ -204,23 +222,26 @@
   <data name="P014_ServerAutostart" xml:space="preserve">
     <value>Automatic server start</value>
   </data>
-  <data name="P015_MySqlAutostart" xml:space="preserve">
-    <value>Run MySQL regardless of the server</value>
+  <data name="P015_WorldStart" xml:space="preserve">
+    <value>World server launch</value>
   </data>
   <data name="P016_MySqlSettingsCaption" xml:space="preserve">
     <value>MySQL Settings</value>
   </data>
-  <data name="P017_UseIntServer" xml:space="preserve">
-    <value>Use Embedded Server</value>
+  <data name="P017_WorldStarted" xml:space="preserve">
+    <value>World server started successfully.</value>
   </data>
-  <data name="P018_Databases" xml:space="preserve">
-    <value>Databases</value>
+  <data name="P018_WorldStopped" xml:space="preserve">
+    <value>The World server has been stopped.</value>
   </data>
-  <data name="P020_Connection" xml:space="preserve">
-    <value>Connection</value>
+  <data name="P019_ControlEnabled" xml:space="preserve">
+    <value>Server control is enabled.</value>
   </data>
-  <data name="P021_ProjectDirectory" xml:space="preserve">
-    <value>Project SPP2 directory:</value>
+  <data name="P020_NeedServerStop" xml:space="preserve">
+    <value>Stop the server on demand.</value>
+  </data>
+  <data name="P021_TimerSetted" xml:space="preserve">
+    <value>Timer set for {0} = {1}</value>
   </data>
   <data name="P022_ApacheSettingsCaption" xml:space="preserve">
     <value>Apache Settings</value>
@@ -245,6 +266,21 @@
   </data>
   <data name="P029_LaunchMain" xml:space="preserve">
     <value>launching the main application.</value>
+  </data>
+  <data name="P030_RealmdStart" xml:space="preserve">
+    <value>Starting the Realmd server.</value>
+  </data>
+  <data name="P031_RealmdStarted" xml:space="preserve">
+    <value>The Realmd server started successfully.</value>
+  </data>
+  <data name="P032_RealmdStopped" xml:space="preserve">
+    <value>The Realmd server has stopped.</value>
+  </data>
+  <data name="P033_TimerTriggered" xml:space="preserve">
+    <value>Timer {0} has expired.</value>
+  </data>
+  <data name="P034_LaunchAttempt" xml:space="preserve">
+    <value>Attempt to start server {0}</value>
   </data>
   <data name="SQL001_Shutdown" xml:space="preserve">
     <value>Stop MySQL server.</value>

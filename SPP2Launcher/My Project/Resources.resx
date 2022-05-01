@@ -376,4 +376,13 @@
   <data name="P020_NeedServerStop" xml:space="preserve">
     <value>Остановка сервера по требованию.</value>
   </data>
+  <data name="P021_TimerSetted" xml:space="preserve">
+    <value>Установлен таймер для {0} = {1}</value>
+  </data>
+  <data name="P033_TimerTriggered" xml:space="preserve">
+    <value>Сработал таймер {0}</value>
+  </data>
+  <data name="P034_LaunchAttempt" xml:space="preserve">
+    <value>Попытка запуска сервера {0}</value>
+  </data>
 </root>

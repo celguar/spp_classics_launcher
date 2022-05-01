@@ -749,10 +749,12 @@ Public Class Launcher
                     If autostart Or _needServerStart Then
                         ' Запускаем World через 1 сек.
                         TimerStartWorld.Change(1000, 1000)
+                        GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
                         ' А Realm через 3 сек.
                         TimerStartRealmd.Change(3000, 3000)
+                        GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "realmd", "1000"))
                         ' Выключаем флаг ручного запуска сервера
-                        _needServerStart = False
+                        _NeedServerStart = False
                     End If
                 End If
             Else
@@ -1271,7 +1273,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartRealmd(ob As Object)
         SyncLock lockRealmd
-            If _mysqlON AndAlso Not _needServerStop AndAlso Not _worldON AndAlso IsNothing(_RealmdProcess) Then
+            If _mysqlON AndAlso Not _NeedServerStop AndAlso Not _realmdON AndAlso IsNothing(_RealmdProcess) Then
                 GV.Log.WriteAll(My.Resources.P030_RealmdStart)
 
                 ' Исключаем повторный запуск Realmd

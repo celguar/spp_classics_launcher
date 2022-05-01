@@ -600,6 +600,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Установлен таймер для {0} = {1}.
+        '''</summary>
+        Friend ReadOnly Property P021_TimerSetted() As String
+            Get
+                Return ResourceManager.GetString("P021_TimerSetted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на P022_ApacheSettingsCaption.
         '''</summary>
         Friend ReadOnly Property P022_ApacheSettingsCaption() As String
@@ -695,6 +704,24 @@ Namespace My.Resources
         Friend ReadOnly Property P032_RealmdStopped() As String
             Get
                 Return ResourceManager.GetString("P032_RealmdStopped", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сработал таймер {0}.
+        '''</summary>
+        Friend ReadOnly Property P033_TimerTriggered() As String
+            Get
+                Return ResourceManager.GetString("P033_TimerTriggered", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Попытка запуска сервера {0}.
+        '''</summary>
+        Friend ReadOnly Property P034_LaunchAttempt() As String
+            Get
+                Return ResourceManager.GetString("P034_LaunchAttempt", resourceCulture)
             End Get
         End Property
         

@@ -122,7 +122,9 @@ Module SPP2Helper
     Friend Sub TimerTik_StartMySQL(obj As Object)
         ' Выключаем таймер
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "MySQL"))
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "MySQL"))
         ' Запускаем MySQL
         GV.SPP2Launcher.StartMySQL(obj)
     End Sub
@@ -142,7 +144,9 @@ Module SPP2Helper
     Friend Sub TimerTik_StartApache(obj As Object)
         ' Выключаем таймер
         TimerStartApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Apache"))
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Apache"))
         ' Запускаем Apache
         GV.SPP2Launcher.StartApache(obj)
     End Sub
@@ -162,7 +166,9 @@ Module SPP2Helper
     Friend Sub TimerTik_StartWorld(obj As Object)
         ' Выключаем таймер
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "World"))
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "World"))
         ' Запускаем World
         GV.SPP2Launcher.StartWorld(obj)
     End Sub
@@ -182,7 +188,9 @@ Module SPP2Helper
     Friend Sub TimerTik_StartRealmd(obj As Object)
         ' Выключаем таймер
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Realmd"))
         If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Realmd"))
         ' Запускаем Realmd
         GV.SPP2Launcher.StartRealmd(obj)
     End Sub
