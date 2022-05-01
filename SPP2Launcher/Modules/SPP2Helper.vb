@@ -398,8 +398,8 @@ Module SPP2Helper
     ''' </summary>
     Friend Sub StoppingWorld(processID As Integer)
         Do
-            ' Выводим первое сообщение - Идёт сохранение...
-            GV.Log.WriteInfo("Shutdown...")
+            ' Пишем в лог
+            GV.Log.WriteInfo("Waiting...")
             GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_SavingProgress)
             Threading.Thread.Sleep(1000)
             Dim pw = Process.GetProcessById(processID)

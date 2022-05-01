@@ -771,6 +771,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Остановка всех серверов..
+        '''</summary>
+        Friend ReadOnly Property P040_CommandShutdown() As String
+            Get
+                Return ResourceManager.GetString("P040_CommandShutdown", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Пока есть проблемы с запуском Apache. Отложено на 2 сек....
+        '''</summary>
+        Friend ReadOnly Property P041_ThereIsProblemsApache() As String
+            Get
+                Return ResourceManager.GetString("P041_ThereIsProblemsApache", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property red_ball() As System.Drawing.Bitmap

@@ -400,4 +400,10 @@
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Дождитесь окончания...</value>
   </data>
+  <data name="P040_CommandShutdown" xml:space="preserve">
+    <value>Остановка всех серверов.</value>
+  </data>
+  <data name="P041_ThereIsProblemsApache" xml:space="preserve">
+    <value>Пока есть проблемы с запуском Apache. Отложено на 2 сек...</value>
+  </data>
 </root>

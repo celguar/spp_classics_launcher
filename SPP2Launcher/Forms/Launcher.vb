@@ -118,6 +118,11 @@ Public Class Launcher
     ''' </summary>
     Private _apacheSTOP As Boolean
 
+    ''' <summary>
+    ''' Флаг работы Apache
+    ''' </summary>
+    Private _apacheON As Boolean
+
 #End Region
 
 #Region " === КОНСТРУКТОР ИНИЦИАЛИЗАЦИИ === "
@@ -756,7 +761,7 @@ Public Class Launcher
         Finally
             If _mysqlON Then
                 ' Если установлен автозапуск сервера Apache
-                If My.Settings.UseIntApache AndAlso My.Settings.ApacheAutostart AndAlso Not _apacheSTOP AndAlso GetApachePid() = 0 Then
+                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And GetApachePid() = 0 Then
                     ' Включаем Apache через 1,5 сек.
                     TimerStartApache.Change(1500, 1500)
                 End If
@@ -838,7 +843,8 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub StartApache(obj As Object)
-        If My.Settings.UseIntApache Or GetApachePid() = 0 Then
+        If My.Settings.UseIntApache And GetApachePid() = 0 Then
+            _apacheON = True
             GV.Log.WriteAll(My.Resources.Apache002_Start)
             ' Разбираемся с настройками Apache
             If My.Settings.UseIntApache Then
@@ -886,15 +892,20 @@ Public Class Launcher
                 If p.Start() Then
                     GV.Log.WriteAll(My.Resources.Apache003_Started)
                 Else
+                    _apacheON = False
                     GV.Log.WriteAll(My.Resources.Apache005_NotStarted)
                 End If
             Catch ex As Exception
+                _apacheON = False
                 ' Apache выдал исключение
                 GV.Log.WriteException(ex)
                 GV.Log.WriteAll(My.Resources.Apache005_NotStarted)
                 MessageBox.Show(My.Resources.E010_ApacheException & vbLf & ex.Message,
                                 My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+        Else
+            TimerStartApache.Change(2000, 2000)
+            GV.Log.WriteWarning(My.Resources.P041_ThereIsProblemsApache)
         End If
     End Sub
 
@@ -917,7 +928,7 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
-    ''' Выключает сервер Apache.
+    ''' Выключает встренный сервер Apache.
     ''' </summary>
     Friend Sub ShutdownApache()
         Dim pid = GetApachePid()
@@ -1639,6 +1650,7 @@ Public Class Launcher
     ''' Глобальная остановка всего и вся.
     ''' </summary>
     Friend Sub ShutdownAll(shutdown As Boolean)
+        GV.Log.WriteInfo(My.Resources.P040_CommandShutdown)
         _IsShutdown = shutdown
         Dim processes = GetAllProcesses()
         ' Запускаем процесс остановки World а дальше он всё выполнит либо напрямую, либо через поток. 
