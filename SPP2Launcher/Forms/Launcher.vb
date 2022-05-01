@@ -23,6 +23,16 @@ Public Class Launcher
     Friend ReadOnly Property IsShutdown As Boolean
 
     ''' <summary>
+    ''' Возвращает состояние стартового потока.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend ReadOnly Property StartThreadCompleted As Boolean
+        Get
+            Return _isStart.IsAlive
+        End Get
+    End Property
+
+    ''' <summary>
     ''' Флаг немедленной остановки серверов WoW.
     ''' </summary>
     ''' <returns></returns>
@@ -54,6 +64,11 @@ Public Class Launcher
 #End Region
 
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
+
+    ''' <summary>
+    ''' Поток при запуске лаунчера.
+    ''' </summary>
+    Private _isStart As Threading.Thread
 
     ''' <summary>
     ''' Процесс MySQL
@@ -147,36 +162,12 @@ Public Class Launcher
         ' Гасим сервера, которых не должно быть априоре...
         ShutdownAll(False)
         UpdateSettings()
-        Threading.Thread.Sleep(500)
-        OutRec1()
-        Threading.Thread.Sleep(1000)
 
-        ' Включаем таймеры проверки серверов
-        TimerCheckMySQL.Change(2000, 2000)
-        TimerCheckApache.Change(2000, 2000)
-        TimerCheckWorld.Change(2000, 2000)
-        TimerCheckRealmd.Change(2000, 2000)
-        TimerCheckWorld.Change(2000, 2000)
-        ' Если автозапуск MySQL сервера
-        If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
-            TimerStartMySQL.Change(500, 500)
-        End If
+        TabControl1.SelectedTab = TabPage_World
+        ' Включаем вывод команды разработчиков
+        _isStart = New Threading.Thread(Sub() PreStart()) With {.IsBackground = True}
+        _isStart.Start()
 
-    End Sub
-
-    Friend Sub OutRec1()
-        ' Добавляем рекламу
-        If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
-            TabControl1.SelectedTab = TabPage_World
-            TabControl1.Enabled = False
-            Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
-            Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
-                      RegularExpressions.RegexOptions.ExplicitCapture)
-            For Each line As String In s
-                UpdateWorldConsole(line)
-            Next
-            TabControl1.Enabled = True
-        End If
     End Sub
 
     ''' <summary>
@@ -363,6 +354,7 @@ Public Class Launcher
         Dim srv As String = ""
         Dim autostart As Boolean
         Select Case My.Settings.LastLoadedServerType
+
             Case GV.EModule.Classic.ToString
                 srv = "Classic"
                 _iniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\realmd.conf")
@@ -370,10 +362,11 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\"
+                My.Settings.WorldConsoleForeColor = Color.DarkGoldenrod
                 autostart = My.Settings.ServerClassicAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_classic_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
-                RichTextBox_ConsoleWorld.ForeColor = Color.YellowGreen
+
             Case GV.EModule.Tbc.ToString
                 srv = "The Burning Crusade"
                 _iniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\realmd.conf")
@@ -381,10 +374,11 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\"
+                My.Settings.WorldConsoleForeColor = Color.Green
                 autostart = My.Settings.ServerTbcAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_tbc_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
-                RichTextBox_ConsoleWorld.ForeColor = Color.Green
+
             Case GV.EModule.Wotlk.ToString
                 srv = "Wrath of the Lich King"
                 _iniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\realmd.conf")
@@ -392,10 +386,11 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\"
+                My.Settings.WorldConsoleForeColor = Color.LightSeaGreen
                 autostart = My.Settings.ServerWotlkAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_wotlk_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
-                RichTextBox_ConsoleWorld.ForeColor = Color.LightSeaGreen
+
             Case Else
                 Dim str = String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType)
                 GV.Log.WriteError(str)
@@ -408,20 +403,19 @@ Public Class Launcher
 
         ' Настраиваем консоли
         Dim bc As Color = If(My.Settings.ConsoleTheme = "Black", Drawing.Color.Black, Drawing.Color.SeaShell)
-        'Dim fnt As New Font("Segoe UI", My.Settings.CurrentConsoleFont, FontStyle.Bold)
         Dim fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
 
         ' Realmd
         Dim ink() = _iniRealmd.ReadString("RealmdConf", "LogColors").Split(" "c)
         'My.Settings.RealmdConsoleForeColor = Drawing.Color.FromArgb(CInt(ink(3)), CInt(ink(2)), CInt(ink(1)), CInt(ink(0)))
-        'RichTextBox_ConsoleRealmd.ForeColor = My.Settings.RealmdConsoleForeColor
+        RichTextBox_ConsoleRealmd.ForeColor = My.Settings.RealmdConsoleForeColor
         RichTextBox_ConsoleRealmd.BackColor = bc
         RichTextBox_ConsoleRealmd.Font = fnt
 
         ' World
         ink = _iniWorld.ReadString("MangosdConf", "LogColors").Split(" "c)
         'My.Settings.WorldConsoleForeColor = Drawing.Color.FromArgb(CInt(ink(0)), CInt(ink(1)), CInt(ink(2)), CInt(ink(3)))
-        'RichTextBox_ConsoleWorld.ForeColor = My.Settings.WorldConsoleForeColor
+        RichTextBox_ConsoleWorld.ForeColor = My.Settings.WorldConsoleForeColor
         RichTextBox_ConsoleWorld.BackColor = bc
         RichTextBox_ConsoleWorld.Font = fnt
 
@@ -1713,7 +1707,7 @@ Public Class Launcher
     ''' Вывод сообщения в консоль сервера World.
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
-    Friend Sub UpdateWorldConsole(ByVal text As String)
+    Friend Sub UpdateWorldConsole(text As String)
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             If Me.RichTextBox_ConsoleWorld.InvokeRequired Then
                 Me.RichTextBox_ConsoleWorld.Invoke(Sub()
@@ -1730,7 +1724,7 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="text"></param>
     Private Sub OutWorldConsole(text As String)
-        RichTextBox_ConsoleWorld.SelectionColor = My.Settings.RealmdConsoleForeColor
+        RichTextBox_ConsoleWorld.SelectionColor = My.Settings.WorldConsoleForeColor
         Select Case RichTextBox_ConsoleWorld.Lines.Count
             Case 0
                 RichTextBox_ConsoleWorld.AppendText(text)

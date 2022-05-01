@@ -1,5 +1,6 @@
 ﻿
 Imports System.Runtime.InteropServices
+Imports System.Text
 
 Module SPP2Helper
 
@@ -360,12 +361,43 @@ Module SPP2Helper
 
 #Region " === ПОТОКИ === "
 
+    Friend Sub PreStart()
+
+        ' Добавляем bинформацию по разработчикам
+        If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
+            Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
+            Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
+                      RegularExpressions.RegexOptions.ExplicitCapture)
+            For Each line As String In s
+                GV.SPP2Launcher.UpdateWorldConsole(line)
+                Threading.Thread.Sleep(300)
+            Next
+        End If
+
+        ' Включаем таймеры проверки серверов
+        TimerCheckMySQL.Change(2000, 2000)
+        TimerCheckApache.Change(2000, 2000)
+        TimerCheckWorld.Change(2000, 2000)
+        TimerCheckRealmd.Change(2000, 2000)
+        TimerCheckWorld.Change(2000, 2000)
+
+        ' Если автозапуск MySQL сервера
+        If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
+            TimerStartMySQL.Change(500, 500)
+        End If
+
+    End Sub
+
     ''' <summary>
     ''' Поток контролирующий наличие процессов серверов WoW после их запуска.
     ''' </summary>
     Friend Sub Controller()
-        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled)
-        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled)
+        ' Ожидаем завершения стартового потока
+        Threading.Thread.Sleep(1000)
+        Do While GV.SPP2Launcher.StartThreadCompleted = True
+        Loop
+        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf)
+        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf)
         Do
             Threading.Thread.Sleep(500)
             Dim lp = GetAllProcesses()

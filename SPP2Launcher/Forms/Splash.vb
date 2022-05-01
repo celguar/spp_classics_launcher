@@ -119,6 +119,7 @@ Public Class Splash
         Loop
         ' Останавливаем фэйдер и проверяем код ошибки
         FadeOut.Stop()
+        Threading.Thread.Sleep(1000)
         ' Выход если приложение уже запущено или не удалось загрузить конфигурацию лаунчера
         If GV.ErrorCode = GV.ECode.ErrorLauncherAlready Or
             GV.ErrorCode = GV.ECode.ErrorLauncherConfig Then
