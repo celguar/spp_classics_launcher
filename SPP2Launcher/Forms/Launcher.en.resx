@@ -119,19 +119,13 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ToolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>526, 17</value>
+    <value>235, 17</value>
   </data>
   <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 17</value>
   </data>
   <data name="TSSL_Online.Text" xml:space="preserve">
     <value>Online Players: 0</value>
-  </data>
-  <data name="TSSL_Status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 17</value>
-  </data>
-  <data name="TSSL_Status.Text" xml:space="preserve">
-    <value>Status</value>
   </data>
   <data name="TSMI_RunWow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -199,11 +193,20 @@
   <data name="TSMI_Settings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
   <data name="TSMI_LanguageTool.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
   <data name="TSMI_ServerTools.Text" xml:space="preserve">
     <value>Servers</value>
+  </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
   </data>
   <data name="TSMI_Bots.Text" xml:space="preserve">
     <value>Bots</value>
@@ -225,6 +228,12 @@
   </data>
   <data name="TSMI_ResetBots.Text" xml:space="preserve">
     <value>Reset Bot</value>
+  </data>
+  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 6</value>
+  </data>
+  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
   </data>
   <data name="TSMI_Launcher.Text" xml:space="preserve">
     <value>Application</value>
@@ -292,7 +301,7 @@
   <data name="TSMI_MySqlStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
-  <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 6</value>
   </data>
   <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
@@ -322,7 +331,7 @@
   <data name="TSMI_ApacheStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
-  <data name="ToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 6</value>
   </data>
   <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
@@ -331,7 +340,7 @@
   <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 6</value>
   </data>
   <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
@@ -346,7 +355,7 @@
   <data name="TSMI_ServerStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
-  <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 6</value>
   </data>
   <data name="TSMI_ServerSettings.Size" type="System.Drawing.Size, System.Drawing">
@@ -2039,29 +2048,14 @@
   <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
     <value>Stop and exit</value>
   </data>
+  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Copy.Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
   <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 76</value>
-  </data>
-  <data name="TSMI_BlackTheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_BlackTheme.Text" xml:space="preserve">
-    <value>Dark theme</value>
-  </data>
-  <data name="TSMI_WhiteTheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_WhiteTheme.Text" xml:space="preserve">
-    <value>light theme</value>
-  </data>
-  <data name="ToolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 6</value>
-  </data>
-  <data name="TSMI_Font.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_Font.Text" xml:space="preserve">
-    <value>Font size</value>
+    <value>103, 26</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

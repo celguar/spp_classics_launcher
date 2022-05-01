@@ -8,6 +8,16 @@ Module SPP2Helper
     ''' </summary>
     Friend F As Drawing.Text.PrivateFontCollection
 
+    ''' <summary>
+    ''' Поток контролирующий состояние процессов.
+    ''' </summary>
+    Friend PC As Threading.Thread
+
+    ''' <summary>
+    ''' Список базовых контролируемых процессов.
+    ''' </summary>
+    Friend BP As ProcessController
+
 #Region " === КОНСТАНТЫ === "
 
     ''' <summary>
@@ -189,26 +199,6 @@ Module SPP2Helper
         Return New Tuple(Of Integer, String)(0, "OK")
     End Function
 
-    Sub Test_updates()
-        Dim oFSO As Object, oFile As Object
-        Dim StrDate$
-        Dim curDate As Date, MyFileName$
-        Static LastDate As Date
-        oFSO = CreateObject("Scripting.FileSystemObject")
-        MyFileName = "C:\Temp_Example\File_Transaction_Analysis.txt"
-        If IO.File.Exists(MyFileName) Then
-            oFile = oFSO.GetFile(MyFileName)
-            StrDate = oFile.DateLastModified
-            curDate = DateValue(StrDate) + TimeValue(StrDate)
-            If curDate > LastDate Then
-                ActiveWorkbook.Connections("File_Transaction_Analysis").Refresh
-                LastDate = curDate
-            End If
-        End If
-        ' Для повторного ежесекундного вызова данной процедуры проверки:
-        Application.OnTime Now + TimeValue("00:00:01"), "Test_updates"
-End Sub
-
     ''' <summary>
     ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
     ''' </summary>
@@ -356,6 +346,74 @@ End Sub
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
         GV.SPP2Launcher.UpdateWorldConsole(e.Data)
+    End Sub
+
+#End Region
+
+#Region " === ПОТОКИ === "
+
+    ''' <summary>
+    ''' Поток контролирующий наличие процессов серверов WoW после их запуска.
+    ''' </summary>
+    Friend Sub Controller()
+        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled)
+        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled)
+        Do
+            Threading.Thread.Sleep(500)
+            Dim lp = GetAllProcesses()
+            For Each control In BP.Processes
+                If control.WasLaunched Then
+                    ' Да, этот процесс уже был однажды запущен
+                    Dim processes = lp.FindAll(Function(p) p.ProcessName = control.Name)
+                    Dim ok = False
+                    For Each existing In processes
+                        Try
+                            Dim path As String = ""
+
+                            Select Case control.Name
+
+                                Case "realmd"
+                                    path = My.Settings.CurrentFileRealmd
+
+                                Case "mangosd"
+                                    path = My.Settings.CurrentFileWorld
+
+                            End Select
+
+                            If existing.MainModule.FileName = path Then
+                                ' всё в порядке, процесс идёт
+                                ok = True
+                                Exit For
+                            End If
+                        Catch ex As Exception
+                            ' Нет доступа к процессу
+                        End Try
+                    Next
+                    If Not ok Then
+                        ' Этот процесс отсутствует
+                        Select Case control.Name
+
+                            Case "realmd"
+                                GV.SPP2Launcher.RealmdProcess = Nothing
+                                control.WasLaunched = False
+                                If Not GV.SPP2Launcher.NeedServerStop Then
+                                    ' Сервер рухнул
+                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf)
+                                End If
+
+                            Case "mangosd"
+                                GV.SPP2Launcher.WorldProcess = Nothing
+                                control.WasLaunched = False
+                                If Not GV.SPP2Launcher.NeedServerStop Then
+                                    ' Сервер рухнул
+                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf)
+                                End If
+
+                        End Select
+                    End If
+                End If
+            Next
+        Loop
     End Sub
 
 #End Region

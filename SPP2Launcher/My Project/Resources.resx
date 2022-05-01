@@ -364,4 +364,16 @@
   <data name="cmangos_wotlk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_wotlk.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="E015_RealmdCrashed" xml:space="preserve">
+    <value>Сервер REALMD внезапно прекратил работу...</value>
+  </data>
+  <data name="E016_WorldCrashed" xml:space="preserve">
+    <value>Сервер WORLD внезапно прекратил работу...</value>
+  </data>
+  <data name="P019_ControlEnabled" xml:space="preserve">
+    <value>Контроль над сервером включен.</value>
+  </data>
+  <data name="P020_NeedServerStop" xml:space="preserve">
+    <value>Остановка сервера по требованию.</value>
+  </data>
 </root>

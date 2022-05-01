@@ -342,6 +342,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер REALMD внезапно прекратил работу....
+        '''</summary>
+        Friend ReadOnly Property E015_RealmdCrashed() As String
+            Get
+                Return ResourceManager.GetString("E015_RealmdCrashed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер WORLD внезапно прекратил работу....
+        '''</summary>
+        Friend ReadOnly Property E016_WorldCrashed() As String
+            Get
+                Return ResourceManager.GetString("E016_WorldCrashed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property en() As System.Drawing.Bitmap
@@ -560,6 +578,24 @@ Namespace My.Resources
         Friend ReadOnly Property P018_WorldStopped() As String
             Get
                 Return ResourceManager.GetString("P018_WorldStopped", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Контроль над сервером включен..
+        '''</summary>
+        Friend ReadOnly Property P019_ControlEnabled() As String
+            Get
+                Return ResourceManager.GetString("P019_ControlEnabled", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Остановка сервера по требованию..
+        '''</summary>
+        Friend ReadOnly Property P020_NeedServerStop() As String
+            Get
+                Return ResourceManager.GetString("P020_NeedServerStop", resourceCulture)
             End Get
         End Property
         

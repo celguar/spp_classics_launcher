@@ -48,6 +48,18 @@ Public Class GV
 
 #Region " === ПЕРЕЧИСЛЕНИЯ === "
 
+    Public Enum EProcess
+
+        MySQL
+
+        Apache
+
+        Realmd
+
+        World
+
+    End Enum
+
     Public Enum ECode As Byte
 
         ''' <summary>
