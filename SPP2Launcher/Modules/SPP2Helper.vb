@@ -395,7 +395,9 @@ Module SPP2Helper
         ' Ожидаем завершения стартового потока
         Threading.Thread.Sleep(1000)
         Do While GV.SPP2Launcher.StartThreadCompleted = True
+            Threading.Thread.Sleep(50)
         Loop
+        GV.SPP2Launcher.StartThreadCompleted = Nothing
         GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf)
         GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf)
         Do
@@ -439,6 +441,8 @@ Module SPP2Helper
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
                                     GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf)
+                                    ' Устанавливаем перезапуск (если автостарт) через 10 секунд
+                                    If GV.SPP2Launcher.NeedServerStart Then TimerStartRealmd.Change(10000, 10000)
                                 End If
 
                             Case "mangosd"
@@ -447,6 +451,8 @@ Module SPP2Helper
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
                                     GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf)
+                                    ' Устанавливаем перезапуск (если автостарт) через 10 секунд
+                                    If GV.SPP2Launcher.NeedServerStart Then TimerStartWorld.Change(10000, 10000)
                                 End If
 
                         End Select

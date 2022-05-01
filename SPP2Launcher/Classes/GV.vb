@@ -167,6 +167,8 @@ Public Class GV
         CI = New Globalization.CultureInfo(My.Settings.Locale)
         Threading.Thread.CurrentThread.CurrentUICulture = New System.Globalization.CultureInfo(GV.CI.Name)
         Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo(GV.CI.Name)
+        My.Application.ChangeCulture(GV.CI.Name)
+        My.Application.ChangeUICulture(GV.CI.Name)
 
         ' Инициализация журнала событий
         Dim _err = NewExitCode()

@@ -4,9 +4,9 @@ Imports System.Threading
 
 Public Class Launcher
 
-    Friend lockWorld As New Object
+    Private lockWorld As New Object
 
-    Friend lockRealmd As New Object
+    Private lockRealmd As New Object
 
 #Region " === ДРУЖЕСТВЕННЫЕ СВОЙСТВА === "
 
@@ -26,10 +26,13 @@ Public Class Launcher
     ''' Возвращает состояние стартового потока.
     ''' </summary>
     ''' <returns></returns>
-    Friend ReadOnly Property StartThreadCompleted As Boolean
+    Friend Property StartThreadCompleted As Boolean
         Get
-            Return _isStart.IsAlive
+            Return IsNothing(_isStart) OrElse _isStart.IsAlive
         End Get
+        Set(value As Boolean)
+            _isStart = Nothing
+        End Set
     End Property
 
     ''' <summary>
@@ -638,6 +641,9 @@ Public Class Launcher
 
     ''' <summary>
     ''' Проверка соединения с сервером MySQL
+    ''' Отсюда стартует автоматом Apache
+    ''' Остюда стартует при _NeedServerStart и серверы WoW
+    ''' Однако AUTOSTART происходит отныне только из SPP2Helper.Controller 
     ''' </summary>
     Friend Sub CheckMySQL(obj As Object)
         Dim host, port As String
@@ -739,8 +745,8 @@ Public Class Launcher
                 End If
                 ' прверить на флаг остановки
                 If Not _needServerStop Then
-                    ' Если установлен автозапуск сервера или...
-                    If autostart Or _needServerStart Then
+                    ' Если установлен ручной сервера
+                    If _NeedServerStart Then
                         ' Запускаем World через 1 сек.
                         TimerStartWorld.Change(1000, 1000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
@@ -1006,141 +1012,147 @@ Public Class Launcher
     ''' Запускает сервер мира...
     ''' </summary>
     Friend Sub StartWorld(obj As Object)
-        SyncLock lockWorld
-            If _mysqlON AndAlso Not _needServerStop AndAlso Not _worldON AndAlso IsNothing(_worldProcess) Then
-                GV.Log.WriteAll(My.Resources.P015_WorldStart)
+        ' Ожидаем завершения первоначального запуска
+        If StartThreadCompleted Then
+            SyncLock lockWorld
+                If _mysqlON AndAlso Not _NeedServerStop AndAlso Not _worldON AndAlso IsNothing(_WorldProcess) Then
+                    GV.Log.WriteAll(My.Resources.P015_WorldStart)
 
-                ' Исключаем повторный запуск World
-                _worldON = True
+                    ' Исключаем повторный запуск World
+                    _worldON = True
 
-                Dim login As String = ""
-                Dim world As String = ""
-                Dim characters As String = ""
-                Dim logs As String = ""
-                Dim playerbots As String = ""
-                If My.Settings.UseIntMySQL Then
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
-                                My.Settings.MySqlClassicIntPort & ";" &
-                                My.Settings.MySqlClassicIntUserName & ";" &
-                                My.Settings.MySqlClassicIntPassword & ";"
-                            login &= base & My.Settings.MySqlClassicIntRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlClassicIntMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlClassicIntCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlClassicIntLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlClassicIntPlayerbots & Chr(34)
-                        Case GV.EModule.Tbc.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
-                                My.Settings.MySqlTbcIntPort & ";" &
-                                My.Settings.MySqlTbcIntUserName & ";" &
-                                My.Settings.MySqlTbcIntPassword & ";"
-                            login &= base & My.Settings.MySqlTbcIntRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlTbcIntMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlTbcIntCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlTbcIntLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlTbcIntPlayerbots & Chr(34)
-                        Case GV.EModule.Wotlk.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlWotlkIntHost & ";" &
-                                My.Settings.MySqlWotlkIntPort & ";" &
-                                My.Settings.MySqlWotlkIntUserName & ";" &
-                                My.Settings.MySqlWotlkIntPassword & ";"
-                            login &= base & My.Settings.MySqlWotlkIntRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlWotlkIntMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlWotlkIntCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlWotlkIntLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlWotlkIntPlayerbots & Chr(34)
-                        Case Else
-                            ' Неизвестный модуль
-                            GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                            Exit Sub
-                    End Select
-                Else
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlClassicExtHost & ";" &
-                                My.Settings.MySqlClassicExtPort & ";" &
-                                My.Settings.MySqlClassicExtUserName & ";" &
-                                My.Settings.MySqlClassicExtPassword & ";"
-                            login &= base & My.Settings.MySqlClassicExtRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlClassicExtMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlClassicExtCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlClassicExtLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlClassicExtPlayerbots & Chr(34)
-                        Case GV.EModule.Tbc.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlTbcExtHost & ";" &
-                                My.Settings.MySqlTbcExtPort & ";" &
-                                My.Settings.MySqlTbcExtUserName & ";" &
-                                My.Settings.MySqlTbcExtPassword & ";"
-                            login &= base & My.Settings.MySqlTbcExtRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlTbcExtMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlTbcExtCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlTbcExtLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlTbcExtPlayerbots & Chr(34)
-                        Case GV.EModule.Wotlk.ToString
-                            Dim base As String = Chr(34) & My.Settings.MySqlWotlkExtHost & ";" &
-                                My.Settings.MySqlWotlkExtPort & ";" &
-                                My.Settings.MySqlWotlkExtUserName & ";" &
-                                My.Settings.MySqlWotlkExtPassword & ";"
-                            login &= base & My.Settings.MySqlWotlkExtRealmd & Chr(34)
-                            world &= base & My.Settings.MySqlWotlkExtMangos & Chr(34)
-                            characters &= base & My.Settings.MySqlWotlkExtCharacters & Chr(34)
-                            logs &= base & My.Settings.MySqlWotlkExtLogs & Chr(34)
-                            playerbots &= base & My.Settings.MySqlWotlkExtPlayerbots & Chr(34)
-                        Case Else
-                            ' Неизвестный модуль
-                            GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                            Exit Sub
-                    End Select
-                End If
-
-                ' Правим файл конфигурации World
-                _iniWorld.Write("MangosdConf", "LoginDatabaseInfo", login)
-                _iniWorld.Write("MangosdConf", "WorldDatabaseInfo", world)
-                _iniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
-                _iniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
-                _iniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
-
-
-                ' Создаём информацию о процессе
-                Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileWorld) With {
-                    .CreateNoWindow = True,
-                    .RedirectStandardInput = True,
-                    .RedirectStandardOutput = True,
-                    .RedirectStandardError = True,
-                    .UseShellExecute = False,
-                    .WindowStyle = ProcessWindowStyle.Normal,
-                    .WorkingDirectory = My.Settings.CurrentServerSettings
-                }
-
-                _WorldProcess = New Process()
-                Try
-                    _worldProcess.StartInfo = startInfo
-                    ' Запускаем
-                    If _worldProcess.Start() Then
-                        GV.Log.WriteAll(My.Resources.P017_WorldStarted)
-                        AddHandler _worldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
-                        AddHandler _worldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
-                        AddHandler _worldProcess.Exited, AddressOf WorldExited
-                        _worldProcess.BeginOutputReadLine()
-                        _WorldProcess.BeginErrorReadLine()
-                        BP.ProcessStarted(GV.EProcess.World)
+                    Dim login As String = ""
+                    Dim world As String = ""
+                    Dim characters As String = ""
+                    Dim logs As String = ""
+                    Dim playerbots As String = ""
+                    If My.Settings.UseIntMySQL Then
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
+                                    My.Settings.MySqlClassicIntPort & ";" &
+                                    My.Settings.MySqlClassicIntUserName & ";" &
+                                    My.Settings.MySqlClassicIntPassword & ";"
+                                login &= base & My.Settings.MySqlClassicIntRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlClassicIntMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlClassicIntCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlClassicIntLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlClassicIntPlayerbots & Chr(34)
+                            Case GV.EModule.Tbc.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
+                                    My.Settings.MySqlTbcIntPort & ";" &
+                                    My.Settings.MySqlTbcIntUserName & ";" &
+                                    My.Settings.MySqlTbcIntPassword & ";"
+                                login &= base & My.Settings.MySqlTbcIntRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlTbcIntMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlTbcIntCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlTbcIntLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlTbcIntPlayerbots & Chr(34)
+                            Case GV.EModule.Wotlk.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlWotlkIntHost & ";" &
+                                    My.Settings.MySqlWotlkIntPort & ";" &
+                                    My.Settings.MySqlWotlkIntUserName & ";" &
+                                    My.Settings.MySqlWotlkIntPassword & ";"
+                                login &= base & My.Settings.MySqlWotlkIntRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlWotlkIntMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlWotlkIntCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlWotlkIntLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlWotlkIntPlayerbots & Chr(34)
+                            Case Else
+                                ' Неизвестный модуль
+                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                Exit Sub
+                        End Select
                     Else
-                        _worldProcess = Nothing
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlClassicExtHost & ";" &
+                                    My.Settings.MySqlClassicExtPort & ";" &
+                                    My.Settings.MySqlClassicExtUserName & ";" &
+                                    My.Settings.MySqlClassicExtPassword & ";"
+                                login &= base & My.Settings.MySqlClassicExtRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlClassicExtMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlClassicExtCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlClassicExtLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlClassicExtPlayerbots & Chr(34)
+                            Case GV.EModule.Tbc.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlTbcExtHost & ";" &
+                                    My.Settings.MySqlTbcExtPort & ";" &
+                                    My.Settings.MySqlTbcExtUserName & ";" &
+                                    My.Settings.MySqlTbcExtPassword & ";"
+                                login &= base & My.Settings.MySqlTbcExtRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlTbcExtMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlTbcExtCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlTbcExtLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlTbcExtPlayerbots & Chr(34)
+                            Case GV.EModule.Wotlk.ToString
+                                Dim base As String = Chr(34) & My.Settings.MySqlWotlkExtHost & ";" &
+                                    My.Settings.MySqlWotlkExtPort & ";" &
+                                    My.Settings.MySqlWotlkExtUserName & ";" &
+                                    My.Settings.MySqlWotlkExtPassword & ";"
+                                login &= base & My.Settings.MySqlWotlkExtRealmd & Chr(34)
+                                world &= base & My.Settings.MySqlWotlkExtMangos & Chr(34)
+                                characters &= base & My.Settings.MySqlWotlkExtCharacters & Chr(34)
+                                logs &= base & My.Settings.MySqlWotlkExtLogs & Chr(34)
+                                playerbots &= base & My.Settings.MySqlWotlkExtPlayerbots & Chr(34)
+                            Case Else
+                                ' Неизвестный модуль
+                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                Exit Sub
+                        End Select
                     End If
-                Catch ex As Exception
-                    ' World выдал исключение
-                    _worldON = False
+
+                    ' Правим файл конфигурации World
+                    _iniWorld.Write("MangosdConf", "LoginDatabaseInfo", login)
+                    _iniWorld.Write("MangosdConf", "WorldDatabaseInfo", world)
+                    _iniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
+                    _iniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
+                    _iniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
+
+
+                    ' Создаём информацию о процессе
+                    Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileWorld) With {
+                        .CreateNoWindow = True,
+                        .RedirectStandardInput = True,
+                        .RedirectStandardOutput = True,
+                        .RedirectStandardError = True,
+                        .UseShellExecute = False,
+                        .WindowStyle = ProcessWindowStyle.Normal,
+                        .WorkingDirectory = My.Settings.CurrentServerSettings
+                    }
+
+                    _WorldProcess = New Process()
                     Try
-                        _worldProcess.Dispose()
-                    Catch
+                        _WorldProcess.StartInfo = startInfo
+                        ' Запускаем
+                        If _WorldProcess.Start() Then
+                            GV.Log.WriteAll(My.Resources.P017_WorldStarted)
+                            AddHandler _WorldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
+                            AddHandler _WorldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
+                            AddHandler _WorldProcess.Exited, AddressOf WorldExited
+                            _WorldProcess.BeginOutputReadLine()
+                            _WorldProcess.BeginErrorReadLine()
+                            BP.ProcessStarted(GV.EProcess.World)
+                        Else
+                            _WorldProcess = Nothing
+                        End If
+                    Catch ex As Exception
+                        ' World выдал исключение
+                        _worldON = False
+                        Try
+                            _WorldProcess.Dispose()
+                        Catch
+                        End Try
+                        GV.Log.WriteException(ex)
+                        MessageBox.Show(My.Resources.E014_WorldException & vbLf & ex.Message,
+                                        My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
-                    GV.Log.WriteException(ex)
-                    MessageBox.Show(My.Resources.E014_WorldException & vbLf & ex.Message,
-                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-        End SyncLock
+                End If
+            End SyncLock
+        Else
+            ' Первоначальный запуск не завершён - перенастраиваем таймер
+            TimerStartWorld.Change(1000, 1000)
+        End If
     End Sub
 
     ''' <summary>
@@ -1206,8 +1218,11 @@ Public Class Launcher
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                          End Sub)
                 Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    Try
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    Catch
+                    End Try
                 End If
             Else
                 tcpClient.EndConnect(ac)
@@ -1230,15 +1245,18 @@ Public Class Launcher
                                                          End Sub)
 
                 Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
-                        Case GV.EModule.Tbc.ToString
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
-                        Case GV.EModule.Wotlk.ToString
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
-                    End Select
+                    Try
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
+                            Case GV.EModule.Tbc.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
+                            Case GV.EModule.Wotlk.ToString
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
+                        End Select
+                    Catch
+                    End Try
                 End If
             End If
         Catch ex As Exception
@@ -1250,8 +1268,11 @@ Public Class Launcher
                                                          Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                      End Sub)
             Else
-                ' Меняем иконку в трее, коли свёрнуты
-                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                Try
+                    ' Меняем иконку в трее, коли свёрнуты
+                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                Catch
+                End Try
             End If
             GV.Log.WriteException(ex)
         End Try
@@ -1423,15 +1444,17 @@ Public Class Launcher
                     tcpClient.Close()
                     _realmdON = False
                     If Me.Visible Then
-
                         TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                                  TSSL_Realm.Image = My.Resources.red_ball
                                                                  Me.Icon = My.Resources.cmangos_red
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                              End Sub)
                     Else
-                        ' Меняем иконку в трее, коли свёрнуты
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                        Try
+                            ' Меняем иконку в трее, коли свёрнуты
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                        Catch
+                        End Try
                     End If
                 Else
                     tcpClient.EndConnect(ac)
@@ -1447,8 +1470,11 @@ Public Class Launcher
                                                              End Sub)
                     Else
                         If Not _worldON Then
-                            ' Меняем иконку в трее, коли свёрнуты
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                            Try
+                                ' Меняем иконку в трее, коли свёрнуты
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                            Catch
+                            End Try
                         End If
                     End If
                 End If
@@ -1461,8 +1487,11 @@ Public Class Launcher
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                          End Sub)
                 Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    Try
+                        ' Меняем иконку в трее, коли свёрнуты
+                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                    Catch
+                    End Try
                 End If
                 GV.Log.WriteException(ex)
             End Try
@@ -1742,6 +1771,7 @@ Public Class Launcher
                 RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
                 RichTextBox_ConsoleWorld.ScrollToCaret()
         End Select
+        RichTextBox_ConsoleWorld.Select(RichTextBox_ConsoleWorld.GetFirstCharIndexOfCurrentLine(), 0)
     End Sub
 
     ''' <summary>
