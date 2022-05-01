@@ -286,7 +286,7 @@
     <value>While there are problems to start the World server. Delayed 2 sec...</value>
   </data>
   <data name="P036_YourSendCommand" xml:space="preserve">
-    <value>Your Write: {0}</value>
+    <value>Console command: {0}</value>
   </data>
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>The server is not ready to accept commands...</value>

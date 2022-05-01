@@ -735,7 +735,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Вы пишите: {0}.
+        '''  Ищет локализованную строку, похожую на Консольная команда: {0}.
         '''</summary>
         Friend ReadOnly Property P036_YourSendCommand() As String
             Get

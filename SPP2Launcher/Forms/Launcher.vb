@@ -1177,22 +1177,19 @@ Public Class Launcher
         For Each process In pc
             Try
                 If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
-                    If Not _worldON Then
-                        ' Сервер ещё не прогрузился
-                        Try
-                            process.Kill()
-                            Thread.Sleep(100)
-                            _worldON = False
-                            _WorldProcess = Nothing
-                            UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
-                        Catch
-                        End Try
-                    Else
-                        ' Сохраняем настройки
-                        If Not IsNothing(_WorldProcess) Then _WorldProcess.StandardInput.WriteLine(".save")
-                        ' Необходимо проверить мероприятия Autosave
-
-                    End If
+                    ' Отправляем команду Save согласно требованиям разработчиков
+                    ' не важно - готов или нет сервер принимать команды
+                    SendCommandToWorld(".save")
+                    ' поскольку тут мы проводим автосохранение БД
+                    AutoSave()
+                    Try
+                        process.Kill()
+                        Thread.Sleep(100)
+                        _worldON = False
+                        _WorldProcess = Nothing
+                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                    Catch
+                    End Try
                 End If
             Catch
                 ' Нет доступа.
@@ -1664,6 +1661,10 @@ Public Class Launcher
         End Select
     End Sub
 
+    ''' <summary>
+    ''' Отправляет команду в сервер World.
+    ''' </summary>
+    ''' <param name="text"></param>
     Private Sub SendCommandToWorld(text As String)
         ConsoleCommandBuffer.Add(text)
         Dim t = String.Format(My.Resources.P036_YourSendCommand, text)
