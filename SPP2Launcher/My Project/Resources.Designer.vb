@@ -609,7 +609,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на P022_ApacheSettingsCaption.
+        '''  Ищет локализованную строку, похожую на Настройки Apache.
         '''</summary>
         Friend ReadOnly Property P022_ApacheSettingsCaption() As String
             Get

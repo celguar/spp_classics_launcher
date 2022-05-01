@@ -658,6 +658,7 @@ Public Class Launcher
                     GV.Log.WriteAll(My.Resources.SQL001_Shutdown)
                     exeProcess.WaitForExit()
                 End Using
+                GV.Log.WriteAll(My.Resources.SQL004_Stopped)
                 _mysqlON = False
                 _mysqlProcess = Nothing
                 TSSL_MySQL.Image = My.Resources.red_ball
@@ -761,7 +762,7 @@ Public Class Launcher
         Finally
             If _mysqlON Then
                 ' Если установлен автозапуск сервера Apache
-                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And GetApachePid() = 0 Then
+                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not _apacheON And GetApachePid() = 0 Then
                     ' Включаем Apache через 1,5 сек.
                     TimerStartApache.Change(1500, 1500)
                 End If
@@ -1008,11 +1009,13 @@ Public Class Launcher
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                 tcpClient.Close()
                 If Me.Visible Then
+                    _apacheON = False
                     TSSL_Apache.GetCurrentParent().Invoke(Sub()
                                                               TSSL_Apache.Image = My.Resources.red_ball
                                                           End Sub)
                 End If
             Else
+                _apacheON = True
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
                 If Me.Visible Then
@@ -1022,6 +1025,7 @@ Public Class Launcher
                 End If
             End If
         Catch ex As Exception
+            _apacheON = False
             If Me.Visible Then
                 TSSL_Apache.GetCurrentParent().Invoke(Sub()
                                                           TSSL_Apache.Image = My.Resources.red_ball
@@ -1043,7 +1047,7 @@ Public Class Launcher
         ' Ожидаем завершения первоначального запуска
         If StartThreadCompleted Then
             SyncLock lockWorld
-                If _mysqlON AndAlso Not _IsShutdown AndAlso Not _NeedServerStop AndAlso Not _worldON AndAlso IsNothing(_WorldProcess) Then
+                If _mysqlON And Not _IsShutdown And Not _NeedServerStop And Not _worldON And IsNothing(_WorldProcess) Then
                     GV.Log.WriteAll(My.Resources.P015_WorldStart)
 
                     ' Исключаем повторный запуск World
@@ -1181,6 +1185,9 @@ Public Class Launcher
                 End If
             End SyncLock
         Else
+            ' На выход, если что
+            If _worldON Then Exit Sub
+            GV.Log.WriteInfo("World - !!!!")
             ' Первоначальный запуск не завершён - перенастраиваем таймер
             If Not NeedServerStop Then TimerStartWorld.Change(1000, 1000)
         End If
@@ -1231,7 +1238,6 @@ Public Class Launcher
                         StoppingCheckTimers()
                         _ReadyToDie = True
                     End If
-                    GV.Log.WriteInfo(My.Resources.P018_WorldStopped)
                 End If
             Catch
                 ' Нет доступа.
@@ -1330,7 +1336,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartRealmd(ob As Object)
         SyncLock lockRealmd
-            If _mysqlON AndAlso Not _NeedServerStop AndAlso Not _realmdON AndAlso IsNothing(_RealmdProcess) Then
+            If _mysqlON And Not _NeedServerStop And Not _realmdON And IsNothing(_RealmdProcess) Then
                 GV.Log.WriteAll(My.Resources.P030_RealmdStart)
 
                 ' Исключаем повторный запуск Realmd
@@ -1430,6 +1436,9 @@ Public Class Launcher
                                     My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             Else
+                ' Если Realmd включен, харе и на выход
+                If _realmdON Then Exit Sub
+                GV.Log.WriteInfo("Relamd - !!!!")
                 ' Первоначальный запуск не сработал, перенастраиваем таймер
                 If Not NeedServerStop Then TimerStartRealmd.Change(1000, 1000)
             End If
