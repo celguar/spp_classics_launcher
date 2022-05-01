@@ -1152,7 +1152,7 @@ Public Class Launcher
             End SyncLock
         Else
             ' Первоначальный запуск не завершён - перенастраиваем таймер
-            TimerStartWorld.Change(1000, 1000)
+            If Not NeedServerStop Then TimerStartWorld.Change(1000, 1000)
         End If
     End Sub
 
@@ -1392,7 +1392,7 @@ Public Class Launcher
                 End Try
             Else
                 ' Первоначальный запуск не сработал, перенастраиваем таймер
-                TimerStartRealmd.Change(1000, 1000)
+                If Not NeedServerStop Then TimerStartRealmd.Change(1000, 1000)
             End If
         End SyncLock
     End Sub
@@ -1571,7 +1571,9 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStart_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStart.Click
-        _needServerStop = False
+        _NeedServerStop = False
+        RichTextBox_ConsoleRealmd.Clear()
+        RichTextBox_ConsoleWorld.Clear()
         ServerStart()
     End Sub
 
