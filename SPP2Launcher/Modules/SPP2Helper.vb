@@ -56,19 +56,9 @@ Module SPP2Helper
 #Region " === ТАЙМЕРЫ === "
 
     ''' <summary>
-    ''' Таймер проверки доступности сервера MySQL.
-    ''' </summary>
-    Friend TimerCheckMySQL As Threading.Timer
-
-    ''' <summary>
     ''' Таймер запуска сервера MySQL.
     ''' </summary>
     Friend TimerStartMySQL As Threading.Timer
-
-    ''' <summary>
-    ''' Таймер проверки доступности сервера Http.
-    ''' </summary>
-    Friend TimerCheckApache As Threading.Timer
 
     ''' <summary>
     ''' Таймер запуска сервера Apache.
@@ -76,19 +66,9 @@ Module SPP2Helper
     Friend TimerStartApache As Threading.Timer
 
     ''' <summary>
-    ''' Таймер проверки доступности сервера Realmd.
-    ''' </summary>
-    Friend TimerCheckRealmd As Threading.Timer
-
-    ''' <summary>
     ''' Таймер запуска сервера Realmd.
     ''' </summary>
     Friend TimerStartRealmd As Threading.Timer
-
-    ''' <summary>
-    ''' Таймер проверки доступности сервера World.
-    ''' </summary>
-    Friend TimerCheckWorld As Threading.Timer
 
     ''' <summary>
     ''' Таймер запуска сервера World.
@@ -100,23 +80,6 @@ Module SPP2Helper
 #Region " === РАБОТА ТАЙМЕРОВ === "
 
     ''' <summary>
-    ''' Останавливает таймеры проверки состояния серверов.
-    ''' </summary>
-    Friend Sub StoppingCheckTimers()
-        TimerCheckMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        TimerCheckApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        TimerCheckWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        TimerCheckRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-    End Sub
-
-    ''' <summary>
-    ''' Время проверить наличие подключения к серверу MySQL.
-    ''' </summary>
-    Friend Sub TimerTik_CheckMySQL(obj As Object)
-        GV.SPP2Launcher.CheckMySQL(obj)
-    End Sub
-
-    ''' <summary>
     ''' Время запустить сервер MySQL.
     ''' </summary>
     ''' <param name="obj"></param>
@@ -124,18 +87,10 @@ Module SPP2Helper
         ' Выключаем таймер
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "MySQL"))
-        If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
         GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "MySQL"))
         ' Запускаем MySQL
         GV.SPP2Launcher.StartMySQL(obj)
-    End Sub
-
-    ''' <summary>
-    ''' Время проверить наличие подключения к Web серверу.
-    ''' </summary>
-    ''' <param name="obj"></param>
-    Friend Sub TimerTik_CheckApache(obj As Object)
-        GV.SPP2Launcher.CheckApache(obj)
     End Sub
 
     ''' <summary>
@@ -146,18 +101,10 @@ Module SPP2Helper
         ' Выключаем таймер
         TimerStartApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Apache"))
-        If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
         GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Apache"))
         ' Запускаем Apache
         GV.SPP2Launcher.StartApache(obj)
-    End Sub
-
-    ''' <summary>
-    ''' Время проверить наличие подключения к серверу World.
-    ''' </summary>
-    ''' <param name="obj"></param>
-    Friend Sub TimerTik_CheckWorld(obj As Object)
-        GV.SPP2Launcher.CheckWorld(obj)
     End Sub
 
     ''' <summary>
@@ -168,18 +115,10 @@ Module SPP2Helper
         ' Выключаем таймер
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "World"))
-        If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
         GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "World"))
         ' Запускаем World
         GV.SPP2Launcher.StartWorld(obj)
-    End Sub
-
-    ''' <summary>
-    ''' Время проверить наличие подключения к серверу Realmd.
-    ''' </summary>
-    ''' <param name="obj"></param>
-    Friend Sub TimerTik_CheckRealmd(obj As Object)
-        GV.SPP2Launcher.CheckRealmd(obj)
     End Sub
 
     ''' <summary>
@@ -190,7 +129,7 @@ Module SPP2Helper
         ' Выключаем таймер
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Realmd"))
-        If GV.SPP2Launcher.IsShutdown Then Exit Sub
+        If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
         GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Realmd"))
         ' Запускаем Realmd
         GV.SPP2Launcher.StartRealmd(obj)
@@ -377,13 +316,6 @@ Module SPP2Helper
             Next
         End If
 
-        ' Включаем таймеры проверки серверов
-        TimerCheckMySQL.Change(2000, 2000)
-        TimerCheckApache.Change(2000, 2000)
-        TimerCheckWorld.Change(2000, 2000)
-        TimerCheckRealmd.Change(2000, 2000)
-        TimerCheckWorld.Change(2000, 2000)
-
         ' Если автозапуск MySQL сервера
         If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
             TimerStartMySQL.Change(500, 500)
@@ -396,15 +328,16 @@ Module SPP2Helper
     ''' Следует отметить, что на деле контролится вывод сообщения "mangos>Halting process..."
     ''' в процедуре "OutWorldConsole(text As String)
     ''' </summary>
-    Friend Sub StoppingWorld(processID As Integer)
-        Do
-            ' Пишем в лог - Идёт остановка серверов
-            GV.Log.WriteInfo(My.Resources.P038_StoppingWoW)
-            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_StoppingWoW)
-            Threading.Thread.Sleep(1000)
-            Dim pw = Process.GetProcessById(processID)
-            Try
-                If Not GV.SPP2Launcher.ReadyToDie Then
+    ''' <param name="processID">Идентификатор процесса, который следует завалить.</param>
+    ''' <param name="otherServers">Вырубить так же и прочие серверы.</param>
+    Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean)
+        If processID > 0 Then
+            Do
+                ' Пишем в лог - Идёт остановка серверов
+                GV.Log.WriteInfo(My.Resources.P038_StoppingWorld)
+                GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_StoppingWorld)
+                Threading.Thread.Sleep(1000)
+                If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
                     GV.Log.WriteInfo(My.Resources.P039_WaitEnd)
                     GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd)
@@ -412,25 +345,36 @@ Module SPP2Helper
                     ' Процесс завершился
                     GV.Log.WriteInfo("Shutdown is OK!")
                     GV.SPP2Launcher.WorldProcess = Nothing
+                    Try
+                        Dim pc = Process.GetProcessById(processID)
+                        pc.Kill()
+                    Catch
+                    End Try
                     Exit Do
                 End If
-            Catch ex As Exception
-                ' Нет доступа
-            End Try
-        Loop
-        Dim processes = GetAllProcesses()
-        ' Гасим оставшееся и выясняем - выходим или нет?
-        If Not GV.SPP2Launcher.NeedServerStop Then
-            ' Не, это полный выход
-            GV.SPP2Launcher.ShutdownRealmd(processes)
+            Loop
+        End If
+
+        GV.SPP2Launcher.OutMessageStatusStrip("")
+
+        ' Гасим Realmd
+        GV.SPP2Launcher.ShutdownRealmd()
+
+        If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
+            ' Надо погасить и прочие серверы
             GV.SPP2Launcher.ShutdownApache()
-            GV.SPP2Launcher.ShutdownMySQL(processes)
-            StoppingCheckTimers()
-            ' Уходим
+            GV.SPP2Launcher.ShutdownMySQL()
+        End If
+
+        ' Проверяем требование о выxоде из приложения
+        If GV.SPP2Launcher.NeedExitLauncher Then
+            ' Дожидаемся остановки всех серверов
+            Do
+                If Not GV.SPP2Launcher.MySqlON AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
+                Threading.Thread.Sleep(100)
+            Loop
+            ' Закрываем приложение
             Application.Exit()
-        Else
-            ' Слава Господу - гасим только Realmd
-            GV.SPP2Launcher.ShutdownRealmd(processes)
         End If
     End Sub
 
@@ -438,6 +382,11 @@ Module SPP2Helper
     ''' Поток контролирующий наличие процессов серверов WoW после их запуска.
     ''' </summary>
     Friend Sub Controller()
+
+        Dim _checkMySQL As Date = Now
+        Dim _checkHttp As Date = Now
+        Dim _checkRealmd As Date = Now
+        Dim _checkWorld As Date = Now
 
         ' Ожидаем завершения стартового потока
         Threading.Thread.Sleep(1000)
@@ -449,21 +398,35 @@ Module SPP2Helper
         GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf)
         GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf)
 
-        ' Автостарт серверов WoW
-        Select Case My.Settings.LastLoadedServerType
-            Case GV.EModule.Classic.ToString
-                TimerStartRealmd.Change(2000, 2000)
-                TimerStartWorld.Change(1000, 1000)
-            Case GV.EModule.Tbc.ToString
-                TimerStartRealmd.Change(2000, 2000)
-                TimerStartWorld.Change(1000, 1000)
-            Case GV.EModule.Wotlk.ToString
-                TimerStartRealmd.Change(2000, 2000)
-                TimerStartWorld.Change(1000, 1000)
-        End Select
-
         Do
+            ' Пауза в пол секунды
             Threading.Thread.Sleep(500)
+
+            ' Чекаем MySQL каждые 2 секунды
+            If Date.Now - _checkMySQL > TimeSpan.FromSeconds(2) Then
+                _checkMySQL = Date.Now
+                GV.SPP2Launcher.CheckMySQL()
+            End If
+
+            ' Чекаем Http каждые 2 секунды
+            If Date.Now - _checkHttp > TimeSpan.FromSeconds(2) Then
+                _checkHttp = Date.Now
+                GV.SPP2Launcher.CheckHttp()
+            End If
+
+            ' Чекаем Realmd каждые 2 секунды
+            If Date.Now - _checkRealmd > TimeSpan.FromSeconds(2) Then
+                _checkRealmd = Date.Now
+                GV.SPP2Launcher.CheckRealmd()
+            End If
+
+            ' Чекаем World каждые 2 секунды
+            If Date.Now - _checkWorld > TimeSpan.FromSeconds(2) Then
+                _checkWorld = Date.Now
+                GV.SPP2Launcher.CheckWorld()
+            End If
+
+            ' Проверка наличия процессов серверов
             Dim lp = GetAllProcesses()
             For Each control In BP.Processes
                 If control.WasLaunched Then

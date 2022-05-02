@@ -394,8 +394,8 @@
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>Сервер не готов принимать команды...</value>
   </data>
-  <data name="P038_StoppingWoW" xml:space="preserve">
-    <value>Идёт остановка серверов...</value>
+  <data name="P038_StoppingWorld" xml:space="preserve">
+    <value>Идёт остановка сервера World...</value>
   </data>
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Дождитесь окончания...</value>
@@ -405,5 +405,8 @@
   </data>
   <data name="P041_ThereIsProblemsApache" xml:space="preserve">
     <value>Пока есть проблемы с запуском Apache. Отложено на 2 сек...</value>
+  </data>
+  <data name="wow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

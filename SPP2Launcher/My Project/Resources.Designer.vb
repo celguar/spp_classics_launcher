@@ -753,11 +753,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Идёт остановка серверов....
+        '''  Ищет локализованную строку, похожую на Идёт остановка сервера World....
         '''</summary>
-        Friend ReadOnly Property P038_StoppingWoW() As String
+        Friend ReadOnly Property P038_StoppingWorld() As String
             Get
-                Return ResourceManager.GetString("P038_StoppingWoW", resourceCulture)
+                Return ResourceManager.GetString("P038_StoppingWorld", resourceCulture)
             End Get
         End Property
         
@@ -951,6 +951,16 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("wotlk", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        '''</summary>
+        Friend ReadOnly Property wow() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("wow", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
     End Module
