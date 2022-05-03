@@ -115,7 +115,8 @@
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />
     <Compile Include="Classes\GV.vb" />
-    <Compile Include="Classes\MySqlClient.vb" />
+    <Compile Include="MySQL\Command\CHARACTERS.vb" />
+    <Compile Include="MySQL\MySqlClient.vb" />
     <Compile Include="Classes\SPP2Module.vb" />
     <Compile Include="Classes\SPP2SettingsProvider.vb" />
     <Compile Include="Forms\ApacheSettings.Designer.vb">
@@ -184,6 +185,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MySQL\MySqlProvider.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\ApacheSettings.en.resx">

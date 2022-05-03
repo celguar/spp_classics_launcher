@@ -170,6 +170,9 @@ Public Class Launcher
         ' Инициализируем BaseProcess
         BP = New ProcessController
 
+        ' Первоначальная надпись в строке состояния ToolTip
+        TSSL_Count.ToolTipText = String.Format(My.Resources.P011_AllChars, "N/A")
+
     End Sub
 
 #End Region
@@ -297,7 +300,7 @@ Public Class Launcher
 #Region " === ЛАУНЧЕР === "
 
     ''' <summary>
-    ''' МЕНЮ - НАСТРОЙКИ ПРИЛЖЕНИЯ
+    ''' МЕНЮ - НАСТРОЙКИ ПРИЛЖЕНИЯ.
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -307,7 +310,7 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
-    ''' ПРИ ИЗМЕНЕНИИ РАЗМЕРА ОКНА
+    ''' ПРИ ИЗМЕНЕНИИ РАЗМЕРА ОКНА.
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -336,7 +339,7 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
-    ''' Вывод сообщения в StatusStrip
+    ''' Вывод сообщения в StatusStrip.
     ''' </summary>
     ''' <param name="text"></param>
     Friend Sub OutMessageStatusStrip(text As String)
@@ -350,9 +353,33 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
+    ''' Обновление информации в StatusStrip.
+    ''' </summary>
+    Friend Sub OutInfoStatusStrip()
+        Dim online, total As String
+        If _MySqlON Then
+            online = MySqlTables.CHARACTERS.SELECT_ONLINE_CHARS()
+            total = MySqlTables.CHARACTERS.SELECT_TOTAL_CHARS()
+        Else
+            online = "N/A"
+            total = "N/A"
+        End If
+        If TSSL_Online.GetCurrentParent.InvokeRequired Then
+            TSSL_Online.GetCurrentParent.Invoke(Sub()
+                                                    TSSL_Count.Text = online
+                                                    TSSL_Count.ToolTipText = String.Format(My.Resources.P011_AllChars, total)
+                                                End Sub)
+        Else
+            TSSL_Count.Text = online
+            TSSL_Count.ToolTipText = String.Format(My.Resources.P011_AllChars, total)
+        End If
+    End Sub
+
+    ''' <summary>
     ''' Обновление параметров для вывода на экран.
     ''' </summary>
     Friend Sub UpdateSettings()
+
         ' Если это первый запуск - предупреждаем
         If GV.FirstStart Then
             MessageBox.Show(My.Resources.P012_FirstStart,
@@ -392,6 +419,7 @@ Public Class Launcher
                 TSMI_ApacheStop.Enabled = False
             End If
         End If
+
         ' Заголовок приложения
         Dim srv As String = ""
         Select Case My.Settings.LastLoadedServerType
@@ -439,6 +467,9 @@ Public Class Launcher
 
         Text = My.Resources.P010_LauncherCaption & " : " & srv
 
+        ' Инициализируем MySQL
+        GV.SQL = New MySqlProvider()
+
         ' Настраиваем консоли
         Dim bc As Color = If(My.Settings.ConsoleTheme = "Black", Drawing.Color.Black, Drawing.Color.SeaShell)
         Dim fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
@@ -484,12 +515,12 @@ Public Class Launcher
         ' Если установлен автостарт серверов WoW
         If ServerWowAutostart AndAlso My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then
             ' Запускаем встроенный MySQL
-            TimerStartMySQL.Change(500, 500)
+            TimerStartMySQL.Change(3000, 3000)
             _needServerStart = True
         Else
             ' Если автозапуск MySQL сервера
             If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
-                TimerStartMySQL.Change(500, 500)
+                TimerStartMySQL.Change(3000, 3000)
             End If
         End If
 

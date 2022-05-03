@@ -210,6 +210,9 @@
   <data name="P010_LauncherCaption" xml:space="preserve">
     <value>Single Player Project v2</value>
   </data>
+  <data name="P011_AllChars" xml:space="preserve">
+    <value>Total Characters {0}</value>
+  </data>
   <data name="P012_FirstStart" xml:space="preserve">
     <value>This is the first launch of the application. Run through the settings...</value>
   </data>

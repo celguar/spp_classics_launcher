@@ -510,6 +510,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Всего {0} чаров..
+        '''</summary>
+        Friend ReadOnly Property P011_AllChars() As String
+            Get
+                Return ResourceManager.GetString("P011_AllChars", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Это первый запуск приложения. Пробегитесь по настройкам....
         '''</summary>
         Friend ReadOnly Property P012_FirstStart() As String

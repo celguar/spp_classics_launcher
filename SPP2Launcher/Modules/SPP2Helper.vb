@@ -386,10 +386,11 @@ Module SPP2Helper
     ''' </summary>
     Friend Sub Controller()
 
-        Dim _checkMySQL As Date = Now
-        Dim _checkHttp As Date = Now
-        Dim _checkRealmd As Date = Now
-        Dim _checkWorld As Date = Now
+        Dim _checkMySQL As Date = Date.Now
+        Dim _checkHttp As Date = Date.Now
+        Dim _checkRealmd As Date = Date.Now
+        Dim _checkWorld As Date = Date.Now
+        Dim _updateStatus As Date = Date.Now
 
         ' Ожидаем завершения стартового потока
         Threading.Thread.Sleep(1000)
@@ -427,6 +428,12 @@ Module SPP2Helper
             If Date.Now - _checkWorld > TimeSpan.FromSeconds(2) Then
                 _checkWorld = Date.Now
                 GV.SPP2Launcher.CheckWorld()
+            End If
+
+            ' Обновляем инфо в строке состояния каждые 2 сек.
+            If Date.Now - _updateStatus > TimeSpan.FromSeconds(2) Then
+                _updateStatus = Date.Now
+                GV.SPP2Launcher.OutInfoStatusStrip()
             End If
 
             ' Проверка наличия процессов серверов

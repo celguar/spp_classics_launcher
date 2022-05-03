@@ -44,6 +44,11 @@ Public Class GV
     ''' </summary>
     Friend Shared FirstStart As Boolean
 
+    ''' <summary>
+    ''' Клиент MySQL.
+    ''' </summary>
+    Friend Shared SQL As MySqlProvider
+
 #End Region
 
 #Region " === ПЕРЕЧИСЛЕНИЯ === "

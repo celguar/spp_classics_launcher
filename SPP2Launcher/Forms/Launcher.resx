@@ -117,350 +117,311 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="StatusStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="StatusStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TSSL_MySQL.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="TSSL_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>624, 381</value>
   </data>
-  <data name="TSSL_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="TSSL_Apache.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSSL_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="TSSL_Apache.Text" xml:space="preserve">
-    <value>HTTP</value>
-  </data>
-  <data name="TSSL_Realm.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSSL_Realm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="TSSL_Realm.Text" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="TSSL_World.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSSL_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="TSSL_World.Text" xml:space="preserve">
-    <value>World</value>
-  </data>
-  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 17</value>
-  </data>
-  <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 17</value>
-  </data>
-  <data name="TSSL_Online.Text" xml:space="preserve">
-    <value>Онлайн игроков: 0</value>
-  </data>
-  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 359</value>
-  </data>
-  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 22</value>
-  </data>
-  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
-    <value>StatusStrip_SPP2</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <metadata name="MenuStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>159, 17</value>
-  </metadata>
-  <metadata name="MenuStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 24</value>
-  </data>
-  <data name="TSMI_RunWow.Text" xml:space="preserve">
-    <value>Запуск WoW</value>
-  </data>
-  <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
-    <value>Сменить тип сервера</value>
-  </data>
-  <data name="TSMI_SepSrv1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
-  </data>
-  <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_MySqlStart.Text" xml:space="preserve">
-    <value>Запуск</value>
-  </data>
-  <data name="TSMI_MySqlRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_MySqlRestart.Text" xml:space="preserve">
-    <value>Перезапуск</value>
-  </data>
-  <data name="TSMI_MySqlStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_MySqlStop.Text" xml:space="preserve">
-    <value>Остановка</value>
-  </data>
-  <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 6</value>
-  </data>
-  <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_ApacheStart.Text" xml:space="preserve">
-    <value>Запуск</value>
-  </data>
-  <data name="TSMI_ApacheRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="TSMI_ApacheRestart.Text" xml:space="preserve">
-    <value>Перезапуск</value>
-  </data>
-  <data name="TSMI_ApacheStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+  <data name="&gt;&gt;TSMI_Apache.Name" xml:space="preserve">
+    <value>TSMI_Apache</value>
   </data>
   <data name="TSMI_ApacheStop.Text" xml:space="preserve">
     <value>Остановка</value>
   </data>
-  <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 6</value>
-  </data>
-  <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_MySqlStop.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 22</value>
   </data>
-  <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_Apache.Text" xml:space="preserve">
-    <value>Apache</value>
-  </data>
-  <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
-  </data>
-  <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_ServerStart.Text" xml:space="preserve">
-    <value>Запуск</value>
-  </data>
-  <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_ServerStop.Text" xml:space="preserve">
-    <value>Остановка</value>
-  </data>
-  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 6</value>
-  </data>
-  <data name="TSMI_ServerSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_ServerSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
+  <data name="&gt;&gt;TSMI_RunWow.Name" xml:space="preserve">
+    <value>TSMI_RunWow</value>
   </data>
   <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 24</value>
   </data>
-  <data name="TSMI_Server.Text" xml:space="preserve">
-    <value>Серверы</value>
-  </data>
-  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="TSMI_Characters.Text" xml:space="preserve">
-    <value>Персонажи</value>
-  </data>
-  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="TSMI_Saves.Text" xml:space="preserve">
-    <value>Сохранения</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 6</value>
-  </data>
-  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="TSMI_Updates.Text" xml:space="preserve">
-    <value>Обновления</value>
-  </data>
-  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 24</value>
-  </data>
-  <data name="TSMI_Tools.Text" xml:space="preserve">
-    <value>Инструменты</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TSMI_English.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="TSMI_English.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="TSMI_English.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="TSMI_Russian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="TSMI_Russian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="TSMI_Russian.Text" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
-    <value>Язык интерфейса</value>
-  </data>
-  <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
-  </data>
-  <data name="TSMI_World.Text" xml:space="preserve">
-    <value>World</value>
-  </data>
-  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="TSMI_ServerTools.Text" xml:space="preserve">
-    <value>Серверы</value>
-  </data>
-  <data name="TSMI_BotSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="TSMI_BotSettings.Text" xml:space="preserve">
-    <value>Основные настройки</value>
-  </data>
-  <data name="TSMI_RandomizeBots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="TSMI_RandomizeBots.Text" xml:space="preserve">
-    <value>Сгенерировать</value>
-  </data>
-  <data name="TSMI_ResetBots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
-  </data>
-  <data name="TSMI_ResetBots.Text" xml:space="preserve">
-    <value>Сбросить</value>
-  </data>
-  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="TSMI_Bots.Text" xml:space="preserve">
-    <value>Боты</value>
-  </data>
-  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 6</value>
+  <data name="&gt;&gt;TSMI_ApacheStart.Name" xml:space="preserve">
+    <value>TSMI_ApacheStart</value>
   </data>
   <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="TSMI_Launcher.Text" xml:space="preserve">
-    <value>Приложение</value>
+  <data name="TSSL_Count.Text" xml:space="preserve">
+    <value>N/A</value>
   </data>
-  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 24</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
   </data>
-  <data name="TSMI_Settings.Text" xml:space="preserve">
-    <value>Настройки</value>
+  <data name="&gt;&gt;TSMI_LanguageTool.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
-  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 28</value>
+  <data name="&gt;&gt;NotifyIcon_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;TSMI_Settings.Name" xml:space="preserve">
+    <value>TSMI_Settings</value>
   </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
-    <value>MenuStrip_SPP2</value>
+  <data name="TSMI_BotSettings.Text" xml:space="preserve">
+    <value>Основные настройки</value>
   </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 6</value>
   </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="TSMI_English.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="NotifyIcon_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>300, 17</value>
-  </metadata>
-  <metadata name="ContextMenu_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>440, 17</value>
-  </metadata>
-  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
-    <value>Открыть приложение</value>
+  <data name="&gt;&gt;TSMI_MySqlStart.Name" xml:space="preserve">
+    <value>TSMI_MySqlStart</value>
   </data>
   <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 6</value>
   </data>
-  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
-    <value>Выход</value>
+  <data name="TabPage_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
   </data>
-  <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 54</value>
+  <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheRestart.Name" xml:space="preserve">
+    <value>TSMI_ApacheRestart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_OpenLauncher.Name" xml:space="preserve">
+    <value>TSMI_OpenLauncher</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TabControl1.ShowToolTips" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Saves.Name" xml:space="preserve">
+    <value>TSMI_Saves</value>
+  </data>
+  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 17</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold, Italic</value>
+  </data>
+  <data name="TSMI_Russian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
+    <value>MenuStrip_SPP2</value>
+  </data>
+  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_BotSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_English.Name" xml:space="preserve">
+    <value>TSMI_English</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlSettings.Name" xml:space="preserve">
+    <value>TSMI_MySqlSettings</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ResetBots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Online.Name" xml:space="preserve">
+    <value>TSSL_Online</value>
+  </data>
+  <data name="TSMI_Russian.Text" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 24</value>
+  </data>
+  <data name="TSSL_Realm.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server.Name" xml:space="preserve">
+    <value>TSMI_Server</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TSMI_ServerSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerSwitcher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 359</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TSMI_MySqlRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_World.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage_MySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ContextMenu_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>640, 420</value>
+  </data>
+  <data name="&gt;&gt;NotifyIcon_SPP2.Name" xml:space="preserve">
+    <value>NotifyIcon_SPP2</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_RandomizeBots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Launcher</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_World.Name" xml:space="preserve">
+    <value>TSMI_World</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStart.Name" xml:space="preserve">
+    <value>TSMI_ServerStart</value>
   </data>
   <data name="&gt;&gt;ContextMenu_SPP2.Name" xml:space="preserve">
     <value>ContextMenu_SPP2</value>
   </data>
-  <data name="&gt;&gt;ContextMenu_SPP2.Type" xml:space="preserve">
+  <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 6</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ResetBots.Name" xml:space="preserve">
+    <value>TSMI_ResetBots</value>
+  </data>
+  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 6</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip_Console.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerTools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSSL_Online.Text" xml:space="preserve">
+    <value>Онлайн:</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Tools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TextBox_Command.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="TSMI_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 276</value>
+  </data>
+  <data name="TSMI_English.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;TSSL_World.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_Saves.Text" xml:space="preserve">
+    <value>Сохранения</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleWorld</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="TSMI_ResetBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Russian.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="TSSL_Count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 17</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlRestart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip_Console.Name" xml:space="preserve">
+    <value>ContextMenuStrip_Console</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Realm.Name" xml:space="preserve">
+    <value>TSSL_Realm</value>
+  </data>
+  <data name="TSMI_RunWow.Text" xml:space="preserve">
+    <value>Запуск WoW</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="&gt;&gt;TSSL_ALL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 270</value>
+  </data>
+  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 24</value>
   </data>
   <data name="NotifyIcon_SPP2.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1016,302 +977,233 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="NotifyIcon_SPP2.Text" xml:space="preserve">
-    <value>Single Player Project v2</value>
-  </data>
-  <data name="NotifyIcon_SPP2.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <metadata name="ContextMenuStrip_Console.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>598, 17</value>
-  </metadata>
-  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
-  </data>
-  <data name="TSMI_Copy.Text" xml:space="preserve">
-    <value>Копировать</value>
-  </data>
-  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 26</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip_Console.Name" xml:space="preserve">
-    <value>ContextMenuStrip_Console</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip_Console.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <metadata name="TextBox_Command.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="TextBox_Command.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="TextBox_Command.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="TextBox_Command.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 339</value>
-  </data>
-  <data name="TextBox_Command.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 20</value>
-  </data>
-  <data name="TextBox_Command.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TextBox_Command.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 20</value>
-  </data>
-  <data name="TextBox_Command.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Name" xml:space="preserve">
-    <value>TextBox_Command</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="TabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="TabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <metadata name="TabPage_MySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 270</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleMySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_MySQL.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 276</value>
-  </data>
-  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TabPage_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="TabPage_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleRealmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 8.25pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 270</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleRealmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_Realmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 276</value>
-  </data>
-  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabPage_Realmd.Text" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="TabPage_World.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleWorld.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold, Italic</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 270</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleWorld</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 276</value>
-  </data>
-  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabPage_World.Text" xml:space="preserve">
-    <value>World</value>
+  <data name="&gt;&gt;TSMI_ServerSwitcher.Name" xml:space="preserve">
+    <value>TSMI_ServerSwitcher</value>
   </data>
   <data name="&gt;&gt;TabPage_World.Name" xml:space="preserve">
     <value>TabPage_World</value>
   </data>
-  <data name="&gt;&gt;TabPage_World.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TextBox_Command.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="&gt;&gt;TabPage_World.Parent" xml:space="preserve">
-    <value>TabControl1</value>
+  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 8.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 22</value>
+  </data>
+  <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_BotSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 22</value>
+  </data>
+  <data name="NotifyIcon_SPP2.Text" xml:space="preserve">
+    <value>Single Player Project v2</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleRealmd</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Tools.Name" xml:space="preserve">
+    <value>TSMI_Tools</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_RunWow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_Bots.Text" xml:space="preserve">
+    <value>Боты</value>
+  </data>
+  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CloseLauncher.Name" xml:space="preserve">
+    <value>TSMI_CloseLauncher</value>
+  </data>
+  <data name="TSMI_ServerSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
+    <value>StatusStrip_SPP2</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Apache.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSSL_Apache.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Bots.Name" xml:space="preserve">
+    <value>TSMI_Bots</value>
+  </data>
+  <data name="TSMI_Copy.Text" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="TSMI_ApacheRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
+    <value>Открыть приложение</value>
+  </data>
+  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TSMI_MySqlStop.Text" xml:space="preserve">
+    <value>Остановка</value>
   </data>
   <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 31</value>
   </data>
-  <data name="TabControl1.ShowToolTips" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="TSMI_ApacheRestart.Text" xml:space="preserve">
+    <value>Перезапуск</value>
   </data>
-  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 302</value>
+  <data name="&gt;&gt;TSMI_Server2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="TSMI_Settings.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
-  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+  <data name="&gt;&gt;TSMI_Settings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage_MySQL.Parent" xml:space="preserve">
     <value>TabControl1</value>
   </data>
-  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="&gt;&gt;TSSL_MySQL.Name" xml:space="preserve">
+    <value>TSSL_MySQL</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
+    <value />
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>624, 381</value>
+  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 276</value>
+  </data>
+  <data name="TabPage_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
+    <value>TabPage_World</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 270</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Copy.Name" xml:space="preserve">
+    <value>TSMI_Copy</value>
+  </data>
+  <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 54</value>
+  </data>
+  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="TSSL_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TSMI_ServerStart.Text" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Characters.Name" xml:space="preserve">
+    <value>TSMI_Characters</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_SepSrv1.Name" xml:space="preserve">
+    <value>TSMI_SepSrv1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Russian.Name" xml:space="preserve">
+    <value>TSMI_Russian</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL.Name" xml:space="preserve">
+    <value>TSMI_MySQL</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="TSMI_SepSrv1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 6</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
+    <value>TabPage_Realmd</value>
+  </data>
+  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 302</value>
+  </data>
+  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 276</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.Name" xml:space="preserve">
+    <value>TextBox_Command</value>
+  </data>
+  <data name="&gt;&gt;TSSL_ALL.Name" xml:space="preserve">
+    <value>TSSL_ALL</value>
+  </data>
+  <data name="TSMI_ApacheStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Updates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Online.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1867,307 +1759,427 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>640, 420</value>
+  <data name="TSMI_ApacheStart.Text" xml:space="preserve">
+    <value>Запуск</value>
   </data>
-  <data name="&gt;&gt;TSSL_MySQL.Name" xml:space="preserve">
-    <value>TSSL_MySQL</value>
+  <data name="TextBox_Command.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
   </data>
-  <data name="&gt;&gt;TSSL_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TSSL_MySQL.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;TSSL_Apache.Name" xml:space="preserve">
-    <value>TSSL_Apache</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Apache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Realm.Name" xml:space="preserve">
-    <value>TSSL_Realm</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Realm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSSL_World.Name" xml:space="preserve">
-    <value>TSSL_World</value>
-  </data>
-  <data name="&gt;&gt;TSSL_World.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSSL_ALL.Name" xml:space="preserve">
-    <value>TSSL_ALL</value>
-  </data>
-  <data name="&gt;&gt;TSSL_ALL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Online.Name" xml:space="preserve">
-    <value>TSSL_Online</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Online.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_RunWow.Name" xml:space="preserve">
-    <value>TSMI_RunWow</value>
-  </data>
-  <data name="&gt;&gt;TSMI_RunWow.Type" xml:space="preserve">
+  <data name="&gt;&gt;TSMI_Launcher.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server.Name" xml:space="preserve">
-    <value>TSMI_Server</value>
   </data>
   <data name="&gt;&gt;TSMI_Server.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TSMI_ServerSwitcher.Name" xml:space="preserve">
-    <value>TSMI_ServerSwitcher</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerSwitcher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_SepSrv1.Name" xml:space="preserve">
-    <value>TSMI_SepSrv1</value>
-  </data>
-  <data name="&gt;&gt;TSMI_SepSrv1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL.Name" xml:space="preserve">
-    <value>TSMI_MySQL</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStart.Name" xml:space="preserve">
-    <value>TSMI_MySqlStart</value>
+  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TSMI_MySqlStart.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="TSMI_MySqlStart.Text" xml:space="preserve">
+    <value>Запуск</value>
+  </data>
+  <data name="TSSL_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="TSSL_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="&gt;&gt;TabPage_Realmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_World.Name" xml:space="preserve">
+    <value>TSSL_World</value>
+  </data>
   <data name="&gt;&gt;TSMI_MySqlRestart.Name" xml:space="preserve">
     <value>TSMI_MySqlRestart</value>
   </data>
-  <data name="&gt;&gt;TSMI_MySqlRestart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TSMI_Apache1.Name" xml:space="preserve">
+    <value>TSMI_Apache1</value>
   </data>
-  <data name="&gt;&gt;TSMI_MySqlStop.Name" xml:space="preserve">
-    <value>TSMI_MySqlStop</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL1.Name" xml:space="preserve">
-    <value>TSMI_MySQL1</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlSettings.Name" xml:space="preserve">
-    <value>TSMI_MySqlSettings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache.Name" xml:space="preserve">
-    <value>TSMI_Apache</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStart.Name" xml:space="preserve">
-    <value>TSMI_ApacheStart</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheRestart.Name" xml:space="preserve">
-    <value>TSMI_ApacheRestart</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheRestart.Type" xml:space="preserve">
+  <data name="&gt;&gt;TSMI_ApacheSettings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TSMI_ApacheStop.Name" xml:space="preserve">
     <value>TSMI_ApacheStop</value>
   </data>
-  <data name="&gt;&gt;TSMI_ApacheStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TSSL_Realm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
   </data>
-  <data name="&gt;&gt;TSMI_Apache1.Name" xml:space="preserve">
-    <value>TSMI_Apache1</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheSettings.Name" xml:space="preserve">
-    <value>TSMI_ApacheSettings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Sever1.Name" xml:space="preserve">
-    <value>TSMI_Sever1</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Sever1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStart.Name" xml:space="preserve">
-    <value>TSMI_ServerStart</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStop.Name" xml:space="preserve">
-    <value>TSMI_ServerStop</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server2.Name" xml:space="preserve">
-    <value>TSMI_Server2</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerSettings.Name" xml:space="preserve">
-    <value>TSMI_ServerSettings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Tools.Name" xml:space="preserve">
-    <value>TSMI_Tools</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Tools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Characters.Name" xml:space="preserve">
-    <value>TSMI_Characters</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Characters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Saves.Name" xml:space="preserve">
-    <value>TSMI_Saves</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Saves.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Updates.Name" xml:space="preserve">
-    <value>TSMI_Updates</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Updates.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Settings.Name" xml:space="preserve">
-    <value>TSMI_Settings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Settings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_LanguageTool.Name" xml:space="preserve">
-    <value>TSMI_LanguageTool</value>
-  </data>
-  <data name="&gt;&gt;TSMI_LanguageTool.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_English.Name" xml:space="preserve">
-    <value>TSMI_English</value>
-  </data>
-  <data name="&gt;&gt;TSMI_English.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Russian.Name" xml:space="preserve">
-    <value>TSMI_Russian</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Russian.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerTools.Name" xml:space="preserve">
-    <value>TSMI_ServerTools</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerTools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_World.Name" xml:space="preserve">
-    <value>TSMI_World</value>
-  </data>
-  <data name="&gt;&gt;TSMI_World.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Bots.Name" xml:space="preserve">
-    <value>TSMI_Bots</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Bots.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_BotSettings.Name" xml:space="preserve">
-    <value>TSMI_BotSettings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_BotSettings.Type" xml:space="preserve">
+  <data name="&gt;&gt;TSMI_OpenLauncher.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TSMI_RandomizeBots.Name" xml:space="preserve">
     <value>TSMI_RandomizeBots</value>
   </data>
-  <data name="&gt;&gt;TSMI_RandomizeBots.Type" xml:space="preserve">
+  <data name="TextBox_Command.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 20</value>
+  </data>
+  <data name="TSSL_Apache.Text" xml:space="preserve">
+    <value>HTTP</value>
+  </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Updates.Name" xml:space="preserve">
+    <value>TSMI_Updates</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleMySQL</value>
+  </data>
+  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 6</value>
+  </data>
+  <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="TSMI_MySqlRestart.Text" xml:space="preserve">
+    <value>Перезапуск</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Saves.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TSMI_ResetBots.Name" xml:space="preserve">
-    <value>TSMI_ResetBots</value>
+  <data name="&gt;&gt;TSMI_MySqlStop.Name" xml:space="preserve">
+    <value>TSMI_MySqlStop</value>
   </data>
-  <data name="&gt;&gt;TSMI_ResetBots.Type" xml:space="preserve">
+  <data name="TSMI_Tools.Text" xml:space="preserve">
+    <value>Инструменты</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 270</value>
+  </data>
+  <data name="TextBox_Command.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TSMI_English.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Realm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSSL_Realm.Text" xml:space="preserve">
+    <value>Realm</value>
+  </data>
+  <data name="TSSL_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheSettings.Name" xml:space="preserve">
+    <value>TSMI_ApacheSettings</value>
+  </data>
+  <data name="TabPage_Realmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TSMI_Russian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 28</value>
+  </data>
+  <data name="&gt;&gt;TSSL_MySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_ServerTools.Text" xml:space="preserve">
+    <value>Серверы</value>
+  </data>
+  <data name="&gt;&gt;TSMI_BotSettings.Name" xml:space="preserve">
+    <value>TSMI_BotSettings</value>
+  </data>
+  <data name="TSMI_ServerStop.Text" xml:space="preserve">
+    <value>Остановка</value>
+  </data>
+  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 26</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Bots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
+    <value>TabPage_MySQL</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Characters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TabPage_Realmd.Text" xml:space="preserve">
+    <value>Realm</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_ResetBots.Text" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStop.Name" xml:space="preserve">
+    <value>TSMI_ServerStop</value>
+  </data>
+  <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
+    <value>TabPage_Realmd</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem6.Name" xml:space="preserve">
     <value>ToolStripMenuItem6</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItem6.Type" xml:space="preserve">
+  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerSettings.Name" xml:space="preserve">
+    <value>TSMI_ServerSettings</value>
+  </data>
+  <data name="TSMI_Launcher.Text" xml:space="preserve">
+    <value>Приложение</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerTools.Name" xml:space="preserve">
+    <value>TSMI_ServerTools</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Sever1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TSMI_Launcher.Name" xml:space="preserve">
-    <value>TSMI_Launcher</value>
+  <data name="&gt;&gt;TSSL_Count.Name" xml:space="preserve">
+    <value>TSSL_Count</value>
   </data>
-  <data name="&gt;&gt;TSMI_Launcher.Type" xml:space="preserve">
+  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
+    <value>TabPage_MySQL</value>
+  </data>
+  <data name="TSMI_Server.Text" xml:space="preserve">
+    <value>Серверы</value>
+  </data>
+  <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 6</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheRestart.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon_SPP2.Name" xml:space="preserve">
-    <value>NotifyIcon_SPP2</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_OpenLauncher.Name" xml:space="preserve">
-    <value>TSMI_OpenLauncher</value>
-  </data>
-  <data name="&gt;&gt;TSMI_OpenLauncher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
-    <value>ToolStripMenuItem7</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_CloseLauncher.Name" xml:space="preserve">
-    <value>TSMI_CloseLauncher</value>
   </data>
   <data name="&gt;&gt;TSMI_CloseLauncher.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TSMI_Copy.Name" xml:space="preserve">
-    <value>TSMI_Copy</value>
+  <data name="&gt;&gt;TextBox_Command.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;TSMI_Copy.Type" xml:space="preserve">
+  <data name="TextBox_Command.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStart.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Launcher</value>
+  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;TSSL_Count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_LanguageTool.Name" xml:space="preserve">
+    <value>TSMI_LanguageTool</value>
+  </data>
+  <data name="&gt;&gt;TSMI_SepSrv1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Apache.Name" xml:space="preserve">
+    <value>TSSL_Apache</value>
+  </data>
+  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="NotifyIcon_SPP2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 6</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Launcher.Name" xml:space="preserve">
+    <value>TSMI_Launcher</value>
+  </data>
+  <data name="&gt;&gt;TabPage_Realmd.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
+    <value>ToolStripMenuItem7</value>
+  </data>
+  <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
+    <value>Сменить тип сервера</value>
+  </data>
+  <data name="TSMI_RandomizeBots.Text" xml:space="preserve">
+    <value>Сгенерировать</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Sever1.Name" xml:space="preserve">
+    <value>TSMI_Sever1</value>
+  </data>
+  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 24</value>
+  </data>
+  <data name="TSMI_RandomizeBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 22</value>
+  </data>
+  <data name="&gt;&gt;TSMI_English.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSSL_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TSMI_Apache.Text" xml:space="preserve">
+    <value>Apache</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL1.Name" xml:space="preserve">
+    <value>TSMI_MySQL1</value>
+  </data>
+  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Copy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TSMI_Characters.Text" xml:space="preserve">
+    <value>Персонажи</value>
+  </data>
+  <data name="TabPage_MySQL.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TSMI_Updates.Text" xml:space="preserve">
+    <value>Обновления</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server2.Name" xml:space="preserve">
+    <value>TSMI_Server2</value>
+  </data>
+  <data name="TSSL_World.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TextBox_Command.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 339</value>
+  </data>
+  <metadata name="TabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ContextMenuStrip_Console.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>598, 17</value>
+  </metadata>
+  <metadata name="MenuStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>159, 17</value>
+  </metadata>
+  <metadata name="StatusStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TabPage_MySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ContextMenu_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>440, 17</value>
+  </metadata>
+  <metadata name="NotifyIcon_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>300, 17</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleWorld.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleRealmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MenuStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="StatusStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Command.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TabPage_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TabPage_World.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

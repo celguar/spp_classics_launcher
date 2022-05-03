@@ -31,6 +31,7 @@ Partial Class Launcher
         Me.TSSL_World = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_ALL = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Online = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TSSL_Count = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip_SPP2 = New System.Windows.Forms.MenuStrip()
         Me.TSMI_RunWow = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Server = New System.Windows.Forms.ToolStripMenuItem()
@@ -97,9 +98,9 @@ Partial Class Launcher
         '
         'StatusStrip_SPP2
         '
-        Me.StatusStrip_SPP2.BackColor = System.Drawing.Color.LightGray
-        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_Realm, Me.TSSL_World, Me.TSSL_ALL, Me.TSSL_Online})
         resources.ApplyResources(Me.StatusStrip_SPP2, "StatusStrip_SPP2")
+        Me.StatusStrip_SPP2.BackColor = System.Drawing.Color.LightGray
+        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_Realm, Me.TSSL_World, Me.TSSL_ALL, Me.TSSL_Online, Me.TSSL_Count})
         Me.StatusStrip_SPP2.Name = "StatusStrip_SPP2"
         Me.StatusStrip_SPP2.SizingGrip = False
         '
@@ -129,283 +130,288 @@ Partial Class Launcher
         '
         'TSSL_ALL
         '
-        Me.TSSL_ALL.Name = "TSSL_ALL"
         resources.ApplyResources(Me.TSSL_ALL, "TSSL_ALL")
+        Me.TSSL_ALL.Name = "TSSL_ALL"
         Me.TSSL_ALL.Spring = True
         '
         'TSSL_Online
         '
-        Me.TSSL_Online.Name = "TSSL_Online"
         resources.ApplyResources(Me.TSSL_Online, "TSSL_Online")
+        Me.TSSL_Online.Name = "TSSL_Online"
+        '
+        'TSSL_Count
+        '
+        resources.ApplyResources(Me.TSSL_Count, "TSSL_Count")
+        Me.TSSL_Count.Name = "TSSL_Count"
         '
         'MenuStrip_SPP2
         '
+        resources.ApplyResources(Me.MenuStrip_SPP2, "MenuStrip_SPP2")
         Me.MenuStrip_SPP2.BackColor = System.Drawing.Color.LightGray
         Me.MenuStrip_SPP2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_RunWow, Me.TSMI_Server, Me.TSMI_Tools, Me.TSMI_Settings})
-        resources.ApplyResources(Me.MenuStrip_SPP2, "MenuStrip_SPP2")
         Me.MenuStrip_SPP2.Name = "MenuStrip_SPP2"
         '
         'TSMI_RunWow
         '
+        resources.ApplyResources(Me.TSMI_RunWow, "TSMI_RunWow")
         Me.TSMI_RunWow.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.game
         Me.TSMI_RunWow.Name = "TSMI_RunWow"
-        resources.ApplyResources(Me.TSMI_RunWow, "TSMI_RunWow")
         '
         'TSMI_Server
         '
+        resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
         Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_ServerSwitcher, Me.TSMI_SepSrv1, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_Server2, Me.TSMI_ServerSettings})
         Me.TSMI_Server.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server
         Me.TSMI_Server.Name = "TSMI_Server"
-        resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
         '
         'TSMI_ServerSwitcher
         '
-        Me.TSMI_ServerSwitcher.Name = "TSMI_ServerSwitcher"
         resources.ApplyResources(Me.TSMI_ServerSwitcher, "TSMI_ServerSwitcher")
+        Me.TSMI_ServerSwitcher.Name = "TSMI_ServerSwitcher"
         '
         'TSMI_SepSrv1
         '
-        Me.TSMI_SepSrv1.Name = "TSMI_SepSrv1"
         resources.ApplyResources(Me.TSMI_SepSrv1, "TSMI_SepSrv1")
+        Me.TSMI_SepSrv1.Name = "TSMI_SepSrv1"
         '
         'TSMI_MySQL
         '
+        resources.ApplyResources(Me.TSMI_MySQL, "TSMI_MySQL")
         Me.TSMI_MySQL.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_MySqlStart, Me.TSMI_MySqlRestart, Me.TSMI_MySqlStop, Me.TSMI_MySQL1, Me.TSMI_MySqlSettings})
         Me.TSMI_MySQL.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.mysql
         Me.TSMI_MySQL.Name = "TSMI_MySQL"
-        resources.ApplyResources(Me.TSMI_MySQL, "TSMI_MySQL")
         '
         'TSMI_MySqlStart
         '
+        resources.ApplyResources(Me.TSMI_MySqlStart, "TSMI_MySqlStart")
         Me.TSMI_MySqlStart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_start
         Me.TSMI_MySqlStart.Name = "TSMI_MySqlStart"
-        resources.ApplyResources(Me.TSMI_MySqlStart, "TSMI_MySqlStart")
         '
         'TSMI_MySqlRestart
         '
+        resources.ApplyResources(Me.TSMI_MySqlRestart, "TSMI_MySqlRestart")
         Me.TSMI_MySqlRestart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_restart
         Me.TSMI_MySqlRestart.Name = "TSMI_MySqlRestart"
-        resources.ApplyResources(Me.TSMI_MySqlRestart, "TSMI_MySqlRestart")
         '
         'TSMI_MySqlStop
         '
+        resources.ApplyResources(Me.TSMI_MySqlStop, "TSMI_MySqlStop")
         Me.TSMI_MySqlStop.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_stop
         Me.TSMI_MySqlStop.Name = "TSMI_MySqlStop"
-        resources.ApplyResources(Me.TSMI_MySqlStop, "TSMI_MySqlStop")
         '
         'TSMI_MySQL1
         '
-        Me.TSMI_MySQL1.Name = "TSMI_MySQL1"
         resources.ApplyResources(Me.TSMI_MySQL1, "TSMI_MySQL1")
+        Me.TSMI_MySQL1.Name = "TSMI_MySQL1"
         '
         'TSMI_MySqlSettings
         '
+        resources.ApplyResources(Me.TSMI_MySqlSettings, "TSMI_MySqlSettings")
         Me.TSMI_MySqlSettings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
         Me.TSMI_MySqlSettings.Name = "TSMI_MySqlSettings"
-        resources.ApplyResources(Me.TSMI_MySqlSettings, "TSMI_MySqlSettings")
         '
         'TSMI_Apache
         '
+        resources.ApplyResources(Me.TSMI_Apache, "TSMI_Apache")
         Me.TSMI_Apache.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_ApacheStart, Me.TSMI_ApacheRestart, Me.TSMI_ApacheStop, Me.TSMI_Apache1, Me.TSMI_ApacheSettings})
         Me.TSMI_Apache.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.apache
         Me.TSMI_Apache.Name = "TSMI_Apache"
-        resources.ApplyResources(Me.TSMI_Apache, "TSMI_Apache")
         '
         'TSMI_ApacheStart
         '
+        resources.ApplyResources(Me.TSMI_ApacheStart, "TSMI_ApacheStart")
         Me.TSMI_ApacheStart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_start
         Me.TSMI_ApacheStart.Name = "TSMI_ApacheStart"
-        resources.ApplyResources(Me.TSMI_ApacheStart, "TSMI_ApacheStart")
         '
         'TSMI_ApacheRestart
         '
+        resources.ApplyResources(Me.TSMI_ApacheRestart, "TSMI_ApacheRestart")
         Me.TSMI_ApacheRestart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_restart
         Me.TSMI_ApacheRestart.Name = "TSMI_ApacheRestart"
-        resources.ApplyResources(Me.TSMI_ApacheRestart, "TSMI_ApacheRestart")
         '
         'TSMI_ApacheStop
         '
+        resources.ApplyResources(Me.TSMI_ApacheStop, "TSMI_ApacheStop")
         Me.TSMI_ApacheStop.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_stop
         Me.TSMI_ApacheStop.Name = "TSMI_ApacheStop"
-        resources.ApplyResources(Me.TSMI_ApacheStop, "TSMI_ApacheStop")
         '
         'TSMI_Apache1
         '
-        Me.TSMI_Apache1.Name = "TSMI_Apache1"
         resources.ApplyResources(Me.TSMI_Apache1, "TSMI_Apache1")
+        Me.TSMI_Apache1.Name = "TSMI_Apache1"
         '
         'TSMI_ApacheSettings
         '
+        resources.ApplyResources(Me.TSMI_ApacheSettings, "TSMI_ApacheSettings")
         Me.TSMI_ApacheSettings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
         Me.TSMI_ApacheSettings.Name = "TSMI_ApacheSettings"
-        resources.ApplyResources(Me.TSMI_ApacheSettings, "TSMI_ApacheSettings")
         '
         'TSMI_Sever1
         '
-        Me.TSMI_Sever1.Name = "TSMI_Sever1"
         resources.ApplyResources(Me.TSMI_Sever1, "TSMI_Sever1")
+        Me.TSMI_Sever1.Name = "TSMI_Sever1"
         '
         'TSMI_ServerStart
         '
+        resources.ApplyResources(Me.TSMI_ServerStart, "TSMI_ServerStart")
         Me.TSMI_ServerStart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_start
         Me.TSMI_ServerStart.Name = "TSMI_ServerStart"
-        resources.ApplyResources(Me.TSMI_ServerStart, "TSMI_ServerStart")
         '
         'TSMI_ServerStop
         '
+        resources.ApplyResources(Me.TSMI_ServerStop, "TSMI_ServerStop")
         Me.TSMI_ServerStop.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_stop
         Me.TSMI_ServerStop.Name = "TSMI_ServerStop"
-        resources.ApplyResources(Me.TSMI_ServerStop, "TSMI_ServerStop")
         '
         'TSMI_Server2
         '
-        Me.TSMI_Server2.Name = "TSMI_Server2"
         resources.ApplyResources(Me.TSMI_Server2, "TSMI_Server2")
+        Me.TSMI_Server2.Name = "TSMI_Server2"
         '
         'TSMI_ServerSettings
         '
+        resources.ApplyResources(Me.TSMI_ServerSettings, "TSMI_ServerSettings")
         Me.TSMI_ServerSettings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
         Me.TSMI_ServerSettings.Name = "TSMI_ServerSettings"
-        resources.ApplyResources(Me.TSMI_ServerSettings, "TSMI_ServerSettings")
         '
         'TSMI_Tools
         '
+        resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
         Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Characters, Me.TSMI_Saves, Me.ToolStripMenuItem1, Me.TSMI_Updates})
         Me.TSMI_Tools.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.tools
         Me.TSMI_Tools.Name = "TSMI_Tools"
-        resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
         '
         'TSMI_Characters
         '
-        Me.TSMI_Characters.Name = "TSMI_Characters"
         resources.ApplyResources(Me.TSMI_Characters, "TSMI_Characters")
+        Me.TSMI_Characters.Name = "TSMI_Characters"
         '
         'TSMI_Saves
         '
-        Me.TSMI_Saves.Name = "TSMI_Saves"
         resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
+        Me.TSMI_Saves.Name = "TSMI_Saves"
         '
         'ToolStripMenuItem1
         '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         '
         'TSMI_Updates
         '
-        Me.TSMI_Updates.Name = "TSMI_Updates"
         resources.ApplyResources(Me.TSMI_Updates, "TSMI_Updates")
+        Me.TSMI_Updates.Name = "TSMI_Updates"
         '
         'TSMI_Settings
         '
+        resources.ApplyResources(Me.TSMI_Settings, "TSMI_Settings")
         Me.TSMI_Settings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_LanguageTool, Me.TSMI_ServerTools, Me.TSMI_Bots, Me.ToolStripMenuItem6, Me.TSMI_Launcher})
         Me.TSMI_Settings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
         Me.TSMI_Settings.Name = "TSMI_Settings"
-        resources.ApplyResources(Me.TSMI_Settings, "TSMI_Settings")
         '
         'TSMI_LanguageTool
         '
+        resources.ApplyResources(Me.TSMI_LanguageTool, "TSMI_LanguageTool")
         Me.TSMI_LanguageTool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_English, Me.TSMI_Russian})
         Me.TSMI_LanguageTool.Name = "TSMI_LanguageTool"
-        resources.ApplyResources(Me.TSMI_LanguageTool, "TSMI_LanguageTool")
         '
         'TSMI_English
         '
-        Me.TSMI_English.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.en
         resources.ApplyResources(Me.TSMI_English, "TSMI_English")
+        Me.TSMI_English.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.en
         Me.TSMI_English.Name = "TSMI_English"
         '
         'TSMI_Russian
         '
-        Me.TSMI_Russian.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.ru
         resources.ApplyResources(Me.TSMI_Russian, "TSMI_Russian")
+        Me.TSMI_Russian.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.ru
         Me.TSMI_Russian.Name = "TSMI_Russian"
         '
         'TSMI_ServerTools
         '
+        resources.ApplyResources(Me.TSMI_ServerTools, "TSMI_ServerTools")
         Me.TSMI_ServerTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_World})
         Me.TSMI_ServerTools.Name = "TSMI_ServerTools"
-        resources.ApplyResources(Me.TSMI_ServerTools, "TSMI_ServerTools")
         '
         'TSMI_World
         '
-        Me.TSMI_World.Name = "TSMI_World"
         resources.ApplyResources(Me.TSMI_World, "TSMI_World")
+        Me.TSMI_World.Name = "TSMI_World"
         '
         'TSMI_Bots
         '
+        resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
         Me.TSMI_Bots.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_BotSettings, Me.TSMI_RandomizeBots, Me.TSMI_ResetBots})
         Me.TSMI_Bots.Name = "TSMI_Bots"
-        resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
         '
         'TSMI_BotSettings
         '
-        Me.TSMI_BotSettings.Name = "TSMI_BotSettings"
         resources.ApplyResources(Me.TSMI_BotSettings, "TSMI_BotSettings")
+        Me.TSMI_BotSettings.Name = "TSMI_BotSettings"
         '
         'TSMI_RandomizeBots
         '
-        Me.TSMI_RandomizeBots.Name = "TSMI_RandomizeBots"
         resources.ApplyResources(Me.TSMI_RandomizeBots, "TSMI_RandomizeBots")
+        Me.TSMI_RandomizeBots.Name = "TSMI_RandomizeBots"
         '
         'TSMI_ResetBots
         '
-        Me.TSMI_ResetBots.Name = "TSMI_ResetBots"
         resources.ApplyResources(Me.TSMI_ResetBots, "TSMI_ResetBots")
+        Me.TSMI_ResetBots.Name = "TSMI_ResetBots"
         '
         'ToolStripMenuItem6
         '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
         resources.ApplyResources(Me.ToolStripMenuItem6, "ToolStripMenuItem6")
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
         '
         'TSMI_Launcher
         '
-        Me.TSMI_Launcher.Name = "TSMI_Launcher"
         resources.ApplyResources(Me.TSMI_Launcher, "TSMI_Launcher")
+        Me.TSMI_Launcher.Name = "TSMI_Launcher"
         '
         'NotifyIcon_SPP2
         '
-        Me.NotifyIcon_SPP2.ContextMenuStrip = Me.ContextMenu_SPP2
         resources.ApplyResources(Me.NotifyIcon_SPP2, "NotifyIcon_SPP2")
+        Me.NotifyIcon_SPP2.ContextMenuStrip = Me.ContextMenu_SPP2
         '
         'ContextMenu_SPP2
         '
+        resources.ApplyResources(Me.ContextMenu_SPP2, "ContextMenu_SPP2")
         Me.ContextMenu_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_OpenLauncher, Me.ToolStripMenuItem7, Me.TSMI_CloseLauncher})
         Me.ContextMenu_SPP2.Name = "ContextMenu_SPP2"
-        resources.ApplyResources(Me.ContextMenu_SPP2, "ContextMenu_SPP2")
         '
         'TSMI_OpenLauncher
         '
-        Me.TSMI_OpenLauncher.Name = "TSMI_OpenLauncher"
         resources.ApplyResources(Me.TSMI_OpenLauncher, "TSMI_OpenLauncher")
+        Me.TSMI_OpenLauncher.Name = "TSMI_OpenLauncher"
         '
         'ToolStripMenuItem7
         '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
         resources.ApplyResources(Me.ToolStripMenuItem7, "ToolStripMenuItem7")
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
         '
         'TSMI_CloseLauncher
         '
+        resources.ApplyResources(Me.TSMI_CloseLauncher, "TSMI_CloseLauncher")
         Me.TSMI_CloseLauncher.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.close
         Me.TSMI_CloseLauncher.Name = "TSMI_CloseLauncher"
-        resources.ApplyResources(Me.TSMI_CloseLauncher, "TSMI_CloseLauncher")
         '
         'ContextMenuStrip_Console
         '
+        resources.ApplyResources(Me.ContextMenuStrip_Console, "ContextMenuStrip_Console")
         Me.ContextMenuStrip_Console.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Copy})
         Me.ContextMenuStrip_Console.Name = "ContextMenuStrip_Console"
-        resources.ApplyResources(Me.ContextMenuStrip_Console, "ContextMenuStrip_Console")
         '
         'TSMI_Copy
         '
-        Me.TSMI_Copy.Name = "TSMI_Copy"
         resources.ApplyResources(Me.TSMI_Copy, "TSMI_Copy")
+        Me.TSMI_Copy.Name = "TSMI_Copy"
         '
         'TextBox_Command
         '
+        resources.ApplyResources(Me.TextBox_Command, "TextBox_Command")
         Me.TextBox_Command.BackColor = System.Drawing.Color.Silver
         Me.TextBox_Command.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.TextBox_Command, "TextBox_Command")
         Me.TextBox_Command.ForeColor = System.Drawing.Color.Black
         Me.TextBox_Command.Name = "TextBox_Command"
         '
@@ -422,42 +428,42 @@ Partial Class Launcher
         '
         'TabPage_MySQL
         '
+        resources.ApplyResources(Me.TabPage_MySQL, "TabPage_MySQL")
         Me.TabPage_MySQL.BackColor = System.Drawing.Color.Transparent
         Me.TabPage_MySQL.Controls.Add(Me.RichTextBox_ConsoleMySQL)
-        resources.ApplyResources(Me.TabPage_MySQL, "TabPage_MySQL")
         Me.TabPage_MySQL.Name = "TabPage_MySQL"
         '
         'RichTextBox_ConsoleMySQL
         '
+        resources.ApplyResources(Me.RichTextBox_ConsoleMySQL, "RichTextBox_ConsoleMySQL")
         Me.RichTextBox_ConsoleMySQL.BackColor = System.Drawing.Color.Black
         Me.RichTextBox_ConsoleMySQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RichTextBox_ConsoleMySQL.ContextMenuStrip = Me.ContextMenuStrip_Console
-        resources.ApplyResources(Me.RichTextBox_ConsoleMySQL, "RichTextBox_ConsoleMySQL")
         Me.RichTextBox_ConsoleMySQL.ForeColor = System.Drawing.Color.DarkGreen
         Me.RichTextBox_ConsoleMySQL.Name = "RichTextBox_ConsoleMySQL"
         Me.RichTextBox_ConsoleMySQL.ReadOnly = True
         '
         'TabPage_Realmd
         '
-        Me.TabPage_Realmd.Controls.Add(Me.RichTextBox_ConsoleRealmd)
         resources.ApplyResources(Me.TabPage_Realmd, "TabPage_Realmd")
+        Me.TabPage_Realmd.Controls.Add(Me.RichTextBox_ConsoleRealmd)
         Me.TabPage_Realmd.Name = "TabPage_Realmd"
         Me.TabPage_Realmd.UseVisualStyleBackColor = True
         '
         'RichTextBox_ConsoleRealmd
         '
+        resources.ApplyResources(Me.RichTextBox_ConsoleRealmd, "RichTextBox_ConsoleRealmd")
         Me.RichTextBox_ConsoleRealmd.BackColor = System.Drawing.Color.Black
         Me.RichTextBox_ConsoleRealmd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.RichTextBox_ConsoleRealmd.ContextMenuStrip = Me.ContextMenuStrip_Console
-        resources.ApplyResources(Me.RichTextBox_ConsoleRealmd, "RichTextBox_ConsoleRealmd")
         Me.RichTextBox_ConsoleRealmd.ForeColor = System.Drawing.Color.Green
         Me.RichTextBox_ConsoleRealmd.Name = "RichTextBox_ConsoleRealmd"
         Me.RichTextBox_ConsoleRealmd.ReadOnly = True
         '
         'TabPage_World
         '
-        Me.TabPage_World.Controls.Add(Me.RichTextBox_ConsoleWorld)
         resources.ApplyResources(Me.TabPage_World, "TabPage_World")
+        Me.TabPage_World.Controls.Add(Me.RichTextBox_ConsoleWorld)
         Me.TabPage_World.Name = "TabPage_World"
         Me.TabPage_World.UseVisualStyleBackColor = True
         '
@@ -559,4 +565,5 @@ Partial Class Launcher
     Friend WithEvents TabPage_World As TabPage
     Private WithEvents RichTextBox_ConsoleWorld As RichTextBox
     Friend WithEvents ToolStripMenuItem6 As ToolStripSeparator
+    Friend WithEvents TSSL_Count As ToolStripStatusLabel
 End Class

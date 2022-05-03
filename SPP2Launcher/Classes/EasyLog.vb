@@ -520,7 +520,7 @@ Public Class EasyLog
     ''' <param name="useBackgroundTask"></param>
     ''' <returns></returns>
     Public Function WriteSQL(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage(message, Severity.SQL, useBackgroundTask)
+        Return WriteMessage("SQL: " & message, Severity.SQL, useBackgroundTask)
     End Function
 
     ''' <summary>
