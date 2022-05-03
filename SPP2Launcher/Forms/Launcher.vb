@@ -473,8 +473,15 @@ Public Class Launcher
             TSMI_ServerSwitcher.Visible = True
             TSMI_SepSrv1.Visible = True
         End If
+
         ' Устанавливаем тему консоли.
         SetConsoleTheme()
+
+        ' Если установлен автостарт серверов WoW
+        If ServerWowAutostart AndAlso My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then
+            ' Запускаем встроенный MySQL - дальше чекинги сделают всё необходимое
+            TimerStartMySQL.Change(2000, 2000)
+        End If
     End Sub
 
 #End Region
@@ -710,6 +717,7 @@ Public Class Launcher
                     Exit Sub
             End Select
         End If
+
         If host = "" Or port = "" Then Exit Sub
         Dim tcpClient = New Net.Sockets.TcpClient
         Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
