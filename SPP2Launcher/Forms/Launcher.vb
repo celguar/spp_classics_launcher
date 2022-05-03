@@ -78,7 +78,7 @@ Public Class Launcher
 
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
 
-    Private _NeedServerStart As Boolean
+    Private _needServerStart As Boolean
 
     ''' <summary>
     ''' Хранит команду ручного запуска сервера.
@@ -476,8 +476,9 @@ Public Class Launcher
 
         ' Если установлен автостарт серверов WoW
         If ServerWowAutostart AndAlso My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then
-            ' Запускаем встроенный MySQL - дальше чекинги сделают всё необходимое
-            TimerStartMySQL.Change(2000, 2000)
+            ' Запускаем встроенный MySQL
+            TimerStartMySQL.Change(500, 500)
+            _needServerStart = True
         Else
             ' Если автозапуск MySQL сервера
             If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
@@ -730,7 +731,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.red_ball
-                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_red
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                              Else
@@ -740,7 +741,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     ' Меняем иконку в трее, коли свёрнуты
-                    If Me.ServerWowAutostart Or _isLastCommandStart Then
+                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                     Else
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -753,7 +754,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.green_ball
-                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  If Not _RealmdON Or Not _worldON Then
                                                                      Me.Icon = My.Resources.cmangos_orange
                                                                      Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
@@ -765,7 +766,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     ' Меняем иконку в трее, коли свёрнуты
-                    If Me.ServerWowAutostart Or _isLastCommandStart Then
+                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                         If Not _RealmdON Or Not _worldON Then
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                         End If
@@ -779,7 +780,7 @@ Public Class Launcher
             If Me.Visible Then
                 TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                          TSSL_MySQL.Image = My.Resources.red_ball
-                                                         If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                         If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                              Me.Icon = My.Resources.cmangos_red
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                          Else
@@ -789,7 +790,7 @@ Public Class Launcher
                                                      End Sub)
             Else
                 ' Меняем иконку в трее, коли свёрнуты
-                If Me.ServerWowAutostart Or _isLastCommandStart Then
+                If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                 Else
                     Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -802,16 +803,16 @@ Public Class Launcher
             If _MySqlON Then
 
                 ' Если установлен автозапуск сервера Apache
-                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP Or _isLastCommandStart Then
-                    ' Включаем Apache через 1,5 сек.
-                    TimerStartApache.Change(1500, 1500)
+                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not _apacheON Then
+                    ' Включаем Apache через 0,5 сек.
+                    TimerStartApache.Change(500, 500)
                 End If
 
                 ' Проверить на флаг остановки
-                If Not _NeedServerStop Then
+                If Not NeedServerStop Then
 
                     ' Поступил запрос на запуск серверов WoW
-                    If _NeedServerStart Then
+                    If _needServerStart Then
                         ' Запускаем World через 1 сек.
                         TimerStartWorld.Change(1000, 1000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
@@ -819,27 +820,8 @@ Public Class Launcher
                         TimerStartRealmd.Change(3000, 3000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "realmd", "1000"))
                         ' Выключаем флаг ручного запуска сервера
-                        _NeedServerStart = False
+                        _needServerStart = False
                     End If
-
-                    ' Если установлен Автозапуск серверов WoW
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            If My.Settings.ServerClassicAutostart Then
-                                TimerStartWorld.Change(1000, 1000)
-                                TimerStartRealmd.Change(2000, 2000)
-                            End If
-                        Case GV.EModule.Tbc.ToString
-                            If My.Settings.ServerTbcAutostart Then
-                                TimerStartWorld.Change(1000, 1000)
-                                TimerStartRealmd.Change(2000, 2000)
-                            End If
-                        Case GV.EModule.Wotlk.ToString
-                            If My.Settings.ServerWotlkAutostart Then
-                                TimerStartWorld.Change(1000, 1000)
-                                TimerStartRealmd.Change(2000, 2000)
-                            End If
-                    End Select
 
                 End If
 
@@ -1110,7 +1092,7 @@ Public Class Launcher
         ' Ожидаем завершения первоначального запуска
         If StartThreadCompleted Then
             SyncLock lockWorld
-                If _MySqlON And Not _NeedExitLauncher And Not _NeedServerStop And Not _worldON And IsNothing(_WorldProcess) Then
+                If _MySqlON And Not _NeedExitLauncher And Not NeedServerStop And Not _worldON And IsNothing(_WorldProcess) Then
                     GV.Log.WriteAll(My.Resources.P015_WorldStart)
 
                     ' Исключаем повторный запуск World
@@ -1203,7 +1185,6 @@ Public Class Launcher
                     _iniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
                     _iniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
                     _iniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
-
 
                     ' Создаём информацию о процессе
                     Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileWorld) With {
@@ -1343,7 +1324,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_World.GetCurrentParent().Invoke(Sub()
                                                              TSSL_World.Image = My.Resources.red_ball
-                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_red
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                              Else
@@ -1354,7 +1335,7 @@ Public Class Launcher
                 Else
                     Try
                         ' Меняем иконку в трее, коли свёрнуты
-                        If Me.ServerWowAutostart Or _isLastCommandStart Then
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                         Else
                             Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1369,7 +1350,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_World.GetCurrentParent().Invoke(Sub()
                                                              TSSL_World.Image = My.Resources.green_ball
-                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Select Case My.Settings.LastLoadedServerType
                                                                      Case GV.EModule.Classic.ToString
                                                                          Me.Icon = My.Resources.cmangos_classic
@@ -1390,7 +1371,7 @@ Public Class Launcher
                 Else
                     Try
                         ' Меняем иконку в трее, коли свёрнуты
-                        If Me.ServerWowAutostart Or _isLastCommandStart Then
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                             Select Case My.Settings.LastLoadedServerType
                                 Case GV.EModule.Classic.ToString
                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
@@ -1411,7 +1392,7 @@ Public Class Launcher
                 _worldON = False
                 TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                          TSSL_World.Image = My.Resources.red_ball
-                                                         If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                         If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                              Me.Icon = My.Resources.cmangos_orange
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                          Else
@@ -1422,7 +1403,7 @@ Public Class Launcher
             Else
                 Try
                     ' Меняем иконку в трее, коли свёрнуты
-                    If Me.ServerWowAutostart Or _isLastCommandStart Then
+                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                     Else
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1444,11 +1425,11 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartRealmd(ob As Object)
         SyncLock lockRealmd
-            If _mysqlON And Not _NeedServerStop And Not _realmdON And IsNothing(_RealmdProcess) Then
+            If _MySqlON And Not NeedServerStop And Not _RealmdON And IsNothing(_RealmdProcess) Then
                 GV.Log.WriteAll(My.Resources.P030_RealmdStart)
 
                 ' Исключаем повторный запуск Realmd
-                _realmdON = True
+                _RealmdON = True
 
                 Dim value As String = ""
                 If My.Settings.UseIntMySQL Then
@@ -1534,7 +1515,7 @@ Public Class Launcher
                     End If
                 Catch ex As Exception
                     ' Realmd выдал исключение
-                    _realmdON = False
+                    _RealmdON = False
                     Try
                         _RealmdProcess.Dispose()
                     Catch
@@ -1613,7 +1594,7 @@ Public Class Launcher
                     If Me.Visible Then
                         TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                                  TSSL_Realm.Image = My.Resources.red_ball
-                                                                 If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                                 If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                      Me.Icon = My.Resources.cmangos_red
                                                                      Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                                  Else
@@ -1624,7 +1605,7 @@ Public Class Launcher
                     Else
                         Try
                             ' Меняем иконку в трее, коли свёрнуты
-                            If Me.ServerWowAutostart Or _isLastCommandStart Then
+                            If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                             Else
                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1639,7 +1620,7 @@ Public Class Launcher
                     If Me.Visible Then
                         TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                                  TSSL_Realm.Image = My.Resources.green_ball
-                                                                 If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                                 If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                      If Not _worldON Then
                                                                          Me.Icon = My.Resources.cmangos_realmd_started
                                                                          Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
@@ -1650,7 +1631,7 @@ Public Class Launcher
                                                                  End If
                                                              End Sub)
                     Else
-                        If Me.ServerWowAutostart Or _isLastCommandStart Then
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                             If Not _worldON Then
                                 Try
                                     ' Меняем иконку в трее, коли свёрнуты
@@ -1672,7 +1653,7 @@ Public Class Launcher
                     _realmdON = False
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.red_ball
-                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_orange
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                              Else
@@ -1682,7 +1663,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     Try
-                        If Me.ServerWowAutostart Or _isLastCommandStart Then
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
                             ' Меняем иконку в трее, коли свёрнуты
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                         Else
