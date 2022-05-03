@@ -889,7 +889,7 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub StartApache(obj As Object)
-        If My.Settings.UseIntApache And GetApachePid() = 0 Then
+        If Not _apacheON Then
             _apacheON = True
             GV.Log.WriteAll(My.Resources.Apache002_Start)
             ' Разбираемся с настройками Apache
@@ -949,9 +949,6 @@ Public Class Launcher
                 MessageBox.Show(My.Resources.E010_ApacheException & vbLf & ex.Message,
                                 My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-        Else
-            TimerStartApache.Change(2000, 2000)
-            GV.Log.WriteWarning(My.Resources.P041_ThereIsProblemsApache)
         End If
     End Sub
 

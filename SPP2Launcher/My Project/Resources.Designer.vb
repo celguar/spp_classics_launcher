@@ -780,15 +780,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Пока есть проблемы с запуском Apache. Отложено на 2 сек....
-        '''</summary>
-        Friend ReadOnly Property P041_ThereIsProblemsApache() As String
-            Get
-                Return ResourceManager.GetString("P041_ThereIsProblemsApache", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property red_ball() As System.Drawing.Bitmap
