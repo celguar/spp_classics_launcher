@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Проверьте значения атрибутов сборки
 
 <Assembly: AssemblyTitle("SPP2Launcher")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("Application for launching the WoW server from the Single Player Project v2 CMaNGOS Core")>
+<Assembly: AssemblyCompany("RafStudio inc.")>
 <Assembly: AssemblyProduct("SPP2Launcher")>
-<Assembly: AssemblyCopyright("Copyright ©  2022")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCopyright("Copyright © RafStudio inc. 2022")>
+<Assembly: AssemblyTrademark("DevCake")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' используя "*", как показано ниже:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.158.1.12")>
-<Assembly: AssemblyFileVersion("0.158.1.12")>
+<Assembly: AssemblyVersion("0.158.1.116")>
+<Assembly: AssemblyFileVersion("0.158.1.116")>

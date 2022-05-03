@@ -163,7 +163,7 @@ Public Class GV
             Exit Sub
         End Try
 
-        ' Устанавливаем локаль из настроек (типа плюём на системные настройки)
+        ' Устанавливаем локаль из настроек
         CI = New Globalization.CultureInfo(My.Settings.Locale)
         Threading.Thread.CurrentThread.CurrentUICulture = New System.Globalization.CultureInfo(GV.CI.Name)
         Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo(GV.CI.Name)

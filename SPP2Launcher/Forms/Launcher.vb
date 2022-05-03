@@ -41,10 +41,9 @@ Public Class Launcher
     Friend ReadOnly Property NeedServerStop As Boolean
 
     ''' <summary>
-    ''' Флаг немедленного запуска серверов WoW.
+    ''' Флаг автоматического запуска сервера WoW. 
     ''' </summary>
-    ''' <returns></returns>
-    Friend ReadOnly Property NeedServerStart As Boolean
+    Friend ReadOnly Property ServerWowAutostart As Boolean
 
     ''' <summary>
     ''' Флаг разрешения закрытия лаунчера.
@@ -79,8 +78,10 @@ Public Class Launcher
 
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
 
+    Private _NeedServerStart As Boolean
+
     ''' <summary>
-    ''' Хранит команду запуска сервера.
+    ''' Хранит команду ручного запуска сервера.
     ''' </summary>
     Private _isLastCommandStart As Boolean
 
@@ -389,7 +390,6 @@ Public Class Launcher
         End If
         ' Заголовок приложения
         Dim srv As String = ""
-        Dim autostart As Boolean
         Select Case My.Settings.LastLoadedServerType
 
             Case GV.EModule.Classic.ToString
@@ -399,8 +399,7 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\"
-                My.Settings.WorldConsoleForeColor = Color.DarkGoldenrod
-                autostart = My.Settings.ServerClassicAutostart
+                _ServerWowAutostart = My.Settings.ServerClassicAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_classic_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
 
@@ -411,8 +410,7 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\"
-                My.Settings.WorldConsoleForeColor = Color.Green
-                autostart = My.Settings.ServerTbcAutostart
+                _ServerWowAutostart = My.Settings.ServerTbcAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_tbc_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
 
@@ -423,8 +421,7 @@ Public Class Launcher
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\"
-                My.Settings.WorldConsoleForeColor = Color.LightSeaGreen
-                autostart = My.Settings.ServerWotlkAutostart
+                _ServerWowAutostart = My.Settings.ServerWotlkAutostart
                 TSMI_OpenLauncher.Image = My.Resources.cmangos_wotlk_core
                 GV.Log.WriteInfo(String.Format(My.Resources.P026_SettingsApplied, srv))
 
@@ -443,21 +440,16 @@ Public Class Launcher
         Dim fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
 
         ' Realmd
-        Dim ink() = _iniRealmd.ReadString("RealmdConf", "LogColors").Split(" "c)
-        'My.Settings.RealmdConsoleForeColor = Drawing.Color.FromArgb(CInt(ink(3)), CInt(ink(2)), CInt(ink(1)), CInt(ink(0)))
         RichTextBox_ConsoleRealmd.ForeColor = My.Settings.RealmdConsoleForeColor
         RichTextBox_ConsoleRealmd.BackColor = bc
         RichTextBox_ConsoleRealmd.Font = fnt
 
         ' World
-        ink = _iniWorld.ReadString("MangosdConf", "LogColors").Split(" "c)
-        'My.Settings.WorldConsoleForeColor = Drawing.Color.FromArgb(CInt(ink(0)), CInt(ink(1)), CInt(ink(2)), CInt(ink(3)))
         RichTextBox_ConsoleWorld.ForeColor = My.Settings.WorldConsoleForeColor
         RichTextBox_ConsoleWorld.BackColor = bc
         RichTextBox_ConsoleWorld.Font = fnt
 
         ' MySQL
-        'fnt = LoadFont()
         RichTextBox_ConsoleMySQL.ForeColor = Color.Green
         RichTextBox_ConsoleMySQL.BackColor = bc
         RichTextBox_ConsoleMySQL.Font = fnt
@@ -467,10 +459,12 @@ Public Class Launcher
         BP.AddProcess(GV.EProcess.World)
         If Not IsNothing(PC) Then PC.Abort()
         PC = New Threading.Thread(Sub() Controller()) With {.IsBackground = True}
+        PC.CurrentCulture = GV.CI
+        PC.CurrentUICulture = GV.CI
         PC.Start()
 
         ' Разбираемся с пунктом меню смены типа сервера
-        If autostart Then
+        If _ServerWowAutostart Then
             ' Прячем меню смены сервера
             TSMI_ServerSwitcher.Visible = False
             TSMI_SepSrv1.Visible = False
@@ -683,21 +677,17 @@ Public Class Launcher
     ''' </summary>
     Friend Sub CheckMySQL()
         Dim host, port As String
-        Dim autostart As Boolean
         If My.Settings.UseIntMySQL Then
             Select Case My.Settings.LastLoadedServerType
                 Case GV.EModule.Classic.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerClassicAutostart
                 Case GV.EModule.Tbc.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerTbcAutostart
                 Case GV.EModule.Wotlk.ToString
                     host = My.Settings.MySqlClassicIntHost
                     port = My.Settings.MySqlClassicIntPort
-                    autostart = My.Settings.ServerWotlkAutostart
                 Case Else
                     ' Неизвестный модуль
                     GV.Log.WriteAll(My.Resources.E008_UnknownModule)
@@ -708,15 +698,12 @@ Public Class Launcher
                 Case GV.EModule.Classic.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerClassicAutostart
                 Case GV.EModule.Tbc.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerTbcAutostart
                 Case GV.EModule.Wotlk.ToString
                     host = My.Settings.MySqlClassicExtHost
                     port = My.Settings.MySqlClassicExtPort
-                    autostart = My.Settings.ServerWotlkAutostart
                 Case Else
                     ' Неизвестный модуль
                     GV.Log.WriteAll(My.Resources.E008_UnknownModule)
@@ -732,7 +719,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.red_ball
-                                                             If autostart Or _isLastCommandStart Then
+                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_red
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                              Else
@@ -742,7 +729,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     ' Меняем иконку в трее, коли свёрнуты
-                    If autostart Or _isLastCommandStart Then
+                    If Me.ServerWowAutostart Or _isLastCommandStart Then
                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                     Else
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -755,7 +742,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.green_ball
-                                                             If autostart Or _isLastCommandStart Then
+                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  If Not _RealmdON Or Not _worldON Then
                                                                      Me.Icon = My.Resources.cmangos_orange
                                                                      Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
@@ -767,7 +754,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     ' Меняем иконку в трее, коли свёрнуты
-                    If autostart Or _isLastCommandStart Then
+                    If Me.ServerWowAutostart Or _isLastCommandStart Then
                         If Not _RealmdON Or Not _worldON Then
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                         End If
@@ -781,7 +768,7 @@ Public Class Launcher
             If Me.Visible Then
                 TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                          TSSL_MySQL.Image = My.Resources.red_ball
-                                                         If autostart Or _isLastCommandStart Then
+                                                         If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                              Me.Icon = My.Resources.cmangos_red
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                          Else
@@ -791,7 +778,7 @@ Public Class Launcher
                                                      End Sub)
             Else
                 ' Меняем иконку в трее, коли свёрнуты
-                If autostart Or _isLastCommandStart Then
+                If Me.ServerWowAutostart Or _isLastCommandStart Then
                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                 Else
                     Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -804,7 +791,7 @@ Public Class Launcher
             If _MySqlON Then
 
                 ' Если установлен автозапуск сервера Apache
-                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not _apacheON And GetApachePid() = 0 Then
+                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP Or _isLastCommandStart Then
                     ' Включаем Apache через 1,5 сек.
                     TimerStartApache.Change(1500, 1500)
                 End If
@@ -850,13 +837,6 @@ Public Class Launcher
             End If
         End Try
         ac.AsyncWaitHandle.Close()
-    End Sub
-
-    ''' <summary>
-    ''' Изменяет иконку приложения.
-    ''' </summary>
-    Private Sub ChangeIcons()
-
     End Sub
 
 #End Region
@@ -1290,7 +1270,7 @@ Public Class Launcher
                 Try
                     If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
                         id = process.Id
-                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf, Color.YellowGreen)
                         ' Выполняем автосохранение БД
                         AutoSave()
                         If _worldON Then
@@ -1324,10 +1304,14 @@ Public Class Launcher
 
             ' Выключаем Realmd
             ShutdownRealmd()
-
         End If
+
         ' Завершаем остановку сервера World в потоке
-        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers)) With {.IsBackground = True}
+        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers)) With {
+            .CurrentUICulture = GV.CI,
+            .CurrentCulture = GV.CI,
+            .IsBackground = True
+        }
         sw.Start()
     End Sub
 
@@ -1340,35 +1324,6 @@ Public Class Launcher
         Dim port = _iniWorld.ReadString("MangosdConf", "WorldServerPort", "8085")
         Dim tcpClient = New Net.Sockets.TcpClient
         Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
-        Dim autostart As Boolean
-
-        If My.Settings.UseIntMySQL Then
-            Select Case My.Settings.LastLoadedServerType
-                Case GV.EModule.Classic.ToString
-                    autostart = My.Settings.ServerClassicAutostart
-                Case GV.EModule.Tbc.ToString
-                    autostart = My.Settings.ServerTbcAutostart
-                Case GV.EModule.Wotlk.ToString
-                    autostart = My.Settings.ServerWotlkAutostart
-                Case Else
-                    ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                    Exit Sub
-            End Select
-        Else
-            Select Case My.Settings.LastLoadedServerType
-                Case GV.EModule.Classic.ToString
-                    autostart = My.Settings.ServerClassicAutostart
-                Case GV.EModule.Tbc.ToString
-                    autostart = My.Settings.ServerTbcAutostart
-                Case GV.EModule.Wotlk.ToString
-                    autostart = My.Settings.ServerWotlkAutostart
-                Case Else
-                    ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                    Exit Sub
-            End Select
-        End If
 
         Try
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
@@ -1377,7 +1332,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_World.GetCurrentParent().Invoke(Sub()
                                                              TSSL_World.Image = My.Resources.red_ball
-                                                             If autostart Or _isLastCommandStart Then
+                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_red
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                              Else
@@ -1388,7 +1343,7 @@ Public Class Launcher
                 Else
                     Try
                         ' Меняем иконку в трее, коли свёрнуты
-                        If autostart Or _isLastCommandStart Then
+                        If Me.ServerWowAutostart Or _isLastCommandStart Then
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                         Else
                             Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1403,7 +1358,7 @@ Public Class Launcher
                 If Me.Visible Then
                     TSSL_World.GetCurrentParent().Invoke(Sub()
                                                              TSSL_World.Image = My.Resources.green_ball
-                                                             If autostart Or _isLastCommandStart Then
+                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Select Case My.Settings.LastLoadedServerType
                                                                      Case GV.EModule.Classic.ToString
                                                                          Me.Icon = My.Resources.cmangos_classic
@@ -1424,7 +1379,7 @@ Public Class Launcher
                 Else
                     Try
                         ' Меняем иконку в трее, коли свёрнуты
-                        If autostart Or _isLastCommandStart Then
+                        If Me.ServerWowAutostart Or _isLastCommandStart Then
                             Select Case My.Settings.LastLoadedServerType
                                 Case GV.EModule.Classic.ToString
                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
@@ -1445,7 +1400,7 @@ Public Class Launcher
                 _worldON = False
                 TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                          TSSL_World.Image = My.Resources.red_ball
-                                                         If autostart Or _isLastCommandStart Then
+                                                         If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                              Me.Icon = My.Resources.cmangos_orange
                                                              Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                          Else
@@ -1456,7 +1411,7 @@ Public Class Launcher
             Else
                 Try
                     ' Меняем иконку в трее, коли свёрнуты
-                    If autostart Or _isLastCommandStart Then
+                    If Me.ServerWowAutostart Or _isLastCommandStart Then
                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                     Else
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1612,7 +1567,7 @@ Public Class Launcher
                         Try
                             process.Kill()
                             Thread.Sleep(100)
-                            UpdateRealmdConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf)
+                            UpdateRealmdConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf, Color.YellowGreen)
                         Catch
                         End Try
                     End If
@@ -1639,44 +1594,15 @@ Public Class Launcher
             Dim port = _iniRealmd.ReadString("RealmdConf", "RealmServerPort", "3724")
             Dim tcpClient = New Net.Sockets.TcpClient
             Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
-            Dim autostart As Boolean
-
-            If My.Settings.UseIntMySQL Then
-                Select Case My.Settings.LastLoadedServerType
-                    Case GV.EModule.Classic.ToString
-                        autostart = My.Settings.ServerClassicAutostart
-                    Case GV.EModule.Tbc.ToString
-                        autostart = My.Settings.ServerTbcAutostart
-                    Case GV.EModule.Wotlk.ToString
-                        autostart = My.Settings.ServerWotlkAutostart
-                    Case Else
-                        ' Неизвестный модуль
-                        GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                        Exit Sub
-                End Select
-            Else
-                Select Case My.Settings.LastLoadedServerType
-                    Case GV.EModule.Classic.ToString
-                        autostart = My.Settings.ServerClassicAutostart
-                    Case GV.EModule.Tbc.ToString
-                        autostart = My.Settings.ServerTbcAutostart
-                    Case GV.EModule.Wotlk.ToString
-                        autostart = My.Settings.ServerWotlkAutostart
-                    Case Else
-                        ' Неизвестный модуль
-                        GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                        Exit Sub
-                End Select
-            End If
 
             Try
                 If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                     tcpClient.Close()
-                    _realmdON = False
+                    _RealmdON = False
                     If Me.Visible Then
                         TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                                  TSSL_Realm.Image = My.Resources.red_ball
-                                                                 If autostart Or _isLastCommandStart Then
+                                                                 If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                      Me.Icon = My.Resources.cmangos_red
                                                                      Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                                                                  Else
@@ -1687,7 +1613,7 @@ Public Class Launcher
                     Else
                         Try
                             ' Меняем иконку в трее, коли свёрнуты
-                            If autostart Or _isLastCommandStart Then
+                            If Me.ServerWowAutostart Or _isLastCommandStart Then
                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                             Else
                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1698,11 +1624,11 @@ Public Class Launcher
                 Else
                     tcpClient.EndConnect(ac)
                     tcpClient.Close()
-                    _realmdON = True
+                    _RealmdON = True
                     If Me.Visible Then
                         TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                                  TSSL_Realm.Image = My.Resources.green_ball
-                                                                 If autostart Or _isLastCommandStart Then
+                                                                 If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                      If Not _worldON Then
                                                                          Me.Icon = My.Resources.cmangos_realmd_started
                                                                          Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
@@ -1713,7 +1639,7 @@ Public Class Launcher
                                                                  End If
                                                              End Sub)
                     Else
-                        If autostart Or _isLastCommandStart Then
+                        If Me.ServerWowAutostart Or _isLastCommandStart Then
                             If Not _worldON Then
                                 Try
                                     ' Меняем иконку в трее, коли свёрнуты
@@ -1735,7 +1661,7 @@ Public Class Launcher
                     _realmdON = False
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.red_ball
-                                                             If autostart Or _isLastCommandStart Then
+                                                             If Me.ServerWowAutostart Or _isLastCommandStart Then
                                                                  Me.Icon = My.Resources.cmangos_orange
                                                                  Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
                                                              Else
@@ -1745,7 +1671,7 @@ Public Class Launcher
                                                          End Sub)
                 Else
                     Try
-                        If autostart Or _isLastCommandStart Then
+                        If Me.ServerWowAutostart Or _isLastCommandStart Then
                             ' Меняем иконку в трее, коли свёрнуты
                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
                         Else
@@ -1841,7 +1767,8 @@ Public Class Launcher
         _isLastCommandStart = False
         _NeedServerStop = True
         _NeedServerStart = False
-        ServerStop()
+        _NeedExitLauncher = False
+        ShutdownWorld(False)
     End Sub
 
     ''' <summary>
@@ -1852,15 +1779,6 @@ Public Class Launcher
         ' Сначала проверяем работу MySQL
         StartMySQL(Nothing)
         _needServerStart = True
-    End Sub
-
-    ''' <summary>
-    ''' Останавливает сервер WOW.
-    ''' </summary>
-    Friend Sub ServerStop()
-        _NeedExitLauncher = False
-        ShutdownWorld(False)
-        If My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then ShutdownMySQL()
     End Sub
 
     ''' <summary>
@@ -1923,14 +1841,14 @@ Public Class Launcher
         ConsoleCommandBuffer.Add(text)
         Dim t = String.Format(My.Resources.P036_YourSendCommand, text)
         GV.Log.WriteInfo(t)
-        OutWorldConsole(t)
+        OutWorldConsole(t, Color.YellowGreen)
         If Not IsNothing(_WorldProcess) Then
             _WorldProcess.StandardInput.WriteLine(text)
             If Not _worldON Then
-                OutWorldConsole(My.Resources.P037_WorldNotStarted)
+                OutWorldConsole(My.Resources.P037_WorldNotStarted, Color.YellowGreen)
             End If
         Else
-            OutWorldConsole(My.Resources.P037_WorldNotStarted)
+            OutWorldConsole(My.Resources.P037_WorldNotStarted, Color.YellowGreen)
         End If
     End Sub
 
@@ -1938,14 +1856,14 @@ Public Class Launcher
     ''' Вывод сообщения в консоль сервера World.
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
-    Friend Sub UpdateWorldConsole(text As String)
+    Friend Sub UpdateWorldConsole(text As String, color As Drawing.Color)
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             If Me.RichTextBox_ConsoleWorld.InvokeRequired Then
                 Me.RichTextBox_ConsoleWorld.Invoke(Sub()
-                                                       OutWorldConsole(text)
+                                                       OutWorldConsole(text, color)
                                                    End Sub)
             Else
-                OutWorldConsole(text)
+                OutWorldConsole(text, color)
             End If
         End If
     End Sub
@@ -1957,10 +1875,10 @@ Public Class Launcher
     ''' Прямой вывод в консоль World.
     ''' </summary>
     ''' <param name="text"></param>
-    Private Sub OutWorldConsole(text As String)
-        RichTextBox_ConsoleWorld.SelectionColor = My.Settings.WorldConsoleForeColor
+    Private Sub OutWorldConsole(text As String, color As Drawing.Color)
         Select Case RichTextBox_ConsoleWorld.Lines.Count
             Case 0
+                RichTextBox_ConsoleWorld.SelectionColor = color
                 RichTextBox_ConsoleWorld.AppendText(text)
                 RichTextBox_ConsoleWorld.ScrollToCaret()
             Case 500
@@ -1970,18 +1888,14 @@ Public Class Launcher
                 RichTextBox_ConsoleWorld.ReadOnly = False
                 RichTextBox_ConsoleWorld.SelectedText = String.Empty
                 RichTextBox_ConsoleWorld.ReadOnly = True
-                If oldMessage = "=" Then
-                    RichTextBox_ConsoleWorld.AppendText(text)
-                Else
-                    RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
-                End If
+                RichTextBox_ConsoleWorld.AppendText(vbCrLf)
+                RichTextBox_ConsoleWorld.SelectionColor = color
+                RichTextBox_ConsoleWorld.AppendText(text)
                 RichTextBox_ConsoleWorld.ScrollToCaret()
             Case Else
-                If oldMessage = "=" Then
-                    RichTextBox_ConsoleWorld.AppendText(text)
-                Else
-                    RichTextBox_ConsoleWorld.AppendText(vbCrLf & text)
-                End If
+                RichTextBox_ConsoleWorld.AppendText(vbCrLf)
+                RichTextBox_ConsoleWorld.SelectionColor = color
+                RichTextBox_ConsoleWorld.AppendText(text)
                 RichTextBox_ConsoleWorld.ScrollToCaret()
         End Select
         oldMessage = text
@@ -2045,7 +1959,7 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
     ''' <param name="ink">Цвет текста.</param>
-    Friend Sub UpdateMySQLConsole(text As String, ink As Color)
+    Friend Sub UpdateMySQLConsole(text As String, ink As Drawing.Color)
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             Me.RichTextBox_ConsoleMySQL.Invoke(Sub()
                                                    RichTextBox_ConsoleMySQL.SelectionColor = ink
@@ -2074,14 +1988,14 @@ Public Class Launcher
     ''' Вывод сообщения в консоль сервера Realmd.
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
-    Friend Sub UpdateRealmdConsole(ByVal text As String)
+    Friend Sub UpdateRealmdConsole(text As String, color As Drawing.Color)
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             If Me.RichTextBox_ConsoleRealmd.InvokeRequired Then
                 Me.RichTextBox_ConsoleRealmd.Invoke(Sub()
-                                                        OutRealmdConsole(text)
+                                                        OutRealmdConsole(text, color)
                                                     End Sub)
             Else
-                OutRealmdConsole(text)
+                OutRealmdConsole(text, color)
             End If
         End If
     End Sub
@@ -2090,10 +2004,10 @@ Public Class Launcher
     ''' Прямой вывод в консоль Realmd
     ''' </summary>
     ''' <param name="text"></param>
-    Private Sub OutRealmdConsole(text As String)
-        RichTextBox_ConsoleRealmd.SelectionColor = My.Settings.RealmdConsoleForeColor
+    Private Sub OutRealmdConsole(text As String, color As Drawing.Color)
         Select Case RichTextBox_ConsoleRealmd.Lines.Count
             Case 0
+                RichTextBox_ConsoleRealmd.SelectionColor = color
                 RichTextBox_ConsoleRealmd.AppendText(text)
                 RichTextBox_ConsoleRealmd.ScrollToCaret()
             Case 500
@@ -2103,10 +2017,14 @@ Public Class Launcher
                 RichTextBox_ConsoleRealmd.ReadOnly = False
                 RichTextBox_ConsoleRealmd.SelectedText = String.Empty
                 RichTextBox_ConsoleRealmd.ReadOnly = True
-                RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
+                RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
+                RichTextBox_ConsoleRealmd.SelectionColor = color
+                RichTextBox_ConsoleRealmd.AppendText(text)
                 RichTextBox_ConsoleRealmd.ScrollToCaret()
             Case Else
-                RichTextBox_ConsoleRealmd.AppendText(vbCrLf & text)
+                RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
+                RichTextBox_ConsoleRealmd.SelectionColor = color
+                RichTextBox_ConsoleRealmd.AppendText(text)
                 RichTextBox_ConsoleRealmd.ScrollToCaret()
         End Select
     End Sub

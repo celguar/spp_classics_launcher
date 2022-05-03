@@ -266,7 +266,7 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub RealmdOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
+        GV.SPP2Launcher.UpdateRealmdConsole(e.Data, My.Settings.RealmdConsoleForeColor)
     End Sub
 
     ''' <summary>
@@ -275,7 +275,7 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub RealmdErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data)
+        GV.SPP2Launcher.UpdateRealmdConsole(e.Data, Color.Red)
     End Sub
 
     ''' <summary>
@@ -284,7 +284,7 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateWorldConsole(e.Data)
+        GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
     End Sub
 
     ''' <summary>
@@ -293,7 +293,7 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateWorldConsole(e.Data)
+        GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
     End Sub
 
 #End Region
@@ -311,7 +311,7 @@ Module SPP2Helper
             Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
                       RegularExpressions.RegexOptions.ExplicitCapture)
             For Each line As String In s
-                GV.SPP2Launcher.UpdateWorldConsole(line)
+                GV.SPP2Launcher.UpdateWorldConsole(line, My.Settings.WorldConsoleForeColor)
                 Threading.Thread.Sleep(50)
             Next
         End If
@@ -395,8 +395,8 @@ Module SPP2Helper
         Loop
 
         GV.SPP2Launcher.StartThreadCompleted = Nothing
-        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf)
-        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf)
+        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
 
         Do
             ' Пауза в пол секунды
@@ -466,9 +466,9 @@ Module SPP2Helper
                                 control.WasLaunched = False
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
-                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf)
-                                    ' Устанавливаем перезапуск (если автостарт) через 10 секунд
-                                    If GV.SPP2Launcher.NeedServerStart Then TimerStartRealmd.Change(10000, 10000)
+                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf, Color.Red)
+                                    ' Устанавливаем перезапуск (если автостарт или Ручной запуск) через 10 секунд
+                                    If GV.SPP2Launcher.ServerWowAutostart Then TimerStartRealmd.Change(10000, 10000)
                                 End If
 
                             Case "mangosd"
@@ -476,9 +476,9 @@ Module SPP2Helper
                                 control.WasLaunched = False
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
-                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf)
-                                    ' Устанавливаем перезапуск (если автостарт) через 10 секунд
-                                    If GV.SPP2Launcher.NeedServerStart Then TimerStartWorld.Change(10000, 10000)
+                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf, Color.Red)
+                                    ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд
+                                    If GV.SPP2Launcher.ServerWowAutostart Then TimerStartWorld.Change(10000, 10000)
                                 End If
 
                         End Select
