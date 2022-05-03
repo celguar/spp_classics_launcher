@@ -33,23 +33,6 @@ Partial Class Launcher
         Me.TSSL_Online = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip_SPP2 = New System.Windows.Forms.MenuStrip()
         Me.TSMI_RunWow = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Settings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_LanguageTool = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_English = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Russian = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_ServerTools = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_World = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Bots = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_BotSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_RandomizeBots = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_ResetBots = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TSMI_Launcher = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Tools = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Characters = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Saves = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TSMI_Updates = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Server = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_ServerSwitcher = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_SepSrv1 = New System.Windows.Forms.ToolStripSeparator()
@@ -70,6 +53,23 @@ Partial Class Launcher
         Me.TSMI_ServerStop = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Server2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_ServerSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Tools = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Characters = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Saves = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TSMI_Updates = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Settings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_LanguageTool = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_English = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Russian = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_ServerTools = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_World = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Bots = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_BotSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_RandomizeBots = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_ResetBots = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TSMI_Launcher = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon_SPP2 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenu_SPP2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TSMI_OpenLauncher = New System.Windows.Forms.ToolStripMenuItem()
@@ -142,112 +142,20 @@ Partial Class Launcher
         '
         Me.MenuStrip_SPP2.BackColor = System.Drawing.Color.LightGray
         Me.MenuStrip_SPP2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_RunWow, Me.TSMI_Settings, Me.TSMI_Tools, Me.TSMI_Server})
+        Me.MenuStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_RunWow, Me.TSMI_Server, Me.TSMI_Tools, Me.TSMI_Settings})
         resources.ApplyResources(Me.MenuStrip_SPP2, "MenuStrip_SPP2")
         Me.MenuStrip_SPP2.Name = "MenuStrip_SPP2"
         '
         'TSMI_RunWow
         '
+        Me.TSMI_RunWow.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.game
         Me.TSMI_RunWow.Name = "TSMI_RunWow"
         resources.ApplyResources(Me.TSMI_RunWow, "TSMI_RunWow")
-        '
-        'TSMI_Settings
-        '
-        Me.TSMI_Settings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_LanguageTool, Me.TSMI_ServerTools, Me.TSMI_Bots, Me.ToolStripMenuItem6, Me.TSMI_Launcher})
-        Me.TSMI_Settings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
-        Me.TSMI_Settings.Name = "TSMI_Settings"
-        resources.ApplyResources(Me.TSMI_Settings, "TSMI_Settings")
-        '
-        'TSMI_LanguageTool
-        '
-        Me.TSMI_LanguageTool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_English, Me.TSMI_Russian})
-        Me.TSMI_LanguageTool.Name = "TSMI_LanguageTool"
-        resources.ApplyResources(Me.TSMI_LanguageTool, "TSMI_LanguageTool")
-        '
-        'TSMI_English
-        '
-        Me.TSMI_English.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.en
-        resources.ApplyResources(Me.TSMI_English, "TSMI_English")
-        Me.TSMI_English.Name = "TSMI_English"
-        '
-        'TSMI_Russian
-        '
-        Me.TSMI_Russian.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.ru
-        resources.ApplyResources(Me.TSMI_Russian, "TSMI_Russian")
-        Me.TSMI_Russian.Name = "TSMI_Russian"
-        '
-        'TSMI_ServerTools
-        '
-        Me.TSMI_ServerTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_World})
-        Me.TSMI_ServerTools.Name = "TSMI_ServerTools"
-        resources.ApplyResources(Me.TSMI_ServerTools, "TSMI_ServerTools")
-        '
-        'TSMI_World
-        '
-        Me.TSMI_World.Name = "TSMI_World"
-        resources.ApplyResources(Me.TSMI_World, "TSMI_World")
-        '
-        'TSMI_Bots
-        '
-        Me.TSMI_Bots.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_BotSettings, Me.TSMI_RandomizeBots, Me.TSMI_ResetBots})
-        Me.TSMI_Bots.Name = "TSMI_Bots"
-        resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
-        '
-        'TSMI_BotSettings
-        '
-        Me.TSMI_BotSettings.Name = "TSMI_BotSettings"
-        resources.ApplyResources(Me.TSMI_BotSettings, "TSMI_BotSettings")
-        '
-        'TSMI_RandomizeBots
-        '
-        Me.TSMI_RandomizeBots.Name = "TSMI_RandomizeBots"
-        resources.ApplyResources(Me.TSMI_RandomizeBots, "TSMI_RandomizeBots")
-        '
-        'TSMI_ResetBots
-        '
-        Me.TSMI_ResetBots.Name = "TSMI_ResetBots"
-        resources.ApplyResources(Me.TSMI_ResetBots, "TSMI_ResetBots")
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        resources.ApplyResources(Me.ToolStripMenuItem6, "ToolStripMenuItem6")
-        '
-        'TSMI_Launcher
-        '
-        Me.TSMI_Launcher.Name = "TSMI_Launcher"
-        resources.ApplyResources(Me.TSMI_Launcher, "TSMI_Launcher")
-        '
-        'TSMI_Tools
-        '
-        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Characters, Me.TSMI_Saves, Me.ToolStripMenuItem1, Me.TSMI_Updates})
-        Me.TSMI_Tools.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.tools
-        Me.TSMI_Tools.Name = "TSMI_Tools"
-        resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
-        '
-        'TSMI_Characters
-        '
-        Me.TSMI_Characters.Name = "TSMI_Characters"
-        resources.ApplyResources(Me.TSMI_Characters, "TSMI_Characters")
-        '
-        'TSMI_Saves
-        '
-        Me.TSMI_Saves.Name = "TSMI_Saves"
-        resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
-        '
-        'TSMI_Updates
-        '
-        Me.TSMI_Updates.Name = "TSMI_Updates"
-        resources.ApplyResources(Me.TSMI_Updates, "TSMI_Updates")
         '
         'TSMI_Server
         '
         Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_ServerSwitcher, Me.TSMI_SepSrv1, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_Server2, Me.TSMI_ServerSettings})
+        Me.TSMI_Server.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server
         Me.TSMI_Server.Name = "TSMI_Server"
         resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
         '
@@ -360,6 +268,100 @@ Partial Class Launcher
         Me.TSMI_ServerSettings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
         Me.TSMI_ServerSettings.Name = "TSMI_ServerSettings"
         resources.ApplyResources(Me.TSMI_ServerSettings, "TSMI_ServerSettings")
+        '
+        'TSMI_Tools
+        '
+        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Characters, Me.TSMI_Saves, Me.ToolStripMenuItem1, Me.TSMI_Updates})
+        Me.TSMI_Tools.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.tools
+        Me.TSMI_Tools.Name = "TSMI_Tools"
+        resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
+        '
+        'TSMI_Characters
+        '
+        Me.TSMI_Characters.Name = "TSMI_Characters"
+        resources.ApplyResources(Me.TSMI_Characters, "TSMI_Characters")
+        '
+        'TSMI_Saves
+        '
+        Me.TSMI_Saves.Name = "TSMI_Saves"
+        resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        '
+        'TSMI_Updates
+        '
+        Me.TSMI_Updates.Name = "TSMI_Updates"
+        resources.ApplyResources(Me.TSMI_Updates, "TSMI_Updates")
+        '
+        'TSMI_Settings
+        '
+        Me.TSMI_Settings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_LanguageTool, Me.TSMI_ServerTools, Me.TSMI_Bots, Me.ToolStripMenuItem6, Me.TSMI_Launcher})
+        Me.TSMI_Settings.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.settings
+        Me.TSMI_Settings.Name = "TSMI_Settings"
+        resources.ApplyResources(Me.TSMI_Settings, "TSMI_Settings")
+        '
+        'TSMI_LanguageTool
+        '
+        Me.TSMI_LanguageTool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_English, Me.TSMI_Russian})
+        Me.TSMI_LanguageTool.Name = "TSMI_LanguageTool"
+        resources.ApplyResources(Me.TSMI_LanguageTool, "TSMI_LanguageTool")
+        '
+        'TSMI_English
+        '
+        Me.TSMI_English.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.en
+        resources.ApplyResources(Me.TSMI_English, "TSMI_English")
+        Me.TSMI_English.Name = "TSMI_English"
+        '
+        'TSMI_Russian
+        '
+        Me.TSMI_Russian.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.ru
+        resources.ApplyResources(Me.TSMI_Russian, "TSMI_Russian")
+        Me.TSMI_Russian.Name = "TSMI_Russian"
+        '
+        'TSMI_ServerTools
+        '
+        Me.TSMI_ServerTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_World})
+        Me.TSMI_ServerTools.Name = "TSMI_ServerTools"
+        resources.ApplyResources(Me.TSMI_ServerTools, "TSMI_ServerTools")
+        '
+        'TSMI_World
+        '
+        Me.TSMI_World.Name = "TSMI_World"
+        resources.ApplyResources(Me.TSMI_World, "TSMI_World")
+        '
+        'TSMI_Bots
+        '
+        Me.TSMI_Bots.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_BotSettings, Me.TSMI_RandomizeBots, Me.TSMI_ResetBots})
+        Me.TSMI_Bots.Name = "TSMI_Bots"
+        resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
+        '
+        'TSMI_BotSettings
+        '
+        Me.TSMI_BotSettings.Name = "TSMI_BotSettings"
+        resources.ApplyResources(Me.TSMI_BotSettings, "TSMI_BotSettings")
+        '
+        'TSMI_RandomizeBots
+        '
+        Me.TSMI_RandomizeBots.Name = "TSMI_RandomizeBots"
+        resources.ApplyResources(Me.TSMI_RandomizeBots, "TSMI_RandomizeBots")
+        '
+        'TSMI_ResetBots
+        '
+        Me.TSMI_ResetBots.Name = "TSMI_ResetBots"
+        resources.ApplyResources(Me.TSMI_ResetBots, "TSMI_ResetBots")
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        resources.ApplyResources(Me.ToolStripMenuItem6, "ToolStripMenuItem6")
+        '
+        'TSMI_Launcher
+        '
+        Me.TSMI_Launcher.Name = "TSMI_Launcher"
+        resources.ApplyResources(Me.TSMI_Launcher, "TSMI_Launcher")
         '
         'NotifyIcon_SPP2
         '

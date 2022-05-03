@@ -210,23 +210,14 @@
   <data name="P010_LauncherCaption" xml:space="preserve">
     <value>Single Player Project v2</value>
   </data>
-  <data name="P011_LauncherSettingsCaption" xml:space="preserve">
-    <value>Launcher Settings</value>
-  </data>
   <data name="P012_FirstStart" xml:space="preserve">
     <value>This is the first launch of the application. Run through the settings...</value>
   </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
   </data>
-  <data name="P014_ServerAutostart" xml:space="preserve">
-    <value>Automatic server start</value>
-  </data>
   <data name="P015_WorldStart" xml:space="preserve">
     <value>World server launch</value>
-  </data>
-  <data name="P016_MySqlSettingsCaption" xml:space="preserve">
-    <value>MySQL Settings</value>
   </data>
   <data name="P017_WorldStarted" xml:space="preserve">
     <value>World server started successfully.</value>
@@ -243,14 +234,8 @@
   <data name="P021_TimerSetted" xml:space="preserve">
     <value>Timer set for {0} = {1}</value>
   </data>
-  <data name="P022_ApacheSettingsCaption" xml:space="preserve">
-    <value>Apache Settings</value>
-  </data>
   <data name="P023_InfoCaption" xml:space="preserve">
     <value>Information</value>
-  </data>
-  <data name="P024_ServerParametersCaption" xml:space="preserve">
-    <value>Server Parameters</value>
   </data>
   <data name="P025_ReShowLauncher" xml:space="preserve">
     <value>Reloading the launcher after the server selector.</value>

@@ -22,6 +22,8 @@ Public Class LauncherSettings
         End Try
         ComboBox_FontStyle.Items.AddRange({"Regular", "Bold", "Italic"})
         ComboBox_FontStyle.SelectedIndex = CInt(My.Settings.ConsoleFontStyle)
+        StartPosition = FormStartPosition.Manual
+        Location = New Point(My.Settings.AppLocation.X + 40, My.Settings.AppLocation.Y + 20)
     End Sub
 
     ''' <summary>
@@ -30,7 +32,6 @@ Public Class LauncherSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub LauncherSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Text = My.Resources.P011_LauncherSettingsCaption
         TextBox_DirSPP2.Text = My.Settings.DirSPP2
         _isLoading = False
     End Sub

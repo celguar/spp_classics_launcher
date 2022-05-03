@@ -143,11 +143,13 @@ Public Class Launcher
         Me.Size = sz
 
         ' Устанавливаем локацию
-        If My.Settings.AppLocation().X < 0 Or My.Settings.AppLocation().Y < 0 Then
+        If loc.X < 0 Or loc.Y < 0 Then
             ' Исправляем ошибку, если сервер был прихлопнут в свёрнутом состоянии
-            My.Settings.AppLocation() = New Point(0, 0)
+            loc = New Point(0, 0)
+            My.Settings.AppLocation = loc
+            My.Settings.Save()
         End If
-        Me.Location = My.Settings.AppLocation
+        Me.Location = loc
 
         ' Если всего один модуль, то прячем смену типа сервера
         If GV.Modules.Count = 1 Then TSMI_ServerSwitcher.Visible = False
@@ -188,7 +190,6 @@ Public Class Launcher
         ' Включаем вывод команды разработчиков
         _isStart = New Threading.Thread(Sub() PreStart()) With {.IsBackground = True}
         _isStart.Start()
-
     End Sub
 
     ''' <summary>
@@ -198,23 +199,15 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If GV.FirstStart Then
-            ' Это был первый запуск
-            My.Settings.AppLocation = Me.Location
             My.Settings.Save()
         Else
             If CurrentRunningServer <> "" Or EnableClosing = False Then
-                ' Сохраняем параметры окна лаунчера, по крайней мере - стандартно
-                My.Settings.AppLocation = Me.Location
-                My.Settings.Save()
                 Try
                     Me.WindowState = FormWindowState.Minimized
                 Catch
                 End Try
                 e.Cancel = True
             Else
-                ' Сохраняем параметры окна лаунчера по факту выхода
-                My.Settings.AppLocation = Me.Location
-                My.Settings.Save()
                 GV.Log.WriteInfo(My.Resources.P005_Exiting)
             End If
         End If
@@ -319,12 +312,26 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Launcher_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        My.Settings.AppSize = Me.Size
+        If Me.Size.Width >= 640 And Me.Size.Height >= 420 Then
+            My.Settings.AppSize = Me.Size
+        End If
         My.Settings.Save()
         If Me.WindowState = FormWindowState.Minimized Then
             ' Эта штука переводит приложение в фоновый режим
             ' А ОНО НАДО?
             Me.Hide()
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' ПРИ ИЗМЕНЕНИЕ ЛОКАЦИИ ПРИЛОЖЕНИЯ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Launcher_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
+        If Location.X > 0 And Location.Y > 0 Then
+            My.Settings.AppLocation = Location
+            My.Settings.Save()
         End If
     End Sub
 
@@ -1696,9 +1703,6 @@ Public Class Launcher
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
         _EnableClosing = True
         If CurrentRunningServer <> "" Then AutoSave()
-        ' Сохраняем параметры окна лаунчера, через стандартый выход нам не ходить...
-        My.Settings.AppLocation = Me.Location
-        My.Settings.Save()
         ' Продолжаем закрытие
         ShutdownAll(True)
         NotifyIcon_SPP2.Visible = False
@@ -2065,38 +2069,41 @@ Public Class Launcher
 
         ' MySQL
         RichTextBox_ConsoleMySQL.SuspendLayout()
-        Dim text = RegularExpressions.Regex.Split(RichTextBox_ConsoleMySQL.Text, "(\r\n|\r|\n)", RegularExpressions.RegexOptions.ExplicitCapture)
-        RichTextBox_ConsoleMySQL.Text = ""
-        RichTextBox_ConsoleMySQL.Font = fnt 'New Font("Calibri", My.Settings.CurrentConsoleFont, FontStyle.Bold)
-        For Each line In text
-            Dim ink As Color
-            If line.Contains("[Warning]") Then
-                ink = Color.OrangeRed
-            ElseIf line.Contains("[ERROR]") Then
-                ink = Color.Red
-            ElseIf line.Contains("[Note]") Then
-                ink = Color.DarkOrange
-            Else
-                ink = Color.Green
+        For x = 0 To RichTextBox_ConsoleMySQL.Lines().Count
+            Dim istart = RichTextBox_ConsoleMySQL.GetFirstCharIndexFromLine(x)
+            Dim iend = RichTextBox_ConsoleMySQL.GetFirstCharIndexFromLine(x + 1) - 1
+            If istart >= 0 Then
+                RichTextBox_ConsoleMySQL.Select(istart, iend - istart)
+                RichTextBox_ConsoleMySQL.SelectionFont = fnt
             End If
-            UpdateMySQLConsole(line, ink)
         Next
         RichTextBox_ConsoleMySQL.ResumeLayout()
 
         ' Realmd
         RichTextBox_ConsoleRealmd.SuspendLayout()
-        Dim txt = RichTextBox_ConsoleRealmd.Text
-        RichTextBox_ConsoleRealmd.Text = ""
-        RichTextBox_ConsoleRealmd.Font = fnt 'New Font("Segoe UI", My.Settings.CurrentConsoleFont, FontStyle.Bold)
-        RichTextBox_ConsoleRealmd.Text = txt
+        For x = 0 To RichTextBox_ConsoleRealmd.Lines().Count
+            Dim istart = RichTextBox_ConsoleRealmd.GetFirstCharIndexFromLine(x)
+            Dim iend = RichTextBox_ConsoleRealmd.GetFirstCharIndexFromLine(x + 1) - 1
+            If istart >= 0 Then
+                RichTextBox_ConsoleRealmd.Select(istart, iend - istart)
+                RichTextBox_ConsoleRealmd.SelectionFont = fnt
+            End If
+        Next
         RichTextBox_ConsoleRealmd.ResumeLayout()
 
         ' World
         RichTextBox_ConsoleWorld.SuspendLayout()
-        txt = RichTextBox_ConsoleWorld.Text
-        RichTextBox_ConsoleWorld.Text = ""
-        RichTextBox_ConsoleWorld.Font = fnt 'New Font("Segoe UI", My.Settings.CurrentConsoleFont, FontStyle.Bold)
-        RichTextBox_ConsoleWorld.Text = txt
+        Dim x3 = 0
+        For Each line In RichTextBox_ConsoleWorld.Lines()
+            Dim istart = RichTextBox_ConsoleWorld.GetFirstCharIndexFromLine(x3)
+            Dim iend = istart + line.Length
+            'Dim iend = RichTextBox_ConsoleWorld.GetFirstCharIndexFromLine(x + 1) - 1
+            If istart >= 0 Then
+                RichTextBox_ConsoleWorld.Select(istart, iend - istart)
+                RichTextBox_ConsoleWorld.SelectionFont = fnt
+            End If
+            x3 += 1
+        Next
         RichTextBox_ConsoleWorld.ResumeLayout()
 
     End Sub

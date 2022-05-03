@@ -45,8 +45,8 @@ Partial Class ApacheSettings
         '
         'GroupBox_Parameters
         '
-        Me.GroupBox_Parameters.Controls.Add(Me.CheckBox_ApacheAutostart)
         resources.ApplyResources(Me.GroupBox_Parameters, "GroupBox_Parameters")
+        Me.GroupBox_Parameters.Controls.Add(Me.CheckBox_ApacheAutostart)
         Me.GroupBox_Parameters.Name = "GroupBox_Parameters"
         Me.GroupBox_Parameters.TabStop = False
         '
@@ -64,20 +64,20 @@ Partial Class ApacheSettings
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.ComboBox_Host)
         Me.GroupBox1.Controls.Add(Me.TextBox_Port)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.TextBox_Host)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
         'ComboBox_Host
         '
+        resources.ApplyResources(Me.ComboBox_Host, "ComboBox_Host")
         Me.ComboBox_Host.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_Host.FormattingEnabled = True
-        resources.ApplyResources(Me.ComboBox_Host, "ComboBox_Host")
         Me.ComboBox_Host.Name = "ComboBox_Host"
         '
         'TextBox_Port

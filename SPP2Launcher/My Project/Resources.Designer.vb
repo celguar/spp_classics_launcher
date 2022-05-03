@@ -372,6 +372,16 @@ Namespace My.Resources
         '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property game() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("game", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property green_ball() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("green_ball", resourceCulture)
@@ -406,16 +416,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("notomono_regular", resourceCulture)
                 Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property open() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("open", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
@@ -510,15 +510,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Настройки лаунчера.
-        '''</summary>
-        Friend ReadOnly Property P011_LauncherSettingsCaption() As String
-            Get
-                Return ResourceManager.GetString("P011_LauncherSettingsCaption", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Это первый запуск приложения. Пробегитесь по настройкам....
         '''</summary>
         Friend ReadOnly Property P012_FirstStart() As String
@@ -537,29 +528,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Автоматический запуск сервера.
-        '''</summary>
-        Friend ReadOnly Property P014_ServerAutostart() As String
-            Get
-                Return ResourceManager.GetString("P014_ServerAutostart", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Запуск сервера World.
         '''</summary>
         Friend ReadOnly Property P015_WorldStart() As String
             Get
                 Return ResourceManager.GetString("P015_WorldStart", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Настройки MySQL.
-        '''</summary>
-        Friend ReadOnly Property P016_MySqlSettingsCaption() As String
-            Get
-                Return ResourceManager.GetString("P016_MySqlSettingsCaption", resourceCulture)
             End Get
         End Property
         
@@ -609,29 +582,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Настройки Apache.
-        '''</summary>
-        Friend ReadOnly Property P022_ApacheSettingsCaption() As String
-            Get
-                Return ResourceManager.GetString("P022_ApacheSettingsCaption", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Информация.
         '''</summary>
         Friend ReadOnly Property P023_InfoCaption() As String
             Get
                 Return ResourceManager.GetString("P023_InfoCaption", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Параметры сервера.
-        '''</summary>
-        Friend ReadOnly Property P024_ServerParametersCaption() As String
-            Get
-                Return ResourceManager.GetString("P024_ServerParametersCaption", resourceCulture)
             End Get
         End Property
         

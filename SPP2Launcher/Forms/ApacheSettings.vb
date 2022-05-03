@@ -11,14 +11,12 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ApacheSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Text = My.Resources.P022_ApacheSettingsCaption
         CheckBox_UseIntApache.Checked = My.Settings.UseIntApache
         ' Заполняем список локальных IpV4 адресов
         ComboBox_Host.Items.Clear()
         ComboBox_Host.Items.AddRange(GetLocalIpAddresses().ToArray)
         ' Устанавливаем режим Apache - встроенный?
         ChangeUseIntServer()
-        CheckBox_ApacheAutostart.Text = My.Resources.P014_ServerAutostart
         CheckBox_ApacheAutostart.Checked = My.Settings.ApacheAutostart
     End Sub
 

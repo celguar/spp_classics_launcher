@@ -58,9 +58,9 @@ Partial Class MySqlSettings
         '
         'GroupBox_Parameters
         '
+        resources.ApplyResources(Me.GroupBox_Parameters, "GroupBox_Parameters")
         Me.GroupBox_Parameters.Controls.Add(Me.PictureBox_InfoMySqlAutostart)
         Me.GroupBox_Parameters.Controls.Add(Me.CheckBox_MySqlAutostart)
-        resources.ApplyResources(Me.GroupBox_Parameters, "GroupBox_Parameters")
         Me.GroupBox_Parameters.Name = "GroupBox_Parameters"
         Me.GroupBox_Parameters.TabStop = False
         '
@@ -91,6 +91,7 @@ Partial Class MySqlSettings
         '
         'GroupBox_Databases
         '
+        resources.ApplyResources(Me.GroupBox_Databases, "GroupBox_Databases")
         Me.GroupBox_Databases.Controls.Add(Me.TextBox_Armory)
         Me.GroupBox_Databases.Controls.Add(Me.Label5)
         Me.GroupBox_Databases.Controls.Add(Me.TextBox_Realmd)
@@ -103,7 +104,6 @@ Partial Class MySqlSettings
         Me.GroupBox_Databases.Controls.Add(Me.Label_Logs)
         Me.GroupBox_Databases.Controls.Add(Me.TextBox_Characters)
         Me.GroupBox_Databases.Controls.Add(Me.Label_Chars)
-        resources.ApplyResources(Me.GroupBox_Databases, "GroupBox_Databases")
         Me.GroupBox_Databases.Name = "GroupBox_Databases"
         Me.GroupBox_Databases.TabStop = False
         '
@@ -169,6 +169,7 @@ Partial Class MySqlSettings
         '
         'GroupBox_Connection
         '
+        resources.ApplyResources(Me.GroupBox_Connection, "GroupBox_Connection")
         Me.GroupBox_Connection.Controls.Add(Me.TextBox_Password)
         Me.GroupBox_Connection.Controls.Add(Me.Label1)
         Me.GroupBox_Connection.Controls.Add(Me.TextBox_UserName)
@@ -177,7 +178,6 @@ Partial Class MySqlSettings
         Me.GroupBox_Connection.Controls.Add(Me.Label3)
         Me.GroupBox_Connection.Controls.Add(Me.TextBox_Host)
         Me.GroupBox_Connection.Controls.Add(Me.Label4)
-        resources.ApplyResources(Me.GroupBox_Connection, "GroupBox_Connection")
         Me.GroupBox_Connection.Name = "GroupBox_Connection"
         Me.GroupBox_Connection.TabStop = False
         '

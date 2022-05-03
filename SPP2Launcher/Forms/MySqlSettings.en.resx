@@ -690,4 +690,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MySQL Settings</value>
+  </data>
 </root>

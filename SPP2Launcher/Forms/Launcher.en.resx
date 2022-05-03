@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ToolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 17</value>
   </data>
   <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
@@ -127,149 +127,17 @@
   <data name="TSSL_Online.Text" xml:space="preserve">
     <value>Online Players: 0</value>
   </data>
-  <data name="TSMI_RunWow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAC0lJREFUWEet
-        lwlQlFe2xxtBBcIOzd7QTXezdgPd7EuzIwgoogaMK4qgEUHUgDGLGqM4ap6jcVR8CiMGzeIkxpgXM4rJ
-        K7dEJ08lKi6IqGNMQFEmThKdCL+5H1jOUHn1aqZe/lX/qq7+7nf+5zv3nHPPlf2bGCJoK6gRNAnmPaH0
-        W/pPeiat+dVhJ5hrYWH2YbrBuuf3SxR9F+pV3P7QwO33/Dm73pkNMx37otXmPRZmsg+ltU/e+X/DWnBi
-        qN+wW1f3a+BcGr0dS3jUVc235wq50pzApY+UfHtAwQ//peRmvSfNC83YOlGGt5PslvTuExv/EiwF/QXD
-        njDOztr8aPvhMOhczYOed6jfkEJetifRcSlkF5ZTMGMxmYWVJGROJFQVQIGnNZuTzWhdacHuUjM2FJkx
-        3Fx2VLL1T3YlDUnrFxh1/khl7/mzZezYlktWrLy37+5W/vbwKGtrE8ibVMyK+o9pbP6a+kOt7Dh0jqbD
-        59j1x9PMX7eDqTWrKJhVTcLIIgwKNYsDZXw6V8bmQhmBrua9kk3JtqQhtKS8+QVe6KkPZn9jJRWFLtDd
-        xI3rDYyblEzdvhM0t93nyJ8fcvBSD0vq9rBgTQOlr75JeW0D0xavYUpNLaOmLWRU6QIyJhZjTMoj1MaO
-        PcKB342XkR5i0W9b0pC0BiQHo/qrV/zJi7CErir+dOolppTP572THTS3P+DwtR843PYXDpz5hqZDLYwv
-        W8xzlSsY//yrFJQuImNcGTmT54gITCRzwkzis4vQx2bj6eRO03MyGmbKiFGbI2lIWgOSgzEnM9CO3pY4
-        Ll5cTKwpguLK2ZS8UMmyjW+wqHYp6+t3s/PjE2zZe5Ta//yIEWNnkzNpnhCfTdaE54lKLyQ2LYawSB/0
-        Ok90Ond0Ie44DB3KgTIZO0rMSNHYSA7MGZAcjPL2zwL56YflZI0OJ33CHI79Jph7l1bw6N7bHKubS/ms
-        MtY1NbO87gAvr/+EBSsbiUwtJKNwNgm5k4kdMZHyAg9uH53Co54mbp1s4ECxnuF27qTaWHJ1izkNlUMl
-        B8oHJP8BO72vxa3eIyGsWxZPQk4h8VmTGD/OSNexYL5cH83FFYmMf24aNWv3smZ7M6sbDjFmxusEho0g
-        tWAmKfnTMSYXsKVGQcfbvjROD+BIsQ65rRXq8FjcfYPYNErGifX2KFyGSCU6qE/ktL3rRPf5MUTFJxCV
-        PJac4nKCEnPoPBlC+0E9LQuiWVKSxcadn/HCb/by4hv7qKgcS1VSDrEjJ5EydgaBsTm07FLzzacaNmTq
-        +LQojGE27mjDTahCIkQOONLRaM72OdZSFHIGpEXrtLCQfdj3pYrNSwL6szclv4TUMTPImbqUu22R3Dtv
-        4PLKGA4vM1L1+rssWruPKfPrOPaBkT2mRIJiRjNiwmw8tLF0Hg/muyNB7MkPZXW2FjeVAV1MGprQWNwU
-        Gg6/Y8HJN62wMO/vmP1t2zY1bHhP71k12RGehCcVEZ05lcRRMyictYzjh2K5fyOW49XBXFyrpWjuRl5e
-        t5+8abXcu2Dk8+xUTKOrRPjHYeOqoftMKF2n9PxPdQD5UW74BsXjrY1CrY/DRxvBnLIhdH1iiUm0dElb
-        ckDTVKvq++stPTpjFMm5c0nOKyd34mtij1+j4oU8um9Gc2B5iHBAhWnMIuYsfRtd0jTuieh8kJ1CgC6F
-        rKIXcfUM5E6rkWtfRHJpnTfuLk7o4woIisxBFZSAj4+G2Phn+PmmPeurnPokbckBU8s2N9r+5EVodC6J
-        I5+nqGwNE2b/BxVLdxI3ciZ3r0Vx/mMjF9/wxZT5LKUv1jN5ejq3vo7m85dMVOUaKCh+hREZOrqvGGl9
-        30hbnQJLOwVBxpEER2SjCUlCKTqk1s+eR98Hc2yrXMoD6RSV5XV+4M7JQ3KMiePIn/IqxfPq+h0oW9xA
-        4pga7rZHcvvrcG68peSVkmgR/pUcOxzP8YZ4LjXH88UyPeHJxaxbqefOtUgu/j6Ya9sV2MpDiE6diE58
-        mEYnckUTgNrHhe970jjf5C450N+S87r+4MSpTXaEGNPIGl/FsyXLGFeynMkvrSYyayoXvgjnjnDiz++p
-        Ob5ei9JYRPd1kZSVSdzriOdGXRgOijhaTkRx93o0V7b4cHazAkdPA6ExeeiFA7rIDEIUrqi8Hfn+fgoX
-        djk8dcB0YasLHfvtUarDMWUVkzr6eQpLVzJifAVJY6bzao2WrstGOt7RcqPRD2tbX7rEl56piBcJGs31
-        eh2ujk50XY+lS2xB2xYF2+e54qGKQqNPRhkYjVodglHpTqC/kzjgsjj9rt/TLdBsKhne9+ATW1TungSE
-        p5GYNYX8yS/z7MwVYm+X4Kt0ofOKgav7Qmlbr2JCvpzOSxFcWBTVH4lL24KomeIsklU4cG0E199WUpBs
-        jyo4Eb/gePwCo9AqvIjxk2MyDeev12LY+rL10yS0jdWa99zZ5UqmsyUKEQVjQj7JOSXkPldNdlE1zt56
-        Oi+G09mSy82dgbQf03P1v41cXRXHyc8MtO8NobVR0R/+rrOTuFrng7vcGX1UjnAgDrVKS7jSg0iVGwsX
-        WtN7U1RbxLCnZTjEXIxRny+xZKleJkpJK16KJTw+n6xx88kcW0FY4gQ6zhrobs/l6oZAvvsqgsuNIRxa
-        FExlmY8QFaPZXl+6b5lofydbJKAvQ609UPpHoVLr0Cm9SVA74+bszFdfZXLnM49BjUhCzvtVVrS8NgxX
-        G2d81Ab8Q1OIS5+MKXcmMRnT2fS6H3euptFaG8TNQ6LWNykpTfEWa/37S+9b0X7vXMul7XchXBHPLEUL
-        9vM3oPH2IMLHgfQAZ9LSnqH3USUnG/tL8GkrlmDn5Sj7Zt98c8bJZbi4+6GPGCmiMAZTzkySR88lKlpD
-        59UMLm9M4vaBCdyo98FL7iBOOhXdbSZu7/fj25PpnFuu4uRKbxxc/PBX+hEmsj472AWFqzOnTi3gYcds
-        tD7mvziMJFS9kS/jg1ky3IZZ4qXUEWxIRyf2Ma1gAcOtXfiuNYWbB6bS/tYIUQ0+mJlZiGbjzZ3LSXQ2
-        J3JzTwItr2hpKndHbi+6oKcDGf4OhCscqK7W0ftwNy37PKWvrxqQHIx5yX42/HaiOb81yXC2cRBOhOCv
-        i8c/LIPwIDtO18eIYTOepikGzmxPw9xiGBaWdrRuU7N7WjhvTTXw0Uu5HFvmj9NQM1I19hi8bcnMdOLR
-        o8Pcaykkzb9/IJk3IDkY1aeX+xPuac6qLBlr0sVobW2Hq5cGB7kfo8O9yBETTmagGxkBLqT6y3EVZWtt
-        70qyyoU0jTOJahciFU6ECuochhDo4URyshUPHjTT27mK7FhrTi8PkBz4X0eyhffr9Rx8v5IkrTkbn5VR
-        myxDN8wCJ7lCVEcA7oogXL39cfFR4+CmwMVThaPcE0c7WzwcrAhwdyTC24YYhRVyBztKSx348cfd9HUt
-        p3iMQ79tSUPSGpAcjLQdWyY82LY573HFLMNjrdzs5zVjZewsH0JZqBlqW2uRWN64eQUh91DhqTTi4a3F
-        SxwwSk8lOi8p3HZ4OtoSHydmwAMj6fuphkcXDKTHWv4s2dy2OfexpCG0UgckB8NCUC7oIegpGDp8qOzo
-        anG5qJsznDNvPsMf5g9hWooZ+sBhuLlZ4yXo7W6Lr5clMVHmVFRYcuJEFo9/XsyPrQl8sd0Caysz6WIS
-        +sSmZFvSkLT+JfRfzVztZbdq8szYVPIMB2vt+abZj+87DNy/7UrPHRM/3c/k8b1RPLyop+dLDad3ie3w
-        7S+1f+tq9n9BqtkcM9ExA73Ne0qzrPrqF9rzx7W2HFxjxUer7FlbYd+XHGHZI4130ton7/zq+JWv5zLZ
-        3wEGwmDly80jxAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 24</value>
+    <value>70, 24</value>
   </data>
   <data name="TSMI_RunWow.Text" xml:space="preserve">
     <value>Run Wow</value>
   </data>
-  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 24</value>
-  </data>
-  <data name="TSMI_Settings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_ServerTools.Text" xml:space="preserve">
-    <value>Servers</value>
-  </data>
-  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_Bots.Text" xml:space="preserve">
-    <value>Bots</value>
-  </data>
-  <data name="TSMI_BotSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="TSMI_BotSettings.Text" xml:space="preserve">
-    <value>Bot Settings</value>
-  </data>
-  <data name="TSMI_RandomizeBots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="TSMI_RandomizeBots.Text" xml:space="preserve">
-    <value>Randomize Bot</value>
-  </data>
-  <data name="TSMI_ResetBots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="TSMI_ResetBots.Text" xml:space="preserve">
-    <value>Reset Bot</value>
-  </data>
-  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 6</value>
-  </data>
-  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 22</value>
-  </data>
-  <data name="TSMI_Launcher.Text" xml:space="preserve">
-    <value>Application</value>
-  </data>
-  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 24</value>
-  </data>
-  <data name="TSMI_Tools.Text" xml:space="preserve">
-    <value>Tools</value>
-  </data>
-  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="TSMI_Characters.Text" xml:space="preserve">
-    <value>Characters</value>
-  </data>
-  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="TSMI_Saves.Text" xml:space="preserve">
-    <value>Saves</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 6</value>
-  </data>
-  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="TSMI_Updates.Text" xml:space="preserve">
-    <value>Updates</value>
-  </data>
   <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 24</value>
+    <value>76, 24</value>
   </data>
   <data name="TSMI_Server.Text" xml:space="preserve">
-    <value>Server</value>
+    <value>Servers</value>
   </data>
   <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -362,7 +230,85 @@
     <value>210, 22</value>
   </data>
   <data name="TSMI_ServerSettings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 24</value>
+  </data>
+  <data name="TSMI_Tools.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="TSMI_Characters.Text" xml:space="preserve">
+    <value>Characters</value>
+  </data>
+  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="TSMI_Saves.Text" xml:space="preserve">
+    <value>Saves</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 6</value>
+  </data>
+  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 22</value>
+  </data>
+  <data name="TSMI_Updates.Text" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 24</value>
+  </data>
+  <data name="TSMI_Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="TSMI_ServerTools.Text" xml:space="preserve">
     <value>Servers</value>
+  </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="TSMI_Bots.Text" xml:space="preserve">
+    <value>Bots</value>
+  </data>
+  <data name="TSMI_BotSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="TSMI_BotSettings.Text" xml:space="preserve">
+    <value>Bot Settings</value>
+  </data>
+  <data name="TSMI_RandomizeBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="TSMI_RandomizeBots.Text" xml:space="preserve">
+    <value>Randomize Bot</value>
+  </data>
+  <data name="TSMI_ResetBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="TSMI_ResetBots.Text" xml:space="preserve">
+    <value>Reset Bot</value>
+  </data>
+  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 6</value>
+  </data>
+  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="TSMI_Launcher.Text" xml:space="preserve">
+    <value>Application</value>
   </data>
   <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 54</value>
@@ -2048,14 +1994,14 @@
   <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
     <value>Stop and exit</value>
   </data>
+  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 26</value>
+  </data>
   <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>102, 22</value>
   </data>
   <data name="TSMI_Copy.Text" xml:space="preserve">
     <value>Copy</value>
-  </data>
-  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 26</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

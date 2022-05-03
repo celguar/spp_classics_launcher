@@ -121,17 +121,20 @@
     <value>Realmd выдал исключение:</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cmangos_wotlk_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_wotlk-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="notomono_regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notomono-regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="wotlk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wotlk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cmangos_classic_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_classic-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="P028_ApplicationRestart" xml:space="preserve">
     <value>Перезагрузка приложения.</value>
-  </data>
-  <data name="P014_ServerAutostart" xml:space="preserve">
-    <value>Автоматический запуск сервера</value>
   </data>
   <data name="ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,6 +151,9 @@
   <data name="P007_MessageCaption" xml:space="preserve">
     <value>Сообщение</value>
   </data>
+  <data name="wow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="server_restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,6 +165,15 @@
   </data>
   <data name="SQL002_Start" xml:space="preserve">
     <value>Запуск сервера MySQL.</value>
+  </data>
+  <data name="P036_YourSendCommand" xml:space="preserve">
+    <value>Консольная команда: {0}</value>
+  </data>
+  <data name="E016_WorldCrashed" xml:space="preserve">
+    <value>Сервер WORLD внезапно прекратил работу...</value>
+  </data>
+  <data name="P039_WaitEnd" xml:space="preserve">
+    <value>Дождитесь окончания...</value>
   </data>
   <data name="E010_ApacheException" xml:space="preserve">
     <value>Apache выдал исключение:</value>
@@ -178,6 +193,9 @@
   <data name="Apache003_Started" xml:space="preserve">
     <value>Сервер Apache успешно запущен.</value>
   </data>
+  <data name="server" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="E011_ErrorMainConfig" xml:space="preserve">
     <value>Ошибка загрузки основной конфигурации!</value>
   </data>
@@ -190,17 +208,29 @@
   <data name="tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="P034_LaunchAttempt" xml:space="preserve">
+    <value>Попытка запуска сервера {0}</value>
+  </data>
+  <data name="P021_TimerSetted" xml:space="preserve">
+    <value>Установлен таймер для {0} = {1}</value>
+  </data>
+  <data name="cmangos_classic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_classic.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmangos_tbc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_tbc.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mysql" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mysql.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cmangos_wotlk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_wotlk.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmangos_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SQL003_Started" xml:space="preserve">
     <value>Сервер MySQL успешно запущен.</value>
-  </data>
-  <data name="P024_ServerParametersCaption" xml:space="preserve">
-    <value>Параметры сервера</value>
-  </data>
-  <data name="P022_ApacheSettingsCaption" xml:space="preserve">
-    <value>Настройки Apache</value>
   </data>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,14 +244,20 @@
   <data name="Apache005_NotStarted" xml:space="preserve">
     <value>Не удалось запустить сервер Apache.</value>
   </data>
+  <data name="P020_NeedServerStop" xml:space="preserve">
+    <value>Остановка сервера по требованию.</value>
+  </data>
   <data name="P006_NeedReboot" xml:space="preserve">
     <value>Изменения произойдут после перезагрузки.</value>
   </data>
-  <data name="server_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\server_start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="E014_WorldException" xml:space="preserve">
+    <value>World выдал исключение:</value>
   </data>
   <data name="P025_ReShowLauncher" xml:space="preserve">
     <value>Повторная загрузка лаунчера после селектора сервера.</value>
+  </data>
+  <data name="P019_ControlEnabled" xml:space="preserve">
+    <value>Контроль над сервером включен.</value>
   </data>
   <data name="E013_SettingsNotFound" xml:space="preserve">
     <value>Не найден каталог Settings модулей серверов.</value>
@@ -229,17 +265,32 @@
   <data name="P012_FirstStart" xml:space="preserve">
     <value>Это первый запуск приложения. Пробегитесь по настройкам...</value>
   </data>
+  <data name="E015_RealmdCrashed" xml:space="preserve">
+    <value>Сервер REALMD внезапно прекратил работу...</value>
+  </data>
   <data name="server_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="open" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="P038_StoppingWorld" xml:space="preserve">
+    <value>Идёт остановка сервера World...</value>
+  </data>
+  <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_realmd_started.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="P026_SettingsApplied" xml:space="preserve">
     <value>Применены настройки сервера {0}</value>
   </data>
   <data name="splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P015_WorldStart" xml:space="preserve">
+    <value>Запуск сервера World</value>
+  </data>
+  <data name="P041_AlreadyStarted" xml:space="preserve">
+    <value>Сервер {0} уже запущен.</value>
+  </data>
+  <data name="cmangos_tbc_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_tbc-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="apache" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apache.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,8 +301,14 @@
   <data name="E008_UnknownModule" xml:space="preserve">
     <value>Неизвестный модуль расширения {0}</value>
   </data>
+  <data name="P018_WorldStopped" xml:space="preserve">
+    <value>Сервер World остановлен.</value>
+  </data>
   <data name="red_ball" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_ball.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P040_CommandShutdown" xml:space="preserve">
+    <value>Остановка всех серверов.</value>
   </data>
   <data name="Apache004_Stopped" xml:space="preserve">
     <value>Сервер Apache успешно остановлен.</value>
@@ -261,9 +318,6 @@
   </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Включить сайт</value>
-  </data>
-  <data name="P016_MySqlSettingsCaption" xml:space="preserve">
-    <value>Настройки MySQL</value>
   </data>
   <data name="SQL004_Stopped" xml:space="preserve">
     <value>Сервер MySQL успешно остановлен.</value>
@@ -286,8 +340,11 @@
   <data name="P008_Installed" xml:space="preserve">
     <value>установлен</value>
   </data>
-  <data name="P011_LauncherSettingsCaption" xml:space="preserve">
-    <value>Настройки лаунчера</value>
+  <data name="P035_ThereIsProblems" xml:space="preserve">
+    <value>Пока есть проблемы для запуска сервера World. Отложено на 2 сек...</value>
+  </data>
+  <data name="P037_WorldNotStarted" xml:space="preserve">
+    <value>Сервер не готов принимать команды...</value>
   </data>
   <data name="E002_AlreadyRunning" xml:space="preserve">
     <value>Single Player Project v2 уже запущен!</value>
@@ -304,109 +361,37 @@
   <data name="P029_LaunchMain" xml:space="preserve">
     <value>Запуск основного приложения.</value>
   </data>
-  <data name="P003_SetWowClientPath" xml:space="preserve">
-    <value>Файлы exe (*.exe)|*.exe|Все файлы (*.*)|*.*</value>
-  </data>
-  <data name="P010_LauncherCaption" xml:space="preserve">
-    <value>Single Player Project v2</value>
-  </data>
   <data name="E007_MangoNotFound" xml:space="preserve">
     <value>Не найдены исполняемые файлы CMaNGOS</value>
-  </data>
-  <data name="P001_BaseInit" xml:space="preserve">
-    <value>Инициализация базовых настроек приложения выполнена.</value>
-  </data>
-  <data name="P009_NotInstalled" xml:space="preserve">
-    <value>не установлен</value>
-  </data>
-  <data name="server" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cmangos_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_orange.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_classic_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_classic-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_tbc_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_tbc-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_wotlk_core" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_wotlk-core.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_realmd_started.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_classic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_classic.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmangos_tbc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_tbc.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="E014_WorldException" xml:space="preserve">
-    <value>World выдал исключение:</value>
-  </data>
-  <data name="P015_WorldStart" xml:space="preserve">
-    <value>Запуск сервера World</value>
-  </data>
-  <data name="P017_WorldStarted" xml:space="preserve">
-    <value>Сервер World успешно запущен.</value>
-  </data>
-  <data name="P018_WorldStopped" xml:space="preserve">
-    <value>Сервер World остановлен.</value>
-  </data>
-  <data name="cmangos_wotlk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmangos_wotlk.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="E015_RealmdCrashed" xml:space="preserve">
-    <value>Сервер REALMD внезапно прекратил работу...</value>
-  </data>
-  <data name="E016_WorldCrashed" xml:space="preserve">
-    <value>Сервер WORLD внезапно прекратил работу...</value>
-  </data>
-  <data name="P019_ControlEnabled" xml:space="preserve">
-    <value>Контроль над сервером включен.</value>
-  </data>
-  <data name="P020_NeedServerStop" xml:space="preserve">
-    <value>Остановка сервера по требованию.</value>
-  </data>
-  <data name="P021_TimerSetted" xml:space="preserve">
-    <value>Установлен таймер для {0} = {1}</value>
+  <data name="P003_SetWowClientPath" xml:space="preserve">
+    <value>Файлы exe (*.exe)|*.exe|Все файлы (*.*)|*.*</value>
   </data>
   <data name="P033_TimerTriggered" xml:space="preserve">
     <value>Сработал таймер {0}</value>
   </data>
-  <data name="P034_LaunchAttempt" xml:space="preserve">
-    <value>Попытка запуска сервера {0}</value>
+  <data name="P010_LauncherCaption" xml:space="preserve">
+    <value>Single Player Project v2</value>
   </data>
-  <data name="P035_ThereIsProblems" xml:space="preserve">
-    <value>Пока есть проблемы для запуска сервера World. Отложено на 2 сек...</value>
+  <data name="server_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P036_YourSendCommand" xml:space="preserve">
-    <value>Консольная команда: {0}</value>
+  <data name="P001_BaseInit" xml:space="preserve">
+    <value>Инициализация базовых настроек приложения выполнена.</value>
   </data>
-  <data name="P037_WorldNotStarted" xml:space="preserve">
-    <value>Сервер не готов принимать команды...</value>
+  <data name="P017_WorldStarted" xml:space="preserve">
+    <value>Сервер World успешно запущен.</value>
   </data>
-  <data name="P038_StoppingWorld" xml:space="preserve">
-    <value>Идёт остановка сервера World...</value>
+  <data name="P009_NotInstalled" xml:space="preserve">
+    <value>не установлен</value>
   </data>
-  <data name="P039_WaitEnd" xml:space="preserve">
-    <value>Дождитесь окончания...</value>
+  <data name="cmangos_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmangos_orange.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P040_CommandShutdown" xml:space="preserve">
-    <value>Остановка всех серверов.</value>
-  </data>
-  <data name="wow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P041_AlreadyStarted" xml:space="preserve">
-    <value>Сервер {0} уже запущен.</value>
+  <data name="game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

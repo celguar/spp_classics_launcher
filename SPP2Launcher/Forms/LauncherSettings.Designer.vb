@@ -25,13 +25,13 @@ Partial Class LauncherSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LauncherSettings))
         Me.Button_OK = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox_Theme = New System.Windows.Forms.ComboBox()
+        Me.ComboBox_FontSize = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox_FontStyle = New System.Windows.Forms.ComboBox()
         Me.Button_DirSPP2 = New System.Windows.Forms.Button()
         Me.TextBox_DirSPP2 = New System.Windows.Forms.TextBox()
         Me.Label_ProjectDir = New System.Windows.Forms.Label()
-        Me.ComboBox_FontSize = New System.Windows.Forms.ComboBox()
-        Me.ComboBox_Theme = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,6 +54,20 @@ Partial Class LauncherSettings
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
+        'ComboBox_Theme
+        '
+        resources.ApplyResources(Me.ComboBox_Theme, "ComboBox_Theme")
+        Me.ComboBox_Theme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Theme.FormattingEnabled = True
+        Me.ComboBox_Theme.Name = "ComboBox_Theme"
+        '
+        'ComboBox_FontSize
+        '
+        resources.ApplyResources(Me.ComboBox_FontSize, "ComboBox_FontSize")
+        Me.ComboBox_FontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_FontSize.FormattingEnabled = True
+        Me.ComboBox_FontSize.Name = "ComboBox_FontSize"
+        '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
@@ -61,9 +75,9 @@ Partial Class LauncherSettings
         '
         'ComboBox_FontStyle
         '
+        resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_FontStyle.FormattingEnabled = True
-        resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.Name = "ComboBox_FontStyle"
         '
         'Button_DirSPP2
@@ -81,20 +95,6 @@ Partial Class LauncherSettings
         '
         resources.ApplyResources(Me.Label_ProjectDir, "Label_ProjectDir")
         Me.Label_ProjectDir.Name = "Label_ProjectDir"
-        '
-        'ComboBox_FontSize
-        '
-        Me.ComboBox_FontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_FontSize.FormattingEnabled = True
-        resources.ApplyResources(Me.ComboBox_FontSize, "ComboBox_FontSize")
-        Me.ComboBox_FontSize.Name = "ComboBox_FontSize"
-        '
-        'ComboBox_Theme
-        '
-        Me.ComboBox_Theme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_Theme.FormattingEnabled = True
-        resources.ApplyResources(Me.ComboBox_Theme, "ComboBox_Theme")
-        Me.ComboBox_Theme.Name = "ComboBox_Theme"
         '
         'LauncherSettings
         '

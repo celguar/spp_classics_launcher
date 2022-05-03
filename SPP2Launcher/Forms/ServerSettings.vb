@@ -17,8 +17,6 @@ Public Class ServerSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ServerSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = My.Resources.P024_ServerParametersCaption
-        CheckBox_ServerAutostart.Text = My.Resources.P014_ServerAutostart
         CheckBox_ServerAutostart.Checked = GetServerAutostart()
     End Sub
 

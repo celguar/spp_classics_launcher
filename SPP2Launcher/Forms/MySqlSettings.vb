@@ -9,7 +9,6 @@ Public Class MySqlSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub MySqlSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Text = My.Resources.P016_MySqlSettingsCaption
         CheckBox_UseIntMySQL.Checked = My.Settings.UseIntMySQL
         ChangeUseIntServer()
         CheckBox_MySqlAutostart.Checked = My.Settings.MySqlAutostart
