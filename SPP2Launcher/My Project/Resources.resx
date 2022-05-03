@@ -406,4 +406,7 @@
   <data name="wow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wow.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="P041_AlreadyStarted" xml:space="preserve">
+    <value>Сервер {0} уже запущен.</value>
+  </data>
 </root>

@@ -780,6 +780,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер {0} уже запущен..
+        '''</summary>
+        Friend ReadOnly Property P041_AlreadyStarted() As String
+            Get
+                Return ResourceManager.GetString("P041_AlreadyStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property red_ball() As System.Drawing.Bitmap

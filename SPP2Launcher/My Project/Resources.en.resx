@@ -300,6 +300,9 @@
   <data name="P040_CommandShutdown" xml:space="preserve">
     <value>Stop all servers.</value>
   </data>
+  <data name="P041_AlreadyStarted" xml:space="preserve">
+    <value>{0} server is already running</value>
+  </data>
   <data name="SQL001_Shutdown" xml:space="preserve">
     <value>Stop MySQL server.</value>
   </data>

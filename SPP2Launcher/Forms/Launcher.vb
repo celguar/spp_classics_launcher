@@ -949,6 +949,8 @@ Public Class Launcher
                 MessageBox.Show(My.Resources.E010_ApacheException & vbLf & ex.Message,
                                 My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+        Else
+            GV.Log.WriteInfo(String.Format(My.Resources.P041_AlreadyStarted, "Apache"))
         End If
     End Sub
 
@@ -1086,10 +1088,9 @@ Public Class Launcher
     ''' Запускает сервер мира...
     ''' </summary>
     Friend Sub StartWorld(obj As Object)
-        ' Ожидаем завершения первоначального запуска
-        If StartThreadCompleted Then
-            SyncLock lockWorld
-                If _MySqlON And Not _NeedExitLauncher And Not NeedServerStop And Not _worldON And IsNothing(_WorldProcess) Then
+        SyncLock lockWorld
+            If Not _worldON Then
+                If _MySqlON And Not _NeedExitLauncher And Not NeedServerStop And IsNothing(_WorldProcess) Then
                     GV.Log.WriteAll(My.Resources.P015_WorldStart)
 
                     ' Исключаем повторный запуск World
@@ -1224,14 +1225,10 @@ Public Class Launcher
                     TimerStartWorld.Change(2000, 2000)
                     GV.Log.WriteWarning(My.Resources.P035_ThereIsProblems)
                 End If
-            End SyncLock
-        Else
-            ' На выход, если что
-            If _worldON Then Exit Sub
-            GV.Log.WriteInfo("World - !!!!")
-            ' Первоначальный запуск не завершён - перенастраиваем таймер
-            If Not NeedServerStop Then TimerStartWorld.Change(1000, 1000)
-        End If
+            Else
+                GV.Log.WriteInfo(String.Format(My.Resources.P041_AlreadyStarted, "World"))
+            End If
+        End SyncLock
     End Sub
 
     ''' <summary>
@@ -1422,111 +1419,109 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartRealmd(ob As Object)
         SyncLock lockRealmd
-            If _MySqlON And Not NeedServerStop And Not _RealmdON And IsNothing(_RealmdProcess) Then
-                GV.Log.WriteAll(My.Resources.P030_RealmdStart)
+            If Not _RealmdON Then
+                If _MySqlON And Not NeedServerStop And IsNothing(_RealmdProcess) Then
+                    GV.Log.WriteAll(My.Resources.P030_RealmdStart)
 
-                ' Исключаем повторный запуск Realmd
-                _RealmdON = True
+                    ' Исключаем повторный запуск Realmd
+                    _RealmdON = True
 
-                Dim value As String = ""
-                If My.Settings.UseIntMySQL Then
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            value = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
-                                My.Settings.MySqlClassicIntPort & ";" &
-                                My.Settings.MySqlClassicIntUserName & ";" &
-                                My.Settings.MySqlClassicIntPassword & ";" &
-                                My.Settings.MySqlClassicIntRealmd & Chr(34)
-                        Case GV.EModule.Tbc.ToString
-                            value = Chr(34) & My.Settings.MySqlTbcIntHost & ";" &
-                                My.Settings.MySqlTbcIntPort & ";" &
-                                My.Settings.MySqlTbcIntUserName & ";" &
-                                My.Settings.MySqlTbcIntPassword & ";" &
-                                My.Settings.MySqlTbcIntRealmd & Chr(34)
-                        Case GV.EModule.Wotlk.ToString
-                            value = Chr(34) & My.Settings.MySqlWotlkIntHost & ";" &
-                                My.Settings.MySqlWotlkIntPort & ";" &
-                                My.Settings.MySqlWotlkIntUserName & ";" &
-                                My.Settings.MySqlWotlkIntPassword & ";" &
-                                My.Settings.MySqlWotlkIntRealmd & Chr(34)
-                        Case Else
-                            ' Неизвестный модуль
-                            GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                            Exit Sub
-                    End Select
-                Else
-                    Select Case My.Settings.LastLoadedServerType
-                        Case GV.EModule.Classic.ToString
-                            value = Chr(34) & My.Settings.MySqlClassicExtHost & ";" &
-                                My.Settings.MySqlClassicExtPort & ";" &
-                                My.Settings.MySqlClassicExtUserName & ";" &
-                                My.Settings.MySqlClassicExtPassword & ";" &
-                                My.Settings.MySqlClassicExtRealmd & Chr(34)
-                        Case GV.EModule.Tbc.ToString
-                            value = Chr(34) & My.Settings.MySqlTbcExtHost & ";" &
-                                My.Settings.MySqlTbcExtPort & ";" &
-                                My.Settings.MySqlTbcExtUserName & ";" &
-                                My.Settings.MySqlTbcExtPassword & ";" &
-                                My.Settings.MySqlTbcExtRealmd & Chr(34)
-                        Case GV.EModule.Wotlk.ToString
-                            value = Chr(34) & My.Settings.MySqlWotlkExtHost & ";" &
-                                My.Settings.MySqlWotlkExtPort & ";" &
-                                My.Settings.MySqlWotlkExtUserName & ";" &
-                                My.Settings.MySqlWotlkExtPassword & ";" &
-                                My.Settings.MySqlWotlkExtRealmd & Chr(34)
-                        Case Else
-                            ' Неизвестный модуль
-                            GV.Log.WriteAll(My.Resources.E008_UnknownModule)
-                            Exit Sub
-                    End Select
-                End If
-
-                ' Правим файл конфигурации Realmd
-                _iniRealmd.Write("RealmdConf", "LoginDatabaseInfo", value)
-
-                ' Создаём информацию о процессе
-                Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileRealmd) With {
-                    .CreateNoWindow = True,
-                    .RedirectStandardInput = True,
-                    .RedirectStandardOutput = True,
-                    .RedirectStandardError = True,
-                    .UseShellExecute = False,
-                    .WindowStyle = ProcessWindowStyle.Normal,
-                    .WorkingDirectory = My.Settings.CurrentServerSettings
-                }
-
-                _RealmdProcess = New Process()
-                Try
-                    _RealmdProcess.StartInfo = startInfo
-                    ' Запускаем
-                    If _RealmdProcess.Start() Then
-                        GV.Log.WriteAll(My.Resources.P031_RealmdStarted)
-                        AddHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
-                        AddHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
-                        AddHandler _RealmdProcess.Exited, AddressOf RealmdExited
-                        _RealmdProcess.BeginOutputReadLine()
-                        _RealmdProcess.BeginErrorReadLine()
-                        BP.ProcessStarted(GV.EProcess.Realmd)
+                    Dim value As String = ""
+                    If My.Settings.UseIntMySQL Then
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                value = Chr(34) & My.Settings.MySqlClassicIntHost & ";" &
+                                        My.Settings.MySqlClassicIntPort & ";" &
+                                        My.Settings.MySqlClassicIntUserName & ";" &
+                                        My.Settings.MySqlClassicIntPassword & ";" &
+                                        My.Settings.MySqlClassicIntRealmd & Chr(34)
+                            Case GV.EModule.Tbc.ToString
+                                value = Chr(34) & My.Settings.MySqlTbcIntHost & ";" &
+                                        My.Settings.MySqlTbcIntPort & ";" &
+                                        My.Settings.MySqlTbcIntUserName & ";" &
+                                        My.Settings.MySqlTbcIntPassword & ";" &
+                                        My.Settings.MySqlTbcIntRealmd & Chr(34)
+                            Case GV.EModule.Wotlk.ToString
+                                value = Chr(34) & My.Settings.MySqlWotlkIntHost & ";" &
+                                        My.Settings.MySqlWotlkIntPort & ";" &
+                                        My.Settings.MySqlWotlkIntUserName & ";" &
+                                        My.Settings.MySqlWotlkIntPassword & ";" &
+                                        My.Settings.MySqlWotlkIntRealmd & Chr(34)
+                            Case Else
+                                ' Неизвестный модуль
+                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                Exit Sub
+                        End Select
                     Else
-                        _RealmdProcess = Nothing
+                        Select Case My.Settings.LastLoadedServerType
+                            Case GV.EModule.Classic.ToString
+                                value = Chr(34) & My.Settings.MySqlClassicExtHost & ";" &
+                                        My.Settings.MySqlClassicExtPort & ";" &
+                                        My.Settings.MySqlClassicExtUserName & ";" &
+                                        My.Settings.MySqlClassicExtPassword & ";" &
+                                        My.Settings.MySqlClassicExtRealmd & Chr(34)
+                            Case GV.EModule.Tbc.ToString
+                                value = Chr(34) & My.Settings.MySqlTbcExtHost & ";" &
+                                        My.Settings.MySqlTbcExtPort & ";" &
+                                        My.Settings.MySqlTbcExtUserName & ";" &
+                                        My.Settings.MySqlTbcExtPassword & ";" &
+                                        My.Settings.MySqlTbcExtRealmd & Chr(34)
+                            Case GV.EModule.Wotlk.ToString
+                                value = Chr(34) & My.Settings.MySqlWotlkExtHost & ";" &
+                                        My.Settings.MySqlWotlkExtPort & ";" &
+                                        My.Settings.MySqlWotlkExtUserName & ";" &
+                                        My.Settings.MySqlWotlkExtPassword & ";" &
+                                        My.Settings.MySqlWotlkExtRealmd & Chr(34)
+                            Case Else
+                                ' Неизвестный модуль
+                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                Exit Sub
+                        End Select
                     End If
-                Catch ex As Exception
-                    ' Realmd выдал исключение
-                    _RealmdON = False
+
+                    ' Правим файл конфигурации Realmd
+                    _iniRealmd.Write("RealmdConf", "LoginDatabaseInfo", value)
+
+                    ' Создаём информацию о процессе
+                    Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileRealmd) With {
+                            .CreateNoWindow = True,
+                            .RedirectStandardInput = True,
+                            .RedirectStandardOutput = True,
+                            .RedirectStandardError = True,
+                            .UseShellExecute = False,
+                            .WindowStyle = ProcessWindowStyle.Normal,
+                            .WorkingDirectory = My.Settings.CurrentServerSettings
+                        }
+
+                    _RealmdProcess = New Process()
                     Try
-                        _RealmdProcess.Dispose()
-                    Catch
+                        _RealmdProcess.StartInfo = startInfo
+                        ' Запускаем
+                        If _RealmdProcess.Start() Then
+                            GV.Log.WriteAll(My.Resources.P031_RealmdStarted)
+                            AddHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
+                            AddHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
+                            AddHandler _RealmdProcess.Exited, AddressOf RealmdExited
+                            _RealmdProcess.BeginOutputReadLine()
+                            _RealmdProcess.BeginErrorReadLine()
+                            BP.ProcessStarted(GV.EProcess.Realmd)
+                        Else
+                            _RealmdProcess = Nothing
+                        End If
+                    Catch ex As Exception
+                        ' Realmd выдал исключение
+                        _RealmdON = False
+                        Try
+                            _RealmdProcess.Dispose()
+                        Catch
+                        End Try
+                        GV.Log.WriteException(ex)
+                        MessageBox.Show(My.Resources.E012_RealmdException & vbLf & ex.Message,
+                                            My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
-                    GV.Log.WriteException(ex)
-                    MessageBox.Show(My.Resources.E012_RealmdException & vbLf & ex.Message,
-                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+                End If
             Else
-                ' Если Realmd включен, харе и на выход
-                If _realmdON Then Exit Sub
-                GV.Log.WriteInfo("Relamd - !!!!")
-                ' Первоначальный запуск не сработал, перенастраиваем таймер
-                If Not NeedServerStop Then TimerStartRealmd.Change(1000, 1000)
+                GV.Log.WriteInfo(String.Format(My.Resources.P041_AlreadyStarted, "Realmd"))
             End If
         End SyncLock
     End Sub

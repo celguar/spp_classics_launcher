@@ -84,6 +84,8 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub TimerTik_StartMySQL(obj As Object)
+        Threading.Thread.CurrentThread.CurrentUICulture = GV.CI
+        Threading.Thread.CurrentThread.CurrentCulture = GV.CI
         ' Выключаем таймер
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "MySQL"))
@@ -98,6 +100,8 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub TimerTik_StartApache(obj As Object)
+        Threading.Thread.CurrentThread.CurrentUICulture = GV.CI
+        Threading.Thread.CurrentThread.CurrentCulture = GV.CI
         ' Выключаем таймер
         TimerStartApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Apache"))
@@ -112,6 +116,8 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub TimerTik_StartWorld(obj As Object)
+        Threading.Thread.CurrentThread.CurrentUICulture = GV.CI
+        Threading.Thread.CurrentThread.CurrentCulture = GV.CI
         ' Выключаем таймер
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "World"))
@@ -126,6 +132,8 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="obj"></param>
     Friend Sub TimerTik_StartRealmd(obj As Object)
+        Threading.Thread.CurrentThread.CurrentUICulture = GV.CI
+        Threading.Thread.CurrentThread.CurrentCulture = GV.CI
         ' Выключаем таймер
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Realmd"))
