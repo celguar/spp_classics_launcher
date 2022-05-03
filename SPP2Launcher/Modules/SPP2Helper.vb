@@ -316,11 +316,6 @@ Module SPP2Helper
             Next
         End If
 
-        ' Если автозапуск MySQL сервера
-        If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
-            TimerStartMySQL.Change(500, 500)
-        End If
-
     End Sub
 
     ''' <summary>

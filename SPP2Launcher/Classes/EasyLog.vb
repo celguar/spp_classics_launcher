@@ -332,7 +332,7 @@ Public Class EasyLog
     ''' <param name="cleanAtStartup">Необязательный параметр: При инициализации удаляет старый файл журнала событий. По умолчанию True.
     ''' Параметр будет учтён только при запуске из данного конструктора инициализации. По умолчанию False.</param>
     ''' <param name="extendedLog">Необязательный параметр: Формат хранения записей событий. По умолчанию False, то есть без расширенных атрибутов.</param>
-    ''' <param name="maxLogSize">Необязательный параметр: Максимальный размер файла журнала событий. При превышении создаётся новый. По умолчанию = 10000 байт.</param>
+    ''' <param name="maxLogSize">Необязательный параметр: Максимальный размер файла журнала событий. При превышении создаётся новый. По умолчанию = 10000000 байт.</param>
     ''' <param name="language">Необязательный параметр: Язык локализации сообщений используемых в EasyLog. Системные сообщения не изменяются!</param>
     Public Sub New(ByRef _err As Tuple(Of Integer, String),
                    Optional ByVal logDir As String = Nothing,
@@ -347,7 +347,7 @@ Public Class EasyLog
                    Optional ByVal textSeparator As String = Nothing,
                    Optional ByVal cleanAtStartup? As Boolean = True,
                    Optional ByVal extendedLog As Boolean = False,
-                   Optional ByVal maxLogSize As Integer = 10000,
+                   Optional ByVal maxLogSize As Integer = 10000000,
                    Optional ByVal language As String = "ru-RU")
 
         Try

@@ -199,13 +199,11 @@ Public Class Launcher
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If GV.FirstStart Then
             ' Это был первый запуск
-            My.Settings.AppSize = GV.SPP2Launcher.Size
             My.Settings.AppLocation = Me.Location
             My.Settings.Save()
         Else
             If CurrentRunningServer <> "" Or EnableClosing = False Then
                 ' Сохраняем параметры окна лаунчера, по крайней мере - стандартно
-                My.Settings.AppSize = Me.Size
                 My.Settings.AppLocation = Me.Location
                 My.Settings.Save()
                 Try
@@ -215,7 +213,6 @@ Public Class Launcher
                 e.Cancel = True
             Else
                 ' Сохраняем параметры окна лаунчера по факту выхода
-                My.Settings.AppSize = Me.Size
                 My.Settings.AppLocation = Me.Location
                 My.Settings.Save()
                 GV.Log.WriteInfo(My.Resources.P005_Exiting)
@@ -481,7 +478,13 @@ Public Class Launcher
         If ServerWowAutostart AndAlso My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then
             ' Запускаем встроенный MySQL - дальше чекинги сделают всё необходимое
             TimerStartMySQL.Change(2000, 2000)
+        Else
+            ' Если автозапуск MySQL сервера
+            If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
+                TimerStartMySQL.Change(500, 500)
+            End If
         End If
+
     End Sub
 
 #End Region
@@ -1721,7 +1724,6 @@ Public Class Launcher
         _EnableClosing = True
         If CurrentRunningServer <> "" Then AutoSave()
         ' Сохраняем параметры окна лаунчера, через стандартый выход нам не ходить...
-        My.Settings.AppSize = Me.Size
         My.Settings.AppLocation = Me.Location
         My.Settings.Save()
         ' Продолжаем закрытие
