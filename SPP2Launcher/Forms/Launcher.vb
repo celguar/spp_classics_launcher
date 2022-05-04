@@ -190,9 +190,15 @@ Public Class Launcher
         UpdateSettings()
 
         TabControl1.SelectedTab = TabPage_World
-        ' Включаем вывод команды разработчиков
+
+        ' Включем поток ежесекундного тика
+        Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {.IsBackground = True}
+        tikTok.Start()
+
+        ' Включаем поток вывода команды разработчиков
         _isStart = New Threading.Thread(Sub() PreStart()) With {.IsBackground = True}
         _isStart.Start()
+
     End Sub
 
     ''' <summary>

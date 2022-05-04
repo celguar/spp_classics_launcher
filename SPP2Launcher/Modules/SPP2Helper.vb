@@ -22,7 +22,7 @@ Module SPP2Helper
     ''' <summary>
     ''' Время безотказной работы.
     ''' </summary>
-    Friend WorldStartTime As Date = Nothing
+    Friend WorldStartTime As Double
 
 #Region " === КОНСТАНТЫ === "
 
@@ -297,15 +297,15 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        If My.Settings.ConsoleMessageFilter > 1 Then
+        If My.Settings.ConsoleMessageFilter < 1 Then
             GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
         Else
-            ' Отдельные сообщения всё же пропускаем
-            If e.Data.Contains("__") Or UCase(e.Data).Contains("CMANGOS") Then
+            If Not e.Data.Contains("ERROR") Then
                 GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
-            ElseIf e.Data.Contains("SERVER STARTUP TIME") Then
-                WorldStartTime = Date.Now
             End If
+        End If
+        If e.Data.Contains("SERVER STARTUP TIME") Then
+            WorldStartTime = Date.Now.ToOADate()
         End If
     End Sub
 
@@ -315,7 +315,7 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        If My.Settings.ConsoleMessageFilter > 1 Then
+        If My.Settings.ConsoleMessageFilter < 1 Then
             GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
         End If
     End Sub
@@ -323,6 +323,15 @@ Module SPP2Helper
 #End Region
 
 #Region " === ПОТОКИ === "
+
+    Friend Sub EverySecond()
+        Do
+            Threading.Thread.Sleep(1000)
+            If WorldStartTime > 0 Then
+                GV.SPP2Launcher.OutMessageStatusStrip(String.Format("Uptime: {0:dd\.hh\:mm\:ss} ", Date.Now - Date.FromOADate(WorldStartTime)))
+            End If
+        Loop
+    End Sub
 
     ''' <summary>
     ''' Выводит в консоль World информацию о разработчиках.
@@ -350,6 +359,8 @@ Module SPP2Helper
     ''' <param name="processID">Идентификатор процесса, который следует завалить.</param>
     ''' <param name="otherServers">Вырубить так же и прочие серверы.</param>
     Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean)
+        WorldStartTime = 0
+        Threading.Thread.Sleep(100)
         If processID > 0 Then
             Do
                 ' Пишем в лог - Идёт остановка серверов
@@ -507,7 +518,7 @@ Module SPP2Helper
                                 control.WasLaunched = False
                                 control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
-                                    WorldStartTime = Nothing
+                                    WorldStartTime = 0
                                     ' Сервер рухнул
                                     GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд

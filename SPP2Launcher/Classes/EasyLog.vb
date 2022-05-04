@@ -1165,7 +1165,7 @@ Public Class EasyLog
                                    Optional ByVal useBackgroundTask As Boolean = True,
                                    Optional ByVal framesToSkip As Integer = 0) As Exception
         If isSQL Then
-            If xElement Is Nothing OrElse severitySQL < LogLevel OrElse _stopWriteMessages Then Return Nothing
+            If xElement Is Nothing OrElse severitySQL < SqlLogLevel OrElse _stopWriteMessages Then Return Nothing
         Else
             If useSeverity Then
                 ' Фильтровать записи ниже установленного уровня серъёзности и согласно параметру

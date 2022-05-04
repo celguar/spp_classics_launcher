@@ -38,6 +38,8 @@ Partial Class LauncherSettings
         Me.ComboBox_LogLevel = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox_UseAutoHints = New System.Windows.Forms.CheckBox()
+        Me.CheckBox_UseConsoleBuffering = New System.Windows.Forms.CheckBox()
         Me.ComboBox_MessageFilter = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -47,8 +49,6 @@ Partial Class LauncherSettings
         Me.ComboBox_FontSize = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox_FontStyle = New System.Windows.Forms.ComboBox()
-        Me.CheckBox_UseConsoleBuffering = New System.Windows.Forms.CheckBox()
-        Me.CheckBox_UseAutoHints = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -167,6 +167,18 @@ Partial Class LauncherSettings
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
         '
+        'CheckBox_UseAutoHints
+        '
+        resources.ApplyResources(Me.CheckBox_UseAutoHints, "CheckBox_UseAutoHints")
+        Me.CheckBox_UseAutoHints.Name = "CheckBox_UseAutoHints"
+        Me.CheckBox_UseAutoHints.UseVisualStyleBackColor = True
+        '
+        'CheckBox_UseConsoleBuffering
+        '
+        resources.ApplyResources(Me.CheckBox_UseConsoleBuffering, "CheckBox_UseConsoleBuffering")
+        Me.CheckBox_UseConsoleBuffering.Name = "CheckBox_UseConsoleBuffering"
+        Me.CheckBox_UseConsoleBuffering.UseVisualStyleBackColor = True
+        '
         'ComboBox_MessageFilter
         '
         Me.ComboBox_MessageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -227,18 +239,6 @@ Partial Class LauncherSettings
         Me.ComboBox_FontStyle.FormattingEnabled = True
         resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.Name = "ComboBox_FontStyle"
-        '
-        'CheckBox_UseConsoleBuffering
-        '
-        resources.ApplyResources(Me.CheckBox_UseConsoleBuffering, "CheckBox_UseConsoleBuffering")
-        Me.CheckBox_UseConsoleBuffering.Name = "CheckBox_UseConsoleBuffering"
-        Me.CheckBox_UseConsoleBuffering.UseVisualStyleBackColor = True
-        '
-        'CheckBox_UseAutoHints
-        '
-        resources.ApplyResources(Me.CheckBox_UseAutoHints, "CheckBox_UseAutoHints")
-        Me.CheckBox_UseAutoHints.Name = "CheckBox_UseAutoHints"
-        Me.CheckBox_UseAutoHints.UseVisualStyleBackColor = True
         '
         'LauncherSettings
         '
