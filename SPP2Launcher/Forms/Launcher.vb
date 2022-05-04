@@ -558,6 +558,7 @@ Public Class Launcher
             MessageBox.Show(My.Resources.P006_NeedReboot,
                             My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
             ' Останавливаем ВСЕ сервера
+            _NeedExitLauncher = True
             ShutdownAll(True)
             Me.Hide()
             _EnableClosing = True
@@ -567,6 +568,7 @@ Public Class Launcher
             fServerSelector.ShowDialog()
         Else
             ' Процессов нет - запускаем окно выбора типа сервера
+            _NeedExitLauncher = True
             ShutdownAll(True)
             NotifyIcon_SPP2.Visible = False
             My.Settings.NextLoadServerType = ""
@@ -842,6 +844,7 @@ Public Class Launcher
             End If
             _MySqlON = False
             GV.Log.WriteException(ex)
+
         Finally
 
             If _MySqlON Then
@@ -874,6 +877,20 @@ Public Class Launcher
             End If
         End Try
         ac.AsyncWaitHandle.Close()
+
+        If _MySqlON AndAlso HintCollection.Count = 0 Then
+            ' Автоподсказки
+            TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
+            MySqlTables.COMMAND.SELECT_COMMAND(HintCollection)
+            TextBox_Command.AutoCompleteCustomSource = HintCollection
+            If TextBox_Command.InvokeRequired Then
+                TextBox_Command.Invoke(Sub()
+                                           TextBox_Command.AutoCompleteMode = If(My.Settings.UseConsoleAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
+                                       End Sub)
+            Else
+                TextBox_Command.AutoCompleteMode = If(My.Settings.UseConsoleAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
+            End If
+        End If
     End Sub
 
 #End Region
@@ -1739,8 +1756,8 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
-        _EnableClosing = True
         If CurrentRunningServer <> "" Then AutoSave()
+        _NeedExitLauncher = True
         ' Продолжаем закрытие
         ShutdownAll(True)
         NotifyIcon_SPP2.Visible = False

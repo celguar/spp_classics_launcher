@@ -116,6 +116,7 @@
     <Compile Include="Classes\IniFiles.vb" />
     <Compile Include="Classes\GV.vb" />
     <Compile Include="MySQL\Command\CHARACTERS.vb" />
+    <Compile Include="MySQL\Command\COMMAND.vb" />
     <Compile Include="MySQL\MySqlClient.vb" />
     <Compile Include="Classes\SPP2Module.vb" />
     <Compile Include="Classes\SPP2SettingsProvider.vb" />

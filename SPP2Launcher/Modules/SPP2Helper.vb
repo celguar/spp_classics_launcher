@@ -24,6 +24,11 @@ Module SPP2Helper
     ''' </summary>
     Friend WorldStartTime As Double
 
+    ''' <summary>
+    ''' Коллекция подсказок для командной строки консоли.
+    ''' </summary>
+    Friend HintCollection As New AutoCompleteStringCollection()
+
 #Region " === КОНСТАНТЫ === "
 
     ''' <summary>
@@ -407,9 +412,12 @@ Module SPP2Helper
                 If Not GV.SPP2Launcher.MySqlON AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
                 Threading.Thread.Sleep(100)
             Loop
+
             ' Закрываем приложение
+            GV.SPP2Launcher.EnableClosing = True
             Application.Exit()
         End If
+
     End Sub
 
     ''' <summary>
@@ -441,6 +449,7 @@ Module SPP2Helper
             If Date.Now - _checkMySQL > TimeSpan.FromSeconds(2) Then
                 _checkMySQL = Date.Now
                 GV.SPP2Launcher.CheckMySQL()
+                GC.Collect()
             End If
 
             ' Чекаем Http каждые 2 секунды

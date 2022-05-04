@@ -4,6 +4,9 @@ Imports DevCake.WoW.SPP2Launcher.MySqlProvider
 
 Namespace MySqlTables
 
+    ''' <summary>
+    ''' Таблица Caracters базы Characters
+    ''' </summary>
     Public Class CHARACTERS
 
         ''' <summary>
@@ -12,7 +15,7 @@ Namespace MySqlTables
         ''' <returns></returns>
         Shared Function SELECT_TOTAL_CHARS() As String
             Dim count As String = ""
-            Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbCaractes))
+            Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbCharacters))
                 Using sqlComm As New MySqlCommand
                     With sqlComm
                         .Connection = sqlConn
@@ -39,7 +42,7 @@ Namespace MySqlTables
         ''' <returns></returns>
         Shared Function SELECT_ONLINE_CHARS() As String
             Dim count As String = ""
-            Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbCaractes))
+            Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbCharacters))
                 Using sqlComm As New MySqlCommand
                     With sqlComm
                         .Connection = sqlConn

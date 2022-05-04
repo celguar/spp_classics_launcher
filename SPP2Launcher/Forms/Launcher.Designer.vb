@@ -437,7 +437,7 @@ Partial Class Launcher
         'RichTextBox_ConsoleMySQL
         '
         Me.RichTextBox_ConsoleMySQL.BackColor = System.Drawing.Color.Black
-        Me.RichTextBox_ConsoleMySQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.RichTextBox_ConsoleMySQL.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox_ConsoleMySQL.ContextMenuStrip = Me.ContextMenuStrip_Console
         resources.ApplyResources(Me.RichTextBox_ConsoleMySQL, "RichTextBox_ConsoleMySQL")
         Me.RichTextBox_ConsoleMySQL.ForeColor = System.Drawing.Color.DarkGreen
@@ -454,7 +454,7 @@ Partial Class Launcher
         'RichTextBox_ConsoleRealmd
         '
         Me.RichTextBox_ConsoleRealmd.BackColor = System.Drawing.Color.Black
-        Me.RichTextBox_ConsoleRealmd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.RichTextBox_ConsoleRealmd.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox_ConsoleRealmd.ContextMenuStrip = Me.ContextMenuStrip_Console
         resources.ApplyResources(Me.RichTextBox_ConsoleRealmd, "RichTextBox_ConsoleRealmd")
         Me.RichTextBox_ConsoleRealmd.ForeColor = System.Drawing.Color.Green
@@ -472,6 +472,7 @@ Partial Class Launcher
         '
         resources.ApplyResources(Me.RichTextBox_ConsoleWorld, "RichTextBox_ConsoleWorld")
         Me.RichTextBox_ConsoleWorld.BackColor = System.Drawing.Color.Black
+        Me.RichTextBox_ConsoleWorld.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox_ConsoleWorld.ContextMenuStrip = Me.ContextMenuStrip_Console
         Me.RichTextBox_ConsoleWorld.ForeColor = System.Drawing.Color.DarkGreen
         Me.RichTextBox_ConsoleWorld.Name = "RichTextBox_ConsoleWorld"

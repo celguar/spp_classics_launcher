@@ -7,7 +7,7 @@ Public Class MySqlProvider
 
         DbArmory
 
-        DbCaractes
+        DbCharacters
 
         DbLogs
 
@@ -15,7 +15,7 @@ Public Class MySqlProvider
 
         DbPlayerbots
 
-        DbRealm
+        DbRealmd
 
     End Enum
 
@@ -165,13 +165,13 @@ Public Class MySqlProvider
         Select Case db
             Case EDataBase.DbArmory
                 Return ConnectionString & ";database=" & DbArmoryName
-            Case EDataBase.DbCaractes
+            Case EDataBase.DbCharacters
                 Return ConnectionString & ";database=" & DbCharName
             Case EDataBase.DbLogs
                 Return ConnectionString & ";database=" & DbLogName
             Case EDataBase.DbPlayerbots
                 Return ConnectionString & ";database=" & DbBotName
-            Case EDataBase.DbRealm
+            Case EDataBase.DbRealmd
                 Return ConnectionString & ";database=" & DbRealmName
             Case EDataBase.DbWorld
                 Return ConnectionString & ";database=" & DbWorldName
