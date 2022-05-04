@@ -1845,12 +1845,22 @@ Public Class Launcher
                 Me.TextBox_Command.Text = ""
 
             Case Keys.Up
-                Dim text = ConsoleCommandBuffer.GetUp
-                If Not IsNothing(text) OrElse text <> "" Then TextBox_Command.Text = text
+                If My.Settings.UseConsoleBuffer Then
+                    Dim text = ConsoleCommandBuffer.GetUp
+                    If Not IsNothing(text) OrElse text <> "" Then
+                        TextBox_Command.Text = text
+                        TextBox_Command.Select(text.Length, text.Length)
+                    End If
+                End If
 
             Case Keys.Down
-                Dim text = ConsoleCommandBuffer.GetDown
-                If Not IsNothing(text) OrElse text <> "" Then TextBox_Command.Text = text
+                If My.Settings.UseConsoleBuffer Then
+                    Dim text = ConsoleCommandBuffer.GetDown
+                    If Not IsNothing(text) OrElse text <> "" Then
+                        TextBox_Command.Text = text
+                        TextBox_Command.Select(text.Length, text.Length)
+                    End If
+                End If
 
             Case Keys.Escape
                 Me.TextBox_Command.Text = ""
@@ -1863,7 +1873,10 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="text"></param>
     Private Sub SendCommandToWorld(text As String)
-        ConsoleCommandBuffer.Add(text)
+
+        ' Если буфер разрешён, добавляем текст в буфер
+        If My.Settings.UseConsoleBuffer Then ConsoleCommandBuffer.Add(text)
+
         Dim t = String.Format(My.Resources.P036_YourSendCommand, text)
         GV.Log.WriteInfo(t)
         OutWorldConsole(t, Color.YellowGreen)
