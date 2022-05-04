@@ -21,22 +21,49 @@ Public Class ProcessController
     ''' </summary>
     ''' <param name="name"></param>
     Sub AddProcess(name As GV.EProcess)
+
         Processes.Add(New BaseProcess(name))
     End Sub
 
     ''' <summary>
-    ''' Процесс был запущен.
+    ''' Попытка запуска процесса.
     ''' </summary>
     ''' <param name="name"></param>
-    Sub ProcessStarted(name As GV.EProcess)
+    Sub WasLaunched(name As GV.EProcess)
+        Dim n As String = ""
+        Dim pc As BaseProcess
+        Select Case name
+            Case GV.EProcess.Realmd
+                n = "realmd"
+                pc = Processes.Find(Function(p) p.Name = n)
+            Case GV.EProcess.World
+                n = "mangosd"
+                Processes.Find(Function(p) p.Name = n).WasLaunched = True
+        End Select
+    End Sub
+
+    ''' <summary>
+    ''' Все процессы остановлены.
+    ''' </summary>
+    Sub ProcessesAreStopped()
+        For Each p In Processes
+            p.WasLaunched = False
+        Next
+    End Sub
+
+    ''' <summary>
+    ''' Процесс упал.
+    ''' </summary>
+    ''' <param name="name"></param>
+    Sub ProcessCrashed(name As GV.EProcess)
         Dim n As String = ""
         Select Case name
             Case GV.EProcess.Realmd
                 n = "realmd"
-                Processes.Find(Function(p) p.Name = n).WasLaunched = True
+                Processes.Find(Function(p) p.Name = n).CrashCount = +1
             Case GV.EProcess.World
                 n = "mangosd"
-                Processes.Find(Function(p) p.Name = n).WasLaunched = True
+                Processes.Find(Function(p) p.Name = n).CrashCount += 1
         End Select
     End Sub
 
@@ -47,8 +74,20 @@ End Class
 ''' </summary>
 Public Class BaseProcess
 
+    ''' <summary>
+    ''' Имя процесса
+    ''' </summary>
     Public Name As String
+
+    ''' <summary>
+    ''' Была ли попытка запуска?
+    ''' </summary>
     Public WasLaunched As Boolean
+
+    ''' <summary>
+    ''' Количество падений процесса.
+    ''' </summary>
+    Public CrashCount As Integer
 
     ''' <summary>
     ''' Конструктор иницилизации.

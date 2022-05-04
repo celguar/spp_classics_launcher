@@ -616,7 +616,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
         If My.Settings.UseIntMySQL AndAlso Not _mysqlON AndAlso IsNothing(_mysqlProcess) Then
-            GV.Log.WriteAll(My.Resources.SQL002_Start)
+            GV.Log.WriteInfo(My.Resources.SQL002_Start)
             Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
             Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
             ' Создаём информацию о процессе
@@ -635,7 +635,7 @@ Public Class Launcher
                 _mysqlProcess.StartInfo = startInfo
                 ' Запускаем
                 If _mysqlProcess.Start() Then
-                    GV.Log.WriteAll(My.Resources.SQL003_Started)
+                    GV.Log.WriteInfo(My.Resources.SQL003_Started)
                     AddHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
                     AddHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
                     AddHandler _mysqlProcess.Exited, AddressOf MySqlExited
@@ -659,7 +659,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub MySqlExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteAll(My.Resources.SQL004_Stopped)
+        GV.Log.WriteInfo(My.Resources.SQL004_Stopped)
         RemoveHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
         RemoveHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
         RemoveHandler _mysqlProcess.Exited, AddressOf MySqlExited
@@ -704,11 +704,11 @@ Public Class Launcher
             ' Выполняем
             Try
                 Using exeProcess = Process.Start(startInfo)
-                    GV.Log.WriteAll(My.Resources.SQL001_Shutdown)
+                    GV.Log.WriteInfo(My.Resources.SQL001_Shutdown)
                     exeProcess.WaitForExit()
                 End Using
-                GV.Log.WriteAll(My.Resources.SQL004_Stopped)
-                _mysqlON = False
+                GV.Log.WriteInfo(My.Resources.SQL004_Stopped)
+                _MySqlON = False
                 _mysqlProcess = Nothing
                 TSSL_MySQL.Image = My.Resources.red_ball
             Catch ex As Exception
@@ -739,7 +739,7 @@ Public Class Launcher
                     port = My.Settings.MySqlClassicIntPort
                 Case Else
                     ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                    GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                     Exit Sub
             End Select
         Else
@@ -755,7 +755,7 @@ Public Class Launcher
                     port = My.Settings.MySqlClassicExtPort
                 Case Else
                     ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                    GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                     Exit Sub
             End Select
         End If
@@ -929,7 +929,7 @@ Public Class Launcher
     Friend Sub StartApache(obj As Object)
         If Not _apacheON Then
             _apacheON = True
-            GV.Log.WriteAll(My.Resources.Apache002_Start)
+            GV.Log.WriteInfo(My.Resources.Apache002_Start)
             ' Разбираемся с настройками Apache
             If My.Settings.UseIntApache Then
                 Dim listen As String = ""
@@ -974,16 +974,16 @@ Public Class Launcher
                 p.StartInfo = startInfo
                 ' Запускаем
                 If p.Start() Then
-                    GV.Log.WriteAll(My.Resources.Apache003_Started)
+                    GV.Log.WriteInfo(My.Resources.Apache003_Started)
                 Else
                     _apacheON = False
-                    GV.Log.WriteAll(My.Resources.Apache005_NotStarted)
+                    GV.Log.WriteInfo(My.Resources.Apache005_NotStarted)
                 End If
             Catch ex As Exception
                 _apacheON = False
                 ' Apache выдал исключение
                 GV.Log.WriteException(ex)
-                GV.Log.WriteAll(My.Resources.Apache005_NotStarted)
+                GV.Log.WriteInfo(My.Resources.Apache005_NotStarted)
                 MessageBox.Show(My.Resources.E010_ApacheException & vbLf & ex.Message,
                                 My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -1020,7 +1020,7 @@ Public Class Launcher
             Try
                 p = Process.GetProcessById(pid)
                 p.Kill()
-                GV.Log.WriteAll(My.Resources.Apache004_Stopped)
+                GV.Log.WriteInfo(My.Resources.Apache004_Stopped)
                 IO.File.Delete(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\logs\httpd.pid")
             Catch
             End Try
@@ -1063,7 +1063,7 @@ Public Class Launcher
                     port = My.Settings.ApacheClassicIntPort
                 Case Else
                     ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                    GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                     Exit Sub
             End Select
         Else
@@ -1079,7 +1079,7 @@ Public Class Launcher
                     port = My.Settings.ApacheClassicExtPort
                 Case Else
                     ' Неизвестный модуль
-                    GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                    GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                     Exit Sub
             End Select
         End If
@@ -1129,7 +1129,7 @@ Public Class Launcher
         SyncLock lockWorld
             If Not _worldON Then
                 If _MySqlON And Not _NeedExitLauncher And Not NeedServerStop And IsNothing(_WorldProcess) Then
-                    GV.Log.WriteAll(My.Resources.P015_WorldStart)
+                    GV.Log.WriteInfo(My.Resources.P015_WorldStart)
 
                     ' Исключаем повторный запуск World
                     _worldON = True
@@ -1173,7 +1173,7 @@ Public Class Launcher
                                 playerbots &= base & My.Settings.MySqlWotlkIntPlayerbots & Chr(34)
                             Case Else
                                 ' Неизвестный модуль
-                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                                 Exit Sub
                         End Select
                     Else
@@ -1210,7 +1210,7 @@ Public Class Launcher
                                 playerbots &= base & My.Settings.MySqlWotlkExtPlayerbots & Chr(34)
                             Case Else
                                 ' Неизвестный модуль
-                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                                 Exit Sub
                         End Select
                     End If
@@ -1236,15 +1236,15 @@ Public Class Launcher
                     _WorldProcess = New Process()
                     Try
                         _WorldProcess.StartInfo = startInfo
+                        BP.WasLaunched(GV.EProcess.World)
                         ' Запускаем
                         If _WorldProcess.Start() Then
-                            GV.Log.WriteAll(My.Resources.P017_WorldStarted)
+                            GV.Log.WriteInfo(My.Resources.P017_WorldStarted)
                             AddHandler _WorldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
                             AddHandler _WorldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
                             AddHandler _WorldProcess.Exited, AddressOf WorldExited
                             _WorldProcess.BeginOutputReadLine()
                             _WorldProcess.BeginErrorReadLine()
-                            BP.ProcessStarted(GV.EProcess.World)
                         Else
                             _WorldProcess = Nothing
                         End If
@@ -1275,7 +1275,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteAll(My.Resources.P018_WorldStopped)
+        GV.Log.WriteInfo(My.Resources.P018_WorldStopped)
         RemoveHandler _WorldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
         RemoveHandler _WorldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
         RemoveHandler _WorldProcess.Exited, AddressOf RealmdExited
@@ -1459,7 +1459,7 @@ Public Class Launcher
         SyncLock lockRealmd
             If Not _RealmdON Then
                 If _MySqlON And Not NeedServerStop And IsNothing(_RealmdProcess) Then
-                    GV.Log.WriteAll(My.Resources.P030_RealmdStart)
+                    GV.Log.WriteInfo(My.Resources.P030_RealmdStart)
 
                     ' Исключаем повторный запуск Realmd
                     _RealmdON = True
@@ -1487,7 +1487,7 @@ Public Class Launcher
                                         My.Settings.MySqlWotlkIntRealmd & Chr(34)
                             Case Else
                                 ' Неизвестный модуль
-                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                                 Exit Sub
                         End Select
                     Else
@@ -1512,7 +1512,7 @@ Public Class Launcher
                                         My.Settings.MySqlWotlkExtRealmd & Chr(34)
                             Case Else
                                 ' Неизвестный модуль
-                                GV.Log.WriteAll(My.Resources.E008_UnknownModule)
+                                GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
                                 Exit Sub
                         End Select
                     End If
@@ -1532,17 +1532,18 @@ Public Class Launcher
                         }
 
                     _RealmdProcess = New Process()
+
                     Try
                         _RealmdProcess.StartInfo = startInfo
+                        BP.WasLaunched(GV.EProcess.Realmd)
                         ' Запускаем
                         If _RealmdProcess.Start() Then
-                            GV.Log.WriteAll(My.Resources.P031_RealmdStarted)
+                            GV.Log.WriteInfo(My.Resources.P031_RealmdStarted)
                             AddHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
                             AddHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
                             AddHandler _RealmdProcess.Exited, AddressOf RealmdExited
                             _RealmdProcess.BeginOutputReadLine()
                             _RealmdProcess.BeginErrorReadLine()
-                            BP.ProcessStarted(GV.EProcess.Realmd)
                         Else
                             _RealmdProcess = Nothing
                         End If
@@ -1570,7 +1571,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub RealmdExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteAll(My.Resources.P032_RealmdStopped)
+        GV.Log.WriteInfo(My.Resources.P032_RealmdStopped)
         RemoveHandler _realmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
         RemoveHandler _realmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
         RemoveHandler _realmdProcess.Exited, AddressOf RealmdExited

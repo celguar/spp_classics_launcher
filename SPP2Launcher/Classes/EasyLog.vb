@@ -14,24 +14,14 @@ Public Class EasyLog
 #Region " === ПЕРЕЧИСЛЕНИЯ === "
 
     ''' <summary>
-    ''' Уровень серёзности логирования
+    ''' Уровень серёзности логирования.
     ''' </summary>
-    Public Enum Severity
-
-        ''' <summary>
-        ''' Регистрировать все события и выше
-        ''' </summary>
-        All
+    Public Enum ESeverity
 
         ''' <summary>
         ''' Регистрировать информационные сообщения и выше
         ''' </summary>
         Info
-
-        ''' <summary>
-        ''' Регистрировать SQL команды и выше
-        ''' </summary>
-        SQL
 
         ''' <summary>
         ''' Регистрировать предупреждения и выше
@@ -50,6 +40,19 @@ Public Class EasyLog
 
     End Enum
 
+    ''' <summary>
+    ''' Уровень серьёзности логирования SQL.
+    ''' </summary>
+    Public Enum ESqlSeverity
+
+        Full
+
+        Exception
+
+        None
+
+    End Enum
+
 #End Region
 
 #Region " === ПЕРЕМЕННЫЕ === "
@@ -60,19 +63,9 @@ Public Class EasyLog
     Private _logDir As New DirectoryInfo(Directory.GetCurrentDirectory())
 
     ''' <summary>
-    ''' Префикс для использования в имени файла. По умолчанию префикс отсутствует.
-    ''' </summary>
-    Private _prefix As String
-
-    ''' <summary>
     ''' Формат даты для использования в имени файла. По умолчанию равно «yyyy_MM_dd»
     ''' </summary>
     Private _dateFormat As String
-
-    ''' <summary>
-    ''' Суффикс для использования в имени файла. По умолчанию суффикс отсутствует.
-    ''' </summary>
-    Private _suffix As String
 
     ''' <summary>
     ''' Расширение используемое в имени журнала событий. По умолчанию равно "xlog".
@@ -83,11 +76,6 @@ Public Class EasyLog
     ''' Управляет форматом записи журнала событий xml или txt.
     ''' </summary>
     Private _writeText As Boolean
-
-    ''' <summary>
-    ''' Уровень регистрируемых событий. По умолчанию равно Severity.Info
-    ''' </summary>
-    Private _logLevel As Severity = Severity.Info
 
     ''' <summary>
     ''' Фоновая задача для записи записей журнала на диск.
@@ -144,7 +132,7 @@ Public Class EasyLog
     End Property
 
     ''' <summary>
-    ''' Максимальный размер файла.
+    ''' Максимальный размер файла, превышение которого заставит создать новый файл.
     ''' </summary>
     ''' <returns></returns>
     Public Property MaxLogSize As Integer
@@ -161,26 +149,12 @@ Public Class EasyLog
     ''' </summary>
     ''' <returns></returns>
     Public Property Prefix As String
-        Get
-            Return If(_prefix, String.Empty)
-        End Get
-        Set(ByVal value As String)
-            _prefix = value
-        End Set
-    End Property
 
     ''' <summary>
     ''' Суффикс для использования в имени файла журнала событий. По умолчанию суффикс не назначен.
     ''' </summary>
     ''' <returns></returns>
     Public Property Suffix As String
-        Get
-            Return If(_suffix, String.Empty)
-        End Get
-        Set(ByVal value As String)
-            _suffix = value
-        End Set
-    End Property
 
     ''' <summary>
     ''' Расширение для использования в имени файла журнала событий. По умолчанию это "log".
@@ -213,18 +187,17 @@ Public Class EasyLog
 
     ''' <summary>
     ''' Уровень фиксирования событий согласно установленного уровня. Записывает события согласно установленного в параметре уровня и выше.
-    ''' Например параметр Severity.Info предполагает журналирование абсолютно всех событий, а параметр Severity.Error события ошибок и исключений.
+    ''' Например параметр ESeverity.Full предполагает журналирование абсолютно всех событий, а параметр ESeverity.Error события ошибок и выше.
     ''' Другими словами параметр отсекает от записи в файл журнала события с уровнем ниже указанной серьезности.
     ''' </summary>
     ''' <returns></returns>
-    Public Property LogLevel As Severity
-        Get
-            Return _logLevel
-        End Get
-        Set(ByVal value As Severity)
-            _logLevel = value
-        End Set
-    End Property
+    Public Property LogLevel As ESeverity
+
+    ''' <summary>
+    ''' Уровень фиксирования событий SQL. Записывает события согласно установленного в параметре уровня и выше.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property SqlLogLevel As ESqlSeverity
 
     ''' <summary>
     ''' Управляет форматом записи в журнал событий. По умолчанию установлено значение False, таким образом запись будет вестись в формате xml файла.
@@ -302,11 +275,13 @@ Public Class EasyLog
 #Region " === КОНСТРУКТОРЫ ИНИЦИАЛИЗАЦИИ === "
 
     ''' <summary>
-    ''' Статический конструктор инициализации.
+    ''' Статический конструктор инициализации. LogLevel при этом устанавливается в Info а LogSqlLevel в None.
     ''' </summary>
     Sub New()
         ' Подключение к основному процессу вплоть до его завершения
         AddHandler AppDomain.CurrentDomain.ProcessExit, AddressOf CurrentDomainProcessExit
+        LogLevel = ESeverity.Info
+        SqlLogLevel = ESqlSeverity.Exception
         ' Устанавливаем локализацию
         SetLanguage(Nothing)
         ' Запускаем фоновый процесс
@@ -317,13 +292,14 @@ Public Class EasyLog
     ''' Инициализация параметров журнала событий.
     ''' По итогу инициализации имя файла будет выглядеть как LogDir + Prefix + dateTime.ToString(DateFormat) + Suffix + Extension
     ''' </summary>
+    ''' <param name="logLevel">Уровень серёзности фиксируемых событий.</param>
+    ''' <param name="SqlLogLevel">Уровень серёзности фиксируемых событий SQL.</param>
     ''' <param name="_err">Возвращает исключение если таковое имело место быть, иначе Nothing.</param>
     ''' <param name="logDir">Необязательный параметр: Директория сохранения журналов событий. Если она отсутствует, то будет создана.</param>
     ''' <param name="prefix">Необязательный параметр: Префикс для имени файла журнала событий. По умолчанию без префикса.</param>
     ''' <param name="suffix">Необязательный параметр: Суффикс для имени файла журнала событий. По умолчанию без суффикса.</param>
     ''' <param name="extension">Необязательный параметр: Расширение для имени файла журнала событий.По умолчанию установлен "log".</param>
     ''' <param name="dateFormat">Необязательный параметр: Формат даты для имени файла журнала событий. По умолчанию установлено значение "yyyy_MM_dd".</param>
-    ''' <param name="logLevel">Необязательный параметр: Уровень серёзности фиксируемых событий. По умолчанию установлен Severity.Info - все сообщения.</param>
     ''' <param name="startExplicitly">Необязательный параметр: Указывает на необходимость явного включения логирования командой StartLogging.
     ''' Параметр будет учтён только при запуске из данного конструктора инициализации. По умолчанию False.</param>
     ''' <param name="check">Необязательный параметр: Флаг выполнения проверки параметров перед запуском фонового процесса методом тестовой записи в журнал событий.</param>
@@ -334,13 +310,14 @@ Public Class EasyLog
     ''' <param name="extendedLog">Необязательный параметр: Формат хранения записей событий. По умолчанию False, то есть без расширенных атрибутов.</param>
     ''' <param name="maxLogSize">Необязательный параметр: Максимальный размер файла журнала событий. При превышении создаётся новый. По умолчанию = 10000000 байт.</param>
     ''' <param name="language">Необязательный параметр: Язык локализации сообщений используемых в EasyLog. Системные сообщения не изменяются!</param>
-    Public Sub New(ByRef _err As Tuple(Of Integer, String),
+    Public Sub New(logLevel As ESeverity,
+                   sqlLogLevel As ESqlSeverity,
+                   ByRef _err As Tuple(Of Integer, String),
                    Optional ByVal logDir As String = Nothing,
                    Optional ByVal prefix As String = Nothing,
                    Optional ByVal suffix As String = Nothing,
                    Optional ByVal extension As String = Nothing,
                    Optional ByVal dateFormat As String = Nothing,
-                   Optional ByVal logLevel? As Severity = Nothing,
                    Optional ByVal startExplicitly? As Boolean = Nothing,
                    Optional ByVal check As Boolean = True,
                    Optional ByVal writeAsText? As Boolean = True,
@@ -352,6 +329,13 @@ Public Class EasyLog
 
         Try
 
+            ' Уровень регистрации обычных событий.
+            Me.LogLevel = logLevel
+
+            ' Уровень регистрации событий SQL.
+            Me.SqlLogLevel = sqlLogLevel
+
+            ' Максимальный размер файла журнала событий.
             Me.MaxLogSize = maxLogSize
 
             ' Формат записи в журнал сообщений
@@ -362,9 +346,6 @@ Public Class EasyLog
 
             ' Сохраняем разделитель атрибутов
             If textSeparator IsNot Nothing Then Me.TextSeparator = textSeparator
-
-            ' Устанавливаем уровень логирования
-            If logLevel IsNot Nothing Then Me.LogLevel = logLevel.Value
 
             ' Сохраняем расширение
             If extension IsNot Nothing Then Me.Extension = extension
@@ -494,33 +475,13 @@ Public Class EasyLog
     End Sub
 
     ''' <summary>
-    ''' Записывает в журнал событий абсолютно все сообщения. В случае ошибки возвращает Exception.
-    ''' </summary>
-    ''' <param name="message">Текст сообщения для записи в журнал событий.</param>
-    ''' <param name="useBackgroundTask">Необязательный параметр. Определяет использование фоновой задачи для записи сообщений на диск.
-    ''' По умолчанию = True. Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
-    Public Function WriteAll(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage(message, Severity.All, useBackgroundTask)
-    End Function
-
-    ''' <summary>
     ''' Записывает в журнал событий информационные сообщения и выше. В случае ошибки возвращает Exception.
     ''' </summary>
     ''' <param name="message">Текст сообщения для записи в журнал событий.</param>
     ''' <param name="useBackgroundTask">Необязательный параметр. Определяет использование фоновой задачи для записи сообщений на диск.
     ''' По умолчанию = True. Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
     Public Function WriteInfo(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage(message, Severity.Info, useBackgroundTask)
-    End Function
-
-    ''' <summary>
-    ''' Записывает в журнал имена запросов/ответов и выше. В случае ошибки возвращает Exception.
-    ''' </summary>
-    ''' <param name="message"></param>
-    ''' <param name="useBackgroundTask"></param>
-    ''' <returns></returns>
-    Public Function WriteSQL(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage("SQL: " & message, Severity.SQL, useBackgroundTask)
+        Return WriteMessage(message, ESeverity.Info, useBackgroundTask)
     End Function
 
     ''' <summary>
@@ -530,7 +491,7 @@ Public Class EasyLog
     ''' <param name="useBackgroundTask">Использовать ли фоновую задачу (поток) для записи сообщений на диск. По умолчанию = True.
     ''' Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
     Public Function WriteWarning(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage(message, Severity.Warning, useBackgroundTask)
+        Return WriteMessage(message, ESeverity.Warning, useBackgroundTask)
     End Function
 
     ''' <summary>
@@ -539,7 +500,7 @@ Public Class EasyLog
     ''' <param name="useBackgroundTask">Использовать ли фоновую задачу (поток) для записи сообщений на диск. По умолчанию = True.
     ''' Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
     Public Function WriteError(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
-        Return WriteMessage(message, Severity.Error, useBackgroundTask)
+        Return WriteMessage(message, ESeverity.Error, useBackgroundTask)
     End Function
 
     ''' <summary>
@@ -556,8 +517,8 @@ Public Class EasyLog
                                    Optional ByVal useBackgroundTask As Boolean = True,
                                    Optional ByVal framesToSkip As Integer = 0) As Exception
         If ex Is Nothing Then Return Nothing
-        If Not IsNothing(message) Then WriteMessage(message, Severity.Exception, useBackgroundTask)
-        Return WriteXElement(GetExceptionXElement(ex), True, Severity.Exception, useBackgroundTask, framesToSkip)
+        If Not IsNothing(message) Then WriteMessage(message, ESeverity.Exception, useBackgroundTask)
+        Return WriteXElement(GetExceptionXElement(ex), False, , True, ESeverity.Exception, useBackgroundTask, framesToSkip)
     End Function
 
     ''' <summary>
@@ -575,12 +536,41 @@ Public Class EasyLog
                                    Optional ByVal useBackgroundTask As Boolean = True,
                                    Optional ByVal framesToSkip As Integer = 0) As Exception
         If message Is Nothing AndAlso ex Is Nothing Then Return Nothing
-        If Not IsNothing(message) Then WriteMessage(message, Severity.Exception, useBackgroundTask)
+        If Not IsNothing(message) Then WriteMessage(message, ESeverity.Exception, useBackgroundTask)
         If Not IsNothing(ex) Then
-            Return WriteXElement(GetExceptionXElement(ex), True, Severity.Exception, useBackgroundTask, framesToSkip)
+            Return WriteXElement(GetExceptionXElement(ex), False, , True, ESeverity.Exception, useBackgroundTask, framesToSkip)
         Else
             Return Nothing
         End If
+    End Function
+
+    ''' <summary>
+    ''' Записывает в журнал событий все сообщения SQL. В случае ошибки возвращает Exception.
+    ''' </summary>
+    ''' <param name="message">Текст сообщения для записи в журнал событий.</param>
+    ''' <param name="useBackgroundTask">Необязательный параметр. Определяет использование фоновой задачи для записи сообщений на диск.
+    ''' По умолчанию = True. Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
+    ''' <returns></returns>
+    Public Function WriteSQL(ByVal message As String, Optional ByVal useBackgroundTask As Boolean = True) As Exception
+        Return WriteMessage("SQL: " & message, ESqlSeverity.Full, useBackgroundTask)
+    End Function
+
+    ''' <summary>
+    ''' Записывает в журнал событий ИСКЛЮЧЕНИЕ. В случае ошибки возвращает Exception.
+    ''' </summary>
+    ''' <param name="ex">Исключение для записи в журнал событий.</param>
+    ''' <param name="message">Поясняющее сообщение для записи в журнал событий.</param>
+    ''' <param name="useBackgroundTask">Использовать ли фоновую задачу (поток) для записи сообщений на диск. По умолчанию = True.
+    ''' Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
+    ''' <param name="framesToSkip">Сколько кадров пропустить при обнаружении вызывающего метода "GetCaller".
+    ''' Это полезно, когда вызовы журнала для "EasyLog" помещаются в приложение. По умолчанию = 0.</param>
+    Public Function WriteSQLException(ByVal ex As Exception,
+                                      Optional ByVal message As String = Nothing,
+                                      Optional ByVal useBackgroundTask As Boolean = True,
+                                      Optional ByVal framesToSkip As Integer = 0) As Exception
+        If ex Is Nothing Then Return Nothing
+        If Not IsNothing(message) Then WriteMessage(message, ESeverity.Exception, useBackgroundTask)
+        Return WriteXElement(GetExceptionXElement(ex), True, ESqlSeverity.Exception, , , useBackgroundTask, framesToSkip)
     End Function
 
     ''' <summary>
@@ -1120,7 +1110,7 @@ Public Class EasyLog
     ''' <returns></returns>
     Private Function WriteTestMessage(ByVal message As String) As Exception
         If String.IsNullOrEmpty(message) Then Return Nothing
-        Return WriteXElement(New XElement("Message", message), False, 0, False, 0)
+        Return WriteXElement(New XElement("Message", message), False, , False, , False, 0)
     End Function
 
     ''' <summary>
@@ -1133,11 +1123,29 @@ Public Class EasyLog
     ''' <param name="framesToSkip">Сколько кадров пропустить при обнаружении вызывающего метода "GetCaller".
     ''' Это полезно, когда вызовы журнала для "EasyLog" помещаются в приложение. По умолчанию = 0.</param>
     Private Function WriteMessage(ByVal message As String,
-                                  Optional ByVal severity As Severity = Severity.Info,
+                                  Optional ByVal severity As ESeverity = ESeverity.Info,
                                   Optional ByVal useBackgroundTask As Boolean = True,
                                   Optional ByVal framesToSkip As Integer = 0) As Exception
         If String.IsNullOrEmpty(message) Then Return Nothing
-        Return WriteXElement(New XElement("Message", message), True, severity, useBackgroundTask, framesToSkip)
+        Return WriteXElement(New XElement("Message", message), False, , True, severity, useBackgroundTask, framesToSkip)
+    End Function
+
+    ''' <summary>
+    ''' Записывает SQL сообщение в журнал событий.
+    ''' </summary>
+    ''' <param name="message">Текст сообщения для записи в журнал событий.</param>
+    ''' <param name="severity">Уровень серъёзности произошедшего SQL события.</param>
+    ''' <param name="useBackgroundTask">Использовать ли фоновую задачу (поток) для записи сообщений на диск. По умолчанию = True.
+    ''' Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
+    ''' <param name="framesToSkip">Сколько кадров пропустить при обнаружении вызывающего метода "GetCaller".
+    ''' Это полезно, когда вызовы журнала для "EasyLog" помещаются в приложение. По умолчанию = 0.</param>
+    ''' <returns></returns>
+    Private Function WriteMessage(ByVal message As String,
+                                  Optional ByVal severity As ESqlSeverity = ESqlSeverity.None,
+                                  Optional ByVal useBackgroundTask As Boolean = True,
+                                  Optional ByVal framesToSkip As Integer = 0) As Exception
+        If String.IsNullOrEmpty(message) Then Return Nothing
+        Return WriteXElement(New XElement("Message", message), True, severity, , , useBackgroundTask, framesToSkip)
     End Function
 
     ''' <summary>
@@ -1149,15 +1157,20 @@ Public Class EasyLog
     ''' Это намного быстрее, чем запись непосредственно на диск в основном потоке.</param>
     ''' <param name="framesToSkip">Сколько кадров пропустить при обнаружении вызывающего метода "GetCaller".
     ''' Это полезно, когда вызовы журнала для "EasyLog" помещаются в приложение. По умолчанию = 0.</param>
-    Private Function WriteXElement(ByVal xElement As XElement,
-                              Optional ByVal useSeverity As Boolean = True,
-                              Optional ByVal severity As Severity = Severity.Info,
-                              Optional ByVal useBackgroundTask As Boolean = True,
-                              Optional ByVal framesToSkip As Integer = 0) As Exception
-
-        If useSeverity Then
-            ' Фильтровать записи ниже установленного уровня серъёзности и согласно параметру
-            If xElement Is Nothing OrElse severity < LogLevel OrElse _stopWriteMessages Then Return Nothing
+    Private Function WriteXElement(xElement As XElement,
+                                   isSQL As Boolean,
+                                   Optional ByVal severitySQL As ESqlSeverity = ESqlSeverity.None,
+                                   Optional ByVal useSeverity As Boolean = True,
+                                   Optional ByVal severity As ESeverity = ESeverity.Info,
+                                   Optional ByVal useBackgroundTask As Boolean = True,
+                                   Optional ByVal framesToSkip As Integer = 0) As Exception
+        If isSQL Then
+            If xElement Is Nothing OrElse severitySQL < LogLevel OrElse _stopWriteMessages Then Return Nothing
+        Else
+            If useSeverity Then
+                ' Фильтровать записи ниже установленного уровня серъёзности и согласно параметру
+                If xElement Is Nothing OrElse severity < LogLevel OrElse _stopWriteMessages Then Return Nothing
+            End If
         End If
 
         Try

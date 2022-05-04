@@ -1,14 +1,8 @@
 ﻿
 Public Class ServerSettings
 
-    ''' <summary>
-    ''' Флаг изменения настроек
-    ''' </summary>
-    Private _changed As Boolean
-
     Sub New()
         InitializeComponent()
-
     End Sub
 
     ''' <summary>

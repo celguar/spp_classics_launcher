@@ -26,7 +26,7 @@ Namespace MySqlTables
                         GV.Log.WriteSQL("All Chars = " & count)
                         Return count
                     Catch ex As Exception
-                        GV.Log.WriteException(ex)
+                        GV.Log.WriteSQLException(ex)
                         Return "err"
                     End Try
                 End Using
@@ -53,7 +53,7 @@ Namespace MySqlTables
                         GV.Log.WriteSQL("Online Chars = " & count)
                         Return count
                     Catch ex As Exception
-                        GV.Log.WriteException(ex)
+                        GV.Log.WriteSQLException(ex)
                         Return "err"
                     End Try
                 End Using

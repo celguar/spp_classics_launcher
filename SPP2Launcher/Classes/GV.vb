@@ -177,8 +177,12 @@ Public Class GV
 
         ' Инициализация журнала событий
         Dim _err = NewExitCode()
-        Log = New EasyLog(_err:=_err, logDir:=".\Logs", logLevel:=CType(My.Settings.LogLevel, EasyLog.Severity), language:=CI.Name)
-        Log.WriteAll(My.Resources.P001_BaseInit)
+        Log = New EasyLog(logLevel:=CType(My.Settings.LogLevel, EasyLog.ESeverity),
+                          sqlLogLevel:=CType(My.Settings.SqlLogLevel, EasyLog.ESqlSeverity),
+                          _err:=_err,
+                          logDir:=".\Logs",
+                          language:=CI.Name)
+        Log.WriteInfo(My.Resources.P001_BaseInit)
 
         ' Проверяем наличие другого запущенного лаунчера
         ' Следует отметить, что фоновые процессы не будут пойманы.

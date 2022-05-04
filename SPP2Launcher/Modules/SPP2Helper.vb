@@ -19,6 +19,11 @@ Module SPP2Helper
     ''' </summary>
     Friend BP As ProcessController
 
+    ''' <summary>
+    ''' Время безотказной работы.
+    ''' </summary>
+    Friend WorldStartTime As Date = Nothing
+
 #Region " === КОНСТАНТЫ === "
 
     ''' <summary>
@@ -292,7 +297,16 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+        If My.Settings.ConsoleMessageFilter > 1 Then
+            GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+        Else
+            ' Отдельные сообщения всё же пропускаем
+            If e.Data.Contains("__") Or UCase(e.Data).Contains("CMANGOS") Then
+                GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+            ElseIf e.Data.Contains("SERVER STARTUP TIME") Then
+                WorldStartTime = Date.Now
+            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -301,7 +315,9 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+        If My.Settings.ConsoleMessageFilter > 1 Then
+            GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+        End If
     End Sub
 
 #End Region
@@ -359,9 +375,13 @@ Module SPP2Helper
         End If
 
         GV.SPP2Launcher.OutMessageStatusStrip("")
+        WorldStartTime = Nothing
 
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
+
+        ' Очищаем контроллер
+        BP.ProcessesAreStopped()
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы
@@ -474,6 +494,7 @@ Module SPP2Helper
                             Case "realmd"
                                 GV.SPP2Launcher.RealmdProcess = Nothing
                                 control.WasLaunched = False
+                                control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
                                     GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf, Color.Red)
@@ -484,7 +505,9 @@ Module SPP2Helper
                             Case "mangosd"
                                 GV.SPP2Launcher.WorldProcess = Nothing
                                 control.WasLaunched = False
+                                control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
+                                    WorldStartTime = Nothing
                                     ' Сервер рухнул
                                     GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд

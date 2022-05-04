@@ -5,9 +5,6 @@
     <Setting Name="Locale" Description="Язык интерфейса" Type="System.String" Scope="User">
       <Value Profile="(Default)">en-GB</Value>
     </Setting>
-    <Setting Name="LogLevel" Description="Уровень регистрации ошибок в журнале событий" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="WowClientPath" Description="Путь к файлу запуска клиента WoW" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -286,6 +283,21 @@
     </Setting>
     <Setting Name="AppLocation" Description="Расположение окна при открытии" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">80, 80</Value>
+    </Setting>
+    <Setting Name="LogLevel" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SqlLogLevel" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="ConsoleMessageFilter" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="UseConsoleBuffer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UseConsoleAutoHints" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

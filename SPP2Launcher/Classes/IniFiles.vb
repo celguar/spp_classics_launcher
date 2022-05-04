@@ -266,8 +266,7 @@ Public Class IniFiles
                     Dim value = InternalReadString(Section, key, "", EIniAtoms.Key)
                     ' Заменяем \n на vbCrLf
                     Dim pattern As String = "\n*"
-                    Dim r1 As Regex = New Regex(pattern)
-                    If r1.IsMatch(value) Then value = value.Replace("\n", vbCrLf)
+                    If New Regex(pattern).IsMatch(value) Then value = value.Replace("\n", vbCrLf)
                     ' Добавляем значение ключа
                     KeyValueHash(key) = value
                 Next
@@ -303,8 +302,7 @@ Public Class IniFiles
             If ret = "" Then Return ret
             ' Заменяем \n на vbCrLf
             Dim pattern As String = "\n*"
-            Dim r1 As Regex = New Regex(pattern)
-            If r1.IsMatch(ret) Then ret = ret.Replace("\n", vbCrLf)
+            If New Regex(pattern).IsMatch(ret) Then ret = ret.Replace("\n", vbCrLf)
             Return ret
         Catch ex As Exception
             GenerateError(ex.Message)

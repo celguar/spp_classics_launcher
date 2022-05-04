@@ -71,22 +71,6 @@ Namespace My
         End Property
         
         '''<summary>
-        '''Уровень регистрации ошибок в журнале событий
-        '''</summary>
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Configuration.SettingsDescriptionAttribute("Уровень регистрации ошибок в журнале событий"),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property LogLevel() As Integer
-            Get
-                Return CType(Me("LogLevel"),Integer)
-            End Get
-            Set
-                Me("LogLevel") = value
-            End Set
-        End Property
-        
-        '''<summary>
         '''Путь к файлу запуска клиента WoW
         '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
@@ -1259,6 +1243,66 @@ Namespace My
             End Get
             Set
                 Me("AppLocation") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property LogLevel() As Integer
+            Get
+                Return CType(Me("LogLevel"),Integer)
+            End Get
+            Set
+                Me("LogLevel") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property SqlLogLevel() As Integer
+            Get
+                Return CType(Me("SqlLogLevel"),Integer)
+            End Get
+            Set
+                Me("SqlLogLevel") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property ConsoleMessageFilter() As Integer
+            Get
+                Return CType(Me("ConsoleMessageFilter"),Integer)
+            End Get
+            Set
+                Me("ConsoleMessageFilter") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseConsoleBuffer() As Boolean
+            Get
+                Return CType(Me("UseConsoleBuffer"),Boolean)
+            End Get
+            Set
+                Me("UseConsoleBuffer") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseConsoleAutoHints() As Boolean
+            Get
+                Return CType(Me("UseConsoleAutoHints"),Boolean)
+            End Get
+            Set
+                Me("UseConsoleAutoHints") = value
             End Set
         End Property
     End Class
