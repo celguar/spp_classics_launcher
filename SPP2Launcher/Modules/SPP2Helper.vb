@@ -460,9 +460,8 @@ Module SPP2Helper
             Threading.Thread.Sleep(50)
         Loop
 
+        ' Убивает информацию о стартовом потоке
         GV.SPP2Launcher.StartThreadCompleted = Nothing
-        GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
-        GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
 
         Do
             ' Пауза в пол секунды

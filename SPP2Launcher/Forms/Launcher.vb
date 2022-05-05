@@ -534,6 +534,11 @@ Public Class Launcher
             End If
         End If
 
+        If ServerWowAutostart Then
+            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+            GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+        End If
+
     End Sub
 
 #End Region
@@ -1775,6 +1780,10 @@ Public Class Launcher
         _NeedServerStop = False
         RichTextBox_ConsoleRealmd.Clear()
         RichTextBox_ConsoleWorld.Clear()
+        If ServerWowAutostart Then
+            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+            GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+        End If
         ServerStart()
     End Sub
 
