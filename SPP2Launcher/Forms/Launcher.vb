@@ -539,10 +539,9 @@ Public Class Launcher
         SetConsoleTheme()
 
         ' Если установлен автостарт серверов WoW и используется встроенный сервер MySQL
-        If ServerWowAutostart Or My.Settings.UseIntMySQL Then
+        If My.Settings.UseIntMySQL Then
             ' Запускаем встроенный не смотря ни на что MySQL
             TimerStartMySQL.Change(3000, 3000)
-            _needServerStart = True
         End If
 
         If ServerWowAutostart Then
