@@ -287,17 +287,20 @@
     <Setting Name="SqlLogLevel" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
-    <Setting Name="ConsoleMessageFilter" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+    <Setting Name="ConsoleMessageFilter" Description="Не выводить в консоль сообщения об ошибках." Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="UseConsoleBuffer" Type="System.Boolean" Scope="User">
+    <Setting Name="UseConsoleBuffer" Description="Сохранять введённые команды в буфере." Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="UseConsoleAutoHints" Type="System.Boolean" Scope="User">
+    <Setting Name="UseCommandAutoHints" Description="Автоподсказки в командной строке консоли." Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="UpdateConsoleRightNow" Type="System.Boolean" Scope="User">
+    <Setting Name="UpdateConsoleRightNow" Description="Флаг обновления оформления консолей на ходу." Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseAutoBackupDatabase" Description="Включить автоматический бэкап баз данных." Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -16,13 +16,20 @@ Public Class LauncherSettings
         ComboBox_Theme.SelectedItem = My.Settings.ConsoleTheme
 
         ' Размер шрифта консоли
-        If F.Families.Count > 0 Then
-            For Each fnt In F.Families
-                ComboBox_FontSize.Items.Add(fnt.Name & " 8pt")
-                ComboBox_FontSize.Items.Add(fnt.Name & " 9pt")
-                ComboBox_FontSize.Items.Add(fnt.Name & " 10pt")
-                ComboBox_FontSize.Items.Add(fnt.Name & " 11pt")
-            Next
+        If Not IsNothing(F) Then
+            If F.Families.Count > 0 Then
+                For Each fnt In F.Families
+                    ComboBox_FontSize.Items.Add(fnt.Name & " 8pt")
+                    ComboBox_FontSize.Items.Add(fnt.Name & " 9pt")
+                    ComboBox_FontSize.Items.Add(fnt.Name & " 10pt")
+                    ComboBox_FontSize.Items.Add(fnt.Name & " 11pt")
+                Next
+            Else
+                ComboBox_FontSize.Items.Add("Consolas" & " 8pt")
+                ComboBox_FontSize.Items.Add("Consolas" & " 9pt")
+                ComboBox_FontSize.Items.Add("Consolas" & " 10pt")
+                ComboBox_FontSize.Items.Add("Consolas" & " 11pt")
+            End If
         Else
             ComboBox_FontSize.Items.Add("Consolas" & " 8pt")
             ComboBox_FontSize.Items.Add("Consolas" & " 9pt")
@@ -70,7 +77,7 @@ Public Class LauncherSettings
 
         ' Включение высплывыающих подсказок в консоли ввода
         Try
-            CheckBox_UseAutoHints.Checked = My.Settings.UseConsoleAutoHints
+            CheckBox_UseAutoHints.Checked = My.Settings.UseCommandAutoHints
         Catch
         End Try
 
@@ -126,15 +133,11 @@ Public Class LauncherSettings
         My.Settings.UpdateConsoleRightNow = CheckBox_UpdateRightNow.Checked
         My.Settings.ConsoleMessageFilter = ComboBox_MessageFilter.SelectedIndex
         My.Settings.UseConsoleBuffer = CheckBox_UseConsoleBuffering.Checked
-        My.Settings.UseConsoleAutoHints = CheckBox_UseAutoHints.Checked
+        My.Settings.UseCommandAutoHints = CheckBox_UseAutoHints.Checked
 
         My.Settings.Save()
 
-        If Application.OpenForms("Launcher") Is Nothing Then
-            Application.Restart()
-        Else
-            Me.Close()
-        End If
+        Me.Close()
     End Sub
 
     ''' <summary>

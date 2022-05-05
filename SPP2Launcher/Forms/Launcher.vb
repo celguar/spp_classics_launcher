@@ -11,12 +11,6 @@ Public Class Launcher
 #Region " === ДРУЖЕСТВЕННЫЕ СВОЙСТВА === "
 
     ''' <summary>
-    ''' Текущий запущенный сервер.
-    ''' </summary>
-    ''' <returns></returns>
-    Friend ReadOnly Property CurrentRunningServer As String = ""
-
-    ''' <summary>
     ''' Флаг объявляющий требование выхода из программы.
     ''' </summary>
     Friend ReadOnly Property NeedExitLauncher As Boolean
@@ -902,10 +896,10 @@ Public Class Launcher
             TextBox_Command.AutoCompleteCustomSource = HintCollection
             If TextBox_Command.InvokeRequired Then
                 TextBox_Command.Invoke(Sub()
-                                           TextBox_Command.AutoCompleteMode = If(My.Settings.UseConsoleAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
+                                           TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
                                        End Sub)
             Else
-                TextBox_Command.AutoCompleteMode = If(My.Settings.UseConsoleAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
+                TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
             End If
         End If
     End Sub

@@ -30,6 +30,11 @@ Module SPP2Helper
     ''' </summary>
     Friend HintCollection As New AutoCompleteStringCollection()
 
+    ''' <summary>
+    ''' Идёт процесс Backup.
+    ''' </summary>
+    Friend BackupProcess As Boolean
+
 #Region " === КОНСТАНТЫ === "
 
     ''' <summary>
@@ -355,6 +360,9 @@ Module SPP2Helper
 
 #Region " === ПОТОКИ === "
 
+    ''' <summary>
+    ''' Тик на каждую секунду.
+    ''' </summary>
     Friend Sub EverySecond()
         Do
             Threading.Thread.Sleep(1000)
@@ -369,7 +377,7 @@ Module SPP2Helper
     ''' </summary>
     Friend Sub PreStart()
 
-        ' Добавляем bинформацию по разработчикам
+        ' Выводим информацию по разработчикам
         If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
             Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
             Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
@@ -421,8 +429,13 @@ Module SPP2Helper
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
 
-        ' Очищаем контроллер
+        ' Очищаем контроллер автозапуска серверов WoW
         BP.ProcessesAreStopped()
+
+        ' Если идёт процесс BackUp то ждём завершения
+        Do While BackupProcess
+            Threading.Thread.Sleep(200)
+        Loop
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы

@@ -1258,9 +1258,13 @@ Namespace My
             End Set
         End Property
         
+        '''<summary>
+        '''Не выводить в консоль сообщения об ошибках.
+        '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Не выводить в консоль сообщения об ошибках."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
         Public Property ConsoleMessageFilter() As Integer
             Get
                 Return CType(Me("ConsoleMessageFilter"),Integer)
@@ -1270,7 +1274,11 @@ Namespace My
             End Set
         End Property
         
+        '''<summary>
+        '''Сохранять введённые команды в буфере.
+        '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Сохранять введённые команды в буфере."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property UseConsoleBuffer() As Boolean
@@ -1282,19 +1290,27 @@ Namespace My
             End Set
         End Property
         
+        '''<summary>
+        '''Автоподсказки в командной строке консоли.
+        '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Автоподсказки в командной строке консоли."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public Property UseConsoleAutoHints() As Boolean
+        Public Property UseCommandAutoHints() As Boolean
             Get
-                Return CType(Me("UseConsoleAutoHints"),Boolean)
+                Return CType(Me("UseCommandAutoHints"),Boolean)
             End Get
             Set
-                Me("UseConsoleAutoHints") = value
+                Me("UseCommandAutoHints") = value
             End Set
         End Property
         
+        '''<summary>
+        '''Флаг обновления оформления консолей на ходу.
+        '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Флаг обновления оформления консолей на ходу."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property UpdateConsoleRightNow() As Boolean
@@ -1303,6 +1319,22 @@ Namespace My
             End Get
             Set
                 Me("UpdateConsoleRightNow") = value
+            End Set
+        End Property
+        
+        '''<summary>
+        '''Включить автоматический бэкап баз данных.
+        '''</summary>
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Включить автоматический бэкап баз данных."),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseAutoBackupDatabase() As Boolean
+            Get
+                Return CType(Me("UseAutoBackupDatabase"),Boolean)
+            End Get
+            Set
+                Me("UseAutoBackupDatabase") = value
             End Set
         End Property
     End Class
