@@ -316,9 +316,26 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub TSMI_Launcher_Click_1(sender As Object, e As EventArgs) Handles TSMI_Launcher.Click
+    Private Sub TSMI_Launcher_Click(sender As Object, e As EventArgs) Handles TSMI_Launcher.Click
         Dim fLauncherSettings As New LauncherSettings
         fLauncherSettings.ShowDialog()
+    End Sub
+
+    ''' <summary>
+    ''' МЕНЮ - СБРОС НАСТРОЕК ПРИЛОЖЕНИЯ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TSMI_Reset_Click(sender As Object, e As EventArgs) Handles TSMI_Reset.Click
+        Dim result = MessageBox.Show(My.Resources.P014_ResetSettings,
+                                     My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.Yes Then
+            ' Устанавливаем флаги - нужна перезагрузка, это сброс настроек
+            GV.NeedRestart = True
+            GV.ResetSettings = True
+            ' Останавливаем ВСЕ сервера
+            ShutdownAll(True)
+        End If
     End Sub
 
     ''' <summary>
@@ -526,22 +543,21 @@ Public Class Launcher
         ' Устанавливаем тему консоли.
         SetConsoleTheme()
 
-        ' Если установлен автостарт серверов WoW
-        If ServerWowAutostart AndAlso My.Settings.UseIntMySQL AndAlso Not My.Settings.MySqlAutostart Then
-            ' Запускаем встроенный MySQL
+        ' Если установлен автостарт серверов WoW и используется встроенный сервер MySQL
+        If ServerWowAutostart AndAlso My.Settings.UseIntMySQL Then
+            ' Запускаем встроенный не смотря ни на что MySQL
             TimerStartMySQL.Change(3000, 3000)
             _needServerStart = True
-        Else
-            ' Если автозапуск MySQL сервера
-            If My.Settings.UseIntMySQL And My.Settings.MySqlAutostart Then
-                TimerStartMySQL.Change(3000, 3000)
-            End If
         End If
 
         If ServerWowAutostart Then
+            _needServerStart = True
             GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
             GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
         End If
+
+        ' Выводим состояние автозапуска сервера
+        TSMI_WowAutoStart.Checked = ServerWowAutostart
 
     End Sub
 
@@ -622,6 +638,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
         If My.Settings.UseIntMySQL AndAlso Not _MySqlON AndAlso IsNothing(_mysqlProcess) Then
+            _MySqlON = True
             GV.Log.WriteInfo(My.Resources.SQL002_Start)
             Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
             Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
@@ -651,6 +668,7 @@ Public Class Launcher
                     _mysqlProcess = Nothing
                 End If
             Catch ex As Exception
+                _MySqlON = False
                 ' MySQL выдал исключение
                 GV.Log.WriteException(ex)
                 MessageBox.Show(My.Resources.E009_MySqlException & vbCrLf & ex.Message,
@@ -1805,6 +1823,28 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
+    ''' Изменяет автозапуск сервера WoW.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TSMI_WowAutoStart_Click(sender As Object, e As EventArgs) Handles TSMI_WowAutoStart.Click
+        Select Case My.Settings.LastLoadedServerType
+            Case GV.EModule.Classic.ToString
+                My.Settings.ServerClassicAutostart = Not ServerWowAutostart
+            Case GV.EModule.Tbc.ToString
+                My.Settings.ServerTbcAutostart = Not ServerWowAutostart
+            Case GV.EModule.Wotlk.ToString
+                My.Settings.ServerWotlkAutostart = Not ServerWowAutostart
+            Case Else
+                ' Неизвестный модуль
+                GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
+        End Select
+        _ServerWowAutostart = Not ServerWowAutostart
+        TSMI_WowAutoStart.Checked = ServerWowAutostart
+        My.Settings.Save()
+    End Sub
+
+    ''' <summary>
     ''' Запускает сервер WOW.
     ''' </summary>
     Friend Sub ServerStart()
@@ -2073,6 +2113,13 @@ Public Class Launcher
                 RichTextBox_ConsoleRealmd.AppendText(text)
                 RichTextBox_ConsoleRealmd.ScrollToCaret()
         End Select
+        RichTextBox_ConsoleRealmd.Select(RichTextBox_ConsoleRealmd.GetFirstCharIndexOfCurrentLine(), 0)
+        If text.Contains(My.Resources.E015_RealmdCrashed) Then
+            ' Сервер Realmd рухнул. Удаляем хандлеры
+            If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
+            RealmdProcess = Nothing
+            _RealmdON = False
+        End If
     End Sub
 
     ''' <summary>

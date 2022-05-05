@@ -175,10 +175,10 @@
     <value>Some exception: world</value>
   </data>
   <data name="E015_RealmdCrashed" xml:space="preserve">
-    <value>The REALMD server suddenly stopped working...</value>
+    <value>The REALMD server has crashed for the {0} time. Restart after {1} sec.</value>
   </data>
   <data name="E016_WorldCrashed" xml:space="preserve">
-    <value>The WORLD server suddenly stopped working...</value>
+    <value>The WORLD server has crashed for the {0} time. Restart after {1} sec.</value>
   </data>
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Initialization of basic application settings is complete.</value>
@@ -219,8 +219,14 @@
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
   </data>
+  <data name="P014_ResetSettings" xml:space="preserve">
+    <value>This action will immediately stop all servers and restart the launcher. Do you want to continue?</value>
+  </data>
   <data name="P015_WorldStart" xml:space="preserve">
     <value>World server launch</value>
+  </data>
+  <data name="P016_WarningCaption" xml:space="preserve">
+    <value>Attention!</value>
   </data>
   <data name="P017_WorldStarted" xml:space="preserve">
     <value>World server started successfully.</value>

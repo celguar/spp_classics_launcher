@@ -35,9 +35,9 @@ Partial Class Launcher
         Me.MenuStrip_SPP2 = New System.Windows.Forms.MenuStrip()
         Me.TSMI_RunWow = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Server = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_WowAutoStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_ServerStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_ServerStop = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_WowAutoStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Server2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_MySQL = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_MySqlStart = New System.Windows.Forms.ToolStripMenuItem()
@@ -158,9 +158,14 @@ Partial Class Launcher
         'TSMI_Server
         '
         resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
-        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_WowAutoStart, Me.TSMI_Server2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
+        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_WowAutoStart, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_Server2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
         Me.TSMI_Server.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server
         Me.TSMI_Server.Name = "TSMI_Server"
+        '
+        'TSMI_WowAutoStart
+        '
+        resources.ApplyResources(Me.TSMI_WowAutoStart, "TSMI_WowAutoStart")
+        Me.TSMI_WowAutoStart.Name = "TSMI_WowAutoStart"
         '
         'TSMI_ServerStart
         '
@@ -173,11 +178,6 @@ Partial Class Launcher
         resources.ApplyResources(Me.TSMI_ServerStop, "TSMI_ServerStop")
         Me.TSMI_ServerStop.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.server_stop
         Me.TSMI_ServerStop.Name = "TSMI_ServerStop"
-        '
-        'TSMI_WowAutoStart
-        '
-        resources.ApplyResources(Me.TSMI_WowAutoStart, "TSMI_WowAutoStart")
-        Me.TSMI_WowAutoStart.Name = "TSMI_WowAutoStart"
         '
         'TSMI_Server2
         '

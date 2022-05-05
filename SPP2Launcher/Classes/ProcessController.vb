@@ -21,12 +21,11 @@ Public Class ProcessController
     ''' </summary>
     ''' <param name="name"></param>
     Sub AddProcess(name As GV.EProcess)
-
         Processes.Add(New BaseProcess(name))
     End Sub
 
     ''' <summary>
-    ''' Попытка запуска процесса.
+    ''' Фиксируем попытку запуска процесса.
     ''' </summary>
     ''' <param name="name"></param>
     Sub WasLaunched(name As GV.EProcess)
@@ -36,9 +35,11 @@ Public Class ProcessController
             Case GV.EProcess.Realmd
                 n = "realmd"
                 pc = Processes.Find(Function(p) p.Name = n)
+                pc.WasLaunched = True
             Case GV.EProcess.World
                 n = "mangosd"
-                Processes.Find(Function(p) p.Name = n).WasLaunched = True
+                pc = Processes.Find(Function(p) p.Name = n)
+                pc.WasLaunched = True
         End Select
     End Sub
 
@@ -48,6 +49,7 @@ Public Class ProcessController
     Sub ProcessesAreStopped()
         For Each p In Processes
             p.WasLaunched = False
+            p.CrashCount = 0
         Next
     End Sub
 

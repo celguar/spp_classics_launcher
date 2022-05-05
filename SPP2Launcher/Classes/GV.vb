@@ -50,6 +50,11 @@ Public Class GV
     Friend Shared NeedRestart As Boolean
 
     ''' <summary>
+    ''' Сброс настроек.
+    ''' </summary>
+    Friend Shared ResetSettings As Boolean
+
+    ''' <summary>
     ''' Клиент MySQL.
     ''' </summary>
     Friend Shared SQL As MySqlProvider
@@ -173,6 +178,12 @@ Public Class GV
             _ErrorCode = ECode.ErrorLauncherConfig
             Exit Sub
         End Try
+
+        If FirstStart Then
+            ' Устанавливаем локаль из системы
+            My.Settings.Locale = My.Computer.Info.InstalledUICulture.Name
+            My.Settings.Save()
+        End If
 
         ' Устанавливаем локаль из настроек
         CI = New Globalization.CultureInfo(My.Settings.Locale)

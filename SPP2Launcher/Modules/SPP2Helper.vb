@@ -280,8 +280,9 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub MySqlOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        Threading.Thread.Sleep(100)
-        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+        If Not IsNothing(e.Data) Then
+            GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+        End If
     End Sub
 
     ''' <summary>
@@ -290,7 +291,9 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub MySqlErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+        If Not IsNothing(e.Data) Then
+            GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+        End If
     End Sub
 
     ''' <summary>
@@ -299,7 +302,9 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub RealmdOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data, My.Settings.RealmdConsoleForeColor)
+        If Not IsNothing(e.Data) Then
+            GV.SPP2Launcher.UpdateRealmdConsole(e.Data, My.Settings.RealmdConsoleForeColor)
+        End If
     End Sub
 
     ''' <summary>
@@ -308,7 +313,9 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub RealmdErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        GV.SPP2Launcher.UpdateRealmdConsole(e.Data, Color.Red)
+        If Not IsNothing(e.Data) Then
+            GV.SPP2Launcher.UpdateRealmdConsole(e.Data, Color.Red)
+        End If
     End Sub
 
     ''' <summary>
@@ -317,15 +324,17 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
-        If My.Settings.ConsoleMessageFilter < 1 Then
-            GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
-        Else
-            If Not e.Data.Contains("ERROR") Then
+        If Not IsNothing(e.Data) Then
+            If My.Settings.ConsoleMessageFilter < 1 Then
                 GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+            Else
+                If Not e.Data.Contains("ERROR") Then
+                    GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+                End If
             End If
-        End If
-        If e.Data.Contains("SERVER STARTUP TIME") Then
-            WorldStartTime = Date.Now.ToOADate()
+            If e.Data.Contains("SERVER STARTUP TIME") Then
+                WorldStartTime = Date.Now.ToOADate()
+            End If
         End If
     End Sub
 
@@ -335,8 +344,10 @@ Module SPP2Helper
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
-        If My.Settings.ConsoleMessageFilter < 1 Then
-            GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+        If Not IsNothing(e.Data) Then
+            If My.Settings.ConsoleMessageFilter < 1 Then
+                GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+            End If
         End If
     End Sub
 
@@ -432,8 +443,12 @@ Module SPP2Helper
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
 
             If GV.NeedRestart Or GV.FirstStart Then
-                My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
-                My.Settings.Save()
+                If Not GV.ResetSettings Then
+                    My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
+                    My.Settings.Save()
+                Else
+                    IO.File.Delete(SPP2SettingsProvider.SettingsFile)
+                End If
                 Application.Exit()
             Else
                 Application.Exit()
@@ -539,7 +554,9 @@ Module SPP2Helper
                                 control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
-                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & My.Resources.E015_RealmdCrashed & vbCrLf, Color.Red)
+                                    Dim msg = String.Format(My.Resources.E015_RealmdCrashed, control.CrashCount, "10")
+                                    GV.Log.WriteError(msg)
+                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & msg & vbCrLf, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной запуск) через 10 секунд
                                     If GV.SPP2Launcher.ServerWowAutostart Then TimerStartRealmd.Change(10000, 10000)
                                 End If
@@ -551,7 +568,9 @@ Module SPP2Helper
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     WorldStartTime = 0
                                     ' Сервер рухнул
-                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.E016_WorldCrashed & vbCrLf, Color.Red)
+                                    Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount, "10")
+                                    GV.Log.WriteError(msg)
+                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & msg & vbCrLf, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд
                                     If GV.SPP2Launcher.ServerWowAutostart Then TimerStartWorld.Change(10000, 10000)
                                 End If

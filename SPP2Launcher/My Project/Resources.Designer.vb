@@ -342,7 +342,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер REALMD внезапно прекратил работу....
+        '''  Ищет локализованную строку, похожую на Сервер REALMD внезапно прекратил работу в {0} раз. Перезапуск через {1} сек..
         '''</summary>
         Friend ReadOnly Property E015_RealmdCrashed() As String
             Get
@@ -351,7 +351,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер WORLD внезапно прекратил работу....
+        '''  Ищет локализованную строку, похожую на Сервер WORLD внезапно прекратил работу в {0} раз. Перезапуск через {1} сек..
         '''</summary>
         Friend ReadOnly Property E016_WorldCrashed() As String
             Get
@@ -537,11 +537,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?.
+        '''</summary>
+        Friend ReadOnly Property P014_ResetSettings() As String
+            Get
+                Return ResourceManager.GetString("P014_ResetSettings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Запуск сервера World.
         '''</summary>
         Friend ReadOnly Property P015_WorldStart() As String
             Get
                 Return ResourceManager.GetString("P015_WorldStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Внимание!.
+        '''</summary>
+        Friend ReadOnly Property P016_WarningCaption() As String
+            Get
+                Return ResourceManager.GetString("P016_WarningCaption", resourceCulture)
             End Get
         End Property
         
