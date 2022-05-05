@@ -567,6 +567,7 @@ Module SPP2Helper
                                 control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     WorldStartTime = 0
+                                    GV.SPP2Launcher.OutMessageStatusStrip("")
                                     ' Сервер рухнул
                                     Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount, "10")
                                     GV.Log.WriteError(msg)
