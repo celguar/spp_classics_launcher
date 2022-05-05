@@ -120,32 +120,14 @@
   <metadata name="StatusStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 359</value>
-  </data>
-  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 22</value>
-  </data>
+  <metadata name="StatusStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
-    <value>StatusStrip_SPP2</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="TSSL_MySQL.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="TSSL_MySQL.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 17</value>
   </data>
@@ -194,41 +176,38 @@
   <data name="TSSL_Count.Text" xml:space="preserve">
     <value>N/A</value>
   </data>
+  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 359</value>
+  </data>
+  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 22</value>
+  </data>
+  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
+    <value>StatusStrip_SPP2</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <metadata name="MenuStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>159, 17</value>
   </metadata>
-  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 28</value>
-  </data>
-  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
-    <value>MenuStrip_SPP2</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
+  <metadata name="MenuStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 24</value>
   </data>
   <data name="TSMI_RunWow.Text" xml:space="preserve">
     <value>Запуск WoW</value>
-  </data>
-  <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 24</value>
-  </data>
-  <data name="TSMI_Server.Text" xml:space="preserve">
-    <value>Серверы</value>
   </data>
   <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 22</value>
@@ -238,12 +217,6 @@
   </data>
   <data name="TSMI_SepSrv1.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 6</value>
-  </data>
-  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 22</value>
-  </data>
-  <data name="TSMI_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
   </data>
   <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 22</value>
@@ -272,11 +245,11 @@
   <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
-  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 22</value>
   </data>
-  <data name="TSMI_Apache.Text" xml:space="preserve">
-    <value>Apache</value>
+  <data name="TSMI_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
   </data>
   <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 22</value>
@@ -305,6 +278,12 @@
   <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
+  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 22</value>
+  </data>
+  <data name="TSMI_Apache.Text" xml:space="preserve">
+    <value>Apache</value>
+  </data>
   <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 6</value>
   </data>
@@ -329,11 +308,11 @@
   <data name="TSMI_ServerSettings.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
-  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 24</value>
+  <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
   </data>
-  <data name="TSMI_Tools.Text" xml:space="preserve">
-    <value>Инструменты</value>
+  <data name="TSMI_Server.Text" xml:space="preserve">
+    <value>Серверы</value>
   </data>
   <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 22</value>
@@ -356,17 +335,11 @@
   <data name="TSMI_Updates.Text" xml:space="preserve">
     <value>Обновления</value>
   </data>
-  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 24</value>
+  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 24</value>
   </data>
-  <data name="TSMI_Settings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
-  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
-    <value>Язык интерфейса</value>
+  <data name="TSMI_Tools.Text" xml:space="preserve">
+    <value>Инструменты</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TSMI_English.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -387,11 +360,11 @@
   <data name="TSMI_Russian.Text" xml:space="preserve">
     <value>Русский</value>
   </data>
-  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="TSMI_ServerTools.Text" xml:space="preserve">
-    <value>Серверы</value>
+  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
+    <value>Язык интерфейса</value>
   </data>
   <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 22</value>
@@ -399,11 +372,11 @@
   <data name="TSMI_World.Text" xml:space="preserve">
     <value>World</value>
   </data>
-  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_ServerTools.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="TSMI_Bots.Text" xml:space="preserve">
-    <value>Боты</value>
+  <data name="TSMI_ServerTools.Text" xml:space="preserve">
+    <value>Серверы</value>
   </data>
   <data name="TSMI_BotSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>192, 22</value>
@@ -423,6 +396,12 @@
   <data name="TSMI_ResetBots.Text" xml:space="preserve">
     <value>Сбросить</value>
   </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="TSMI_Bots.Text" xml:space="preserve">
+    <value>Боты</value>
+  </data>
   <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
     <value>167, 6</value>
   </data>
@@ -432,12 +411,54 @@
   <data name="TSMI_Launcher.Text" xml:space="preserve">
     <value>Приложение</value>
   </data>
+  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 24</value>
+  </data>
+  <data name="TSMI_Settings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 28</value>
+  </data>
+  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
+    <value>MenuStrip_SPP2</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <metadata name="NotifyIcon_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>300, 17</value>
   </metadata>
   <metadata name="ContextMenu_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>440, 17</value>
   </metadata>
+  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
+    <value>Открыть приложение</value>
+  </data>
+  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 6</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
   <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 54</value>
   </data>
@@ -1007,24 +1028,15 @@
   <data name="NotifyIcon_SPP2.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
-    <value>Открыть приложение</value>
-  </data>
-  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 6</value>
-  </data>
-  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
-    <value>Выход</value>
-  </data>
   <metadata name="ContextMenuStrip_Console.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>598, 17</value>
   </metadata>
+  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="TSMI_Copy.Text" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
   <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 26</value>
   </data>
@@ -1034,12 +1046,9 @@
   <data name="&gt;&gt;ContextMenuStrip_Console.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
-  </data>
-  <data name="TSMI_Copy.Text" xml:space="preserve">
-    <value>Копировать</value>
-  </data>
+  <metadata name="TextBox_Command.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="TextBox_Command.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
@@ -1068,10 +1077,67 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TextBox_Command.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
+  <metadata name="TabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="TabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <metadata name="TabPage_MySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleMySQL</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
+    <value>TabPage_MySQL</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="TabPage_MySQL.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
+  </data>
+  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TabPage_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
   </data>
   <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
     <value>TabPage_MySQL</value>
@@ -1085,6 +1151,60 @@
   <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="TabPage_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleRealmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleRealmd</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
+    <value>TabPage_Realmd</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage_Realmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
+  </data>
+  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabPage_Realmd.Text" xml:space="preserve">
+    <value>Realm</value>
+  </data>
   <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
     <value>TabPage_Realmd</value>
   </data>
@@ -1097,6 +1217,57 @@
   <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="TabPage_World.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleWorld.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleWorld</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
+    <value>TabPage_World</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
+  </data>
+  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPage_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
   <data name="&gt;&gt;TabPage_World.Name" xml:space="preserve">
     <value>TabPage_World</value>
   </data>
@@ -1108,6 +1279,9 @@
   </data>
   <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 31</value>
@@ -1133,220 +1307,10 @@
   <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleMySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_MySQL.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 283</value>
-  </data>
-  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TabPage_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 277</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleMySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleRealmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_Realmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 283</value>
-  </data>
-  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabPage_Realmd.Text" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 8.25pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 277</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleRealmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleWorld</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 281</value>
-  </data>
-  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabPage_World.Text" xml:space="preserve">
-    <value>World</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.Name" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 9.75pt, style=Bold, Italic</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 275</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleWorld</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">

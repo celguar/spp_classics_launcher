@@ -124,7 +124,7 @@ Public Class Splash
         ' Выход если приложение уже запущено или не удалось загрузить конфигурацию лаунчера
         If GV.ErrorCode = GV.ECode.ErrorLauncherAlready Or
             GV.ErrorCode = GV.ECode.ErrorLauncherConfig Then
-            GV.Log.WriteInfo(My.Resources.P005_Exiting)
+            If Not IsNothing(GV.Log) Then GV.Log.WriteInfo(My.Resources.P005_Exiting)
             Close()
         ElseIf GV.ErrorCode = GV.ECode.ErrorBaseCat Or
                 GV.ErrorCode = GV.ECode.ErrorMangoCat Or

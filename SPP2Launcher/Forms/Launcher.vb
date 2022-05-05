@@ -478,7 +478,7 @@ Public Class Launcher
 
         ' Настраиваем консоли
         Dim bc As Color = If(My.Settings.ConsoleTheme = "Black", Drawing.Color.Black, Drawing.Color.SeaShell)
-        Dim fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
+        Dim fnt = GetCurrentFont()
 
         ' Realmd
         RichTextBox_ConsoleRealmd.ForeColor = My.Settings.RealmdConsoleForeColor
@@ -623,7 +623,7 @@ Public Class Launcher
     ''' Запускает сервер MySQL
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
-        If My.Settings.UseIntMySQL AndAlso Not _mysqlON AndAlso IsNothing(_mysqlProcess) Then
+        If My.Settings.UseIntMySQL AndAlso Not _MySqlON AndAlso IsNothing(_mysqlProcess) Then
             GV.Log.WriteInfo(My.Resources.SQL002_Start)
             Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
             Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
@@ -793,7 +793,7 @@ Public Class Launcher
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
                     End If
                 End If
-                _mysqlON = False
+                _MySqlON = False
             Else
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
@@ -903,7 +903,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStart.Click
-        If _mysqlON Then
+        If _MySqlON Then
             _apacheSTOP = False
             If My.Settings.ApacheAutostart Then
                 ' Ничего не делаем, CheckMySQL сам поднимет Apache
@@ -1021,7 +1021,7 @@ Public Class Launcher
     Friend Sub RestartApache()
         _apacheSTOP = False
         ShutdownApache()
-        If _mysqlON Then
+        If _MySqlON Then
             If My.Settings.ApacheAutostart Then
                 ' Ничего не делаем, MySQL сам поднимет Apache
             Else
@@ -1595,9 +1595,9 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub RealmdExited(ByVal sender As Object, ByVal e As EventArgs)
         GV.Log.WriteInfo(My.Resources.P032_RealmdStopped)
-        RemoveHandler _realmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
-        RemoveHandler _realmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
-        RemoveHandler _realmdProcess.Exited, AddressOf RealmdExited
+        RemoveHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
+        RemoveHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
+        RemoveHandler _RealmdProcess.Exited, AddressOf RealmdExited
     End Sub
 
     ''' <summary>
@@ -1623,7 +1623,7 @@ Public Class Launcher
             Next
         Else
         End If
-        _realmdON = False
+        _RealmdON = False
         ' Удаляем хандлеры, если таковые были
         If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
         _RealmdProcess = Nothing
@@ -1704,7 +1704,7 @@ Public Class Launcher
                 End If
             Catch ex As Exception
                 If Me.Visible Then
-                    _realmdON = False
+                    _RealmdON = False
                     TSSL_Realm.GetCurrentParent().Invoke(Sub()
                                                              TSSL_Realm.Image = My.Resources.red_ball
                                                              If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
@@ -1808,7 +1808,7 @@ Public Class Launcher
     Private Sub TSMI_ServerStop_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStop.Click
         _isLastCommandStart = False
         _NeedServerStop = True
-        _NeedServerStart = False
+        _needServerStart = False
         _NeedExitLauncher = False
         ShutdownWorld(False)
     End Sub
@@ -2133,7 +2133,11 @@ Public Class Launcher
     Friend Sub ChangeFont()
         My.Settings.Save()
 
-        Dim fnt = New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
+        ' Получает шрифт с текущими настройками.
+        Dim fnt = GetCurrentFont()
+        RichTextBox_ConsoleMySQL.Font = fnt
+        RichTextBox_ConsoleRealmd.Font = fnt
+        RichTextBox_ConsoleWorld.Font = fnt
 
         ' MySQL
         RichTextBox_ConsoleMySQL.SuspendLayout()

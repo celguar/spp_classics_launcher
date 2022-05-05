@@ -8,6 +8,7 @@
 
 Imports System.Collections.Specialized
 Imports System.Configuration
+Imports System.Reflection
 Imports System.Xml
 Imports System.Xml.XPath
 
@@ -126,11 +127,23 @@ Public Class SPP2SettingsProvider
     ''' <param name="configFilePath">Полный путь к файлу конфигурации.</param>
     ''' <param name="settingsList">Массив настроек.</param>
     Public Shared Sub ApplyProvider(configFilePath As String, ParamArray settingsList() As ApplicationSettingsBase)
-        Dim fi = New IO.FileInfo(If(String.IsNullOrEmpty(configFilePath),
-                            IO.Path.Combine(IO.Path.GetDirectoryName(Reflection.Assembly.GetEntryAssembly.Location), Reflection.Assembly.GetEntryAssembly.GetName().Name & ".conf"),
-                            configFilePath))
-        If Not IO.Directory.Exists(fi.Directory.FullName) Then IO.Directory.CreateDirectory(fi.Directory.FullName)
-        _SettingsFile = fi.FullName
+        Try
+            ' Проверяем доступность каталога на запись
+            IO.File.WriteAllText(IO.Path.GetPathRoot(configFilePath) & "test.file", "")
+            IO.File.Delete(IO.Path.GetPathRoot(configFilePath) & "test.file")
+            Dim fi = New IO.FileInfo(If(String.IsNullOrEmpty(configFilePath),
+                    IO.Path.Combine(IO.Path.GetDirectoryName(Reflection.Assembly.GetEntryAssembly.Location), Assembly.GetEntryAssembly.GetName().Name & ".conf"),
+                    configFilePath))
+            If Not IO.Directory.Exists(fi.Directory.FullName) Then IO.Directory.CreateDirectory(fi.Directory.FullName)
+            _SettingsFile = fi.FullName
+        Catch
+            ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
+            Dim program = Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
+            If Not IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program) Then
+                IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program)
+            End If
+            _SettingsFile = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program & "\" & IO.Path.GetFileName(configFilePath)
+        End Try
         For Each settings In settingsList
             Dim provider = New SPP2SettingsProvider()
             settings.Providers.Add(provider)
@@ -200,7 +213,8 @@ Public Class SPP2SettingsProvider
             Using writer = XmlWriter.Create(SettingsFile, New XmlWriterSettings With {.NewLineHandling = NewLineHandling.Entitize, .Indent = True})
                 xmlDoc.Save(writer)
             End Using
-        Catch
+        Catch ex As Exception
+            Throw New Exception("Файл конфигурации недоступен для изменения!")
         End Try
     End Sub
 

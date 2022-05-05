@@ -227,6 +227,7 @@ Module SPP2Helper
             Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
         Catch
             ' В случае проблем возвращаем хоть что-то...
+            F = New System.Drawing.Text.PrivateFontCollection()
             Return New Font("Consolas", My.Settings.ConsoleFontSize)
         End Try
     End Function
@@ -253,6 +254,18 @@ Module SPP2Helper
         End Try
         Marshal.FreeHGlobal(ip)
         Return fnt
+    End Function
+
+    ''' <summary>
+    ''' Возвращает шрифт с текущими настройками.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Function GetCurrentFont() As Font
+        If F.Families.Count > 0 Then
+            Return New Font(F.Families(0), My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
+        Else
+            Return New Font("Consolas", My.Settings.ConsoleFontSize, My.Settings.ConsoleFontStyle)
+        End If
     End Function
 
 #End Region
