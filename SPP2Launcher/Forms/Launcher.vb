@@ -409,6 +409,10 @@ Public Class Launcher
             TSMI_ServerStop.Visible = False
             TSMI_Server2.Visible = False
             TSMI_RunWow.Enabled = False
+            TSMI_ServerSwitcher.Enabled = False
+            TSMI_Tools.Visible = False
+            TSMI_Bots.Visible = False
+            TSMI_Reset.Enabled = False
         Else
             ' Обустраиваем меню MySQL
             If My.Settings.UseIntMySQL Then
