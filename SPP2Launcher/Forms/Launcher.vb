@@ -186,8 +186,10 @@ Public Class Launcher
         TabControl1.SelectedTab = TabPage_World
 
         ' Включем поток ежесекундного тика
-        Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {.IsBackground = True}
-        tikTok.Start()
+        If Not My.Settings.FirstStart Then
+            Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {.IsBackground = True}
+            tikTok.Start()
+        End If
 
         ' Включаем поток вывода команды разработчиков
         _isStart = New Threading.Thread(Sub() PreStart()) With {.IsBackground = True}
@@ -201,8 +203,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If GV.FirstStart Then
-            My.Settings.Save()
+        If My.Settings.FirstStart Then
             ShutdownAll(True)
             Threading.Thread.Sleep(1000)
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
@@ -383,7 +384,6 @@ Public Class Launcher
         If _MySqlON Then
             online = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_ONLINE_CHARS()
             total = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_TOTAL_CHARS()
-            Dim a = MySqlDataBases.Backup.REALMD()
         Else
             online = "N/A"
             total = "N/A"
@@ -405,7 +405,7 @@ Public Class Launcher
     Friend Sub UpdateSettings()
 
         ' Если это первый запуск - предупреждаем
-        If GV.FirstStart Then
+        If My.Settings.FirstStart Then
             MessageBox.Show(My.Resources.P012_FirstStart,
                             My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
             ' Выключаем все меню запуска/перезапуска серверов
@@ -891,14 +891,16 @@ Public Class Launcher
 
         If _MySqlON AndAlso HintCollection.Count = 0 Then
             ' Автоподсказки
-            TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
             MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
-            TextBox_Command.AutoCompleteCustomSource = HintCollection
             If TextBox_Command.InvokeRequired Then
                 TextBox_Command.Invoke(Sub()
+                                           TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
+                                           TextBox_Command.AutoCompleteCustomSource = HintCollection
                                            TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
                                        End Sub)
             Else
+                TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
+                TextBox_Command.AutoCompleteCustomSource = HintCollection
                 TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
             End If
         End If

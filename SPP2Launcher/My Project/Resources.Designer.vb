@@ -342,7 +342,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер REALMD внезапно прекратил работу в {0} раз. Перезапуск через {1} сек..
+        '''  Ищет локализованную строку, похожую на Сервер REALMD внезапно прекратил работу {0} раз. Перезапуск через {1} сек..
         '''</summary>
         Friend ReadOnly Property E015_RealmdCrashed() As String
             Get
@@ -351,7 +351,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер WORLD внезапно прекратил работу в {0} раз. Перезапуск через {1} сек..
+        '''  Ищет локализованную строку, похожую на Сервер WORLD внезапно прекратил работу {0} раз. Перезапуск через {1} сек..
         '''</summary>
         Friend ReadOnly Property E016_WorldCrashed() As String
             Get

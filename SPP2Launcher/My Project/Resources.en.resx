@@ -175,10 +175,10 @@
     <value>Some exception: world</value>
   </data>
   <data name="E015_RealmdCrashed" xml:space="preserve">
-    <value>The REALMD server has crashed for the {0} time. Restart after {1} sec.</value>
+    <value>The REALMD server has crashed {0} times. Restart after {1} sec.</value>
   </data>
   <data name="E016_WorldCrashed" xml:space="preserve">
-    <value>The WORLD server has crashed for the {0} time. Restart after {1} sec.</value>
+    <value>The WORLD server has crashed {0} times. Restart after {1} sec.</value>
   </data>
   <data name="E017_SeeLog" xml:space="preserve">
     <value>An error has occurred. Details in the application log file.</value>

@@ -285,10 +285,10 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="SqlLogLevel" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="ConsoleMessageFilter" Description="Не выводить в консоль сообщения об ошибках." Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="UseConsoleBuffer" Description="Сохранять введённые команды в буфере." Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -300,6 +300,9 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UseAutoBackupDatabase" Description="Включить автоматический бэкап баз данных." Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FirstStart" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

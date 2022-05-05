@@ -40,11 +40,6 @@ Public Class GV
     Friend Shared Log As EasyLog
 
     ''' <summary>
-    ''' Это первый старт.
-    ''' </summary>
-    Friend Shared FirstStart As Boolean
-
-    ''' <summary>
     ''' Требуется перезагрузка лаунчера.
     ''' </summary>
     Friend Shared NeedRestart As Boolean
@@ -168,8 +163,6 @@ Public Class GV
         Try
             ' Включаем локальные настройки
             SPP2SettingsProvider.ApplyProvider(Application.StartupPath & "\SPP2.cfg", My.MySettings.Default)
-            ' Это первый старт? (Обязательно перед Upgrade)
-            If Not IO.File.Exists(SPP2SettingsProvider.SettingsFile) Then FirstStart = True
             ' Всякий раз проводим Upgrade на случай, если файл разрушен.
             My.Settings.Upgrade()
         Catch ex As Exception
@@ -179,7 +172,7 @@ Public Class GV
             Exit Sub
         End Try
 
-        If FirstStart Then
+        If My.Settings.FirstStart Then
             ' Устанавливаем локаль из системы
             My.Settings.Locale = My.Computer.Info.InstalledUICulture.Name
             My.Settings.Save()

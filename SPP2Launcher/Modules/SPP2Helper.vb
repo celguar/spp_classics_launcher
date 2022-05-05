@@ -455,7 +455,7 @@ Module SPP2Helper
             GV.SPP2Launcher.EnableClosing = True
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
 
-            If GV.NeedRestart Or GV.FirstStart Then
+            If GV.NeedRestart Or My.Settings.FirstStart Then
                 If Not GV.ResetSettings Then
                     My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
                     My.Settings.Save()

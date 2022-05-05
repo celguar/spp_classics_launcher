@@ -1248,7 +1248,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
         Public Property SqlLogLevel() As Integer
             Get
                 Return CType(Me("SqlLogLevel"),Integer)
@@ -1264,7 +1264,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Не выводить в консоль сообщения об ошибках."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
         Public Property ConsoleMessageFilter() As Integer
             Get
                 Return CType(Me("ConsoleMessageFilter"),Integer)
@@ -1335,6 +1335,18 @@ Namespace My
             End Get
             Set
                 Me("UseAutoBackupDatabase") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property FirstStart() As Boolean
+            Get
+                Return CType(Me("FirstStart"),Boolean)
+            End Get
+            Set
+                Me("FirstStart") = value
             End Set
         End Property
     End Class
