@@ -360,6 +360,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Произошла ошибка. Подробности в Log-файле приложения..
+        '''</summary>
+        Friend ReadOnly Property E017_SeeLog() As String
+            Get
+                Return ResourceManager.GetString("E017_SeeLog", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property en() As System.Drawing.Bitmap
@@ -609,11 +618,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Резервное копирование базы {0}.
+        '''</summary>
+        Friend ReadOnly Property P022_BackupStart() As String
+            Get
+                Return ResourceManager.GetString("P022_BackupStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Информация.
         '''</summary>
         Friend ReadOnly Property P023_InfoCaption() As String
             Get
                 Return ResourceManager.GetString("P023_InfoCaption", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Успешное завершение..
+        '''</summary>
+        Friend ReadOnly Property P024_Success() As String
+            Get
+                Return ResourceManager.GetString("P024_Success", resourceCulture)
             End Get
         End Property
         

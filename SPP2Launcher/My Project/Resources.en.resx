@@ -180,6 +180,9 @@
   <data name="E016_WorldCrashed" xml:space="preserve">
     <value>The WORLD server has crashed for the {0} time. Restart after {1} sec.</value>
   </data>
+  <data name="E017_SeeLog" xml:space="preserve">
+    <value>An error has occurred. Details in the application log file.</value>
+  </data>
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Initialization of basic application settings is complete.</value>
   </data>
@@ -243,8 +246,14 @@
   <data name="P021_TimerSetted" xml:space="preserve">
     <value>Timer set for {0} = {1}</value>
   </data>
+  <data name="P022_BackupStart" xml:space="preserve">
+    <value>Database backup {0}</value>
+  </data>
   <data name="P023_InfoCaption" xml:space="preserve">
     <value>Information</value>
+  </data>
+  <data name="P024_Success" xml:space="preserve">
+    <value>Completed successfully.</value>
   </data>
   <data name="P025_ReShowLauncher" xml:space="preserve">
     <value>Reloading the launcher after the server selector.</value>

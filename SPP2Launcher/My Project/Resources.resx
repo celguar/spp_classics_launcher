@@ -397,10 +397,19 @@
   <data name="P011_AllChars" xml:space="preserve">
     <value>Всего {0} чаров.</value>
   </data>
+  <data name="E017_SeeLog" xml:space="preserve">
+    <value>Произошла ошибка. Подробности в Log-файле приложения.</value>
+  </data>
   <data name="P014_ResetSettings" xml:space="preserve">
     <value>Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?</value>
   </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Внимание!</value>
+  </data>
+  <data name="P022_BackupStart" xml:space="preserve">
+    <value>Резервное копирование базы {0}</value>
+  </data>
+  <data name="P024_Success" xml:space="preserve">
+    <value>Успешное завершение.</value>
   </data>
 </root>

@@ -213,7 +213,7 @@ Public Class Launcher
             Threading.Thread.Sleep(1000)
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
         Else
-            If CurrentRunningServer <> "" Or EnableClosing = False Then
+            If EnableClosing = False Then
                 Try
                     Me.WindowState = FormWindowState.Minimized
                 Catch
@@ -297,7 +297,7 @@ Public Class Launcher
     ''' </summary>
     Private Sub TryRestart()
         My.Settings.Save()
-        If CurrentRunningServer <> "" Or Not IsNothing(_mysqlProcess) Then
+        If ServerWowAutostart Or Not IsNothing(_mysqlProcess) Then
             ' Перезагрузка отменяется
             MessageBox.Show(My.Resources.P006_NeedReboot,
                             My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -387,8 +387,9 @@ Public Class Launcher
     Friend Sub OutInfoStatusStrip()
         Dim online, total As String
         If _MySqlON Then
-            online = MySqlTables.CHARACTERS.SELECT_ONLINE_CHARS()
-            total = MySqlTables.CHARACTERS.SELECT_TOTAL_CHARS()
+            online = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_ONLINE_CHARS()
+            total = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_TOTAL_CHARS()
+            Dim a = MySqlDataBases.Backup.REALMD()
         Else
             online = "N/A"
             total = "N/A"
@@ -897,7 +898,7 @@ Public Class Launcher
         If _MySqlON AndAlso HintCollection.Count = 0 Then
             ' Автоподсказки
             TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
-            MySqlTables.COMMAND.SELECT_COMMAND(HintCollection)
+            MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
             TextBox_Command.AutoCompleteCustomSource = HintCollection
             If TextBox_Command.InvokeRequired Then
                 TextBox_Command.Invoke(Sub()
@@ -1772,9 +1773,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
-        If CurrentRunningServer <> "" Then AutoSave()
         _NeedExitLauncher = True
-        ' Продолжаем закрытие
         ShutdownAll(True)
     End Sub
 

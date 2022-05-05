@@ -133,45 +133,6 @@
   <data name="TSMI_RunWow.Text" xml:space="preserve">
     <value>Run Wow</value>
   </data>
-  <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 24</value>
-  </data>
-  <data name="TSMI_Server.Text" xml:space="preserve">
-    <value>Servers</value>
-  </data>
-  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 24</value>
-  </data>
-  <data name="TSMI_Tools.Text" xml:space="preserve">
-    <value>Tools</value>
-  </data>
-  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
-  </data>
-  <data name="TSMI_Launcher.Text" xml:space="preserve">
-    <value>Application</value>
-  </data>
-  <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 6</value>
-  </data>
-  <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="TSMI_Reset.Text" xml:space="preserve">
-    <value>Reset to default</value>
-  </data>
-  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 24</value>
-  </data>
-  <data name="TSMI_Settings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
   <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 26</value>
   </data>
@@ -198,9 +159,6 @@ That is, when they fall, they will be automatically launched.</value>
   </data>
   <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 6</value>
-  </data>
-  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
   </data>
   <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 22</value>
@@ -229,7 +187,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 26</value>
   </data>
   <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
@@ -259,6 +217,9 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 26</value>
+  </data>
   <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 6</value>
   </data>
@@ -267,6 +228,12 @@ That is, when they fall, they will be automatically launched.</value>
   </data>
   <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
     <value>Select server modification</value>
+  </data>
+  <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 24</value>
+  </data>
+  <data name="TSMI_Server.Text" xml:space="preserve">
+    <value>Servers</value>
   </data>
   <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 22</value>
@@ -300,6 +267,54 @@ That is, when they fall, they will be automatically launched.</value>
   </data>
   <data name="TSMI_Updates.Text" xml:space="preserve">
     <value>Updates</value>
+  </data>
+  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 24</value>
+  </data>
+  <data name="TSMI_Tools.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="TSMI_Launcher.Text" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 6</value>
+  </data>
+  <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="TSMI_Reset.Text" xml:space="preserve">
+    <value>Reset to default</value>
+  </data>
+  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 24</value>
+  </data>
+  <data name="TSMI_Settings.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
+    <value>Open application</value>
+  </data>
+  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 6</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
+    <value>Stop and exit</value>
   </data>
   <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 54</value>
@@ -1970,29 +1985,14 @@ That is, when they fall, they will be automatically launched.</value>
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
-    <value>Open application</value>
-  </data>
-  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
-  </data>
-  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
-    <value>Stop and exit</value>
-  </data>
-  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 26</value>
-  </data>
   <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 22</value>
   </data>
   <data name="TSMI_Copy.Text" xml:space="preserve">
     <value>Copy</value>
+  </data>
+  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 26</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
