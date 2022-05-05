@@ -9,12 +9,6 @@ Public Class Splash
     ''' </summary>
     Sub New()
         LGV.BaseInit()
-        ' Если установлен новый тип сервера после перезагрузки
-        If My.Settings.NextLoadServerType <> "" Then
-            My.Settings.LastLoadedServerType = My.Settings.NextLoadServerType
-            My.Settings.NextLoadServerType = ""
-            My.Settings.Save()
-        End If
         InitializeComponent()
         ' Первоначальные настройки
         Label_Error.Text = ""
@@ -146,12 +140,16 @@ Public Class Splash
                 My.Settings.LastLoadedServerType = GV.Modules.Item(0).ModuleType.ToString
                 Dim fLauncher As New Launcher
                 fLauncher.ShowDialog()
-                Me.Close()
+                If GV.NeedRestart Then Application.Restart()
             ElseIf My.Settings.LastLoadedServerType = "" Or My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString Then
-                ' Было предложение о смене типа сервера
+                ' Тип сервера ещё не настроен или было предложение о смене типа сервера
                 Dim fServerSelector As New ServerSelector()
                 fServerSelector.ShowDialog()
-                Me.Close()
+                If Not IsNothing(GV.SPP2Launcher) Then
+                    If GV.SPP2Launcher.EnableClosing Then Me.Close()
+                Else
+                    Me.Close()
+                End If
             Else
                 ' Есть настройки автозапуска лаунчера
                 Try

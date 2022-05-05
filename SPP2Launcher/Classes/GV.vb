@@ -45,6 +45,11 @@ Public Class GV
     Friend Shared FirstStart As Boolean
 
     ''' <summary>
+    ''' Требуется перезагрузка лаунчера.
+    ''' </summary>
+    Friend Shared NeedRestart As Boolean
+
+    ''' <summary>
     ''' Клиент MySQL.
     ''' </summary>
     Friend Shared SQL As MySqlProvider

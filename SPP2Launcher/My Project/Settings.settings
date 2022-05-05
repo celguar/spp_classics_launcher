@@ -212,9 +212,6 @@
     <Setting Name="DirSPP2" Description="Каталог проекта Single Player Project v2" Type="System.String" Scope="User">
       <Value Profile="(Default)">D:\GAME\SERVER\WOW\SPP_Classics_V2</Value>
     </Setting>
-    <Setting Name="NextLoadServerType" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="ServerClassicAutostart" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

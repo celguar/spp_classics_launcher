@@ -2,11 +2,6 @@
 Public Class ServerSelector
 
     ''' <summary>
-    ''' Тупо ожидание последней записи журнала событий.
-    ''' </summary>
-    Private _ok As Boolean
-
-    ''' <summary>
     ''' Конструктор инициализации.
     ''' </summary>
     Sub New()
@@ -83,25 +78,9 @@ Public Class ServerSelector
     ''' ЗАКРЫВАЕТ ФОРМУ
     ''' </summary>
     Private Sub SelectorClose()
-        If My.Settings.NextLoadServerType = GV.EModule.Restart.ToString Then
-            My.Settings.NextLoadServerType = ""
-            My.Settings.Save()
-            GV.Log.WriteInfo(My.Resources.P028_ApplicationRestart)
-            Application.Restart()
-        Else
-            My.Settings.Save()
-            Me.Hide()
-            GV.Log.WriteInfo(My.Resources.P029_LaunchMain)
-            GV.SPP2Launcher = New Launcher
-            GV.SPP2Launcher.ShowDialog()
-            If GV.FirstStart Then
-                ' Это был первый запуск
-                GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
-                Application.Restart()
-            Else
-                Me.Close()
-            End If
-        End If
+        My.Settings.Save()
+        GV.Log.WriteInfo(My.Resources.P029_LaunchMain)
+        Timer_FormClosing.Start()
     End Sub
 
     ''' <summary>
@@ -110,9 +89,15 @@ Public Class ServerSelector
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Timer_FormClosing_Tick(sender As Object, e As EventArgs) Handles Timer_FormClosing.Tick
-        ' На деле нужен только для завершения всех задач логирования
-        _ok = True
-        Close()
+        Timer_FormClosing.Stop()
+        Me.Hide()
+        GV.SPP2Launcher = New Launcher
+        GV.SPP2Launcher.ShowDialog()
+        If GV.FirstStart Or GV.NeedRestart Then
+            Application.Restart()
+        Else
+            Me.Close()
+        End If
     End Sub
 
 #Region " === КУРСОР МЫШИ === "

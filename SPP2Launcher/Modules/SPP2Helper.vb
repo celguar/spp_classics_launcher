@@ -429,7 +429,16 @@ Module SPP2Helper
 
             ' Закрываем приложение
             GV.SPP2Launcher.EnableClosing = True
-            Application.Exit()
+            GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
+
+            If GV.NeedRestart Or GV.FirstStart Then
+                My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
+                My.Settings.Save()
+                Application.Exit()
+            Else
+                Application.Exit()
+            End If
+
         End If
 
     End Sub

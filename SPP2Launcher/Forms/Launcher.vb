@@ -210,6 +210,8 @@ Public Class Launcher
         If GV.FirstStart Then
             My.Settings.Save()
             ShutdownAll(True)
+            Threading.Thread.Sleep(1000)
+            GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
         Else
             If CurrentRunningServer <> "" Or EnableClosing = False Then
                 Try
@@ -219,6 +221,9 @@ Public Class Launcher
                 e.Cancel = True
             Else
                 GV.Log.WriteInfo(My.Resources.P005_Exiting)
+                Threading.Thread.Sleep(1000)
+                GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
+                If GV.NeedRestart Then Application.Restart()
             End If
         End If
     End Sub
@@ -509,11 +514,9 @@ Public Class Launcher
         If _ServerWowAutostart Then
             ' Прячем меню смены сервера
             TSMI_ServerSwitcher.Visible = False
-            TSMI_SepSrv1.Visible = False
         Else
             ' Отображаем меню смены сервера
             TSMI_ServerSwitcher.Visible = True
-            TSMI_SepSrv1.Visible = True
         End If
 
         ' Устанавливаем тему консоли.
@@ -554,28 +557,13 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ServerSwitcher_Click(sender As Object, e As EventArgs) Handles TSMI_ServerSwitcher.Click
-        If CurrentRunningServer <> "" Or Not IsNothing(_mysqlProcess) Then
-            ' Запущен один из процессов игнорировать которые нельзя
-            MessageBox.Show(My.Resources.P006_NeedReboot,
+        ' Выводим сообщение о перезагрузке приложения
+        MessageBox.Show(My.Resources.P006_NeedReboot,
                             My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ' Останавливаем ВСЕ сервера
-            _NeedExitLauncher = True
-            ShutdownAll(True)
-            Me.Hide()
-            _EnableClosing = True
-            NotifyIcon_SPP2.Visible = False
-            My.Settings.NextLoadServerType = GV.EModule.Restart.ToString
-            Dim fServerSelector As New ServerSelector()
-            fServerSelector.ShowDialog()
-        Else
-            ' Процессов нет - запускаем окно выбора типа сервера
-            _NeedExitLauncher = True
-            ShutdownAll(True)
-            NotifyIcon_SPP2.Visible = False
-            My.Settings.NextLoadServerType = ""
-            Dim fServerSelector As New ServerSelector()
-            fServerSelector.ShowDialog()
-        End If
+        ' Устанавливаем флаг - нужна перезагрузка
+        GV.NeedRestart = True
+        ' Останавливаем ВСЕ сервера
+        ShutdownAll(True)
     End Sub
 
 #End Region
@@ -1761,7 +1749,6 @@ Public Class Launcher
         _NeedExitLauncher = True
         ' Продолжаем закрытие
         ShutdownAll(True)
-        NotifyIcon_SPP2.Visible = False
     End Sub
 
     ''' <summary>
@@ -1777,16 +1764,6 @@ Public Class Launcher
 #End Region
 
 #Region " === СЕРВЕР === "
-
-    ''' <summary>
-    ''' МЕНЮ - НАСТРОЙКИ СЕРВЕРА
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub TSMI_ServerSettings_Click(sender As Object, e As EventArgs) Handles TSMI_ServerSettings.Click
-        Dim fServerSettings = New ServerSettings
-        fServerSettings.ShowDialog()
-    End Sub
 
     ''' <summary>
     ''' МЕНЮ - ЗАПУСК СЕРВЕРА
