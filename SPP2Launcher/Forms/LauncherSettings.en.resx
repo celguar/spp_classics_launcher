@@ -130,6 +130,9 @@
   <data name="Label_ProjectDir.Text" xml:space="preserve">
     <value>SPP2 project directory:</value>
   </data>
+  <data name="Label_ProjectDir.ToolTip" xml:space="preserve">
+    <value>Looks like SPP_Classics_V2</value>
+  </data>
   <data name="TabPage1.Text" xml:space="preserve">
     <value>Main</value>
   </data>

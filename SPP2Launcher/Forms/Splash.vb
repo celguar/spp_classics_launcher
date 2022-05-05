@@ -127,8 +127,6 @@ Public Class Splash
             Hide()
             Dim fLauncherSettings = New LauncherSettings
             fLauncherSettings.ShowDialog()
-            'My.Settings.LastLoadedServerType = ""
-            'My.Settings.Save()
             Application.Restart()
         Else
             Me.Hide()

@@ -129,14 +129,11 @@ Public Class SPP2SettingsProvider
     Public Shared Sub ApplyProvider(configFilePath As String, ParamArray settingsList() As ApplicationSettingsBase)
         Try
             ' Проверяем доступность каталога на запись
-            IO.File.WriteAllText(IO.Path.GetPathRoot(configFilePath) & "test.file", "")
-            IO.File.Delete(IO.Path.GetPathRoot(configFilePath) & "test.file")
-            Dim fi = New IO.FileInfo(If(String.IsNullOrEmpty(configFilePath),
-                    IO.Path.Combine(IO.Path.GetDirectoryName(Reflection.Assembly.GetEntryAssembly.Location), Assembly.GetEntryAssembly.GetName().Name & ".conf"),
-                    configFilePath))
-            If Not IO.Directory.Exists(fi.Directory.FullName) Then IO.Directory.CreateDirectory(fi.Directory.FullName)
-            _SettingsFile = fi.FullName
-        Catch
+            If Not IO.Directory.Exists(IO.Path.GetDirectoryName(configFilePath)) Then IO.Directory.CreateDirectory(IO.Path.GetDirectoryName(configFilePath))
+            IO.File.WriteAllText(IO.Path.GetDirectoryName(configFilePath) & "test.file", "")
+            IO.File.Delete(IO.Path.GetDirectoryName(configFilePath) & "test.file")
+            _SettingsFile = configFilePath
+        Catch ex As Exception
             ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
             Dim program = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
             If Not IO.Directory.Exists(program) Then IO.Directory.CreateDirectory(program)
