@@ -117,15 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PictureBox_InfoMySqlAutostart.ToolTip" xml:space="preserve">
+    <value>The built-in MySQL server will only start when enabled "Use Embedded Server"
+Option otherwise this setting is ignored.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CheckBox_MySqlAutostart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 17</value>
+    <value>206, 17</value>
   </data>
   <data name="CheckBox_MySqlAutostart.Text" xml:space="preserve">
     <value>Run MySQL regardless of the server</value>
   </data>
+  <data name="GroupBox_Parameters.Text" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
   <data name="CheckBox_UseIntMySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 17</value>
+    <value>139, 17</value>
   </data>
   <data name="CheckBox_UseIntMySQL.Text" xml:space="preserve">
     <value>Use Embedded Server</value>

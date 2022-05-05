@@ -119,13 +119,13 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CheckBox_UseIntApache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 17</value>
+    <value>139, 17</value>
   </data>
   <data name="CheckBox_UseIntApache.Text" xml:space="preserve">
     <value>Use Embedded Server</value>
   </data>
   <data name="CheckBox_ApacheAutostart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 17</value>
+    <value>208, 17</value>
   </data>
   <data name="CheckBox_ApacheAutostart.Text" xml:space="preserve">
     <value>Run Apache regardless of the server</value>
@@ -684,7 +684,11 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>ApacheSettings</value>
+    <value>Apache Settings</value>
   </data>
 </root>

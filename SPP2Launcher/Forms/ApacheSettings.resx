@@ -127,12 +127,15 @@
   <data name="&gt;&gt;TextBox_Port.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TextBox_Host.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;CheckBox_ApacheAutostart.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TextBox_Host.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>322, 219</value>
   </data>
   <data name="&gt;&gt;TextBox_Host.Parent" xml:space="preserve">
     <value>GroupBox1</value>
@@ -144,6 +147,9 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="GroupBox_Parameters.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -153,8 +159,8 @@
   <data name="CheckBox_ApacheAutostart.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
+  <data name="CheckBox_UseIntApache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 17</value>
   </data>
   <data name="&gt;&gt;TextBox_Host.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -162,17 +168,62 @@
   <data name="Label3.Text" xml:space="preserve">
     <value>Port</value>
   </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Listen</value>
+  </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>GroupBox1</value>
+  </data>
+  <data name="Button_OK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="TextBox_Host.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;Button_OK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ComboBox_Host.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Button_OK.Name" xml:space="preserve">
+    <value>Button_OK</value>
+  </data>
+  <data name="ComboBox_Host.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 21</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="Button_OK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 187</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Host Name/IP</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 8.25pt, style=Bold</value>
+  </data>
+  <data name="CheckBox_UseIntApache.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="TextBox_Host.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ComboBox_Host.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 90</value>
+  </data>
+  <data name="GroupBox_Parameters.Text" xml:space="preserve">
+    <value>Параметры</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -728,38 +779,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="&gt;&gt;Button_OK.Name" xml:space="preserve">
-    <value>Button_OK</value>
-  </data>
-  <data name="ComboBox_Host.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 21</value>
-  </data>
-  <data name="&gt;&gt;Button_OK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button_OK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 193</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Host Name/IP</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="CheckBox_UseIntApache.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="TextBox_Host.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="ComboBox_Host.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Host.Name" xml:space="preserve">
-    <value>TextBox_Host</value>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="CheckBox_ApacheAutostart.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 19</value>
@@ -801,31 +822,25 @@
     <value>4</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
+    <value>78, 13</value>
   </data>
   <data name="&gt;&gt;ComboBox_Host.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
   <data name="TextBox_Host.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
+    <value>74, 22</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Host.Name" xml:space="preserve">
-    <value>ComboBox_Host</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ApacheSettings</value>
   </data>
   <data name="Button_OK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="GroupBox_Parameters.Text" xml:space="preserve">
-    <value>Параметры</value>
-  </data>
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CheckBox_UseIntApache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 17</value>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="Label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -840,7 +855,7 @@
     <value>118, 24</value>
   </data>
   <data name="CheckBox_ApacheAutostart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 17</value>
+    <value>273, 17</value>
   </data>
   <data name="&gt;&gt;ComboBox_Host.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -848,8 +863,8 @@
   <data name="&gt;&gt;GroupBox_Parameters.Name" xml:space="preserve">
     <value>GroupBox_Parameters</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -866,32 +881,35 @@
   <data name="&gt;&gt;TextBox_Port.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="CheckBox_UseIntApache.Text" xml:space="preserve">
     <value>Использовать встроенный сервер</value>
   </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>Listen</value>
+  <data name="&gt;&gt;CheckBox_UseIntApache.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="TextBox_Host.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="ComboBox_Host.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="GroupBox_Parameters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 58</value>
+    <value>297, 47</value>
   </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;GroupBox_Parameters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ApacheSettings</value>
+  <data name="&gt;&gt;ComboBox_Host.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;TextBox_Host.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;Button_OK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -899,44 +917,32 @@
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>297, 88</value>
   </data>
-  <data name="&gt;&gt;ComboBox_Host.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>322, 225</value>
-  </data>
-  <data name="Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_Parameters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ComboBox_Host.Name" xml:space="preserve">
+    <value>ComboBox_Host</value>
   </data>
   <data name="&gt;&gt;Button_OK.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 99</value>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TextBox_Port.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_UseIntApache.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>167, 22</value>
   </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
+    <value>28, 13</value>
   </data>
   <data name="&gt;&gt;CheckBox_ApacheAutostart.Parent" xml:space="preserve">
     <value>GroupBox_Parameters</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_ApacheAutostart.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;CheckBox_UseIntApache.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -944,11 +950,11 @@
   <data name="CheckBox_ApacheAutostart.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;TextBox_Host.Name" xml:space="preserve">
+    <value>TextBox_Host</value>
+  </data>
   <data name="Button_OK.Text" xml:space="preserve">
     <value>OK</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

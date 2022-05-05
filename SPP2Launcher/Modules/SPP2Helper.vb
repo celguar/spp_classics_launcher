@@ -1,4 +1,5 @@
 ﻿
+Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports System.Text
 
@@ -218,23 +219,24 @@ Module SPP2Helper
     ''' </summary>
     ''' <returns></returns>
     Friend Function LoadFont() As Font
+        Dim program = Application.StartupPath
         Try
-            If Not IO.File.Exists(Application.StartupPath & "\" & "notomono-regular.ttf") Then
-                IO.File.WriteAllBytes(Application.StartupPath & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
+            If Not IO.File.Exists(program & "\" & "notomono-regular.ttf") Then
+                IO.File.WriteAllBytes(program & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
             End If
-            F = New System.Drawing.Text.PrivateFontCollection()
-            F.AddFontFile(Application.StartupPath & "\" & "notomono-regular.ttf")
-            Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
         Catch
-            ' В случае проблем возвращаем хоть что-то...
-            F = New System.Drawing.Text.PrivateFontCollection()
-            Return New Font("Consolas", My.Settings.ConsoleFontSize)
+            ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
+            program = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
+            If Not IO.Directory.Exists(program) Then IO.Directory.CreateDirectory(program)
+            IO.File.WriteAllBytes(program & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
         End Try
+        F = New System.Drawing.Text.PrivateFontCollection()
+        F.AddFontFile(program & "\" & "notomono-regular.ttf")
+        Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
     End Function
 
     ''' <summary>
-    ''' Загружает шрифт из ресурсов.
-    ''' Только ttf!!!
+    ''' Загружает шрифт из ресурсов. Использовать только с GDI+ и только ttf!
     ''' </summary>
     ''' <returns></returns>
     Friend Function GetFont() As Font
@@ -378,7 +380,6 @@ Module SPP2Helper
     ''' <param name="otherServers">Вырубить так же и прочие серверы.</param>
     Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean)
         WorldStartTime = 0
-        Threading.Thread.Sleep(100)
         If processID > 0 Then
             Do
                 ' Пишем в лог - Идёт остановка серверов

@@ -25,7 +25,7 @@ Public Class SPP2SettingsProvider
     ''' Только для чтения: Возвращает полный путь к файлу конфигурации.
     ''' </summary>
     ''' <returns></returns>
-    Private Shared ReadOnly Property SettingsFile As String
+    Public Shared ReadOnly Property SettingsFile As String
 
     ''' <summary>
     ''' Возвращает имя приложения.
@@ -138,11 +138,9 @@ Public Class SPP2SettingsProvider
             _SettingsFile = fi.FullName
         Catch
             ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
-            Dim program = Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
-            If Not IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program) Then
-                IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program)
-            End If
-            _SettingsFile = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & program & "\" & IO.Path.GetFileName(configFilePath)
+            Dim program = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
+            If Not IO.Directory.Exists(program) Then IO.Directory.CreateDirectory(program)
+            _SettingsFile = program & "\" & IO.Path.GetFileName(configFilePath)
         End Try
         For Each settings In settingsList
             Dim provider = New SPP2SettingsProvider()

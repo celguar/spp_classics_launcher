@@ -5,6 +5,15 @@
     ''' </summary>
     Private _changed As Boolean
 
+    Sub New()
+        InitializeComponent()
+
+        ' Расположение окна при открытии
+        StartPosition = FormStartPosition.Manual
+        Location = New Point(My.Settings.AppLocation.X + 40, My.Settings.AppLocation.Y + 40)
+
+    End Sub
+
     ''' <summary>
     ''' ПРИ ЗАГРУЗКЕ ФОРМЫ
     ''' </summary>

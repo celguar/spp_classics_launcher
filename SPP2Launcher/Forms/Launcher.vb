@@ -209,6 +209,7 @@ Public Class Launcher
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If GV.FirstStart Then
             My.Settings.Save()
+            ShutdownAll(True)
         Else
             If CurrentRunningServer <> "" Or EnableClosing = False Then
                 Try
@@ -2135,9 +2136,6 @@ Public Class Launcher
 
         ' Получает шрифт с текущими настройками.
         Dim fnt = GetCurrentFont()
-        RichTextBox_ConsoleMySQL.Font = fnt
-        RichTextBox_ConsoleRealmd.Font = fnt
-        RichTextBox_ConsoleWorld.Font = fnt
 
         ' MySQL
         RichTextBox_ConsoleMySQL.SuspendLayout()
@@ -2177,6 +2175,10 @@ Public Class Launcher
             x3 += 1
         Next
         RichTextBox_ConsoleWorld.ResumeLayout()
+
+        RichTextBox_ConsoleMySQL.Font = fnt
+        RichTextBox_ConsoleRealmd.Font = fnt
+        RichTextBox_ConsoleWorld.Font = fnt
 
     End Sub
 

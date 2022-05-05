@@ -119,30 +119,48 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>322, 473</value>
+    <value>322, 461</value>
+  </data>
+  <data name="Label5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="CheckBox_UseIntMySQL.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label_Chars.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;TextBox_Port.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>GroupBox_Connection</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TextBox_Realmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;TextBox_Characters.Name" xml:space="preserve">
+    <value>TextBox_Characters</value>
   </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="Label_Logs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 80</value>
+  </data>
+  <data name="CheckBox_UseIntMySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="CheckBox_MySqlAutostart.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="TextBox_UserName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
+  </data>
+  <data name="TextBox_Playerbot.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="Label_Realmd.Text" xml:space="preserve">
     <value>Realmd</value>
@@ -156,11 +174,11 @@
   <data name="&gt;&gt;PictureBox_InfoMySqlAutostart.Parent" xml:space="preserve">
     <value>GroupBox_Parameters</value>
   </data>
+  <data name="Label_Logs.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
   <data name="&gt;&gt;TextBox_UserName.Name" xml:space="preserve">
     <value>TextBox_UserName</value>
-  </data>
-  <data name="TextBox_Playerbot.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
   </data>
   <data name="PictureBox_InfoMySqlAutostart.Location" type="System.Drawing.Point, System.Drawing">
     <value>275, 18</value>
@@ -180,9 +198,6 @@
   <data name="&gt;&gt;TextBox_Armory.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PictureBox_InfoMySqlAutostart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 18</value>
-  </data>
   <data name="&gt;&gt;TextBox_Armory.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
   </data>
@@ -192,17 +207,14 @@
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="Label_Logs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="TextBox_Armory.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="Label_Playerbot.Text" xml:space="preserve">
     <value>Playerbot</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>GroupBox_Databases</value>
   </data>
   <data name="TextBox_Realmd.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -223,19 +235,22 @@
     <value>True</value>
   </data>
   <data name="TextBox_Mangos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="Label_Chars.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
+    <value>60, 13</value>
   </data>
   <data name="GroupBox_Parameters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 58</value>
+    <value>298, 48</value>
   </data>
   <data name="TextBox_Playerbot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="PictureBox_InfoMySqlAutostart.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="&gt;&gt;Label_Playerbot.Parent" xml:space="preserve">
+    <value>GroupBox_Databases</value>
   </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>Armory</value>
@@ -256,13 +271,13 @@
     <value>118, 129</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
+    <value>63, 13</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
   </data>
   <data name="Label_Logs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 13</value>
+    <value>31, 13</value>
   </data>
   <data name="CheckBox_UseIntMySQL.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -282,29 +297,38 @@
   <data name="TextBox_Host.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 24</value>
   </data>
-  <data name="GroupBox_Parameters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 35</value>
+  <data name="TextBox_Password.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 102</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MySqlSettings</value>
+  </data>
+  <data name="Label4.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;Button_OK.Name" xml:space="preserve">
     <value>Button_OK</value>
   </data>
   <data name="Label_Realmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+    <value>46, 13</value>
   </data>
   <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="TextBox_Password.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="&gt;&gt;Label_Playerbot.Name" xml:space="preserve">
     <value>Label_Playerbot</value>
   </data>
-  <data name="&gt;&gt;TextBox_Mangos.Name" xml:space="preserve">
-    <value>TextBox_Mangos</value>
+  <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;PictureBox_InfoMySqlAutostart.Name" xml:space="preserve">
-    <value>PictureBox_InfoMySqlAutostart</value>
+  <data name="PictureBox_InfoMySqlAutostart.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="&gt;&gt;TextBox_Playerbot.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
@@ -315,20 +339,26 @@
   <data name="&gt;&gt;Button_OK.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;TextBox_Playerbot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label_Playerbot.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="GroupBox_Databases.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="Button_OK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 443</value>
+    <value>235, 432</value>
   </data>
   <data name="&gt;&gt;Label_Mangos.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label_Playerbot.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label_Chars.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;Label_Logs.Name" xml:space="preserve">
     <value>Label_Logs</value>
@@ -336,11 +366,17 @@
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label_Mangos.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="GroupBox_Databases.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 244</value>
+    <value>12, 233</value>
   </data>
   <data name="Label_Realmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="TextBox_Host.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="Label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -352,13 +388,13 @@
     <value>298, 139</value>
   </data>
   <data name="CheckBox_UseIntMySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 17</value>
+    <value>208, 17</value>
   </data>
   <data name="TextBox_Realmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="TextBox_Port.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="&gt;&gt;TextBox_Realmd.Name" xml:space="preserve">
     <value>TextBox_Realmd</value>
@@ -369,8 +405,8 @@
   <data name="Label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MySqlSettings</value>
+  <data name="TextBox_Characters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 51</value>
   </data>
   <data name="&gt;&gt;TextBox_Logs.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
@@ -378,8 +414,8 @@
   <data name="Label_Mangos.Text" xml:space="preserve">
     <value>Mangos</value>
   </data>
-  <data name="TextBox_Logs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+  <data name="TextBox_UserName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 76</value>
   </data>
   <data name="&gt;&gt;TextBox_Logs.Name" xml:space="preserve">
     <value>TextBox_Logs</value>
@@ -387,14 +423,23 @@
   <data name="TextBox_Logs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>User Name</value>
+  <data name="TextBox_Realmd.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="TextBox_Mangos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 103</value>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="TextBox_Logs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 22</value>
   </data>
   <data name="&gt;&gt;GroupBox_Connection.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Port.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;TextBox_UserName.Parent" xml:space="preserve">
     <value>GroupBox_Connection</value>
@@ -411,14 +456,8 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Настройки MySQL</value>
   </data>
-  <data name="Label_Logs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 80</value>
-  </data>
-  <data name="Label_Playerbot.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="PictureBox_InfoMySqlAutostart.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="Label_Realmd.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="CheckBox_MySqlAutostart.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -426,44 +465,38 @@
   <data name="Label_Chars.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
   <data name="TextBox_Playerbot.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;GroupBox_Databases.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 8.25pt, style=Bold</value>
   </data>
   <data name="CheckBox_MySqlAutostart.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="GroupBox_Databases.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 193</value>
-  </data>
   <data name="&gt;&gt;Button_OK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;Label_Chars.Parent" xml:space="preserve">
-    <value>GroupBox_Databases</value>
+  <data name="Label_Logs.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;Label_Logs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;GroupBox_Parameters.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 53</value>
   </data>
-  <data name="TextBox_Host.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="Label_Mangos.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Label_Chars.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="CheckBox_MySqlAutostart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 17</value>
+    <value>261, 17</value>
   </data>
   <data name="CheckBox_MySqlAutostart.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 19</value>
@@ -474,8 +507,14 @@
   <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="TextBox_UserName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 76</value>
+  <data name="&gt;&gt;TextBox_Port.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ToolTip1.Name" xml:space="preserve">
+    <value>ToolTip1</value>
   </data>
   <data name="&gt;&gt;GroupBox_Databases.Parent" xml:space="preserve">
     <value>$this</value>
@@ -483,35 +522,38 @@
   <data name="CheckBox_UseIntMySQL.Text" xml:space="preserve">
     <value>Использовать встроенный сервер</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="Label_Logs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="GroupBox_Parameters.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;GroupBox_Databases.Name" xml:space="preserve">
-    <value>GroupBox_Databases</value>
+  <data name="GroupBox_Databases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 193</value>
   </data>
-  <data name="&gt;&gt;TextBox_Mangos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;GroupBox_Connection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label_Playerbot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;Label_Playerbot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TextBox_Mangos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;CheckBox_UseIntMySQL.Name" xml:space="preserve">
+    <value>CheckBox_UseIntMySQL</value>
   </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="&gt;&gt;TextBox_Host.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox_Characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+  <data name="TextBox_Host.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="&gt;&gt;CheckBox_UseIntMySQL.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -525,11 +567,11 @@
   <data name="Label_Playerbot.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;TextBox_Password.Name" xml:space="preserve">
-    <value>TextBox_Password</value>
-  </data>
   <data name="Label_Mangos.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;Label_Logs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label_Chars.Name" xml:space="preserve">
     <value>Label_Chars</value>
@@ -538,13 +580,13 @@
     <value>GroupBox_Databases</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>55, 13</value>
   </data>
-  <data name="&gt;&gt;TextBox_Mangos.ZOrder" xml:space="preserve">
+  <data name="Label_Playerbot.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="Label_Playerbot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+    <value>56, 13</value>
   </data>
   <data name="TextBox_Realmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 155</value>
@@ -559,7 +601,7 @@
     <value>0</value>
   </data>
   <data name="Label_Mangos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
+    <value>48, 13</value>
   </data>
   <data name="GroupBox_Connection.Text" xml:space="preserve">
     <value>Подключение</value>
@@ -567,17 +609,29 @@
   <data name="Label_Realmd.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;Label_Chars.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;PictureBox_InfoMySqlAutostart.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;TextBox_Mangos.Name" xml:space="preserve">
+    <value>TextBox_Mangos</value>
+  </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Characters.Parent" xml:space="preserve">
+    <value>GroupBox_Databases</value>
+  </data>
+  <data name="Label3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;TextBox_Host.Parent" xml:space="preserve">
     <value>GroupBox_Connection</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 13</value>
+    <value>45, 13</value>
   </data>
   <data name="&gt;&gt;TextBox_Logs.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -586,13 +640,13 @@
     <value>0</value>
   </data>
   <data name="TextBox_Host.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>GroupBox_Connection</value>
   </data>
   <data name="TextBox_Armory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
   <data name="&gt;&gt;GroupBox_Connection.Name" xml:space="preserve">
     <value>GroupBox_Connection</value>
@@ -600,14 +654,14 @@
   <data name="&gt;&gt;TextBox_UserName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="TextBox_Mangos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 103</value>
   </data>
   <data name="&gt;&gt;CheckBox_MySqlAutostart.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;TextBox_Characters.Parent" xml:space="preserve">
-    <value>GroupBox_Databases</value>
+  <data name="&gt;&gt;TextBox_Mangos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TextBox_Port.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 50</value>
@@ -615,32 +669,38 @@
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label_Chars.Text" xml:space="preserve">
-    <value>Characters</value>
+  <data name="TextBox_Characters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 22</value>
   </data>
   <data name="TextBox_Host.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="Label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;Label_Logs.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Mangos.Parent" xml:space="preserve">
-    <value>GroupBox_Databases</value>
   </data>
   <data name="PictureBox_InfoMySqlAutostart.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="Button_OK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="PictureBox_InfoMySqlAutostart.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="TextBox_Logs.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="GroupBox_Parameters.Text" xml:space="preserve">
-    <value>Параметры</value>
+  <data name="&gt;&gt;TextBox_Password.Parent" xml:space="preserve">
+    <value>GroupBox_Connection</value>
   </data>
-  <data name="&gt;&gt;CheckBox_UseIntMySQL.Name" xml:space="preserve">
-    <value>CheckBox_UseIntMySQL</value>
+  <data name="TextBox_Password.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>GroupBox_Databases</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Port.Parent" xml:space="preserve">
+    <value>GroupBox_Connection</value>
   </data>
   <data name="&gt;&gt;TextBox_Logs.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -654,8 +714,8 @@
   <data name="&gt;&gt;Label_Realmd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PictureBox_InfoMySqlAutostart.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="Button_OK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="&gt;&gt;CheckBox_MySqlAutostart.Name" xml:space="preserve">
     <value>CheckBox_MySqlAutostart</value>
@@ -663,11 +723,14 @@
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
+  <data name="&gt;&gt;TextBox_Playerbot.Name" xml:space="preserve">
+    <value>TextBox_Playerbot</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 13</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Password.Name" xml:space="preserve">
+    <value>TextBox_Password</value>
   </data>
   <data name="&gt;&gt;GroupBox_Connection.Parent" xml:space="preserve">
     <value>$this</value>
@@ -675,8 +738,8 @@
   <data name="GroupBox_Databases.Text" xml:space="preserve">
     <value>Базы данных</value>
   </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TextBox_Port.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="TextBox_Port.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -687,14 +750,17 @@
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>GroupBox_Connection</value>
   </data>
+  <data name="TextBox_UserName.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="Button_OK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <data name="TextBox_Password.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 20</value>
+    <value>167, 22</value>
   </data>
-  <data name="GroupBox_Connection.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;TextBox_Realmd.Parent" xml:space="preserve">
+    <value>GroupBox_Databases</value>
   </data>
   <data name="&gt;&gt;Button_OK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -702,11 +768,17 @@
   <data name="TextBox_Armory.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 25</value>
   </data>
-  <data name="Button_OK.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="GroupBox_Databases.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;Label_Playerbot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TextBox_Mangos.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 105</value>
   </data>
   <data name="&gt;&gt;TextBox_Password.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -720,47 +792,61 @@
   <data name="TextBox_Armory.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;TextBox_Password.Parent" xml:space="preserve">
-    <value>GroupBox_Connection</value>
+  <data name="Label_Mangos.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;Label_Playerbot.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TextBox_Mangos.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 105</value>
+  <data name="&gt;&gt;Label_Chars.Parent" xml:space="preserve">
+    <value>GroupBox_Databases</value>
+  </data>
+  <data name="PictureBox_InfoMySqlAutostart.ToolTip" xml:space="preserve">
+    <value> Встроенный сервер MySQL будет запускаться только при включенном
+параметре "Использовать встроенный сервер" в противном случае
+данная настройка игнорируется.</value>
   </data>
   <data name="&gt;&gt;Label_Realmd.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
   </data>
-  <data name="&gt;&gt;TextBox_Port.Parent" xml:space="preserve">
-    <value>GroupBox_Connection</value>
+  <data name="TextBox_Characters.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="TextBox_UserName.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="&gt;&gt;TextBox_Port.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;TextBox_Host.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TextBox_Characters.Name" xml:space="preserve">
-    <value>TextBox_Characters</value>
+  <data name="GroupBox_Connection.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;TextBox_Playerbot.Name" xml:space="preserve">
-    <value>TextBox_Playerbot</value>
+  <data name="Label_Logs.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="GroupBox_Connection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 99</value>
+  <data name="PictureBox_InfoMySqlAutostart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
   </data>
-  <data name="TextBox_Password.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="GroupBox_Connection.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Playerbot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TextBox_Mangos.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
+    <value>78, 13</value>
   </data>
   <data name="Label_Logs.Text" xml:space="preserve">
     <value>Logs</value>
   </data>
-  <data name="Label_Logs.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="TextBox_Realmd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 79</value>
@@ -768,23 +854,23 @@
   <data name="&gt;&gt;CheckBox_UseIntMySQL.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label_Mangos.Name" xml:space="preserve">
-    <value>Label_Mangos</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>GroupBox_Connection</value>
-  </data>
-  <data name="TextBox_Password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 102</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_Parameters.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Label_Chars.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label_Playerbot.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="TextBox_Mangos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_Databases.Name" xml:space="preserve">
+    <value>GroupBox_Databases</value>
+  </data>
+  <data name="GroupBox_Parameters.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GroupBox_Connection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 88</value>
+  </data>
+  <data name="Label_Chars.Text" xml:space="preserve">
+    <value>Characters</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1340,17 +1426,20 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
+  <data name="TextBox_Playerbot.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="&gt;&gt;Label_Chars.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="Label_Logs.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Button_OK.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="TextBox_Password.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1358,8 +1447,11 @@
   <data name="TextBox_Port.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="TextBox_Characters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 51</value>
+  <data name="&gt;&gt;GroupBox_Databases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox_InfoMySqlAutostart.Name" xml:space="preserve">
+    <value>PictureBox_InfoMySqlAutostart</value>
   </data>
   <data name="Label_Mangos.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 106</value>
@@ -1367,20 +1459,20 @@
   <data name="&gt;&gt;TextBox_Password.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CheckBox_UseIntMySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 27</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 28</value>
+  <data name="GroupBox_Parameters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 35</value>
   </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;Label_Mangos.Name" xml:space="preserve">
+    <value>Label_Mangos</value>
   </data>
-  <data name="&gt;&gt;GroupBox_Connection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="TextBox_Mangos.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1394,14 +1486,17 @@
   <data name="&gt;&gt;CheckBox_UseIntMySQL.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Button_OK.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;Label_Mangos.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="&gt;&gt;GroupBox_Parameters.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;TextBox_Realmd.Parent" xml:space="preserve">
-    <value>GroupBox_Databases</value>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 28</value>
   </data>
   <data name="&gt;&gt;Label_Mangos.Parent" xml:space="preserve">
     <value>GroupBox_Databases</value>
@@ -1409,10 +1504,97 @@
   <data name="Label_Mangos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="GroupBox_Parameters.Text" xml:space="preserve">
+    <value>Параметры</value>
   </data>
+  <metadata name="Label_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label_Chars.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GroupBox_Connection.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Logs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_UserName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Mangos.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label_Playerbot.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Playerbot.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label_Mangos.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label4.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Characters.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PictureBox_InfoMySqlAutostart.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label5.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Button_OK.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Host.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GroupBox_Databases.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CheckBox_MySqlAutostart.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label_Logs.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="TextBox_Port.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CheckBox_UseIntMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Password.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TextBox_Armory.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GroupBox_Parameters.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

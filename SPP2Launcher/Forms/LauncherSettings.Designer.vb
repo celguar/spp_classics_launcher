@@ -22,6 +22,7 @@ Partial Class LauncherSettings
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LauncherSettings))
         Me.Button_OK = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -43,12 +44,15 @@ Partial Class LauncherSettings
         Me.ComboBox_MessageFilter = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CheckBox_UpdateRightNow = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox_Theme = New System.Windows.Forms.ComboBox()
         Me.ComboBox_FontSize = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox_FontStyle = New System.Windows.Forms.ComboBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -57,6 +61,7 @@ Partial Class LauncherSettings
         Me.TabPage2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button_OK
@@ -195,6 +200,8 @@ Partial Class LauncherSettings
         'GroupBox2
         '
         resources.ApplyResources(Me.GroupBox2, "GroupBox2")
+        Me.GroupBox2.Controls.Add(Me.PictureBox1)
+        Me.GroupBox2.Controls.Add(Me.CheckBox_UpdateRightNow)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.ComboBox_Theme)
@@ -203,6 +210,20 @@ Partial Class LauncherSettings
         Me.GroupBox2.Controls.Add(Me.ComboBox_FontStyle)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.info
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
+        '
+        'CheckBox_UpdateRightNow
+        '
+        resources.ApplyResources(Me.CheckBox_UpdateRightNow, "CheckBox_UpdateRightNow")
+        Me.CheckBox_UpdateRightNow.Name = "CheckBox_UpdateRightNow"
+        Me.CheckBox_UpdateRightNow.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -262,6 +283,7 @@ Partial Class LauncherSettings
         Me.GroupBox4.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -291,4 +313,7 @@ Partial Class LauncherSettings
     Friend WithEvents ComboBox_MessageFilter As ComboBox
     Friend WithEvents CheckBox_UseAutoHints As CheckBox
     Friend WithEvents CheckBox_UseConsoleBuffering As CheckBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents CheckBox_UpdateRightNow As CheckBox
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

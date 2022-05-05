@@ -35,7 +35,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>C:\Program Files\!\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>SPP2Launcher.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\ConsoleBuffer.vb" />
+    <Compile Include="Classes\GDI.vb" />
     <Compile Include="Classes\ProcessController.vb" />
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />

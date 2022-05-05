@@ -16,12 +16,20 @@ Public Class LauncherSettings
         ComboBox_Theme.SelectedItem = My.Settings.ConsoleTheme
 
         ' Размер шрифта консоли
-        For Each fnt In F.Families
-            ComboBox_FontSize.Items.Add(fnt.Name & " 8pt")
-            ComboBox_FontSize.Items.Add(fnt.Name & " 9pt")
-            ComboBox_FontSize.Items.Add(fnt.Name & " 10pt")
-            ComboBox_FontSize.Items.Add(fnt.Name & " 11pt")
-        Next
+        If F.Families.Count > 0 Then
+            For Each fnt In F.Families
+                ComboBox_FontSize.Items.Add(fnt.Name & " 8pt")
+                ComboBox_FontSize.Items.Add(fnt.Name & " 9pt")
+                ComboBox_FontSize.Items.Add(fnt.Name & " 10pt")
+                ComboBox_FontSize.Items.Add(fnt.Name & " 11pt")
+            Next
+        Else
+            ComboBox_FontSize.Items.Add("Consolas" & " 8pt")
+            ComboBox_FontSize.Items.Add("Consolas" & " 9pt")
+            ComboBox_FontSize.Items.Add("Consolas" & " 10pt")
+            ComboBox_FontSize.Items.Add("Consolas" & " 11pt")
+        End If
+
         Try
             ComboBox_FontSize.SelectedIndex = CInt(My.Settings.ConsoleFontSize) - 8
         Catch
@@ -66,9 +74,13 @@ Public Class LauncherSettings
         Catch
         End Try
 
+        ' Изменение консоли на ходу
+        CheckBox_UpdateRightNow.Checked = My.Settings.UpdateConsoleRightNow
+
         ' Расположение окна при открытии
         StartPosition = FormStartPosition.Manual
         Location = New Point(My.Settings.AppLocation.X + 40, My.Settings.AppLocation.Y + 40)
+
     End Sub
 
     ''' <summary>
@@ -111,6 +123,7 @@ Public Class LauncherSettings
         My.Settings.ConsoleTheme = If(IsNothing(ComboBox_Theme.SelectedItem.ToString), "Black Theme", ComboBox_Theme.SelectedItem.ToString)
         My.Settings.ConsoleFontSize = CSng(ComboBox_FontSize.SelectedIndex + 8)
         My.Settings.ConsoleFontStyle = CType(ComboBox_FontStyle.SelectedIndex, FontStyle)
+        My.Settings.UpdateConsoleRightNow = CheckBox_UpdateRightNow.Checked
         My.Settings.ConsoleMessageFilter = ComboBox_MessageFilter.SelectedIndex
         My.Settings.UseConsoleBuffer = CheckBox_UseConsoleBuffering.Checked
         My.Settings.UseConsoleAutoHints = CheckBox_UseAutoHints.Checked
@@ -130,7 +143,7 @@ Public Class LauncherSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ComboBox_FontStyle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_FontStyle.SelectedIndexChanged
-        If Not _isLoading Then
+        If Not _isLoading AndAlso CheckBox_UpdateRightNow.Checked Then
             My.Settings.ConsoleFontStyle = CType(ComboBox_FontStyle.SelectedIndex, FontStyle)
             My.Settings.Save()
             GV.SPP2Launcher.ChangeFont()
@@ -143,7 +156,7 @@ Public Class LauncherSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ComboBox_FontSize_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_FontSize.SelectedIndexChanged
-        If Not _isLoading Then
+        If Not _isLoading AndAlso CheckBox_UpdateRightNow.Checked Then
             My.Settings.ConsoleFontSize = CSng(ComboBox_FontSize.SelectedIndex + 8)
             My.Settings.Save()
             GV.SPP2Launcher.ChangeFont()
@@ -156,7 +169,7 @@ Public Class LauncherSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ComboBox_Theme_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Theme.SelectedIndexChanged
-        If Not _isLoading Then
+        If Not _isLoading AndAlso CheckBox_UpdateRightNow.Checked Then
             My.Settings.ConsoleTheme = ComboBox_Theme.SelectedItem.ToString
             My.Settings.Save()
             GV.SPP2Launcher.SetConsoleTheme()

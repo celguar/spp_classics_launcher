@@ -157,8 +157,9 @@ Public Class GV
 
         Try
             ' Включаем локальные настройки
-            If Not IO.File.Exists(Application.StartupPath & "\SPP2.cfg") Then FirstStart = True
             SPP2SettingsProvider.ApplyProvider(Application.StartupPath & "\SPP2.cfg", My.MySettings.Default)
+            ' Это первый старт? (Обязательно перед Upgrade)
+            If Not IO.File.Exists(SPP2SettingsProvider.SettingsFile) Then FirstStart = True
             ' Всякий раз проводим Upgrade на случай, если файл разрушен.
             My.Settings.Upgrade()
         Catch ex As Exception
