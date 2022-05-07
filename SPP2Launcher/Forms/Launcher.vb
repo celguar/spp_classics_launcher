@@ -68,6 +68,12 @@ Public Class Launcher
     ''' <returns></returns>
     Friend ReadOnly Property RealmdON As Boolean
 
+    ''' <summary>
+    ''' Флаг блокировки сервера MySQL.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend ReadOnly Property MySqlLOCKED As Boolean
+
 #End Region
 
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
@@ -119,6 +125,16 @@ Public Class Launcher
     ''' </summary>
     Private _apacheON As Boolean
 
+    ''' <summary>
+    ''' Apache заблокирован.
+    ''' </summary>
+    Private _apacheLOCKED As Boolean
+
+    ''' <summary>
+    ''' Servers заблокирован.
+    ''' </summary>
+    Private _serversLOCKED As Boolean
+
 #End Region
 
 #Region " === КОНСТРУКТОР ИНИЦИАЛИЗАЦИИ === "
@@ -151,8 +167,6 @@ Public Class Launcher
         ' Настраиваем таймеры
         TimerStartMySQL = New Threading.Timer(AddressOf TimerTik_StartMySQL)
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        TimerStartApache = New Threading.Timer(AddressOf TimerTik_StartApache)
-        TimerStartApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         TimerStartWorld = New Threading.Timer(AddressOf TimerTik_StartWorld)
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         TimerStartRealmd = New Threading.Timer(AddressOf TimerTik_StartRealmd)
@@ -179,20 +193,26 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Launcher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Гасим сервера, которых не должно быть априоре...
-        ShutdownAll(False)
-        UpdateSettings()
 
-        TabControl1.SelectedTab = TabPage_World
+        ' Инициализируем настройки приложения
+        UpdateSettings()
 
         ' Включем поток ежесекундного тика
         If Not My.Settings.FirstStart Then
-            Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {.IsBackground = True}
+            Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {
+                .CurrentCulture = GV.CI,
+                .CurrentUICulture = GV.CI,
+                .IsBackground = True
+            }
             tikTok.Start()
         End If
 
         ' Включаем поток вывода команды разработчиков
-        _isStart = New Threading.Thread(Sub() PreStart()) With {.IsBackground = True}
+        _isStart = New Threading.Thread(Sub() PreStart()) With {
+            .CurrentCulture = GV.CI,
+            .CurrentUICulture = GV.CI,
+            .IsBackground = True
+        }
         _isStart.Start()
 
     End Sub
@@ -307,7 +327,7 @@ Public Class Launcher
 #Region " === ЛАУНЧЕР === "
 
     ''' <summary>
-    ''' МЕНЮ - НАСТРОЙКИ ПРИЛЖЕНИЯ.
+    ''' МЕНЮ - НАСТРОЙКИ ПРИЛОЖЕНИЯ.
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -330,6 +350,32 @@ Public Class Launcher
             GV.ResetSettings = True
             ' Останавливаем ВСЕ сервера
             ShutdownAll(True)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' КНОПКА - РАЗБЛОКИРОВАТЬ ВСЁ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_UnlockAll_Click(sender As Object, e As EventArgs) Handles Button_UnlockAll.Click
+        Dim dr = MessageBox.Show(My.Resources.P048_UnlockAll,
+                                 My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If dr = DialogResult.No Then Exit Sub
+        If _serversLOCKED Then
+            ' Блокируем меню серверов
+            LockedServersMenu()
+            ' Запускаем поток выключающий все сервера
+            Dim sw As New Threading.Thread(Sub() ShutdownAll(False)) With {
+                .CurrentCulture = GV.CI,
+                .CurrentUICulture = GV.CI,
+                .IsBackground = True
+            }
+            sw.Start()
+        Else
+            ' Выключаем Apache
+            If _apacheLOCKED Then ShutdownApache()
+            If _mysqlLOCKED Then ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
         End If
     End Sub
 
@@ -366,15 +412,21 @@ Public Class Launcher
     ''' Вывод сообщения в StatusStrip.
     ''' </summary>
     ''' <param name="text"></param>
-    Friend Sub OutMessageStatusStrip(text As String)
-        If TSSL_ALL.GetCurrentParent.InvokeRequired Then
-            TSSL_ALL.GetCurrentParent.Invoke(Sub()
-                                                 TSSL_ALL.Text = text
-                                             End Sub)
-        Else
-            TSSL_ALL.Text = text
-        End If
-    End Sub
+    Friend Function OutMessageStatusStrip(text As String) As String
+        Try
+            If Not Me.InvokeRequired Then
+                Me.Invoke(Sub()
+                              OutMessageStatusStrip(text)
+                          End Sub)
+            Else
+                TSSL_ALL.Text = text
+            End If
+            Return text
+        Catch ex As Exception
+            GV.Log.WriteException(ex)
+            Return text
+        End Try
+    End Function
 
     ''' <summary>
     ''' Обновление информации в StatusStrip.
@@ -403,50 +455,6 @@ Public Class Launcher
     ''' Обновление параметров для вывода на экран.
     ''' </summary>
     Friend Sub UpdateSettings()
-
-        ' Если это первый запуск - предупреждаем
-        If My.Settings.FirstStart Then
-            MessageBox.Show(My.Resources.P012_FirstStart,
-                            My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ' Выключаем все меню запуска/перезапуска серверов
-            TSMI_MySqlStart.Visible = False
-            TSMI_MySqlRestart.Visible = False
-            TSMI_MySqlStop.Visible = False
-            TSMI_MySQL1.Visible = False
-            TSMI_ApacheStart.Visible = False
-            TSMI_ApacheRestart.Visible = False
-            TSMI_ApacheStop.Visible = False
-            TSMI_Apache1.Visible = False
-            TSMI_ServerStart.Visible = False
-            TSMI_ServerStop.Visible = False
-            TSMI_Server2.Visible = False
-            TSMI_RunWow.Enabled = False
-            TSMI_ServerSwitcher.Enabled = False
-            TSMI_Tools.Visible = False
-            TSMI_Bots.Visible = False
-            TSMI_Reset.Enabled = False
-        Else
-            ' Обустраиваем меню MySQL
-            If My.Settings.UseIntMySQL Then
-                TSMI_MySqlStart.Enabled = True
-                TSMI_MySqlRestart.Enabled = True
-                TSMI_MySqlStop.Enabled = True
-            Else
-                TSMI_MySqlStart.Enabled = False
-                TSMI_MySqlRestart.Enabled = False
-                TSMI_MySqlStop.Enabled = False
-            End If
-            ' Обустраиваем меню Apache
-            If My.Settings.UseIntApache Then
-                TSMI_ApacheStart.Enabled = True
-                TSMI_ApacheRestart.Enabled = True
-                TSMI_ApacheStop.Enabled = True
-            Else
-                TSMI_ApacheStart.Enabled = False
-                TSMI_ApacheRestart.Enabled = False
-                TSMI_ApacheStop.Enabled = False
-            End If
-        End If
 
         ' Заголовок приложения
         Dim srv As String = ""
@@ -513,7 +521,7 @@ Public Class Launcher
         RichTextBox_ConsoleWorld.Font = fnt
 
         ' MySQL
-        RichTextBox_ConsoleMySQL.ForeColor = Color.Green
+        RichTextBox_ConsoleMySQL.ForeColor = ECONSOLE
         RichTextBox_ConsoleMySQL.BackColor = bc
         RichTextBox_ConsoleMySQL.Font = fnt
 
@@ -521,7 +529,11 @@ Public Class Launcher
         BP.AddProcess(GV.EProcess.Realmd)
         BP.AddProcess(GV.EProcess.World)
         If Not IsNothing(PC) Then PC.Abort()
-        PC = New Threading.Thread(Sub() Controller()) With {.IsBackground = True}
+        PC = New Threading.Thread(Sub() Controller()) With {
+            .CurrentCulture = GV.CI,
+            .CurrentUICulture = GV.CI,
+            .IsBackground = True
+        }
         PC.CurrentCulture = GV.CI
         PC.CurrentUICulture = GV.CI
         PC.Start()
@@ -538,21 +550,174 @@ Public Class Launcher
         ' Устанавливаем тему консоли.
         SetConsoleTheme()
 
-        ' Если установлен автостарт серверов WoW и используется встроенный сервер MySQL
-        If My.Settings.UseIntMySQL And Not My.Settings.FirstStart Then
-            ' Запускаем встроенный не смотря ни на что MySQL
-            TimerStartMySQL.Change(3000, 3000)
-        End If
-
-        If ServerWowAutostart Then
-            _needServerStart = True
-            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
-            GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
-        End If
-
-        ' Выводим состояние автозапуска сервера
+        ' Выводим состояние пункта меню автозапуска сервера
         TSMI_WowAutoStart.Checked = ServerWowAutostart
 
+        ' Если это первый запуск - предупреждаем
+        If My.Settings.FirstStart Then
+            MessageBox.Show(My.Resources.P012_FirstStart,
+                            My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Выключаем все меню запуска/перезапуска серверов
+            TSMI_MySqlStart.Visible = False
+            TSMI_MySqlRestart.Visible = False
+            TSMI_MySqlStop.Visible = False
+            TSMI_MySQL1.Visible = False
+            TSMI_ApacheStart.Visible = False
+            TSMI_ApacheRestart.Visible = False
+            TSMI_ApacheStop.Visible = False
+            TSMI_Apache1.Visible = False
+            TSMI_ServerStart.Visible = False
+            TSMI_ServerStop.Visible = False
+            TSMI_Server2.Visible = False
+            TSMI_RunWow.Enabled = False
+            TSMI_ServerSwitcher.Enabled = False
+            TSMI_Tools.Visible = False
+            TSMI_Bots.Visible = False
+            TSMI_Reset.Enabled = False
+        Else
+            ' Настраиваем меню серверов.
+            UpdateMainMenu(True)
+        End If
+
+    End Sub
+
+    ''' <summary>
+    ''' Блокировка меню всех серверов.
+    ''' </summary>
+    Friend Sub LockedServersMenu()
+        If Me.InvokeRequired Then
+            Me.Invoke(Sub()
+                          LockedServersMenu()
+                      End Sub)
+        Else
+            TSMI_ServerStart.Enabled = False
+            TSMI_ServerStop.Enabled = False
+            TSMI_MySqlStart.Enabled = False
+            TSMI_MySqlRestart.Enabled = False
+            TSMI_MySqlStop.Enabled = False
+            TSMI_ApacheStart.Enabled = False
+            TSMI_ApacheRestart.Enabled = False
+            TSMI_ApacheStop.Enabled = False
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Обновление параметров главного меню приложения.
+    ''' </summary>
+    Friend Sub UpdateMainMenu(firstStart As Boolean)
+        If Me.InvokeRequired Then
+            Me.Invoke(Sub()
+                          UpdateMainMenu(firstStart)
+                      End Sub)
+        Else
+
+            ' Обходим проверку блокировки серверов, если это выход из приложения
+            If Not _NeedExitLauncher Then
+
+                ' Проверяем процесс Apache которого не должно быть
+                If firstStart AndAlso CheckProcess(EProcess.apache, False) Then _apacheLOCKED = True Else _apacheLOCKED = False
+
+                ' Проверяем процесс MySQL которого не должно быть
+                If CheckProcess(EProcess.mysqld, False) Then _MySqlLOCKED = True Else _MySqlLOCKED = False
+
+                ' ПРоверяем процессы Realmd и World
+                If CheckProcess(EProcess.realmd, False) Or CheckProcess(EProcess.world, False) Then _serversLOCKED = True Else _serversLOCKED = False
+
+            End If
+
+            ' Обустраиваем вкладки
+            If _apacheLOCKED Or _MySqlLOCKED Or _serversLOCKED Then
+                TabPage_MySQL.Text = "Errors"
+                TabPage_Realmd.Visible = False
+                TabControl1.SelectedTab = TabPage_MySQL
+            Else
+                TabPage_MySQL.Text = "MySQL & Apache"
+                TabPage_Realmd.Visible = True
+                TabControl1.SelectedTab = TabPage_World
+            End If
+
+            ' Обустраиваем меню MySQL
+            If My.Settings.UseIntMySQL Then
+                If _MySqlLOCKED Then
+                    TSMI_MySqlStart.Enabled = False
+                    TSMI_MySqlRestart.Enabled = False
+                ElseIf ServerWowAutostart Then
+                    TSMI_MySqlStart.Enabled = False
+                    TSMI_MySqlRestart.Enabled = False
+                    TSMI_MySqlStop.Enabled = False
+                Else
+                    TSMI_MySqlStart.Enabled = True
+                    TSMI_MySqlRestart.Enabled = True
+                    TSMI_MySqlStop.Enabled = True
+                End If
+            Else
+                TSMI_MySqlStart.Enabled = False
+                TSMI_MySqlRestart.Enabled = False
+                TSMI_MySqlStop.Enabled = False
+            End If
+
+            ' Обустраиваем меню Apache
+            If My.Settings.UseIntApache Then
+                If _apacheLOCKED Then
+                    TSMI_ApacheStart.Enabled = False
+                    TSMI_ApacheRestart.Enabled = False
+                Else
+                    TSMI_ApacheStart.Enabled = True
+                    TSMI_ApacheRestart.Enabled = True
+                    TSMI_ApacheStop.Enabled = True
+                End If
+            Else
+                TSMI_ApacheStart.Enabled = False
+                TSMI_ApacheRestart.Enabled = False
+                TSMI_ApacheStop.Enabled = False
+            End If
+
+            ' Обустраиваем меню Server
+            If _MySqlLOCKED Or _serversLOCKED Then
+                TSMI_ServerStart.Enabled = False
+                TSMI_ServerStop.Enabled = False
+            Else
+                TSMI_ServerStart.Enabled = True
+                TSMI_ServerStop.Enabled = True
+            End If
+
+            ' Если нет других mysqld.exe используется встроенный сервер MySQL и включен его автостарт и при этом это не первый запуск
+            If Not _MySqlLOCKED And My.Settings.UseIntMySQL And My.Settings.MySqlAutostart And Not My.Settings.FirstStart Then
+                ' Используем запуск с ожиданием завершения другого процесса, если таковой был
+                WaitProcessEnd(EProcess.mysqld, EAction.Start, False)
+            End If
+
+            ' Если нет других mysqld.exe и включен автозапуск сервера
+            If Not _MySqlLOCKED And ServerWowAutostart Then
+                ' Выставляем флаг необходимости запуска всего комплекса
+                _needServerStart = True
+                GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+            End If
+
+            ' Отображение кнопки блокировки/разблокировки всех серверов
+            If _MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED Then
+                RichTextBox_ConsoleMySQL.Clear()
+                Button_UnlockAll.Visible = True
+            Else
+                Button_UnlockAll.Visible = False
+            End If
+
+            ' ТЕПЕРЬ ПО LOCKED ПОДСКАЗКАМ
+
+            If _apacheLOCKED Then
+                GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P046_ProcessDetected, "spp-httpd.exe"), ECONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked1, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked2 & vbCrLf, WCONSOLE))
+            End If
+
+            If _MySqlLOCKED Then
+                GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P046_ProcessDetected, "mysqld.exe"), ECONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked3, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked4 & vbCrLf, WCONSOLE))
+            End If
+
+        End If
     End Sub
 
 #End Region
@@ -595,7 +760,9 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlStart_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStart.Click
-        TimerStartMySQL.Change(500, 500)
+        ' Активируем вкладку MySQL
+        TabControl1.SelectedTab = TabPage_MySQL
+        If Not _mysqlLOCKED Then TimerStartMySQL.Change(1000, 1000)
     End Sub
 
     ''' <summary>
@@ -604,8 +771,9 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlRestart_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlRestart.Click
-        ShutdownMySQL()
-        TimerStartMySQL.Change(1000, 1000)
+        ' Активируем вкладку MySQL
+        TabControl1.SelectedTab = TabPage_MySQL
+        If Not _mysqlLOCKED Then ShutdownMySQL(EProcess.mysqld, EAction.Start)
     End Sub
 
     ''' <summary>
@@ -614,7 +782,9 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlStop_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStop.Click
-        ShutdownMySQL()
+        ' Активируем вкладку MySQL
+        TabControl1.SelectedTab = TabPage_MySQL
+        ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
     End Sub
 
     ''' <summary>
@@ -631,9 +801,10 @@ Public Class Launcher
     ''' Запускает сервер MySQL
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
-        If My.Settings.UseIntMySQL AndAlso Not _MySqlON AndAlso IsNothing(_mysqlProcess) Then
+        If Not _MySqlLOCKED And My.Settings.UseIntMySQL And CheckProcess(EProcess.mysqld, False) And IsNothing(_mysqlProcess) Then
             _MySqlON = True
-            GV.Log.WriteInfo(My.Resources.SQL002_Start)
+            GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "MySQL"), CONSOLE))
+
             Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
             Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
             ' Создаём информацию о процессе
@@ -652,7 +823,7 @@ Public Class Launcher
                 _mysqlProcess.StartInfo = startInfo
                 ' Запускаем
                 If _mysqlProcess.Start() Then
-                    GV.Log.WriteInfo(My.Resources.SQL003_Started)
+                    GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P043_ServerStarted, "MySQL"), CONSOLE))
                     AddHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
                     AddHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
                     AddHandler _mysqlProcess.Exited, AddressOf MySqlExited
@@ -662,12 +833,13 @@ Public Class Launcher
                     _mysqlProcess = Nothing
                 End If
             Catch ex As Exception
-                _MySqlON = False
                 ' MySQL выдал исключение
+                _MySqlON = False
                 GV.Log.WriteException(ex)
-                MessageBox.Show(My.Resources.E009_MySqlException & vbCrLf & ex.Message,
-                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                UpdateMySQLConsole("[EConsole] " & String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE)
             End Try
+        Else
+            GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "MySQL"), ECONSOLE))
         End If
     End Sub
 
@@ -677,7 +849,6 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub MySqlExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteInfo(My.Resources.SQL004_Stopped)
         RemoveHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
         RemoveHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
         RemoveHandler _mysqlProcess.Exited, AddressOf MySqlExited
@@ -686,10 +857,10 @@ Public Class Launcher
     ''' <summary>
     ''' Останавливает сервер MySQL
     ''' </summary>
-    Friend Sub ShutdownMySQL()
-        Dim processes = GetAllProcesses()
-        Dim pc = processes.FindAll(Function(p) p.ProcessName = "mysqld")
-        If pc.Count = 0 Then Exit Sub
+    Friend Sub ShutdownMySQL(p As EProcess, a As EAction)
+        ' Проверяем наличие процесса
+        If Not CheckProcess(EProcess.mysqld, False) Then Exit Sub
+        GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "MySQL"), CONSOLE))
         If My.Settings.UseIntMySQL Then
             Dim login, pass, port As String
             Select Case My.Settings.LastLoadedServerType
@@ -707,8 +878,7 @@ Public Class Launcher
                     port = My.Settings.MySqlClassicIntPort
                 Case Else
                     ' Неизвестный модуль
-                    MessageBox.Show(String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType),
-                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    GV.Log.WriteWarning(String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType))
                     Exit Sub
             End Select
             ' Создаём информацию для процесса
@@ -721,16 +891,23 @@ Public Class Launcher
             }
             ' Выполняем
             Try
+                ' Блокируем меню серверов
+                LockedServersMenu()
                 Using exeProcess = Process.Start(startInfo)
-                    GV.Log.WriteInfo(My.Resources.SQL001_Shutdown)
                     exeProcess.WaitForExit()
                 End Using
-                GV.Log.WriteInfo(My.Resources.SQL004_Stopped)
-                _MySqlON = False
-                _mysqlProcess = Nothing
-                TSSL_MySQL.Image = My.Resources.red_ball
+                ' Создаём поток для ожидания остановки MySQL
+                Dim wpe = New Threading.Thread(Sub() WaitProcessEnd(p, a)) With {
+                    .CurrentCulture = GV.CI,
+                    .CurrentUICulture = GV.CI,
+                    .IsBackground = True
+                }
+                wpe.Start()
             Catch ex As Exception
+                ' Исключение при остановке MySQL
+                UpdateMainMenu(False)
                 GV.Log.WriteException(ex)
+                GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE))
                 MessageBox.Show(ex.Message)
             End Try
         End If
@@ -740,7 +917,6 @@ Public Class Launcher
     ''' Проверка соединения с сервером MySQL
     ''' Отсюда стартует автоматом Apache
     ''' Остюда стартует при _NeedServerStart и серверы WoW
-    ''' Однако AUTOSTART происходит отныне только из SPP2Helper.Controller 
     ''' </summary>
     Friend Sub CheckMySQL()
         Dim host, port As String
@@ -784,6 +960,74 @@ Public Class Launcher
         Try
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                 tcpClient.Close()
+
+                Try
+                    If Me.Visible Then
+                        TSSL_MySQL.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_MySQL.Image = My.Resources.red_ball
+                                                                 If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                                     Me.Icon = My.Resources.cmangos_red
+                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                                                 Else
+                                                                     Me.Icon = My.Resources.wow
+                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                                                 End If
+                                                             End Sub)
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                        Else
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                        End If
+                    End If
+                Catch ex As Exception
+                    GV.Log.WriteException(ex)
+                End Try
+
+                _MySqlON = False
+
+            Else
+
+                tcpClient.EndConnect(ac)
+                tcpClient.Close()
+
+                Try
+                    If Me.Visible Then
+                        TSSL_MySQL.GetCurrentParent().Invoke(Sub()
+                                                                 TSSL_MySQL.Image = My.Resources.green_ball
+                                                                 If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                                     If Not _RealmdON Or Not _worldON Then
+                                                                         Me.Icon = My.Resources.cmangos_orange
+                                                                         Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                                                     End If
+                                                                 Else
+                                                                     Me.Icon = My.Resources.wow
+                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                                                 End If
+                                                             End Sub)
+                    Else
+                        ' Меняем иконку в трее, коли свёрнуты
+                        If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
+                            If Not _RealmdON Or Not _worldON Then
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                            End If
+                        Else
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                        End If
+                    End If
+                Catch ex As Exception
+                    GV.Log.WriteException(ex)
+                End Try
+
+                _MySqlON = True
+
+            End If
+
+        Catch ex As Exception
+            GV.Log.WriteException(ex)
+
+            Try
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
                                                              TSSL_MySQL.Image = My.Resources.red_ball
@@ -803,71 +1047,29 @@ Public Class Launcher
                         Me.NotifyIcon_SPP2.Icon = My.Resources.wow
                     End If
                 End If
-                _MySqlON = False
-            Else
-                tcpClient.EndConnect(ac)
-                tcpClient.Close()
-                If Me.Visible Then
-                    TSSL_MySQL.GetCurrentParent().Invoke(Sub()
-                                                             TSSL_MySQL.Image = My.Resources.green_ball
-                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                                                                 If Not _RealmdON Or Not _worldON Then
-                                                                     Me.Icon = My.Resources.cmangos_orange
-                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                                                                 End If
-                                                             Else
-                                                                 Me.Icon = My.Resources.wow
-                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                                             End If
-                                                         End Sub)
-                Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                        If Not _RealmdON Or Not _worldON Then
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                        End If
-                    Else
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                    End If
-                End If
-                _MySqlON = True
-            End If
-        Catch ex As Exception
-            If Me.Visible Then
-                TSSL_MySQL.GetCurrentParent().Invoke(Sub()
-                                                         TSSL_MySQL.Image = My.Resources.red_ball
-                                                         If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                                                             Me.Icon = My.Resources.cmangos_red
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                                         Else
-                                                             Me.Icon = My.Resources.wow
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                                         End If
-                                                     End Sub)
-            Else
-                ' Меняем иконку в трее, коли свёрнуты
-                If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                Else
-                    Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                End If
-            End If
+            Catch ex2 As Exception
+                GV.Log.WriteException(ex2)
+            End Try
+
             _MySqlON = False
-            GV.Log.WriteException(ex)
 
         Finally
+
+            ' Если нет и процесса, то грохаем и его аватар
+            'If Not CheckProcess(EProcess.mysqld) Then
+            'If Not IsNothing(_mysqlProcess) Then MySqlExited(Me, Nothing)
+            '_mysqlProcess = Nothing
+            'End If
 
             If _MySqlON Then
 
                 ' Если установлен автозапуск сервера Apache
                 If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not _apacheON Then
-                    ' Включаем Apache через 0,5 сек.
-                    TimerStartApache.Change(500, 500)
+                    StartApache()
                 End If
 
                 ' Проверить на флаг остановки
                 If Not NeedServerStop Then
-
                     ' Поступил запрос на запуск серверов WoW
                     If _needServerStart Then
                         ' Запускаем World через 1 сек.
@@ -879,17 +1081,18 @@ Public Class Launcher
                         ' Выключаем флаг ручного запуска сервера
                         _needServerStart = False
                     End If
-
                 End If
 
             Else
                 ' MySQL сдох - НЕЧЕГО ДЕЛАТЬ!
             End If
+
         End Try
+
         ac.AsyncWaitHandle.Close()
 
+        ' Автоподсказки
         If _MySqlON AndAlso HintCollection.Count = 0 Then
-            ' Автоподсказки
             MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
             If TextBox_Command.InvokeRequired Then
                 TextBox_Command.Invoke(Sub()
@@ -903,6 +1106,7 @@ Public Class Launcher
                 TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
             End If
         End If
+
     End Sub
 
 #End Region
@@ -915,16 +1119,18 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStart.Click
-        If _MySqlON Then
-            _apacheSTOP = False
-            If My.Settings.ApacheAutostart Then
-                ' Ничего не делаем, CheckMySQL сам поднимет Apache
+        If Not _apacheLOCKED Then
+            If _MySqlON Then
+                _apacheSTOP = False
+                If My.Settings.ApacheAutostart Then
+                    ' Ничего не делаем, CheckMySQL сам поднимет Apache
+                Else
+                    ' Запускаем Apache
+                    StartApache()
+                End If
             Else
-                ' Через 0,5 сек запускаем Apache
-                TimerStartApache.Change(500, 500)
+                ' Без MySQL Apache не фиг делать - сайт не подымется
             End If
-        Else
-            ' Без MySQL Apache не фиг делать - сайт не подымется
         End If
     End Sub
 
@@ -934,7 +1140,20 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheRestart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheRestart.Click
-        RestartApache()
+        If Not _apacheLOCKED Then
+            _apacheSTOP = False
+            ShutdownApache()
+            If _MySqlON Then
+                If My.Settings.ApacheAutostart Then
+                    ' Ничего не делаем, MySQL сам поднимет Apache
+                Else
+                    ' Запускаем Apache
+                    StartApache()
+                End If
+            Else
+                ' Без MySQL Apache не фиг делать - сайт не подымется
+            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -945,6 +1164,7 @@ Public Class Launcher
     Private Sub TSMI_ApacheStop_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStop.Click
         _apacheSTOP = True
         ShutdownApache()
+        UpdateMainMenu(False)
     End Sub
 
     ''' <summary>
@@ -960,88 +1180,70 @@ Public Class Launcher
     ''' <summary>
     ''' Запускает сервер Apache.
     ''' </summary>
-    ''' <param name="obj"></param>
-    Friend Sub StartApache(obj As Object)
-        If Not _apacheON Then
-            _apacheON = True
-            GV.Log.WriteInfo(My.Resources.Apache002_Start)
-            ' Разбираемся с настройками Apache
-            If My.Settings.UseIntApache Then
-                Dim listen As String = ""
-                Select Case My.Settings.LastLoadedServerType
-                    Case GV.EModule.Classic.ToString
-                        listen = If(My.Settings.ApacheClassicIntHost = "ANY",
-                                    "Listen " & My.Settings.ApacheClassicIntPort,
-                                    "Listen " & My.Settings.ApacheClassicIntHost & ":" & My.Settings.ApacheClassicIntPort)
-                    Case GV.EModule.Tbc.ToString
-                        listen = If(My.Settings.ApacheTbcIntHost = "ANY",
-                                    "Listen " & My.Settings.ApacheTbcIntPort,
-                                    "Listen " & My.Settings.ApacheTbcIntHost & ":" & My.Settings.ApacheTbcIntPort)
-                    Case GV.EModule.Wotlk.ToString
-                        listen = If(My.Settings.ApacheWotlkIntHost = "ANY",
-                                    "Listen " & My.Settings.ApacheWotlkIntPort,
-                                    "Listen " & My.Settings.ApacheWotlkIntHost & ":" & My.Settings.ApacheWotlkIntPort)
-                End Select
-                If listen <> "" Then
-                    ' Устанавливаем в httpd.conf текущие настройки
-                    Dim lines() As String = System.IO.File.ReadAllLines(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\conf\httpd.conf")
-                    For count = 0 To lines.Length - 1
-                        If lines(count).StartsWith("Listen ") Then
-                            lines(count) = listen
-                            System.IO.File.WriteAllLines(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\conf\httpd.conf", lines)
-                            Exit For
-                        End If
-                    Next
+    Friend Sub StartApache()
+        If Not _apacheLOCKED Then
+            If Not _apacheON Then
+                _apacheON = True
+                GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "Apache"), CONSOLE))
+                ' Разбираемся с настройками Apache
+                If My.Settings.UseIntApache Then
+                    Dim listen As String = ""
+                    Select Case My.Settings.LastLoadedServerType
+                        Case GV.EModule.Classic.ToString
+                            listen = If(My.Settings.ApacheClassicIntHost = "ANY",
+                                        "Listen " & My.Settings.ApacheClassicIntPort,
+                                        "Listen " & My.Settings.ApacheClassicIntHost & ":" & My.Settings.ApacheClassicIntPort)
+                        Case GV.EModule.Tbc.ToString
+                            listen = If(My.Settings.ApacheTbcIntHost = "ANY",
+                                        "Listen " & My.Settings.ApacheTbcIntPort,
+                                        "Listen " & My.Settings.ApacheTbcIntHost & ":" & My.Settings.ApacheTbcIntPort)
+                        Case GV.EModule.Wotlk.ToString
+                            listen = If(My.Settings.ApacheWotlkIntHost = "ANY",
+                                        "Listen " & My.Settings.ApacheWotlkIntPort,
+                                        "Listen " & My.Settings.ApacheWotlkIntHost & ":" & My.Settings.ApacheWotlkIntPort)
+                    End Select
+                    If listen <> "" Then
+                        ' Устанавливаем в httpd.conf текущие настройки
+                        Dim lines() As String = System.IO.File.ReadAllLines(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\conf\httpd.conf")
+                        For count = 0 To lines.Length - 1
+                            If lines(count).StartsWith("Listen ") Then
+                                lines(count) = listen
+                                System.IO.File.WriteAllLines(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\conf\httpd.conf", lines)
+                                Exit For
+                            End If
+                        Next
+                    End If
                 End If
-            End If
-            ' Создаём информацию о процессе
-            Dim startInfo = New ProcessStartInfo() With {
-                .FileName = "CMD.exe",
-                .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2APACHE & "\",
-                .Arguments = "/C " & My.Settings.DirSPP2 & "\" & SPP2APACHE & "\bin\spp-httpd.exe",
-                .CreateNoWindow = True,
-                .UseShellExecute = False,
-                .WindowStyle = ProcessWindowStyle.Normal
-            }
+                ' Создаём информацию о процессе
+                Dim startInfo = New ProcessStartInfo() With {
+                    .FileName = "CMD.exe",
+                    .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2APACHE & "\",
+                    .Arguments = "/C " & My.Settings.DirSPP2 & "\" & SPP2APACHE & "\bin\spp-httpd.exe",
+                    .CreateNoWindow = True,
+                    .UseShellExecute = False,
+                    .WindowStyle = ProcessWindowStyle.Normal
+                }
 
-            Dim p As New Process
-            Try
-                p.StartInfo = startInfo
-                ' Запускаем
-                If p.Start() Then
-                    GV.Log.WriteInfo(My.Resources.Apache003_Started)
-                Else
+                Dim p As New Process
+                Try
+                    p.StartInfo = startInfo
+                    ' Запускаем
+                    If p.Start() Then
+                        GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P043_ServerStarted, "Apache"), CONSOLE))
+                    Else
+                        ' Не удалось запустить сервер
+                        _apacheON = False
+                        GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.P049_NotStarted, "Apache"), ECONSOLE))
+                    End If
+                Catch ex As Exception
+                    ' Apache выдал исключение
                     _apacheON = False
-                    GV.Log.WriteInfo(My.Resources.Apache005_NotStarted)
-                End If
-            Catch ex As Exception
-                _apacheON = False
-                ' Apache выдал исключение
-                GV.Log.WriteException(ex)
-                GV.Log.WriteInfo(My.Resources.Apache005_NotStarted)
-                MessageBox.Show(My.Resources.E010_ApacheException & vbLf & ex.Message,
-                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        Else
-            GV.Log.WriteInfo(String.Format(My.Resources.P041_AlreadyStarted, "Apache"))
-        End If
-    End Sub
-
-    ''' <summary>
-    ''' Перезагружает локальный сервер Apache.
-    ''' </summary>
-    Friend Sub RestartApache()
-        _apacheSTOP = False
-        ShutdownApache()
-        If _MySqlON Then
-            If My.Settings.ApacheAutostart Then
-                ' Ничего не делаем, MySQL сам поднимет Apache
+                    GV.Log.WriteException(ex)
+                    GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.E018_StartException, "Apache"), ECONSOLE))
+                End Try
             Else
-                ' Через 0,5 сек запускаем Apache
-                TimerStartApache.Change(500, 500)
+                GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "Apache"), WCONSOLE))
             End If
-        Else
-            ' Без MySQL Apache не фиг делать - сайт не подымется
         End If
     End Sub
 
@@ -1049,17 +1251,16 @@ Public Class Launcher
     ''' Выключает встренный сервер Apache.
     ''' </summary>
     Friend Sub ShutdownApache()
-        Dim pid = GetApachePid()
-        If pid > 0 Then
-            Dim p As Process
-            Try
-                p = Process.GetProcessById(pid)
-                p.Kill()
-                GV.Log.WriteInfo(My.Resources.Apache004_Stopped)
-                IO.File.Delete(My.Settings.DirSPP2 & "\" & SPP2APACHE & "\logs\httpd.pid")
-            Catch
-            End Try
-        End If
+        GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "Apache"), CONSOLE))
+        Try
+            CheckProcess(EProcess.apache, True)
+            GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P045_ServerStopped, "Apache"), CONSOLE))
+            If Not _NeedExitLauncher Then UpdateMainMenu(False)
+        Catch ex As Exception
+            ' Исключение при остановке Apache
+            GV.Log.WriteException(ex)
+            GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.E019_StopException, "Apache"), ECONSOLE))
+        End Try
     End Sub
 
     ''' <summary>
@@ -1164,7 +1365,7 @@ Public Class Launcher
         SyncLock lockWorld
             If Not _worldON Then
                 If _MySqlON And Not _NeedExitLauncher And Not NeedServerStop And IsNothing(_WorldProcess) Then
-                    GV.Log.WriteInfo(My.Resources.P015_WorldStart)
+                    GV.Log.WriteInfo(My.Resources.World001_WorldStart)
 
                     ' Исключаем повторный запуск World
                     _worldON = True
@@ -1274,7 +1475,7 @@ Public Class Launcher
                         BP.WasLaunched(GV.EProcess.World)
                         ' Запускаем
                         If _WorldProcess.Start() Then
-                            GV.Log.WriteInfo(My.Resources.P017_WorldStarted)
+                            GV.Log.WriteInfo(My.Resources.World002_WorldStarted)
                             AddHandler _WorldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
                             AddHandler _WorldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
                             AddHandler _WorldProcess.Exited, AddressOf WorldExited
@@ -1310,7 +1511,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Friend Sub WorldExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteInfo(My.Resources.P018_WorldStopped)
+        GV.Log.WriteInfo(My.Resources.World003_WorldStopped)
         RemoveHandler _WorldProcess.OutputDataReceived, AddressOf WorldOutputDataReceived
         RemoveHandler _WorldProcess.ErrorDataReceived, AddressOf WorldErrorDataReceived
         RemoveHandler _WorldProcess.Exited, AddressOf RealmdExited
@@ -1324,45 +1525,49 @@ Public Class Launcher
         Dim processes = GetAllProcesses()
         Dim pc = processes.FindAll(Function(p) p.ProcessName = "mangosd")
         Dim id = 0
-        If pc.Count > 0 Then
-            For Each process In pc
-                Try
-                    If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
-                        id = process.Id
-                        UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf, Color.YellowGreen)
-                        ' Выполняем автосохранение БД
-                        AutoSave()
-                        If _worldON Then
-                            ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
-                            SendCommandToWorld(".saveall")
-                            SendCommandToWorld("server shutdown 0")
-                        Else
-                            ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
-                            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
-                            Try
-                                process.Kill()
-                                _worldON = False
-                                _WorldProcess = Nothing
 
-                                ' Выключаем Realmd
-                                ShutdownRealmd()
+        ' Если серверы заблокированы но надо выйти из приложения - не гасим серверы WoW!
+        If Not (_serversLOCKED And _NeedExitLauncher) Then
+            If pc.Count > 0 Then
+                For Each process In pc
+                    Try
+                        If process.MainModule.FileName = My.Settings.CurrentFileWorld Then
+                            id = process.Id
+                            UpdateWorldConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf, CONSOLE)
+                            ' Выполняем автосохранение БД
+                            AutoSave()
+                            If _worldON Then
+                                ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
+                                SendCommandToWorld(".saveall")
+                                SendCommandToWorld("server shutdown 0")
+                            Else
+                                ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
+                                If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+                                Try
+                                    process.Kill()
+                                    _worldON = False
+                                    _WorldProcess = Nothing
 
-                            Catch
-                            End Try
+                                    ' Выключаем Realmd
+                                    ShutdownRealmd()
+
+                                Catch
+                                End Try
+                            End If
                         End If
-                    End If
-                Catch
-                    ' Нет доступа.
-                End Try
-            Next
-        Else
-            _worldON = False
-            ' Удалям хандлеры, если таковые были
-            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
-            _WorldProcess = Nothing
+                    Catch
+                        ' Нет доступа.
+                    End Try
+                Next
+            Else
+                _worldON = False
+                ' Удалям хандлеры, если таковые были
+                If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+                _WorldProcess = Nothing
 
-            ' Выключаем Realmd
-            ShutdownRealmd()
+                ' Выключаем Realmd
+                ShutdownRealmd()
+            End If
         End If
 
         ' Завершаем остановку сервера World в потоке
@@ -1494,7 +1699,7 @@ Public Class Launcher
         SyncLock lockRealmd
             If Not _RealmdON Then
                 If _MySqlON And Not NeedServerStop And IsNothing(_RealmdProcess) Then
-                    GV.Log.WriteInfo(My.Resources.P030_RealmdStart)
+                    GV.Log.WriteInfo(My.Resources.Real001_RealmdStart)
 
                     ' Исключаем повторный запуск Realmd
                     _RealmdON = True
@@ -1573,7 +1778,7 @@ Public Class Launcher
                         BP.WasLaunched(GV.EProcess.Realmd)
                         ' Запускаем
                         If _RealmdProcess.Start() Then
-                            GV.Log.WriteInfo(My.Resources.P031_RealmdStarted)
+                            GV.Log.WriteInfo(My.Resources.Real002_RealmdStarted)
                             AddHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
                             AddHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
                             AddHandler _RealmdProcess.Exited, AddressOf RealmdExited
@@ -1606,7 +1811,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub RealmdExited(ByVal sender As Object, ByVal e As EventArgs)
-        GV.Log.WriteInfo(My.Resources.P032_RealmdStopped)
+        GV.Log.WriteInfo(My.Resources.Real003_RealmdStopped)
         RemoveHandler _RealmdProcess.OutputDataReceived, AddressOf RealmdOutputDataReceived
         RemoveHandler _RealmdProcess.ErrorDataReceived, AddressOf RealmdErrorDataReceived
         RemoveHandler _RealmdProcess.Exited, AddressOf RealmdExited
@@ -1625,7 +1830,8 @@ Public Class Launcher
                         Try
                             process.Kill()
                             Thread.Sleep(100)
-                            UpdateRealmdConsole(vbCrLf & My.Resources.P020_NeedServerStop & vbCrLf, Color.YellowGreen)
+                            GV.Log.WriteInfo(My.Resources.P020_NeedServerStop)
+                            UpdateRealmdConsole(My.Resources.P020_NeedServerStop, CONSOLE)
                         Catch
                         End Try
                     End If
@@ -1784,7 +1990,7 @@ Public Class Launcher
 
 #End Region
 
-#Region " === СЕРВЕР === "
+#Region " === МЕНЮ СЕРВЕР === "
 
     ''' <summary>
     ''' МЕНЮ - ЗАПУСК СЕРВЕРА
@@ -1797,8 +2003,8 @@ Public Class Launcher
         RichTextBox_ConsoleRealmd.Clear()
         RichTextBox_ConsoleWorld.Clear()
         If ServerWowAutostart Then
-            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
-            GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & My.Resources.P019_ControlEnabled & vbCrLf, Color.YellowGreen)
+            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+            GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
         End If
         ServerStart()
     End Sub
@@ -1843,7 +2049,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub ServerStart()
         _NeedExitLauncher = False
-        ' Сначала проверяем работу MySQL
+        ' Сначала запускаем MySQL
         StartMySQL(Nothing)
         _needServerStart = True
     End Sub
@@ -1851,6 +2057,7 @@ Public Class Launcher
     ''' <summary>
     ''' Глобальная остановка всего и вся.
     ''' </summary>
+    ''' <param name="shutdown">Завершить работу лаунчера после остановки серверов.</param>
     Friend Sub ShutdownAll(shutdown As Boolean)
         GV.Log.WriteInfo(My.Resources.P040_CommandShutdown)
         _NeedExitLauncher = shutdown
@@ -1919,16 +2126,16 @@ Public Class Launcher
         ' Если буфер разрешён, добавляем текст в буфер
         If My.Settings.UseConsoleBuffer Then ConsoleCommandBuffer.Add(text)
 
-        Dim t = String.Format(My.Resources.P036_YourSendCommand, text)
+        Dim t = String.Format(My.Resources.World005_YourSendCommand, text)
         GV.Log.WriteInfo(t)
-        OutWorldConsole(t, Color.YellowGreen)
+        OutWorldConsole(t, CONSOLE)
         If Not IsNothing(_WorldProcess) Then
             _WorldProcess.StandardInput.WriteLine(text)
             If Not _worldON Then
-                OutWorldConsole(My.Resources.P037_WorldNotStarted, Color.YellowGreen)
+                OutWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
             End If
         Else
-            OutWorldConsole(My.Resources.P037_WorldNotStarted, Color.YellowGreen)
+            OutWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
         End If
     End Sub
 
@@ -1936,7 +2143,7 @@ Public Class Launcher
     ''' Вывод сообщения в консоль сервера World.
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
-    Friend Sub UpdateWorldConsole(text As String, color As Drawing.Color)
+    Friend Function UpdateWorldConsole(text As String, color As Drawing.Color) As String
         If Not IsNothing(text) AndAlso Me.Visible = True Then
             If Me.RichTextBox_ConsoleWorld.InvokeRequired Then
                 Me.RichTextBox_ConsoleWorld.Invoke(Sub()
@@ -1946,7 +2153,8 @@ Public Class Launcher
                 OutWorldConsole(text, color)
             End If
         End If
-    End Sub
+        Return text
+    End Function
 
     Dim oldMessage As String = ""
     Dim holdline As Integer
@@ -1992,77 +2200,87 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
-    ''' Вывод сообщения в консоль сервера MySQL.
+    ''' Вывод сообщения в консоль сервера MySQL с учётом Invoke.
     ''' </summary>
     ''' <param name="text"></param>
-    Friend Sub UpdateMySQLConsole(ByVal text As String)
-        If Not IsNothing(text) AndAlso Me.Visible = True Then
-            If Not text.Contains("Got an error reading communication packets") Then
-                Dim ink As New Drawing.Color
+    Friend Function UpdateMySQLConsole(ByVal text As String, ByVal ink As Drawing.Color) As String
+        Dim msg As String = ""
+        If Not IsNothing(text) And Me.Visible = True Then
+            If ink.A = 0 And ink.R = 0 And ink.G = 0 And ink.B = 0 Then
+                If text.Contains("Got an error reading communication packets") Then Return text
                 If text.Contains("[Warning]") Then
-                    text = Mid(text, 31)
-                    ink = Color.OrangeRed
+                    msg = Mid(text, 31)
+                    ink = Color.Red
                 ElseIf text.Contains("[ERROR]") Then
-                    text = Mid(text, 31)
+                    msg = Mid(text, 31)
                     ink = Color.Red
                 ElseIf text.Contains("[Note]") Then
-                    text = Mid(text, 31)
+                    msg = Mid(text, 31)
                     ink = Color.DarkOrange
+                ElseIf text.Contains("[Console]") Then
+                    msg = Mid(text, 11)
+                    ink = CONSOLE
+                ElseIf text.Contains("[EConsole]") Then
+                    msg = Mid(text, 12)
+                    ink = ECONSOLE
+                ElseIf text.Contains("[WConsole]") Then
+                    msg = Mid(text, 12)
+                    ink = WCONSOLE
                 Else
-                    ink = Color.Green
+                    msg = text
+                    ink = Color.YellowGreen
                 End If
+            Else
+                msg = text
+            End If
+            If Me.RichTextBox_ConsoleMySQL.InvokeRequired Then
                 Me.RichTextBox_ConsoleMySQL.Invoke(Sub()
-                                                       RichTextBox_ConsoleMySQL.SelectionColor = ink
-                                                       Select Case RichTextBox_ConsoleMySQL.Lines.Count
-                                                           Case 0
-                                                               RichTextBox_ConsoleMySQL.AppendText(text)
-                                                           Case 500
-                                                               ' Не более 500 строк в окне
-                                                               Dim str = RichTextBox_ConsoleMySQL.Lines(0)
-                                                               RichTextBox_ConsoleMySQL.Select(0, str.Length + 1)
-                                                               RichTextBox_ConsoleMySQL.ReadOnly = False
-                                                               RichTextBox_ConsoleMySQL.SelectedText = String.Empty
-                                                               RichTextBox_ConsoleMySQL.ReadOnly = True
-                                                               RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
-                                                               RichTextBox_ConsoleMySQL.ScrollToCaret()
-                                                           Case Else
-                                                               RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
-                                                               RichTextBox_ConsoleMySQL.ScrollToCaret()
-                                                       End Select
+                                                       OutMySqlConsole(msg, ink)
                                                    End Sub)
+            Else
+                OutMySqlConsole(msg, ink)
             End If
         End If
-    End Sub
+        Return text
+    End Function
 
     ''' <summary>
-    ''' При перезагрузке в консоль текста без потери цвета.
+    ''' Вывод в консоль MySQL только из главного потока!
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
     ''' <param name="ink">Цвет текста.</param>
-    Friend Sub UpdateMySQLConsole(text As String, ink As Drawing.Color)
+    Friend Function OutMySqlConsole(text As String, ink As Drawing.Color) As String
         If Not IsNothing(text) AndAlso Me.Visible = True Then
-            Me.RichTextBox_ConsoleMySQL.Invoke(Sub()
-                                                   RichTextBox_ConsoleMySQL.SelectionColor = ink
-                                                   Select Case RichTextBox_ConsoleMySQL.Lines.Count
-                                                       Case 0
-                                                           RichTextBox_ConsoleMySQL.AppendText(text)
-                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
-                                                       Case 500
-                                                           ' Не более 500 строк в окне
-                                                           Dim str = RichTextBox_ConsoleMySQL.Lines(0)
-                                                           RichTextBox_ConsoleMySQL.Select(0, str.Length + 1)
-                                                           RichTextBox_ConsoleMySQL.ReadOnly = False
-                                                           RichTextBox_ConsoleMySQL.SelectedText = String.Empty
-                                                           RichTextBox_ConsoleMySQL.ReadOnly = True
-                                                           RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
-                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
-                                                       Case Else
-                                                           RichTextBox_ConsoleMySQL.AppendText(vbCrLf & text)
-                                                           RichTextBox_ConsoleMySQL.ScrollToCaret()
-                                                   End Select
-                                               End Sub)
+            Select Case RichTextBox_ConsoleMySQL.Lines.Count
+                Case 0
+                    RichTextBox_ConsoleMySQL.ReadOnly = False
+                    RichTextBox_ConsoleMySQL.SelectedText = String.Empty
+                    RichTextBox_ConsoleMySQL.SelectionColor = ink
+                    RichTextBox_ConsoleMySQL.ReadOnly = True
+
+                    RichTextBox_ConsoleMySQL.AppendText(text)
+                    RichTextBox_ConsoleMySQL.ScrollToCaret()
+                Case 500
+                    ' Не более 500 строк в окне
+                    Dim str = RichTextBox_ConsoleMySQL.Lines(0)
+                    RichTextBox_ConsoleMySQL.Select(0, str.Length + 1)
+                    RichTextBox_ConsoleMySQL.ReadOnly = False
+                    RichTextBox_ConsoleMySQL.SelectedText = String.Empty
+                    RichTextBox_ConsoleMySQL.ReadOnly = True
+                    RichTextBox_ConsoleMySQL.AppendText(vbCrLf)
+                    RichTextBox_ConsoleMySQL.SelectionColor = ink
+                    RichTextBox_ConsoleMySQL.AppendText(text)
+                    RichTextBox_ConsoleMySQL.ScrollToCaret()
+                Case Else
+                    RichTextBox_ConsoleMySQL.AppendText(vbCrLf)
+                    RichTextBox_ConsoleMySQL.SelectionColor = ink
+                    RichTextBox_ConsoleMySQL.AppendText(text)
+                    RichTextBox_ConsoleMySQL.ScrollToCaret()
+            End Select
+
         End If
-    End Sub
+        Return text
+    End Function
 
     ''' <summary>
     ''' Вывод сообщения в консоль сервера Realmd.
@@ -2085,34 +2303,36 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="text"></param>
     Private Sub OutRealmdConsole(text As String, color As Drawing.Color)
-        Select Case RichTextBox_ConsoleRealmd.Lines.Count
-            Case 0
-                RichTextBox_ConsoleRealmd.SelectionColor = color
-                RichTextBox_ConsoleRealmd.AppendText(text)
-                RichTextBox_ConsoleRealmd.ScrollToCaret()
-            Case 500
-                ' Не более 500 строк в окне
-                Dim str = RichTextBox_ConsoleRealmd.Lines(0)
-                RichTextBox_ConsoleRealmd.Select(0, str.Length + 1)
-                RichTextBox_ConsoleRealmd.ReadOnly = False
-                RichTextBox_ConsoleRealmd.SelectedText = String.Empty
-                RichTextBox_ConsoleRealmd.ReadOnly = True
-                RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
-                RichTextBox_ConsoleRealmd.SelectionColor = color
-                RichTextBox_ConsoleRealmd.AppendText(text)
-                RichTextBox_ConsoleRealmd.ScrollToCaret()
-            Case Else
-                RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
-                RichTextBox_ConsoleRealmd.SelectionColor = color
-                RichTextBox_ConsoleRealmd.AppendText(text)
-                RichTextBox_ConsoleRealmd.ScrollToCaret()
-        End Select
-        RichTextBox_ConsoleRealmd.Select(RichTextBox_ConsoleRealmd.GetFirstCharIndexOfCurrentLine(), 0)
-        If text.Contains(My.Resources.E015_RealmdCrashed) Then
-            ' Сервер Realmd рухнул. Удаляем хандлеры
-            If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
-            RealmdProcess = Nothing
-            _RealmdON = False
+        If Not IsNothing(text) AndAlso Me.Visible = True Then
+            Select Case RichTextBox_ConsoleRealmd.Lines.Count
+                Case 0
+                    RichTextBox_ConsoleRealmd.SelectionColor = color
+                    RichTextBox_ConsoleRealmd.AppendText(text)
+                    RichTextBox_ConsoleRealmd.ScrollToCaret()
+                Case 500
+                    ' Не более 500 строк в окне
+                    Dim str = RichTextBox_ConsoleRealmd.Lines(0)
+                    RichTextBox_ConsoleRealmd.Select(0, str.Length + 1)
+                    RichTextBox_ConsoleRealmd.ReadOnly = False
+                    RichTextBox_ConsoleRealmd.SelectedText = String.Empty
+                    RichTextBox_ConsoleRealmd.ReadOnly = True
+                    RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
+                    RichTextBox_ConsoleRealmd.SelectionColor = color
+                    RichTextBox_ConsoleRealmd.AppendText(text)
+                    RichTextBox_ConsoleRealmd.ScrollToCaret()
+                Case Else
+                    RichTextBox_ConsoleRealmd.AppendText(vbCrLf)
+                    RichTextBox_ConsoleRealmd.SelectionColor = color
+                    RichTextBox_ConsoleRealmd.AppendText(text)
+                    RichTextBox_ConsoleRealmd.ScrollToCaret()
+            End Select
+            RichTextBox_ConsoleRealmd.Select(RichTextBox_ConsoleRealmd.GetFirstCharIndexOfCurrentLine(), 0)
+            If text.Contains(My.Resources.E015_RealmdCrashed) Then
+                ' Сервер Realmd рухнул. Удаляем хандлеры
+                If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
+                RealmdProcess = Nothing
+                _RealmdON = False
+            End If
         End If
     End Sub
 
@@ -2210,40 +2430,6 @@ Public Class Launcher
         RichTextBox_ConsoleMySQL.Font = fnt
         RichTextBox_ConsoleRealmd.Font = fnt
         RichTextBox_ConsoleWorld.Font = fnt
-
-    End Sub
-
-#End Region
-
-#Region " === TABCONTROL === "
-
-    ''' <summary>
-    ''' Окрашивает ярлыки вкладок в те же цвета, что и фон вкладки.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub TabControl1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
-
-        Dim g As Graphics = e.Graphics
-        Dim tp As TabPage = TabControl1.TabPages(e.Index)
-        Dim br As Brush
-        Dim r As New RectangleF(e.Bounds.X, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height - 2)
-        Dim strTitle As String = tp.Text
-        Dim sf As New StringFormat With {.Alignment = StringAlignment.Center}
-
-        If TabControl1.SelectedIndex = e.Index Then
-            ' Активная вкладка
-            br = New SolidBrush(Color.White)
-            g.FillRectangle(br, e.Bounds)
-            br = New SolidBrush(tp.ForeColor)
-            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
-        Else
-            ' Прочие вкладки
-            br = New SolidBrush(tp.BackColor)
-            g.FillRectangle(br, e.Bounds)
-            br = New SolidBrush(tp.ForeColor)
-            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
-        End If
 
     End Sub
 

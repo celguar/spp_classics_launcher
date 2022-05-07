@@ -35,7 +35,50 @@ Module SPP2Helper
     ''' </summary>
     Friend BackupProcess As Boolean
 
+#Region " === ПЕРЕЧИСЛЕНИЯ === "
+
+    Friend Enum EProcess As Byte
+
+        mysqld
+
+        apache
+
+        realmd
+
+        world
+
+    End Enum
+
+    Friend Enum EAction
+
+        [Nothing]
+
+        Start
+
+        NeedExit
+
+        UpdateMainMenu
+
+    End Enum
+
+#End Region
+
 #Region " === КОНСТАНТЫ === "
+
+    ''' <summary>
+    ''' Цвет вывода в консоль обычных сообщений.
+    ''' </summary>
+    Friend CONSOLE As Color = Color.YellowGreen
+
+    ''' <summary>
+    ''' Цвет вывода в консоль предупреждений.
+    ''' </summary>
+    Friend WCONSOLE As Color = Color.Yellow
+
+    ''' <summary>
+    ''' Цвет вывода в консоль сообщений с ошибкой.
+    ''' </summary>
+    Friend ECONSOLE As Color = Color.OrangeRed
 
     ''' <summary>
     ''' Корневой каталог проекта Single Player Project 2.
@@ -77,11 +120,6 @@ Module SPP2Helper
     Friend TimerStartMySQL As Threading.Timer
 
     ''' <summary>
-    ''' Таймер запуска сервера Apache.
-    ''' </summary>
-    Friend TimerStartApache As Threading.Timer
-
-    ''' <summary>
     ''' Таймер запуска сервера Realmd.
     ''' </summary>
     Friend TimerStartRealmd As Threading.Timer
@@ -106,25 +144,8 @@ Module SPP2Helper
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "MySQL"))
         If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
-        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "MySQL"))
         ' Запускаем MySQL
         GV.SPP2Launcher.StartMySQL(obj)
-    End Sub
-
-    ''' <summary>
-    ''' Время запустить сервер Apache.
-    ''' </summary>
-    ''' <param name="obj"></param>
-    Friend Sub TimerTik_StartApache(obj As Object)
-        Threading.Thread.CurrentThread.CurrentUICulture = GV.CI
-        Threading.Thread.CurrentThread.CurrentCulture = GV.CI
-        ' Выключаем таймер
-        TimerStartApache.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
-        GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Apache"))
-        If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
-        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Apache"))
-        ' Запускаем Apache
-        GV.SPP2Launcher.StartApache(obj)
     End Sub
 
     ''' <summary>
@@ -138,7 +159,6 @@ Module SPP2Helper
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "World"))
         If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
-        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "World"))
         ' Запускаем World
         GV.SPP2Launcher.StartWorld(obj)
     End Sub
@@ -154,66 +174,9 @@ Module SPP2Helper
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         GV.Log.WriteInfo(String.Format(My.Resources.P033_TimerTriggered, "Realmd"))
         If GV.SPP2Launcher.NeedExitLauncher Then Exit Sub
-        GV.Log.WriteInfo(String.Format(My.Resources.P034_LaunchAttempt, "Realmd"))
         ' Запускаем Realmd
         GV.SPP2Launcher.StartRealmd(obj)
     End Sub
-
-#End Region
-
-#Region " === РАЗНОЕ === "
-
-    ''' <summary>
-    ''' Создаёт новый кортеж сообщения об ошибке.
-    ''' </summary>
-    ''' <returns></returns>
-    Friend Function NewExitCode() As Tuple(Of Integer, String)
-        Return New Tuple(Of Integer, String)(0, "OK")
-    End Function
-
-    ''' <summary>
-    ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
-    ''' </summary>
-    ''' <returns>Список IpV4 адаптеров в системе.</returns>
-    Friend Function GetLocalIpAddresses() As List(Of String)
-        Dim strHostName As String
-        Dim alladdresses() As Net.IPAddress
-        Dim addresses As New List(Of String)
-
-        strHostName = Net.Dns.GetHostName()
-        alladdresses = Net.Dns.GetHostAddresses(strHostName)
-
-        ' Ищем адреса IpV4
-        For Each address As Net.IPAddress In alladdresses
-            ' Собираем найденные в список
-            If address.AddressFamily = Net.Sockets.AddressFamily.InterNetwork Then
-                addresses.Add(address.ToString)
-            End If
-        Next
-
-        ' Добавляем loopback
-        addresses.Add(Net.IPAddress.Loopback.ToString)
-        addresses.Add("ANY")
-
-        Return addresses
-    End Function
-
-    ''' <summary>
-    ''' Возвращает список доступных процессов.
-    ''' </summary>
-    Friend Function GetAllProcesses() As List(Of Process)
-        Dim processlist() As Process = Process.GetProcesses()
-        Dim retlist As New List(Of Process)
-        For Each process As Process In processlist
-            Try
-                'If String.Compare(process.MainModule.FileName, path, StringComparison.OrdinalIgnoreCase) = 0 Then
-                retlist.Add(process)
-                'End If
-            Catch ex As Exception
-            End Try
-        Next process
-        Return retlist
-    End Function
 
 #End Region
 
@@ -277,6 +240,107 @@ Module SPP2Helper
 
 #End Region
 
+#Region " === РАЗНОЕ === "
+
+    ''' <summary>
+    ''' Создаёт новый кортеж сообщения об ошибке.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Function NewExitCode() As Tuple(Of Integer, String)
+        Return New Tuple(Of Integer, String)(0, "OK")
+    End Function
+
+    ''' <summary>
+    ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
+    ''' </summary>
+    ''' <returns>Список IpV4 адаптеров в системе.</returns>
+    Friend Function GetLocalIpAddresses() As List(Of String)
+        Dim strHostName As String
+        Dim alladdresses() As Net.IPAddress
+        Dim addresses As New List(Of String)
+
+        strHostName = Net.Dns.GetHostName()
+        alladdresses = Net.Dns.GetHostAddresses(strHostName)
+
+        ' Ищем адреса IpV4
+        For Each address As Net.IPAddress In alladdresses
+            ' Собираем найденные в список
+            If address.AddressFamily = Net.Sockets.AddressFamily.InterNetwork Then
+                addresses.Add(address.ToString)
+            End If
+        Next
+
+        ' Добавляем loopback
+        addresses.Add(Net.IPAddress.Loopback.ToString)
+        addresses.Add("ANY")
+
+        Return addresses
+    End Function
+
+    ''' <summary>
+    ''' Возвращает список доступных процессов.
+    ''' </summary>
+    Friend Function GetAllProcesses() As List(Of Process)
+        Dim processlist() As Process = Process.GetProcesses()
+        Dim retlist As New List(Of Process)
+        For Each process As Process In processlist
+            Try
+                'If String.Compare(process.MainModule.FileName, path, StringComparison.OrdinalIgnoreCase) = 0 Then
+                retlist.Add(process)
+                'End If
+            Catch ex As Exception
+            End Try
+        Next process
+        Return retlist
+    End Function
+
+    ''' <summary>
+    ''' Поиск процесса и выполнение действия. Возвращает True если процесс найден и его месторасположение соответствует требуемому.
+    ''' </summary>
+    ''' <param name="p">Искомый процесс.</param>
+    ''' <param name="kill">Убить процесс. Данный параметр действителен только в отношении Apaсhe и Realmd</param>
+    ''' <returns></returns>
+    Friend Function CheckProcess(p As EProcess, kill As Boolean) As Boolean
+        Dim pm As String = ""
+        Select Case p
+            Case EProcess.mysqld
+                pm = "mysqld"
+            Case EProcess.apache
+                pm = "spp-httpd"
+            Case EProcess.realmd
+                pm = "realmd"
+            Case EProcess.world
+                pm = "mangos"
+        End Select
+        Dim path As String = ""
+        Select Case p
+            Case EProcess.mysqld
+                path = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
+            Case EProcess.apache
+                path = My.Settings.DirSPP2 & "\" & SPP2APACHE & "\bin\spp-httpd.exe"
+            Case EProcess.realmd
+                path = My.Settings.CurrentFileRealmd
+            Case EProcess.world
+                path = My.Settings.CurrentFileWorld
+        End Select
+        Dim processes = Process.GetProcessesByName(pm)
+        For Each pr In processes
+            Try
+                If Not kill Then
+                    If pr.MainModule.FileName = path Then Return True
+                Else
+                    pr.Kill()
+                End If
+            Catch ex As Exception
+                GV.Log.WriteException(ex)
+                GV.Log.WriteError(String.Format(My.Resources.E019_StopException, pr))
+            End Try
+        Next
+        Return False
+    End Function
+
+#End Region
+
 #Region " === ОТПРАВКА СООБЩЕНИЙ В КОНСОЛЬ === "
 
     ''' <summary>
@@ -286,7 +350,7 @@ Module SPP2Helper
     ''' <param name="e"></param>
     Friend Sub MySqlOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
         If Not IsNothing(e.Data) Then
-            GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+            GV.SPP2Launcher.UpdateMySQLConsole(e.Data, Nothing)
         End If
     End Sub
 
@@ -297,7 +361,7 @@ Module SPP2Helper
     ''' <param name="e"></param>
     Friend Sub MySqlErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
         If Not IsNothing(e.Data) Then
-            GV.SPP2Launcher.UpdateMySQLConsole(e.Data)
+            GV.SPP2Launcher.UpdateMySQLConsole(e.Data, Nothing)
         End If
     End Sub
 
@@ -361,6 +425,101 @@ Module SPP2Helper
 #Region " === ПОТОКИ === "
 
     ''' <summary>
+    ''' Поиск процесса, ожидание его завершения и выполнение следующего действия.
+    ''' Возвращает False если постдействие не выполнено и True если все действия выполнены успешно.
+    ''' </summary>
+    ''' <param name="p">Искомый процесс.</param>
+    ''' <param name="a1">Выполняемое действие по завершению процесса.</param>
+    ''' <param name="outMessage">Выводить информацию в логи и консоль? По умолчанию - True.</param>
+    Friend Sub WaitProcessEnd(p As EProcess, a1 As EAction, Optional ByVal outMessage As Boolean = True)
+        Dim str As String = ""
+        Dim timer As Threading.Timer = Nothing
+        Dim path As String = ""
+
+        Select Case p
+
+            Case EProcess.mysqld
+                path = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
+                str = String.Format(My.Resources.P045_ServerStopped, "MySQL")
+                timer = TimerStartMySQL
+
+            Case EProcess.apache
+                Exit Sub
+
+            Case EProcess.realmd
+                path = My.Settings.CurrentFileRealmd
+                str = String.Format(My.Resources.Real003_RealmdStopped, "Realmd")
+                timer = TimerStartRealmd
+
+            Case EProcess.world
+                path = My.Settings.CurrentFileWorld
+                str = String.Format(My.Resources.World003_WorldStopped, "World")
+                timer = TimerStartWorld
+
+        End Select
+
+        Dim processes = Process.GetProcessesByName(p.ToString)
+        If processes.Count > 0 Then
+            For Each pr In processes
+                Try
+                    If pr.MainModule.FileName = path Then
+
+                        Do While Not pr.HasExited
+                            ' Процесс найден, ждём его завершения
+                            Threading.Thread.Sleep(200)
+                        Loop
+                        ' Процесс завершен
+                        If outMessage Then GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMySQLConsole(str, CONSOLE))
+                        Exit For
+                    End If
+                Catch ex As Exception
+                    ' Нет доступа
+                End Try
+            Next
+        End If
+
+        ' Разбирем постзадачу
+        Select Case a1
+
+            Case EAction.Nothing
+                ' Ничего не выполнять
+
+            Case EAction.Start
+                ' Запускаем таймер необходимой постзадачи
+                If Not IsNothing(timer) Then timer.Change(2000, 2000)
+
+            Case EAction.UpdateMainMenu
+                ' Обновление текущих настроек
+                GV.SPP2Launcher.Invoke(Sub()
+                                           GV.SPP2Launcher.UpdateMainMenu(False)
+                                       End Sub)
+
+            Case EAction.NeedExit
+                ' Это по сути выход из приложения
+                ' Дожидаемся остановки всех серверов
+                Do
+                    If Not GV.SPP2Launcher.MySqlON AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
+                    Threading.Thread.Sleep(100)
+                Loop
+
+                ' Закрываем приложение
+                GV.SPP2Launcher.EnableClosing = True
+                GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
+                If GV.NeedRestart Or My.Settings.FirstStart Then
+                    If Not GV.ResetSettings Then
+                        My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
+                        My.Settings.Save()
+                    Else
+                        IO.File.Delete(SPP2SettingsProvider.SettingsFile)
+                    End If
+                End If
+                Application.Exit()
+
+        End Select
+
+    End Sub
+
+    ''' <summary>
     ''' Тик на каждую секунду.
     ''' </summary>
     Friend Sub EverySecond()
@@ -376,7 +535,6 @@ Module SPP2Helper
     ''' Выводит в консоль World информацию о разработчиках.
     ''' </summary>
     Friend Sub PreStart()
-
         ' Выводим информацию по разработчикам
         If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
             Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
@@ -387,7 +545,6 @@ Module SPP2Helper
                 Threading.Thread.Sleep(50)
             Next
         End If
-
     End Sub
 
     ''' <summary>
@@ -401,9 +558,9 @@ Module SPP2Helper
         WorldStartTime = 0
         If processID > 0 Then
             Do
-                ' Пишем в лог - Идёт остановка серверов
-                GV.Log.WriteInfo(My.Resources.P038_StoppingWorld)
-                GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P038_StoppingWorld)
+                ' Пишем в строку состояния - Идёт остановка серверов
+                GV.Log.WriteInfo(GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.World004_StoppingWorld))
+
                 Threading.Thread.Sleep(1000)
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
@@ -424,7 +581,6 @@ Module SPP2Helper
         End If
 
         GV.SPP2Launcher.OutMessageStatusStrip("")
-        WorldStartTime = Nothing
 
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
@@ -440,33 +596,24 @@ Module SPP2Helper
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы
             GV.SPP2Launcher.ShutdownApache()
-            GV.SPP2Launcher.ShutdownMySQL()
-        End If
-
-        ' Проверяем требование о выxоде из приложения
-        If GV.SPP2Launcher.NeedExitLauncher Then
-            ' Дожидаемся остановки всех серверов
-            Do
-                If Not GV.SPP2Launcher.MySqlON AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
-                Threading.Thread.Sleep(100)
-            Loop
-
-            ' Закрываем приложение
-            GV.SPP2Launcher.EnableClosing = True
-            GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
-
-            If GV.NeedRestart Or My.Settings.FirstStart Then
-                If Not GV.ResetSettings Then
-                    My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
-                    My.Settings.Save()
+            If GV.SPP2Launcher.NeedExitLauncher Then
+                ' Проверяем блокировку сервера MySQL
+                If Not GV.SPP2Launcher.MySqlLOCKED Then
+                    ' Контроль за MySql с последующим выходом из приложения
+                    GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.NeedExit)
                 Else
-                    IO.File.Delete(SPP2SettingsProvider.SettingsFile)
+                    GV.SPP2Launcher.EnableClosing = True
+                    Application.Exit()
                 End If
-                Application.Exit()
             Else
-                Application.Exit()
+                ' Проверяем блокировку сервера MySQL
+                If Not GV.SPP2Launcher.MySqlLOCKED Then
+                    ' Контроль за MySql с последующим обновлением параметров меню
+                    GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
+                Else
+                    GV.SPP2Launcher.UpdateMainMenu(False)
+                End If
             End If
-
         End If
 
     End Sub
@@ -569,7 +716,7 @@ Module SPP2Helper
                                     ' Сервер рухнул
                                     Dim msg = String.Format(My.Resources.E015_RealmdCrashed, control.CrashCount, "10")
                                     GV.Log.WriteError(msg)
-                                    GV.SPP2Launcher.UpdateRealmdConsole(vbCrLf & msg & vbCrLf, Color.Red)
+                                    GV.SPP2Launcher.UpdateRealmdConsole(msg, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной запуск) через 10 секунд
                                     If GV.SPP2Launcher.ServerWowAutostart Then TimerStartRealmd.Change(10000, 10000)
                                 End If
@@ -584,7 +731,7 @@ Module SPP2Helper
                                     ' Сервер рухнул
                                     Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount, "10")
                                     GV.Log.WriteError(msg)
-                                    GV.SPP2Launcher.UpdateWorldConsole(vbCrLf & msg & vbCrLf, Color.Red)
+                                    GV.SPP2Launcher.UpdateWorldConsole(msg, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд
                                     If GV.SPP2Launcher.ServerWowAutostart Then TimerStartWorld.Change(10000, 10000)
                                 End If

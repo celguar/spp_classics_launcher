@@ -297,15 +297,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Apache выдал исключение:.
-        '''</summary>
-        Friend ReadOnly Property E010_ApacheException() As String
-            Get
-                Return ResourceManager.GetString("E010_ApacheException", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Ошибка загрузки основной конфигурации!.
         '''</summary>
         Friend ReadOnly Property E011_ErrorMainConfig() As String
@@ -365,6 +356,24 @@ Namespace My.Resources
         Friend ReadOnly Property E017_SeeLog() As String
             Get
                 Return ResourceManager.GetString("E017_SeeLog", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Исключение при запуске сервера {0}.
+        '''</summary>
+        Friend ReadOnly Property E018_StartException() As String
+            Get
+                Return ResourceManager.GetString("E018_StartException", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Исключение при остановке сервера {0}.
+        '''</summary>
+        Friend ReadOnly Property E019_StopException() As String
+            Get
+                Return ResourceManager.GetString("E019_StopException", resourceCulture)
             End Get
         End Property
         
@@ -555,38 +564,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Запуск сервера World.
-        '''</summary>
-        Friend ReadOnly Property P015_WorldStart() As String
-            Get
-                Return ResourceManager.GetString("P015_WorldStart", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Внимание!.
         '''</summary>
         Friend ReadOnly Property P016_WarningCaption() As String
             Get
                 Return ResourceManager.GetString("P016_WarningCaption", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер World успешно запущен..
-        '''</summary>
-        Friend ReadOnly Property P017_WorldStarted() As String
-            Get
-                Return ResourceManager.GetString("P017_WorldStarted", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер World остановлен..
-        '''</summary>
-        Friend ReadOnly Property P018_WorldStopped() As String
-            Get
-                Return ResourceManager.GetString("P018_WorldStopped", resourceCulture)
             End Get
         End Property
         
@@ -690,47 +672,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Запуск сервера Realmd.
-        '''</summary>
-        Friend ReadOnly Property P030_RealmdStart() As String
-            Get
-                Return ResourceManager.GetString("P030_RealmdStart", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер Realmd успешно запущен..
-        '''</summary>
-        Friend ReadOnly Property P031_RealmdStarted() As String
-            Get
-                Return ResourceManager.GetString("P031_RealmdStarted", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер Realmd остановлен..
-        '''</summary>
-        Friend ReadOnly Property P032_RealmdStopped() As String
-            Get
-                Return ResourceManager.GetString("P032_RealmdStopped", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Сработал таймер {0}.
         '''</summary>
         Friend ReadOnly Property P033_TimerTriggered() As String
             Get
                 Return ResourceManager.GetString("P033_TimerTriggered", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Попытка запуска сервера {0}.
-        '''</summary>
-        Friend ReadOnly Property P034_LaunchAttempt() As String
-            Get
-                Return ResourceManager.GetString("P034_LaunchAttempt", resourceCulture)
             End Get
         End Property
         
@@ -744,29 +690,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Консольная команда: {0}.
-        '''</summary>
-        Friend ReadOnly Property P036_YourSendCommand() As String
-            Get
-                Return ResourceManager.GetString("P036_YourSendCommand", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Сервер не готов принимать команды....
         '''</summary>
         Friend ReadOnly Property P037_WorldNotStarted() As String
             Get
                 Return ResourceManager.GetString("P037_WorldNotStarted", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Идёт остановка сервера World....
-        '''</summary>
-        Friend ReadOnly Property P038_StoppingWorld() As String
-            Get
-                Return ResourceManager.GetString("P038_StoppingWorld", resourceCulture)
             End Get
         End Property
         
@@ -794,6 +722,132 @@ Namespace My.Resources
         Friend ReadOnly Property P041_AlreadyStarted() As String
             Get
                 Return ResourceManager.GetString("P041_AlreadyStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Запуск сервера {0}.
+        '''</summary>
+        Friend ReadOnly Property P042_ServerStart() As String
+            Get
+                Return ResourceManager.GetString("P042_ServerStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер {0} успешно запущен..
+        '''</summary>
+        Friend ReadOnly Property P043_ServerStarted() As String
+            Get
+                Return ResourceManager.GetString("P043_ServerStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Остановка сервера {0}.
+        '''</summary>
+        Friend ReadOnly Property P044_ServerStop() As String
+            Get
+                Return ResourceManager.GetString("P044_ServerStop", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер {0} успешно остановлен..
+        '''</summary>
+        Friend ReadOnly Property P045_ServerStopped() As String
+            Get
+                Return ResourceManager.GetString("P045_ServerStopped", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Обнаружен процесс {0} которого не должно быть. Сервер заблокирован до снятия проблемы..
+        '''</summary>
+        Friend ReadOnly Property P046_ProcessDetected() As String
+            Get
+                Return ResourceManager.GetString("P046_ProcessDetected", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт.
+        '''</summary>
+        Friend ReadOnly Property P047_Locked1() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на меню &quot;Остановить&quot;, в результате этих действий сервер разблокируется..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked2() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Данный сервер следует останавливать самым последним и понимать возможные последствия!.
+        '''</summary>
+        Friend ReadOnly Property P047_Locked3() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked3", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Откройте меню MySQL, выберите пункт &quot;Остановить&quot; и дождитесь завершения процесса..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked4() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked4", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Будут остановлены все сервера, мешающие нормальному запуску приложения. Продолжить?.
+        '''</summary>
+        Friend ReadOnly Property P048_UnlockAll() As String
+            Get
+                Return ResourceManager.GetString("P048_UnlockAll", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Не удалось запустить сервер {0}.
+        '''</summary>
+        Friend ReadOnly Property P049_NotStarted() As String
+            Get
+                Return ResourceManager.GetString("P049_NotStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Запуск сервера Realmd.
+        '''</summary>
+        Friend ReadOnly Property Real001_RealmdStart() As String
+            Get
+                Return ResourceManager.GetString("Real001_RealmdStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер Realmd успешно запущен..
+        '''</summary>
+        Friend ReadOnly Property Real002_RealmdStarted() As String
+            Get
+                Return ResourceManager.GetString("Real002_RealmdStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер Realmd остановлен..
+        '''</summary>
+        Friend ReadOnly Property Real003_RealmdStopped() As String
+            Get
+                Return ResourceManager.GetString("Real003_RealmdStopped", resourceCulture)
             End Get
         End Property
         
@@ -878,42 +932,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Остановка сервера MySQL..
-        '''</summary>
-        Friend ReadOnly Property SQL001_Shutdown() As String
-            Get
-                Return ResourceManager.GetString("SQL001_Shutdown", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Запуск сервера MySQL..
-        '''</summary>
-        Friend ReadOnly Property SQL002_Start() As String
-            Get
-                Return ResourceManager.GetString("SQL002_Start", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер MySQL успешно запущен..
-        '''</summary>
-        Friend ReadOnly Property SQL003_Started() As String
-            Get
-                Return ResourceManager.GetString("SQL003_Started", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер MySQL успешно остановлен..
-        '''</summary>
-        Friend ReadOnly Property SQL004_Stopped() As String
-            Get
-                Return ResourceManager.GetString("SQL004_Stopped", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property tbc() As System.Drawing.Bitmap
@@ -950,6 +968,51 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("warning", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Запуск сервера World.
+        '''</summary>
+        Friend ReadOnly Property World001_WorldStart() As String
+            Get
+                Return ResourceManager.GetString("World001_WorldStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер World успешно запущен..
+        '''</summary>
+        Friend ReadOnly Property World002_WorldStarted() As String
+            Get
+                Return ResourceManager.GetString("World002_WorldStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер World остановлен..
+        '''</summary>
+        Friend ReadOnly Property World003_WorldStopped() As String
+            Get
+                Return ResourceManager.GetString("World003_WorldStopped", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Идёт остановка сервера World....
+        '''</summary>
+        Friend ReadOnly Property World004_StoppingWorld() As String
+            Get
+                Return ResourceManager.GetString("World004_StoppingWorld", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Консольная команда: {0}.
+        '''</summary>
+        Friend ReadOnly Property World005_YourSendCommand() As String
+            Get
+                Return ResourceManager.GetString("World005_YourSendCommand", resourceCulture)
             End Get
         End Property
         

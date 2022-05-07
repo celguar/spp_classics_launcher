@@ -139,7 +139,7 @@
   <data name="ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P032_RealmdStopped" xml:space="preserve">
+  <data name="Real003_RealmdStopped" xml:space="preserve">
     <value>Сервер Realmd остановлен.</value>
   </data>
   <data name="Apache002_Start" xml:space="preserve">
@@ -163,10 +163,7 @@
   <data name="green_ball" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green_ball.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SQL002_Start" xml:space="preserve">
-    <value>Запуск сервера MySQL.</value>
-  </data>
-  <data name="P036_YourSendCommand" xml:space="preserve">
+  <data name="World005_YourSendCommand" xml:space="preserve">
     <value>Консольная команда: {0}</value>
   </data>
   <data name="E016_WorldCrashed" xml:space="preserve">
@@ -175,10 +172,7 @@
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Дождитесь окончания...</value>
   </data>
-  <data name="E010_ApacheException" xml:space="preserve">
-    <value>Apache выдал исключение:</value>
-  </data>
-  <data name="P031_RealmdStarted" xml:space="preserve">
+  <data name="Real002_RealmdStarted" xml:space="preserve">
     <value>Сервер Realmd успешно запущен.</value>
   </data>
   <data name="E001_DirNotFound" xml:space="preserve">
@@ -208,9 +202,6 @@
   <data name="tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tools.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P034_LaunchAttempt" xml:space="preserve">
-    <value>Попытка запуска сервера {0}</value>
-  </data>
   <data name="P021_TimerSetted" xml:space="preserve">
     <value>Установлен таймер для {0} = {1}</value>
   </data>
@@ -229,16 +220,13 @@
   <data name="cmangos_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cmangos_red.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SQL003_Started" xml:space="preserve">
-    <value>Сервер MySQL успешно запущен.</value>
-  </data>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="P002_ModuleAdded" xml:space="preserve">
     <value>Добавлен серверный модуль {0}</value>
   </data>
-  <data name="P030_RealmdStart" xml:space="preserve">
+  <data name="Real001_RealmdStart" xml:space="preserve">
     <value>Запуск сервера Realmd</value>
   </data>
   <data name="Apache005_NotStarted" xml:space="preserve">
@@ -271,7 +259,7 @@
   <data name="server_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P038_StoppingWorld" xml:space="preserve">
+  <data name="World004_StoppingWorld" xml:space="preserve">
     <value>Идёт остановка сервера World...</value>
   </data>
   <data name="cmangos_realmd_started" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -283,7 +271,7 @@
   <data name="splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="P015_WorldStart" xml:space="preserve">
+  <data name="World001_WorldStart" xml:space="preserve">
     <value>Запуск сервера World</value>
   </data>
   <data name="P041_AlreadyStarted" xml:space="preserve">
@@ -301,7 +289,7 @@
   <data name="E008_UnknownModule" xml:space="preserve">
     <value>Неизвестный модуль расширения {0}</value>
   </data>
-  <data name="P018_WorldStopped" xml:space="preserve">
+  <data name="World003_WorldStopped" xml:space="preserve">
     <value>Сервер World остановлен.</value>
   </data>
   <data name="red_ball" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -313,14 +301,8 @@
   <data name="Apache004_Stopped" xml:space="preserve">
     <value>Сервер Apache успешно остановлен.</value>
   </data>
-  <data name="SQL001_Shutdown" xml:space="preserve">
-    <value>Остановка сервера MySQL.</value>
-  </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Включить сайт</value>
-  </data>
-  <data name="SQL004_Stopped" xml:space="preserve">
-    <value>Сервер MySQL успешно остановлен.</value>
   </data>
   <data name="P023_InfoCaption" xml:space="preserve">
     <value>Информация</value>
@@ -382,7 +364,7 @@
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Инициализация базовых настроек приложения выполнена.</value>
   </data>
-  <data name="P017_WorldStarted" xml:space="preserve">
+  <data name="World002_WorldStarted" xml:space="preserve">
     <value>Сервер World успешно запущен.</value>
   </data>
   <data name="P009_NotInstalled" xml:space="preserve">
@@ -411,5 +393,44 @@
   </data>
   <data name="P024_Success" xml:space="preserve">
     <value>Успешное завершение.</value>
+  </data>
+  <data name="E018_StartException" xml:space="preserve">
+    <value>Исключение при запуске сервера {0}</value>
+  </data>
+  <data name="E019_StopException" xml:space="preserve">
+    <value>Исключение при остановке сервера {0}</value>
+  </data>
+  <data name="P042_ServerStart" xml:space="preserve">
+    <value>Запуск сервера {0}</value>
+  </data>
+  <data name="P043_ServerStarted" xml:space="preserve">
+    <value>Сервер {0} успешно запущен.</value>
+  </data>
+  <data name="P044_ServerStop" xml:space="preserve">
+    <value>Остановка сервера {0}</value>
+  </data>
+  <data name="P045_ServerStopped" xml:space="preserve">
+    <value>Сервер {0} успешно остановлен.</value>
+  </data>
+  <data name="P046_ProcessDetected" xml:space="preserve">
+    <value>Обнаружен процесс {0} которого не должно быть. Сервер заблокирован до снятия проблемы.</value>
+  </data>
+  <data name="P047_Locked1" xml:space="preserve">
+    <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт</value>
+  </data>
+  <data name="P047_Locked2" xml:space="preserve">
+    <value>меню "Остановить", в результате этих действий сервер разблокируется.</value>
+  </data>
+  <data name="P047_Locked3" xml:space="preserve">
+    <value>Данный сервер следует останавливать самым последним и понимать возможные последствия!</value>
+  </data>
+  <data name="P047_Locked4" xml:space="preserve">
+    <value>Откройте меню MySQL, выберите пункт "Остановить" и дождитесь завершения процесса.</value>
+  </data>
+  <data name="P048_UnlockAll" xml:space="preserve">
+    <value>Будут остановлены все сервера, мешающие нормальному запуску приложения. Продолжить?</value>
+  </data>
+  <data name="P049_NotStarted" xml:space="preserve">
+    <value>Не удалось запустить сервер {0}</value>
   </data>
 </root>

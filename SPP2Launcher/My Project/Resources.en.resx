@@ -159,9 +159,6 @@
   <data name="E009_MySqlException" xml:space="preserve">
     <value>Some exception: mysqld</value>
   </data>
-  <data name="E010_ApacheException" xml:space="preserve">
-    <value>Some exception: httpd</value>
-  </data>
   <data name="E011_ErrorMainConfig" xml:space="preserve">
     <value>Error loading main configuration!</value>
   </data>
@@ -182,6 +179,12 @@
   </data>
   <data name="E017_SeeLog" xml:space="preserve">
     <value>An error has occurred. Details in the application log file.</value>
+  </data>
+  <data name="E018_StartException" xml:space="preserve">
+    <value>Exception when starting {0} server.</value>
+  </data>
+  <data name="E019_StopException" xml:space="preserve">
+    <value>{0} server stop exception.</value>
   </data>
   <data name="P001_BaseInit" xml:space="preserve">
     <value>Initialization of basic application settings is complete.</value>
@@ -225,17 +228,8 @@
   <data name="P014_ResetSettings" xml:space="preserve">
     <value>This action will immediately stop all servers and restart the launcher. Do you want to continue?</value>
   </data>
-  <data name="P015_WorldStart" xml:space="preserve">
-    <value>World server launch</value>
-  </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Attention!</value>
-  </data>
-  <data name="P017_WorldStarted" xml:space="preserve">
-    <value>World server started successfully.</value>
-  </data>
-  <data name="P018_WorldStopped" xml:space="preserve">
-    <value>The World server has been stopped.</value>
   </data>
   <data name="P019_ControlEnabled" xml:space="preserve">
     <value>Server control is enabled.</value>
@@ -270,32 +264,14 @@
   <data name="P029_LaunchMain" xml:space="preserve">
     <value>launching the main application.</value>
   </data>
-  <data name="P030_RealmdStart" xml:space="preserve">
-    <value>Starting the Realmd server.</value>
-  </data>
-  <data name="P031_RealmdStarted" xml:space="preserve">
-    <value>The Realmd server started successfully.</value>
-  </data>
-  <data name="P032_RealmdStopped" xml:space="preserve">
-    <value>The Realmd server has stopped.</value>
-  </data>
   <data name="P033_TimerTriggered" xml:space="preserve">
     <value>Timer {0} has expired.</value>
-  </data>
-  <data name="P034_LaunchAttempt" xml:space="preserve">
-    <value>Attempt to start server {0}</value>
   </data>
   <data name="P035_ThereIsProblems" xml:space="preserve">
     <value>While there are problems to start the World server. Delayed 2 sec...</value>
   </data>
-  <data name="P036_YourSendCommand" xml:space="preserve">
-    <value>Console command: {0}</value>
-  </data>
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>The server is not ready to accept commands...</value>
-  </data>
-  <data name="P038_StoppingWorld" xml:space="preserve">
-    <value>World server is shutting down...</value>
   </data>
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Wait for the end...</value>
@@ -304,18 +280,69 @@
     <value>Stop all servers.</value>
   </data>
   <data name="P041_AlreadyStarted" xml:space="preserve">
-    <value>{0} server is already running</value>
+    <value>{0} server is already running.</value>
+  </data>
+  <data name="P042_ServerStart" xml:space="preserve">
+    <value>{0} server start.</value>
+  </data>
+  <data name="P043_ServerStarted" xml:space="preserve">
+    <value>{0} server started successfully.</value>
+  </data>
+  <data name="P044_ServerStop" xml:space="preserve">
+    <value>Stop {0} server.</value>
+  </data>
+  <data name="P045_ServerStopped" xml:space="preserve">
+    <value>The WoW server was successfully stopped.</value>
+  </data>
+  <data name="P046_ProcessDetected" xml:space="preserve">
+    <value>A {0} process has been detected that shouldn't exist. The launch is blocked until the problem is solved.</value>
+  </data>
+  <data name="P047_Locked1" xml:space="preserve">
+    <value>If you are sure that this is normal, then you can select the "Stop" item</value>
+  </data>
+  <data name="P047_Locked2" xml:space="preserve">
+    <value> in the {0} menu, as a result of which the server will be unlocked.</value>
+  </data>
+  <data name="P047_Locked3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="P048_UnlockAll" xml:space="preserve">
+    <value>All servers that interfere with the normal launch of the application will be stopped. Proceed?</value>
+  </data>
+  <data name="P049_NotStarted" xml:space="preserve">
+    <value>Failed to start {0} server</value>
+  </data>
+  <data name="Real001_RealmdStart" xml:space="preserve">
+    <value>Starting the Realmd server.</value>
+  </data>
+  <data name="Real002_RealmdStarted" xml:space="preserve">
+    <value>The Realmd server started successfully.</value>
+  </data>
+  <data name="Real003_RealmdStopped" xml:space="preserve">
+    <value>The Realmd server has stopped.</value>
   </data>
   <data name="SQL001_Shutdown" xml:space="preserve">
     <value>Stop MySQL server.</value>
-  </data>
-  <data name="SQL002_Start" xml:space="preserve">
-    <value>MySQL server start.</value>
   </data>
   <data name="SQL003_Started" xml:space="preserve">
     <value>MySQL server started successfully.</value>
   </data>
   <data name="SQL004_Stopped" xml:space="preserve">
     <value>The MySQL server was successfully stopped.</value>
+  </data>
+  <data name="World001_WorldStart" xml:space="preserve">
+    <value>World server launch.</value>
+  </data>
+  <data name="World002_WorldStarted" xml:space="preserve">
+    <value>World server started successfully.</value>
+  </data>
+  <data name="World003_WorldStopped" xml:space="preserve">
+    <value>The World server has been stopped.</value>
+  </data>
+  <data name="World004_StoppingWorld" xml:space="preserve">
+    <value>World server is shutting down...</value>
+  </data>
+  <data name="World005_YourSendCommand" xml:space="preserve">
+    <value>Console command: {0}</value>
   </data>
 </root>
