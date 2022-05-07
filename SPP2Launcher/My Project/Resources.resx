@@ -460,4 +460,13 @@
   <data name="P047_Locked13" xml:space="preserve">
     <value>Что же делать? - УЧИТЕ МАТЧАСТЬ. Не всё возможно сделать по щелчку пальцев.</value>
   </data>
+  <data name="P047_Locked14" xml:space="preserve">
+    <value>Что произойдёт: Вы сохраните все свои и свойства ботов, что именно украшают  и делают SPP2</value>
+  </data>
+  <data name="P047_Locked15" xml:space="preserve">
+    <value>значимым и уважаемым проектом. Если Вы ничего не делаете ради этого - Ничего страшного!</value>
+  </data>
+  <data name="P047_Locked16" xml:space="preserve">
+    <value />
+  </data>
 </root>

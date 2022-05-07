@@ -861,6 +861,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Что произойдёт: Вы сохраните все свои и свойства ботов, что именно украшают  и делают SPP2.
+        '''</summary>
+        Friend ReadOnly Property P047_Locked14() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked14", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на значимым и уважаемым проектом. Если Вы ничего не делаете ради этого - Ничего страшного!.
+        '''</summary>
+        Friend ReadOnly Property P047_Locked15() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked15", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на .
+        '''</summary>
+        Friend ReadOnly Property P047_Locked16() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked16", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Не удалось запустить сервер {0}.
         '''</summary>
         Friend ReadOnly Property P049_NotStarted() As String
