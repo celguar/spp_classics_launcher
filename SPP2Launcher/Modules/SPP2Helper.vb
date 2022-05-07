@@ -425,6 +425,25 @@ Module SPP2Helper
 #Region " === ПОТОКИ === "
 
     ''' <summary>
+    ''' Выводит в консоль World информацию о разработчиках.
+    ''' </summary>
+    Friend Sub PreStart()
+        Try
+            ' Выводим информацию по разработчикам
+            If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
+                Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
+                Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
+                          RegularExpressions.RegexOptions.ExplicitCapture)
+                For Each line As String In s
+                    GV.SPP2Launcher.UpdateWorldConsole(line, My.Settings.WorldConsoleForeColor)
+                    Threading.Thread.Sleep(50)
+                Next
+            End If
+        Catch
+        End Try
+    End Sub
+
+    ''' <summary>
     ''' Поиск процесса, ожидание его завершения и выполнение следующего действия.
     ''' Возвращает False если постдействие не выполнено и True если все действия выполнены успешно.
     ''' </summary>
@@ -529,22 +548,6 @@ Module SPP2Helper
                 GV.SPP2Launcher.OutMessageStatusStrip(String.Format("Uptime: {0:dd\.hh\:mm\:ss} ", Date.Now - Date.FromOADate(WorldStartTime)))
             End If
         Loop
-    End Sub
-
-    ''' <summary>
-    ''' Выводит в консоль World информацию о разработчиках.
-    ''' </summary>
-    Friend Sub PreStart()
-        ' Выводим информацию по разработчикам
-        If IO.File.Exists(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt") Then
-            Dim str = IO.File.ReadAllText(My.Settings.DirSPP2 & "\" & SPP2GLOBAL & "\credits.txt")
-            Dim s() = System.Text.RegularExpressions.Regex.Split(str, "(\r\n|\r|\n)",
-                      RegularExpressions.RegexOptions.ExplicitCapture)
-            For Each line As String In s
-                GV.SPP2Launcher.UpdateWorldConsole(line, My.Settings.WorldConsoleForeColor)
-                Threading.Thread.Sleep(50)
-            Next
-        End If
     End Sub
 
     ''' <summary>

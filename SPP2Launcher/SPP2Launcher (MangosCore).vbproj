@@ -274,4 +274,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>start $(SolutionDir)create_debug_bin.bat</PostBuildEvent>
+  </PropertyGroup>
 </Project>

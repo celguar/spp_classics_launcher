@@ -1,8 +1,9 @@
 ﻿
-
-
 Imports System.Runtime.InteropServices
 
+''' <summary>
+''' Глушилово прорисовки графических элементов.
+''' </summary>
 Public Class GDI
 
     <DllImport("user32.dll")>

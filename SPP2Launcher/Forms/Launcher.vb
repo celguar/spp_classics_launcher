@@ -799,7 +799,7 @@ Public Class Launcher
     ''' Запускает сервер MySQL
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
-        If Not _MySqlLOCKED And My.Settings.UseIntMySQL And CheckProcess(EProcess.mysqld, False) And IsNothing(_mysqlProcess) Then
+        If Not _MySqlLOCKED And My.Settings.UseIntMySQL And Not CheckProcess(EProcess.mysqld, False) And IsNothing(_mysqlProcess) Then
             _MySqlON = True
             GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "MySQL"), CONSOLE))
 
@@ -2215,15 +2215,6 @@ Public Class Launcher
                 ElseIf text.Contains("[Note]") Then
                     msg = Mid(text, 31)
                     ink = Color.DarkOrange
-                ElseIf text.Contains("[Console]") Then
-                    msg = Mid(text, 11)
-                    ink = CONSOLE
-                ElseIf text.Contains("[EConsole]") Then
-                    msg = Mid(text, 12)
-                    ink = ECONSOLE
-                ElseIf text.Contains("[WConsole]") Then
-                    msg = Mid(text, 12)
-                    ink = WCONSOLE
                 Else
                     msg = text
                     ink = Color.YellowGreen
