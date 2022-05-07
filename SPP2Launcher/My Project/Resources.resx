@@ -367,7 +367,7 @@
   <data name="E017_SeeLog" xml:space="preserve">
     <value>Произошла ошибка. Подробности в Log-файле приложения.</value>
   </data>
-  <data name="P014_ResetSettings" xml:space="preserve">
+  <data name="P014_Reset1" xml:space="preserve">
     <value>Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?</value>
   </data>
   <data name="P016_WarningCaption" xml:space="preserve">
@@ -398,24 +398,60 @@
     <value>Сервер {0} успешно остановлен.</value>
   </data>
   <data name="P046_ProcessDetected" xml:space="preserve">
-    <value>Обнаружен процесс {0} которого не должно быть. Сервер заблокирован до снятия проблемы.</value>
+    <value>Обнаружен процесс {0} которого не должно быть. Сервер изолирован до снятия проблемы.</value>
   </data>
   <data name="P047_Locked1" xml:space="preserve">
-    <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт</value>
+    <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню "Остановить"</value>
   </data>
   <data name="P047_Locked2" xml:space="preserve">
-    <value>меню "Остановить", в результате этих действий сервер разблокируется.</value>
+    <value>В результате этих действий сервер разблокируется и станет доступным для подключения.</value>
   </data>
   <data name="P047_Locked3" xml:space="preserve">
     <value>Данный сервер следует останавливать самым последним и понимать возможные последствия!</value>
   </data>
   <data name="P047_Locked4" xml:space="preserve">
-    <value>Откройте меню MySQL, выберите пункт "Остановить" и дождитесь завершения процесса.</value>
-  </data>
-  <data name="P048_UnlockAll" xml:space="preserve">
-    <value>Будут остановлены все сервера, мешающие нормальному запуску приложения. Продолжить?</value>
+    <value>Иначе - откройте меню MySQL, выберите пункт "Остановить" и дождитесь завершения процесса.</value>
   </data>
   <data name="P049_NotStarted" xml:space="preserve">
     <value>Не удалось запустить сервер {0}</value>
+  </data>
+  <data name="P047_Locked5" xml:space="preserve">
+    <value>Это самая серьёзная проблема! Непредусмотренная остановка сервера mangosd.exe всегда приводит к потере данных.</value>
+  </data>
+  <data name="P047_Locked6" xml:space="preserve">
+    <value>Если есть возможность - зайдите в игру и наберите в консоли .saveall  и дождитесь завершения сохранения.</value>
+  </data>
+  <data name="P050_Exit1" xml:space="preserve">
+    <value>Данное действие вызовет остановку всех запущенных серверов. Продолжить?</value>
+  </data>
+  <data name="P050_Exit2" xml:space="preserve">
+    <value>Данное действие закроет приложение, однако все изолированные сервера продолжат работу. Выполнить выход?</value>
+  </data>
+  <data name="P051_NeedMySQL" xml:space="preserve">
+    <value>Сервер {0} невозможно запустить без доступного сервера MySQL.</value>
+  </data>
+  <data name="P014_Reset2" xml:space="preserve">
+    <value>Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?</value>
+  </data>
+  <data name="P047_Locked10" xml:space="preserve">
+    <value>Что произойдёт если я выберу "Остановить": Вы можете потерять всё, исключая трусы.</value>
+  </data>
+  <data name="P047_Locked11" xml:space="preserve">
+    <value>Что произойдёт, если я завершу процесс через диспетчер задач: То же, что и с трусами.</value>
+  </data>
+  <data name="P047_Locked12" xml:space="preserve">
+    <value>А если нажму "РАЗБЛОКИРОВАТЬ ВСЁ": Без резервной копии - максимум 50/50.</value>
+  </data>
+  <data name="P047_Locked7" xml:space="preserve">
+    <value>Как вариант - зайдите в меню "Сохранения" и создайте резервную копию текущей базы данных.</value>
+  </data>
+  <data name="P047_Locked8" xml:space="preserve">
+    <value>Что произойдёт: Возможно придётся заново войти на сайт связанный с данным сервером.</value>
+  </data>
+  <data name="P047_Locked9" xml:space="preserve">
+    <value>В данном случае идеальным будет создать резервную копию базы данных.</value>
+  </data>
+  <data name="P052_FirstStart" xml:space="preserve">
+    <value> - ЭТО ПЕРВЫЙ ЗАПУСК!</value>
   </data>
 </root>

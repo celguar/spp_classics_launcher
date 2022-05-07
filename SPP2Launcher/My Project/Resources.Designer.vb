@@ -512,9 +512,18 @@ Namespace My.Resources
         '''<summary>
         '''  Ищет локализованную строку, похожую на Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?.
         '''</summary>
-        Friend ReadOnly Property P014_ResetSettings() As String
+        Friend ReadOnly Property P014_Reset1() As String
             Get
-                Return ResourceManager.GetString("P014_ResetSettings", resourceCulture)
+                Return ResourceManager.GetString("P014_Reset1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?.
+        '''</summary>
+        Friend ReadOnly Property P014_Reset2() As String
+            Get
+                Return ResourceManager.GetString("P014_Reset2", resourceCulture)
             End Get
         End Property
         
@@ -717,7 +726,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Обнаружен процесс {0} которого не должно быть. Сервер заблокирован до снятия проблемы..
+        '''  Ищет локализованную строку, похожую на Обнаружен процесс {0} которого не должно быть. Сервер изолирован до снятия проблемы..
         '''</summary>
         Friend ReadOnly Property P046_ProcessDetected() As String
             Get
@@ -726,7 +735,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт.
+        '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню &quot;Остановить&quot;.
         '''</summary>
         Friend ReadOnly Property P047_Locked1() As String
             Get
@@ -735,7 +744,34 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на меню &quot;Остановить&quot;, в результате этих действий сервер разблокируется..
+        '''  Ищет локализованную строку, похожую на Что произойдёт если я выберу &quot;Остановить&quot;: Вы можете потерять всё, исключая трусы..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked10() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked10", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Что произойдёт, если я завершу процесс через диспетчер задач: То же, что и с трусами..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked11() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked11", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на А если нажму &quot;РАЗБЛОКИРОВАТЬ ВСЁ&quot;: Без резервной копии - максимум 50/50..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked12() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked12", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на В результате этих действий сервер разблокируется и станет доступным для подключения..
         '''</summary>
         Friend ReadOnly Property P047_Locked2() As String
             Get
@@ -753,7 +789,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Откройте меню MySQL, выберите пункт &quot;Остановить&quot; и дождитесь завершения процесса..
+        '''  Ищет локализованную строку, похожую на Иначе - откройте меню MySQL, выберите пункт &quot;Остановить&quot; и дождитесь завершения процесса..
         '''</summary>
         Friend ReadOnly Property P047_Locked4() As String
             Get
@@ -762,11 +798,47 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Будут остановлены все сервера, мешающие нормальному запуску приложения. Продолжить?.
+        '''  Ищет локализованную строку, похожую на Это самая серьёзная проблема! Непредусмотренная остановка сервера mangosd.exe всегда приводит к потере данных..
         '''</summary>
-        Friend ReadOnly Property P048_UnlockAll() As String
+        Friend ReadOnly Property P047_Locked5() As String
             Get
-                Return ResourceManager.GetString("P048_UnlockAll", resourceCulture)
+                Return ResourceManager.GetString("P047_Locked5", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Если есть возможность - зайдите в игру и наберите в консоли .saveall  и дождитесь завершения сохранения..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked6() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked6", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Как вариант - зайдите в меню &quot;Сохранения&quot; и создайте резервную копию текущей базы данных..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked7() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked7", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Что произойдёт: Возможно придётся заново войти на сайт связанный с данным сервером..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked8() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked8", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на В данном случае идеальным будет создать резервную копию базы данных..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked9() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked9", resourceCulture)
             End Get
         End Property
         
@@ -776,6 +848,42 @@ Namespace My.Resources
         Friend ReadOnly Property P049_NotStarted() As String
             Get
                 Return ResourceManager.GetString("P049_NotStarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Данное действие вызовет остановку всех запущенных серверов. Продолжить?.
+        '''</summary>
+        Friend ReadOnly Property P050_Exit1() As String
+            Get
+                Return ResourceManager.GetString("P050_Exit1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Данное действие закроет приложение, однако все изолированные сервера продолжат работу. Выполнить выход?.
+        '''</summary>
+        Friend ReadOnly Property P050_Exit2() As String
+            Get
+                Return ResourceManager.GetString("P050_Exit2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Сервер {0} невозможно запустить без доступного сервера MySQL..
+        '''</summary>
+        Friend ReadOnly Property P051_NeedMySQL() As String
+            Get
+                Return ResourceManager.GetString("P051_NeedMySQL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на  - ЭТО ПЕРВЫЙ ЗАПУСК!.
+        '''</summary>
+        Friend ReadOnly Property P052_FirstStart() As String
+            Get
+                Return ResourceManager.GetString("P052_FirstStart", resourceCulture)
             End Get
         End Property
         

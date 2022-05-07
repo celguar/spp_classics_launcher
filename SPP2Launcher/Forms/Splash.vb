@@ -8,6 +8,8 @@ Public Class Splash
     ''' ПРИ ИНИЦИАЛИЗАЦИИ ФОРМЫ
     ''' </summary>
     Sub New()
+        ' Для исключения проблем при перезапуске приложения
+        Threading.Thread.Sleep(1000)
         LGV.BaseInit()
         InitializeComponent()
         ' Первоначальные настройки

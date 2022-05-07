@@ -298,9 +298,10 @@ Module SPP2Helper
     ''' Поиск процесса и выполнение действия. Возвращает True если процесс найден и его месторасположение соответствует требуемому.
     ''' </summary>
     ''' <param name="p">Искомый процесс.</param>
-    ''' <param name="kill">Убить процесс. Данный параметр действителен только в отношении Apaсhe и Realmd</param>
+    ''' <param name="kill">Убить процесс. Данный параметр действителен только в отношении Apaсhe и Realmd
+    ''' По умолчанию - False</param>
     ''' <returns></returns>
-    Friend Function CheckProcess(p As EProcess, kill As Boolean) As Boolean
+    Friend Function CheckProcess(p As EProcess, Optional ByVal kill As Boolean = False) As Boolean
         Dim pm As String = ""
         Select Case p
             Case EProcess.mysqld
@@ -310,7 +311,7 @@ Module SPP2Helper
             Case EProcess.realmd
                 pm = "realmd"
             Case EProcess.world
-                pm = "mangos"
+                pm = "mangosd"
         End Select
         Dim path As String = ""
         Select Case p
@@ -329,7 +330,8 @@ Module SPP2Helper
                 If Not kill Then
                     If pr.MainModule.FileName = path Then Return True
                 Else
-                    pr.Kill()
+                    ' Убиваем только Apache или Realmd
+                    If p = EProcess.apache Or p = EProcess.realmd Then pr.Kill()
                 End If
             Catch ex As Exception
                 GV.Log.WriteException(ex)
@@ -517,7 +519,7 @@ Module SPP2Helper
                 ' Это по сути выход из приложения
                 ' Дожидаемся остановки всех серверов
                 Do
-                    If Not GV.SPP2Launcher.MySqlON AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
+                    If Not CheckProcess(EProcess.mysqld) AndAlso Not GV.SPP2Launcher.RealmdON Then Exit Do
                     Threading.Thread.Sleep(100)
                 Loop
 
@@ -526,12 +528,14 @@ Module SPP2Helper
                 GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
                 If GV.NeedRestart Or My.Settings.FirstStart Then
                     If Not GV.ResetSettings Then
+                        My.Settings.FirstStart = False
                         My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
                         My.Settings.Save()
                     Else
                         IO.File.Delete(SPP2SettingsProvider.SettingsFile)
                     End If
                 End If
+                GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
                 Application.Exit()
 
         End Select
@@ -606,7 +610,15 @@ Module SPP2Helper
                     GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.NeedExit)
                 Else
                     GV.SPP2Launcher.EnableClosing = True
-                    Application.Exit()
+                    GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
+                    If Not GV.ResetSettings Then
+                        My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
+                        My.Settings.Save()
+                        Application.Exit()
+                    Else
+                        IO.File.Delete(SPP2SettingsProvider.SettingsFile)
+                        Application.Exit()
+                    End If
                 End If
             Else
                 ' Проверяем блокировку сервера MySQL

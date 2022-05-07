@@ -210,8 +210,11 @@
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
   </data>
-  <data name="P014_ResetSettings" xml:space="preserve">
+  <data name="P014_Reset1" xml:space="preserve">
     <value>This action will immediately stop all servers and restart the launcher. Do you want to continue?</value>
+  </data>
+  <data name="P014_Reset2" xml:space="preserve">
+    <value>This action will reset the application settings to default. Proceed?</value>
   </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Attention!</value>
@@ -277,25 +280,61 @@
     <value>Stop {0} server.</value>
   </data>
   <data name="P045_ServerStopped" xml:space="preserve">
-    <value>The WoW server was successfully stopped.</value>
+    <value>The {0} server was successfully stopped.</value>
   </data>
   <data name="P046_ProcessDetected" xml:space="preserve">
-    <value>A {0} process has been detected that shouldn't exist. The launch is blocked until the problem is solved.</value>
+    <value>Detected process {0} which should not be. The server is isolated until the problem is resolved.</value>
   </data>
   <data name="P047_Locked1" xml:space="preserve">
-    <value>If you are sure that this is normal, then you can select the "Stop" item</value>
+    <value>This is the smallest issue. Open the Apache menu and select the "Stop" menu item</value>
+  </data>
+  <data name="P047_Locked10" xml:space="preserve">
+    <value>What happens if you rudely stop this process: You can lose everything, except for underpants.</value>
+  </data>
+  <data name="P047_Locked11" xml:space="preserve">
+    <value>What happens if I end the process through the task manager: Same as underpants.</value>
+  </data>
+  <data name="P047_Locked12" xml:space="preserve">
+    <value>And if I press "UNLOCK ALL": Without a backup - a maximum of 50/50.</value>
   </data>
   <data name="P047_Locked2" xml:space="preserve">
-    <value> in the {0} menu, as a result of which the server will be unlocked.</value>
+    <value>As a result of these actions, the server will be unblocked and will become available for connection.</value>
   </data>
   <data name="P047_Locked3" xml:space="preserve">
-    <value />
+    <value>This server should be the last to stop and understand the possible consequences!</value>
   </data>
-  <data name="P048_UnlockAll" xml:space="preserve">
-    <value>All servers that interfere with the normal launch of the application will be stopped. Proceed?</value>
+  <data name="P047_Locked4" xml:space="preserve">
+    <value>Otherwise, open the MySQL menu, select "Stop" and wait for the process to complete.</value>
+  </data>
+  <data name="P047_Locked5" xml:space="preserve">
+    <value>This is the biggest problem! Stopping the mangosd.exe server unexpectedly always results in data loss.</value>
+  </data>
+  <data name="P047_Locked6" xml:space="preserve">
+    <value>If possible, go into the game and type .saveall in the console or make a database backup.</value>
+  </data>
+  <data name="P047_Locked7" xml:space="preserve">
+    <value>Alternatively, go to the "Save" menu and create a backup copy of the current database.</value>
+  </data>
+  <data name="P047_Locked8" xml:space="preserve">
+    <value>What will happen: You may have to re-login to the site associated with this server.</value>
+  </data>
+  <data name="P047_Locked9" xml:space="preserve">
+    <value>In this case, it would be ideal to make a backup copy of the database through the "Save" menu.</value>
   </data>
   <data name="P049_NotStarted" xml:space="preserve">
     <value>Failed to start {0} server</value>
+  </data>
+  <data name="P050_Exit1" xml:space="preserve">
+    <value>This action will stop all running servers. Proceed?</value>
+  </data>
+  <data name="P050_Exit2" xml:space="preserve">
+    <value>This action will close the application, however, all isolated servers will continue to work. Execute an exit?</value>
+  </data>
+  <data name="P051_NeedMySQL" xml:space="preserve">
+    <value>{0} server cannot be started without an available MySQL server.</value>
+  </data>
+  <data name="P052_FirstStart" xml:space="preserve">
+    <value> - THIS IS THE FIRST LAUNCH!</value>
   </data>
   <data name="Real001_RealmdStart" xml:space="preserve">
     <value>Starting the Realmd server.</value>
