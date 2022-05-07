@@ -438,6 +438,12 @@ Partial Class Launcher
         Me.ToolTip1.SetToolTip(Me.Button_UnlockAll, resources.GetString("Button_UnlockAll.ToolTip"))
         Me.Button_UnlockAll.UseVisualStyleBackColor = False
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 15000
+        Me.ToolTip1.InitialDelay = 500
+        Me.ToolTip1.ReshowDelay = 100
+        '
         'Launcher
         '
         resources.ApplyResources(Me, "$this")

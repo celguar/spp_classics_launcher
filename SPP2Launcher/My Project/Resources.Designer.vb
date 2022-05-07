@@ -746,14 +746,86 @@ Namespace My.Resources
         '''<summary>
         '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню &quot;Остановить&quot;.
         '''</summary>
-        Friend ReadOnly Property P047_Locked1() As String
+        Friend ReadOnly Property P047_Locked01() As String
             Get
-                Return ResourceManager.GetString("P047_Locked1", resourceCulture)
+                Return ResourceManager.GetString("P047_Locked01", resourceCulture)
             End Get
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Что произойдёт если я выберу &quot;Остановить&quot;: Вы можете потерять всё, исключая трусы..
+        '''  Ищет локализованную строку, похожую на В результате этих действий сервер разблокируется и станет доступным для подключения..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked02() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked02", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Данный сервер следует останавливать самым последним и понимать возможные последствия!.
+        '''</summary>
+        Friend ReadOnly Property P047_Locked03() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked03", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Иначе - откройте меню MySQL, выберите пункт &quot;Остановить&quot; и дождитесь завершения процесса..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked04() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked04", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Это самая серьёзная проблема! Непредусмотренная остановка сервера mangosd.exe всегда приводит к потере данных..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked05() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked05", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Если есть возможность - зайдите в игру и наберите в консоли .saveall  и дождитесь завершения сохранения..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked06() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked06", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Как вариант - зайдите в меню &quot;Сохранения&quot; и создайте резервную копию текущей базы данных..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked07() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked07", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Что произойдёт: Возможно придётся заново войти на сайт связанный с данным сервером..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked08() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked08", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на В данном случае идеальным будет создать резервную копию базы данных..
+        '''</summary>
+        Friend ReadOnly Property P047_Locked09() As String
+            Get
+                Return ResourceManager.GetString("P047_Locked09", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Что произойдёт если я выберу &quot;Остановить&quot;: Вы можете потерять всё, включая трусы..
         '''</summary>
         Friend ReadOnly Property P047_Locked10() As String
             Get
@@ -771,7 +843,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на А если нажму &quot;РАЗБЛОКИРОВАТЬ ВСЁ&quot;: Без резервной копии - максимум 50/50..
+        '''  Ищет локализованную строку, похожую на А если нажму &quot;РАЗБЛОКИРОВАТЬ ВСЁ&quot;: Как правило - очнётесь без трусов, зато быстро и без истерик..
         '''</summary>
         Friend ReadOnly Property P047_Locked12() As String
             Get
@@ -780,74 +852,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на В результате этих действий сервер разблокируется и станет доступным для подключения..
+        '''  Ищет локализованную строку, похожую на Что же делать? - УЧИТЕ МАТЧАСТЬ. Не всё возможно сделать по щелчку пальцев..
         '''</summary>
-        Friend ReadOnly Property P047_Locked2() As String
+        Friend ReadOnly Property P047_Locked13() As String
             Get
-                Return ResourceManager.GetString("P047_Locked2", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Данный сервер следует останавливать самым последним и понимать возможные последствия!.
-        '''</summary>
-        Friend ReadOnly Property P047_Locked3() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked3", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Иначе - откройте меню MySQL, выберите пункт &quot;Остановить&quot; и дождитесь завершения процесса..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked4() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked4", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Это самая серьёзная проблема! Непредусмотренная остановка сервера mangosd.exe всегда приводит к потере данных..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked5() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked5", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Если есть возможность - зайдите в игру и наберите в консоли .saveall  и дождитесь завершения сохранения..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked6() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked6", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Как вариант - зайдите в меню &quot;Сохранения&quot; и создайте резервную копию текущей базы данных..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked7() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked7", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Что произойдёт: Возможно придётся заново войти на сайт связанный с данным сервером..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked8() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked8", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на В данном случае идеальным будет создать резервную копию базы данных..
-        '''</summary>
-        Friend ReadOnly Property P047_Locked9() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked9", resourceCulture)
+                Return ResourceManager.GetString("P047_Locked13", resourceCulture)
             End Get
         End Property
         

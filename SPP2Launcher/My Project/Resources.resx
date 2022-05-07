@@ -400,25 +400,25 @@
   <data name="P046_ProcessDetected" xml:space="preserve">
     <value>Обнаружен процесс {0} которого не должно быть. Сервер изолирован до снятия проблемы.</value>
   </data>
-  <data name="P047_Locked1" xml:space="preserve">
+  <data name="P047_Locked01" xml:space="preserve">
     <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню "Остановить"</value>
   </data>
-  <data name="P047_Locked2" xml:space="preserve">
+  <data name="P047_Locked02" xml:space="preserve">
     <value>В результате этих действий сервер разблокируется и станет доступным для подключения.</value>
   </data>
-  <data name="P047_Locked3" xml:space="preserve">
+  <data name="P047_Locked03" xml:space="preserve">
     <value>Данный сервер следует останавливать самым последним и понимать возможные последствия!</value>
   </data>
-  <data name="P047_Locked4" xml:space="preserve">
+  <data name="P047_Locked04" xml:space="preserve">
     <value>Иначе - откройте меню MySQL, выберите пункт "Остановить" и дождитесь завершения процесса.</value>
   </data>
   <data name="P049_NotStarted" xml:space="preserve">
     <value>Не удалось запустить сервер {0}</value>
   </data>
-  <data name="P047_Locked5" xml:space="preserve">
+  <data name="P047_Locked05" xml:space="preserve">
     <value>Это самая серьёзная проблема! Непредусмотренная остановка сервера mangosd.exe всегда приводит к потере данных.</value>
   </data>
-  <data name="P047_Locked6" xml:space="preserve">
+  <data name="P047_Locked06" xml:space="preserve">
     <value>Если есть возможность - зайдите в игру и наберите в консоли .saveall  и дождитесь завершения сохранения.</value>
   </data>
   <data name="P050_Exit1" xml:space="preserve">
@@ -434,21 +434,21 @@
     <value>Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?</value>
   </data>
   <data name="P047_Locked10" xml:space="preserve">
-    <value>Что произойдёт если я выберу "Остановить": Вы можете потерять всё, исключая трусы.</value>
+    <value>Что произойдёт если я выберу "Остановить": Вы можете потерять всё, включая трусы.</value>
   </data>
   <data name="P047_Locked11" xml:space="preserve">
     <value>Что произойдёт, если я завершу процесс через диспетчер задач: То же, что и с трусами.</value>
   </data>
   <data name="P047_Locked12" xml:space="preserve">
-    <value>А если нажму "РАЗБЛОКИРОВАТЬ ВСЁ": Без резервной копии - максимум 50/50.</value>
+    <value>А если нажму "РАЗБЛОКИРОВАТЬ ВСЁ": Как правило - очнётесь без трусов, зато быстро и без истерик.</value>
   </data>
-  <data name="P047_Locked7" xml:space="preserve">
+  <data name="P047_Locked07" xml:space="preserve">
     <value>Как вариант - зайдите в меню "Сохранения" и создайте резервную копию текущей базы данных.</value>
   </data>
-  <data name="P047_Locked8" xml:space="preserve">
+  <data name="P047_Locked08" xml:space="preserve">
     <value>Что произойдёт: Возможно придётся заново войти на сайт связанный с данным сервером.</value>
   </data>
-  <data name="P047_Locked9" xml:space="preserve">
+  <data name="P047_Locked09" xml:space="preserve">
     <value>В данном случае идеальным будет создать резервную копию базы данных.</value>
   </data>
   <data name="P052_FirstStart" xml:space="preserve">
@@ -456,5 +456,8 @@
   </data>
   <data name="P015_ChangeLocale" xml:space="preserve">
     <value>Изменение интерфейса на {0}. Произойдёт после перезагрузки.</value>
+  </data>
+  <data name="P047_Locked13" xml:space="preserve">
+    <value>Что же делать? - УЧИТЕ МАТЧАСТЬ. Не всё возможно сделать по щелчку пальцев.</value>
   </data>
 </root>

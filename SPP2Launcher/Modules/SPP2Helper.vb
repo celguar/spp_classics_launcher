@@ -81,6 +81,11 @@ Module SPP2Helper
     Friend ECONSOLE As Color = Color.OrangeRed
 
     ''' <summary>
+    ''' Цвет вывода в консоль диалоговых вопросов.
+    ''' </summary>
+    Friend QCONSOLE As Color = Color.DarkCyan
+
+    ''' <summary>
     ''' Корневой каталог проекта Single Player Project 2.
     ''' </summary>
     Friend Const SPP2GLOBAL As String = "SPP_Server"
@@ -561,7 +566,8 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="processID">Идентификатор процесса, который следует завалить.</param>
     ''' <param name="otherServers">Вырубить так же и прочие серверы.</param>
-    Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean)
+    ''' <param name="ignoreLOCKED">Игнорирует изоляцию серверов.</param>
+    Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean, ignoreLOCKED As Boolean)
         WorldStartTime = 0
         If processID > 0 Then
             Do
@@ -621,12 +627,17 @@ Module SPP2Helper
                     End If
                 End If
             Else
-                ' Проверяем блокировку сервера MySQL
-                If Not GV.SPP2Launcher.MySqlLOCKED Then
-                    ' Контроль за MySql с последующим обновлением параметров меню
+                If ignoreLOCKED Then
+                    ' Тут, если честно - ОГОНЬ - РАЗБЛОКИРОВАТЬ ВСЁ
                     GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
                 Else
-                    GV.SPP2Launcher.UpdateMainMenu(False)
+                    ' Проверяем блокировку сервера MySQL
+                    If Not GV.SPP2Launcher.MySqlLOCKED Then
+                        ' Контроль за MySql с последующим обновлением параметров меню
+                        GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
+                    Else
+                        GV.SPP2Launcher.UpdateMainMenu(False)
+                    End If
                 End If
             End If
         End If
@@ -685,7 +696,7 @@ Module SPP2Helper
             ' Обновляем инфо в строке состояния каждые 2 сек.
             If Date.Now - _updateStatus > TimeSpan.FromSeconds(2) Then
                 _updateStatus = Date.Now
-                GV.SPP2Launcher.OutInfoStatusStrip()
+                GV.SPP2Launcher.OutInfoPlayers()
             End If
 
             ' Проверка наличия процессов серверов

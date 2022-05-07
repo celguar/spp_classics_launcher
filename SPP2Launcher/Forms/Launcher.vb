@@ -286,6 +286,7 @@ Public Class Launcher
         If result = DialogResult.Yes Then
             GV.Log.WriteInfo(String.Format(My.Resources.P015_ChangeLocale, locale))
             My.Settings.Locale = locale
+            My.Settings.Save()
         End If
     End Sub
 
@@ -301,6 +302,7 @@ Public Class Launcher
         If result = DialogResult.Yes Then
             GV.Log.WriteInfo(String.Format(My.Resources.P015_ChangeLocale, locale))
             My.Settings.Locale = locale
+            My.Settings.Save()
         End If
     End Sub
 
@@ -345,21 +347,11 @@ Public Class Launcher
         Dim result = MessageBox.Show(My.Resources.P050_Exit1,
                                  My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If result = DialogResult.No Then Exit Sub
-        If _serversLOCKED Then
-            ' Блокируем меню серверов
-            LockedServersMenu()
-            ' Запускаем поток выключающий все сервера
-            Dim sw As New Threading.Thread(Sub() ShutdownAll(False)) With {
-                .CurrentCulture = GV.CI,
-                .CurrentUICulture = GV.CI,
-                .IsBackground = True
-            }
-            sw.Start()
-        Else
-            ' Выключаем Apache
-            If _apacheLOCKED Then ShutdownApache()
-            If _mysqlLOCKED Then ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
-        End If
+        ' Блокируем меню серверов
+        LockedServersMenu()
+        _NeedExitLauncher = False
+        If _apacheLOCKED Then ShutdownApache()
+        ShutdownWorld(True, True)
     End Sub
 
     ''' <summary>
@@ -413,15 +405,10 @@ Public Class Launcher
     ''' <summary>
     ''' Обновление информации в StatusStrip.
     ''' </summary>
-    Friend Sub OutInfoStatusStrip()
+    Friend Sub OutInfoPlayers()
         Dim online, total As String
-        If CheckProcess(EProcess.mysqld) Then
-            online = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_ONLINE_CHARS()
-            total = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_TOTAL_CHARS()
-        Else
-            online = "N/A"
-            total = "N/A"
-        End If
+        online = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_ONLINE_CHARS()
+        total = MySqlDataBases.CHARACTERS.CHARACTERS.SELECT_TOTAL_CHARS()
         If TSSL_Online.GetCurrentParent.InvokeRequired Then
             TSSL_Online.GetCurrentParent.Invoke(Sub()
                                                     TSSL_Count.Text = online
@@ -703,25 +690,26 @@ Public Class Launcher
             ' ТЕПЕРЬ ПО LOCKED ПОДСКАЗКАМ
             If _apacheLOCKED Then
                 GV.Log.WriteWarning(OutMySqlConsole(String.Format(My.Resources.P046_ProcessDetected, "spp-httpd.exe"), ECONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked1, WCONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked2, WCONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked8 & vbCrLf, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked01, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked02, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked08 & vbCrLf, QCONSOLE))
             End If
 
             If _serversLOCKED Then
                 GV.Log.WriteWarning(OutMySqlConsole(String.Format(My.Resources.P046_ProcessDetected, "mangosd.exe"), ECONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked5, WCONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked6, WCONSOLE))
-                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked7 & vbCrLf, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked05, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked06, WCONSOLE))
+                GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked07 & vbCrLf, WCONSOLE))
 
             ElseIf _MySqlLOCKED Then
                 GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P046_ProcessDetected, "mysqld.exe"), ECONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked3, WCONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked9, WCONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked4, WCONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked10, WCONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked11, WCONSOLE))
-                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked12 & vbCrLf, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked03, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked09, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked04, WCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked10, QCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked11, QCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked12, QCONSOLE))
+                GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked13 & vbCrLf, QCONSOLE))
             End If
 
         End If
@@ -1519,13 +1507,14 @@ Public Class Launcher
     ''' Останавливает сервер World.
     ''' </summary>
     ''' <param name="otherServers">Выключить так же и все прочие сервера.</param>
-    Friend Sub ShutdownWorld(otherServers As Boolean)
+    Friend Sub ShutdownWorld(otherServers As Boolean, ignoreLOCKED As Boolean)
         Dim processes = GetAllProcesses()
         Dim pc = processes.FindAll(Function(p) p.ProcessName = "mangosd")
         Dim id = 0
 
         ' Если серверы заблокированы но надо выйти из приложения - не гасим серверы WoW!
         If Not (_serversLOCKED And _NeedExitLauncher) Then
+            ' Идём глядеть
             If pc.Count > 0 Then
                 For Each process In pc
                     Try
@@ -1545,10 +1534,6 @@ Public Class Launcher
                                     process.Kill()
                                     _worldON = False
                                     _WorldProcess = Nothing
-
-                                    ' Выключаем Realmd
-                                    ShutdownRealmd()
-
                                 Catch
                                 End Try
                             End If
@@ -1562,14 +1547,11 @@ Public Class Launcher
                 ' Удалям хандлеры, если таковые были
                 If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
                 _WorldProcess = Nothing
-
-                ' Выключаем Realmd
-                ShutdownRealmd()
             End If
         End If
 
         ' Завершаем остановку сервера World в потоке
-        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers)) With {
+        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers, ignoreLOCKED)) With {
             .CurrentUICulture = GV.CI,
             .CurrentCulture = GV.CI,
             .IsBackground = True
@@ -2026,7 +2008,7 @@ Public Class Launcher
         _NeedServerStop = True
         _needServerStart = False
         _NeedExitLauncher = False
-        ShutdownWorld(False)
+        ShutdownWorld(False, False)
     End Sub
 
     ''' <summary>
@@ -2072,10 +2054,10 @@ Public Class Launcher
     ''' </summary>
     ''' <param name="shutdown">Завершить работу лаунчера после остановки серверов.</param>
     Friend Sub ShutdownAll(shutdown As Boolean)
-        GV.Log.WriteInfo(My.Resources.P040_CommandShutdown)
+        GV.Log.WriteInfo(UpdateMySQLConsole(My.Resources.P040_CommandShutdown, CONSOLE))
         _NeedExitLauncher = shutdown
         ' Запускаем остановку всех серверов 
-        ShutdownWorld(True)
+        ShutdownWorld(True, False)
     End Sub
 
 #End Region
@@ -2436,6 +2418,7 @@ Public Class Launcher
         RichTextBox_ConsoleWorld.Font = fnt
 
     End Sub
+
 
 #End Region
 
