@@ -142,9 +142,6 @@
   <data name="Real003_RealmdStopped" xml:space="preserve">
     <value>Сервер Realmd остановлен.</value>
   </data>
-  <data name="Apache002_Start" xml:space="preserve">
-    <value>Запуск сервера Apache.</value>
-  </data>
   <data name="tbc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tbc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,9 +180,6 @@
   </data>
   <data name="P027_ServerSelected" xml:space="preserve">
     <value>Выбран сервер: {0}</value>
-  </data>
-  <data name="Apache003_Started" xml:space="preserve">
-    <value>Сервер Apache успешно запущен.</value>
   </data>
   <data name="server" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -228,9 +222,6 @@
   </data>
   <data name="Real001_RealmdStart" xml:space="preserve">
     <value>Запуск сервера Realmd</value>
-  </data>
-  <data name="Apache005_NotStarted" xml:space="preserve">
-    <value>Не удалось запустить сервер Apache.</value>
   </data>
   <data name="P020_NeedServerStop" xml:space="preserve">
     <value>Остановка сервера по требованию.</value>
@@ -298,9 +289,6 @@
   <data name="P040_CommandShutdown" xml:space="preserve">
     <value>Остановка всех серверов.</value>
   </data>
-  <data name="Apache004_Stopped" xml:space="preserve">
-    <value>Сервер Apache успешно остановлен.</value>
-  </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Включить сайт</value>
   </data>
@@ -336,9 +324,6 @@
   </data>
   <data name="E004_ModulesNotFound" xml:space="preserve">
     <value>Не найдено ни одного модуля сервера WoW!</value>
-  </data>
-  <data name="Apache001_Shutdown" xml:space="preserve">
-    <value>Остановка сервера Apache.</value>
   </data>
   <data name="P029_LaunchMain" xml:space="preserve">
     <value>Запуск основного приложения.</value>

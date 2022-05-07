@@ -71,51 +71,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Остановка сервера Apache..
-        '''</summary>
-        Friend ReadOnly Property Apache001_Shutdown() As String
-            Get
-                Return ResourceManager.GetString("Apache001_Shutdown", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Запуск сервера Apache..
-        '''</summary>
-        Friend ReadOnly Property Apache002_Start() As String
-            Get
-                Return ResourceManager.GetString("Apache002_Start", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер Apache успешно запущен..
-        '''</summary>
-        Friend ReadOnly Property Apache003_Started() As String
-            Get
-                Return ResourceManager.GetString("Apache003_Started", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Сервер Apache успешно остановлен..
-        '''</summary>
-        Friend ReadOnly Property Apache004_Stopped() As String
-            Get
-                Return ResourceManager.GetString("Apache004_Stopped", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Не удалось запустить сервер Apache..
-        '''</summary>
-        Friend ReadOnly Property Apache005_NotStarted() As String
-            Get
-                Return ResourceManager.GetString("Apache005_NotStarted", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property close() As System.Drawing.Bitmap

@@ -117,21 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Apache001_Shutdown" xml:space="preserve">
-    <value>Stop the Apache server.</value>
-  </data>
-  <data name="Apache002_Start" xml:space="preserve">
-    <value>Apache server start.</value>
-  </data>
-  <data name="Apache003_Started" xml:space="preserve">
-    <value>Apache server started successfully.</value>
-  </data>
-  <data name="Apache004_Stopped" xml:space="preserve">
-    <value>The Apache server was successfully stopped.</value>
-  </data>
-  <data name="Apache005_NotStarted" xml:space="preserve">
-    <value>Failed to start Apache server.</value>
-  </data>
   <data name="E001_DirNotFound" xml:space="preserve">
     <value>Directory {0} not found!</value>
   </data>

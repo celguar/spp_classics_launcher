@@ -2,7 +2,6 @@
 
 
 Imports System.Runtime.InteropServices
-Imports System.Windows.Forms
 
 Public Class GDI
 

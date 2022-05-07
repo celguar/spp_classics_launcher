@@ -1,6 +1,6 @@
 ﻿
-Imports MySql.Data.MySqlClient
 Imports DevCake.WoW.SPP2Launcher.MySqlProvider
+Imports MySql.Data.MySqlClient
 
 Namespace MySqlDataBases
 

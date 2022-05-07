@@ -1,6 +1,4 @@
-﻿
-Imports System.Text
-Imports System.Threading
+﻿Imports System.Threading
 
 Public Class Launcher
 

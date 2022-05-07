@@ -6,7 +6,6 @@ Imports System.Runtime.InteropServices
 Imports System.Security.Principal
 Imports System.Text
 Imports System.Threading
-Imports System.Threading.Tasks
 Imports System.Xml
 
 Public Class EasyLog
