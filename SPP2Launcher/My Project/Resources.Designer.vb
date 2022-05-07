@@ -528,6 +528,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Изменение интерфейса на {0}. Произойдёт после перезагрузки..
+        '''</summary>
+        Friend ReadOnly Property P015_ChangeLocale() As String
+            Get
+                Return ResourceManager.GetString("P015_ChangeLocale", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Внимание!.
         '''</summary>
         Friend ReadOnly Property P016_WarningCaption() As String

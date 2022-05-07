@@ -454,4 +454,7 @@
   <data name="P052_FirstStart" xml:space="preserve">
     <value> - ЭТО ПЕРВЫЙ ЗАПУСК!</value>
   </data>
+  <data name="P015_ChangeLocale" xml:space="preserve">
+    <value>Изменение интерфейса на {0}. Произойдёт после перезагрузки.</value>
+  </data>
 </root>

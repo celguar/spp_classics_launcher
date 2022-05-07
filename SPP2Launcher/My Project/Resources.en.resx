@@ -216,6 +216,9 @@
   <data name="P014_Reset2" xml:space="preserve">
     <value>This action will reset the application settings to default. Proceed?</value>
   </data>
+  <data name="P015_ChangeLocale" xml:space="preserve">
+    <value>Changing the interface on the {0}. Happens after reboot.</value>
+  </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Attention!</value>
   </data>
