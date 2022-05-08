@@ -288,7 +288,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="ConsoleMessageFilter" Description="Не выводить в консоль сообщения об ошибках." Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="UseConsoleBuffer" Description="Сохранять введённые команды в буфере." Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

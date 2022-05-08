@@ -268,7 +268,7 @@
     <value>Wait for the end...</value>
   </data>
   <data name="P040_CommandShutdown" xml:space="preserve">
-    <value>Stop all servers.</value>
+    <value>Stop non-isolated servers.</value>
   </data>
   <data name="P041_AlreadyStarted" xml:space="preserve">
     <value>{0} server is already running.</value>
@@ -289,7 +289,7 @@
     <value>Detected process {0} which should not be. The server is isolated until the problem is resolved.</value>
   </data>
   <data name="P047_Locked01" xml:space="preserve">
-    <value>This is the smallest issue. Open the Apache menu and select the "Stop" menu item</value>
+    <value>This is the smallest issue. Open the Apache menu and select the "Stop" menu item.</value>
   </data>
   <data name="P047_Locked02" xml:space="preserve">
     <value>As a result of these actions, the server will be unblocked and will become available for connection.</value>
@@ -316,19 +316,16 @@
     <value>In this case, it would be ideal to back up the database.</value>
   </data>
   <data name="P047_Locked10" xml:space="preserve">
-    <value>What happens if I choose "Stop": You can lose everything, including your underpants.</value>
+    <value>What happens if I select "Stop": Most likely you will lose unsaved data.</value>
   </data>
   <data name="P047_Locked11" xml:space="preserve">
-    <value>What happens if I end the process through the task manager: Same as underpants.</value>
+    <value>What happens if I end the process through the task manager: Same as in the previous case.</value>
   </data>
   <data name="P047_Locked12" xml:space="preserve">
-    <value>And if I press "UNLOCK ALL": As a rule, you will wake up without panties, but quickly and without tantrums.</value>
+    <value>And if I press "UNLOCK ALL": Everything is the same as above, but quickly.</value>
   </data>
   <data name="P047_Locked13" xml:space="preserve">
-    <value>What to do? - LEARN THE MATTER. Not everything can be done at the snap of a finger.</value>
-  </data>
-  <data name="P047_Locked16" xml:space="preserve">
-    <value />
+    <value>What to do? - Not everything can be done at the snap of a finger, some things require manual intervention.</value>
   </data>
   <data name="P049_NotStarted" xml:space="preserve">
     <value>Failed to start {0} server</value>

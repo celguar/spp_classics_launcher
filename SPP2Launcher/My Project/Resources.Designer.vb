@@ -681,7 +681,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Остановка всех серверов..
+        '''  Ищет локализованную строку, похожую на Остановка неизолированных серверов..
         '''</summary>
         Friend ReadOnly Property P040_CommandShutdown() As String
             Get
@@ -744,7 +744,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню &quot;Остановить&quot;.
+        '''  Ищет локализованную строку, похожую на Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню &quot;Остановить&quot;..
         '''</summary>
         Friend ReadOnly Property P047_Locked01() As String
             Get
@@ -825,7 +825,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Что произойдёт если я выберу &quot;Остановить&quot;: Вы можете потерять всё, включая трусы..
+        '''  Ищет локализованную строку, похожую на Что произойдёт если я выберу &quot;Остановить&quot;: Скорее всего вы потеряете несохранённые данные..
         '''</summary>
         Friend ReadOnly Property P047_Locked10() As String
             Get
@@ -834,7 +834,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Что произойдёт, если я завершу процесс через диспетчер задач: То же, что и с трусами..
+        '''  Ищет локализованную строку, похожую на Что произойдёт, если я завершу процесс через диспетчер задач: То же, и в предыдущем случае..
         '''</summary>
         Friend ReadOnly Property P047_Locked11() As String
             Get
@@ -843,7 +843,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на А если нажму &quot;РАЗБЛОКИРОВАТЬ ВСЁ&quot;: Как правило - очнётесь без трусов, зато быстро и без истерик..
+        '''  Ищет локализованную строку, похожую на А если нажму &quot;РАЗБЛОКИРОВАТЬ ВСЁ&quot;: Всё то же самое, что написано выше, зато быстро..
         '''</summary>
         Friend ReadOnly Property P047_Locked12() As String
             Get
@@ -852,38 +852,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Что же делать? - УЧИТЕ МАТЧАСТЬ. Не всё возможно сделать по щелчку пальцев..
+        '''  Ищет локализованную строку, похожую на Что же делать? - Не всё возможно сделать по щелчку пальцев, некоторые вещи требуют ручного вмешательства..
         '''</summary>
         Friend ReadOnly Property P047_Locked13() As String
             Get
                 Return ResourceManager.GetString("P047_Locked13", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на Что произойдёт: Вы сохраните все свои и свойства ботов, что именно украшают  и делают SPP2.
-        '''</summary>
-        Friend ReadOnly Property P047_Locked14() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked14", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на значимым и уважаемым проектом. Если Вы ничего не делаете ради этого - Ничего страшного!.
-        '''</summary>
-        Friend ReadOnly Property P047_Locked15() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked15", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Ищет локализованную строку, похожую на .
-        '''</summary>
-        Friend ReadOnly Property P047_Locked16() As String
-            Get
-                Return ResourceManager.GetString("P047_Locked16", resourceCulture)
             End Get
         End Property
         

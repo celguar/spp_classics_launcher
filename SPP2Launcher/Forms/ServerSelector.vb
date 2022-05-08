@@ -93,7 +93,7 @@ Public Class ServerSelector
         Me.Hide()
         GV.SPP2Launcher = New Launcher
         GV.SPP2Launcher.ShowDialog()
-        If My.Settings.FirstStart Or GV.NeedRestart Then
+        If My.Settings.FirstStart Then
             My.Settings.FirstStart = False
             My.Settings.Save()
             Application.Restart()

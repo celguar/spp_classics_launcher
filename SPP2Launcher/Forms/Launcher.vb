@@ -55,16 +55,28 @@ Public Class Launcher
     Friend Property WorldProcess As Process
 
     ''' <summary>
+    ''' Флаг работы World.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Property WorldON As Boolean
+
+    ''' <summary>
     ''' Флаг работы Realmd.
     ''' </summary>
     ''' <returns></returns>
-    Friend ReadOnly Property RealmdON As Boolean
+    Friend Property RealmdON As Boolean
 
     ''' <summary>
-    ''' Флаг блокировки сервера MySQL.
+    ''' Флаг изоляции сервера MySQL.
     ''' </summary>
     ''' <returns></returns>
     Friend ReadOnly Property MySqlLOCKED As Boolean
+
+    ''' <summary>
+    ''' Флаг изоляции сервера Apache
+    ''' </summary>
+    ''' <returns></returns>
+    Friend ReadOnly Property ApacheLOCKED As Boolean
 
 #End Region
 
@@ -103,19 +115,9 @@ Public Class Launcher
     Private _iniWorld As IniFiles
 
     ''' <summary>
-    ''' Флаг работы World
-    ''' </summary>
-    Private _worldON As Boolean
-
-    ''' <summary>
     ''' Флаг запрета запуска Apache
     ''' </summary>
     Private _apacheSTOP As Boolean
-
-    ''' <summary>
-    ''' Apache заблокирован.
-    ''' </summary>
-    Private _apacheLOCKED As Boolean
 
     ''' <summary>
     ''' Servers заблокирован.
@@ -211,7 +213,6 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If My.Settings.FirstStart Then
-            ShutdownAll(True)
             Threading.Thread.Sleep(1000)
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
         Else
@@ -326,15 +327,17 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_Reset_Click(sender As Object, e As EventArgs) Handles TSMI_Reset.Click
-        Dim str = If(My.Settings.FirstStart, My.Resources.P014_Reset2, My.Resources.P014_Reset1)
-        Dim result = MessageBox.Show(str,
-                                     My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If result = DialogResult.Yes Then
-            ' Устанавливаем флаги - нужна перезагрузка, это сброс настроек
-            GV.NeedRestart = True
-            GV.ResetSettings = True
-            ' Останавливаем ВСЕ сервера
-            ShutdownAll(True)
+        If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
+            Dim str = If(My.Settings.FirstStart, My.Resources.P014_Reset2, My.Resources.P014_Reset1)
+            Dim result = MessageBox.Show(str,
+                                         My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If result = DialogResult.Yes Then
+                ' Устанавливаем флаги - нужна перезагрузка, это сброс настроек
+                GV.NeedRestart = True
+                GV.ResetSettings = True
+                ' Останавливаем ВСЕ сервера
+                ShutdownAll(True)
+            End If
         End If
     End Sub
 
@@ -347,11 +350,14 @@ Public Class Launcher
         Dim result = MessageBox.Show(My.Resources.P050_Exit1,
                                  My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If result = DialogResult.No Then Exit Sub
+        RichTextBox_ConsoleMySQL.Clear()
         ' Блокируем меню серверов
         LockedServersMenu()
         _NeedExitLauncher = False
-        If _apacheLOCKED Then ShutdownApache()
-        ShutdownWorld(True, True)
+        _MySqlLOCKED = False
+        _serversLOCKED = False
+        If _apacheLOCKED Then _apacheLOCKED = False : ShutdownApache()
+        ShutdownWorld(True)
     End Sub
 
     ''' <summary>
@@ -511,12 +517,12 @@ Public Class Launcher
         End If
 
         ' Разбираемся с пунктом меню смены типа сервера
-        If _ServerWowAutostart Then
-            ' Прячем меню смены сервера
-            TSMI_ServerSwitcher.Visible = False
+        If ServerWowAutostart Then
+            ' Запрещаем доступ к меню смены сервера
+            TSMI_ServerSwitcher.Enabled = False
         Else
-            ' Отображаем меню смены сервера
-            TSMI_ServerSwitcher.Visible = True
+            ' Разрешаем доступ к меню смены сервера
+            TSMI_ServerSwitcher.Enabled = True
         End If
 
         ' Устанавливаем тему консоли.
@@ -524,6 +530,8 @@ Public Class Launcher
 
         ' Выводим состояние пункта меню автозапуска сервера
         TSMI_WowAutoStart.Checked = ServerWowAutostart
+
+        TabControl1.SelectedTab = TabPage_World
 
         ' Если это первый запуск - предупреждаем
         If My.Settings.FirstStart Then
@@ -577,19 +585,20 @@ Public Class Launcher
     ''' <summary>
     ''' Обновление параметров главного меню приложения.
     ''' </summary>
-    Friend Sub UpdateMainMenu(firstStart As Boolean)
+    ''' <param name="launchON">Флаг начального запуска приложения.</param>
+    Friend Sub UpdateMainMenu(launchON As Boolean)
         If Me.InvokeRequired Then
             Me.Invoke(Sub()
-                          UpdateMainMenu(firstStart)
+                          UpdateMainMenu(launchON)
                       End Sub)
         Else
 
             ' Обходим проверку блокировки серверов, если это выход из приложения
             If Not _NeedExitLauncher Then
-                If Not My.Settings.FirstStart Then
+                If Not My.Settings.FirstStart And launchON Then
 
                     ' Проверяем процесс Apache которого не должно быть
-                    If firstStart AndAlso CheckProcess(EProcess.apache) Then _apacheLOCKED = True Else _apacheLOCKED = False
+                    If launchON AndAlso CheckProcess(EProcess.apache) Then _apacheLOCKED = True Else _apacheLOCKED = False
 
                     ' Проверяем процесс MySQL которого не должно быть
                     If CheckProcess(EProcess.mysqld) Then _MySqlLOCKED = True Else _MySqlLOCKED = False
@@ -612,7 +621,6 @@ Public Class Launcher
                 TabControl1.SelectedTab = TabPage_MySQL
             Else
                 TabPage_MySQL.Text = "MySQL & Apache"
-                TabControl1.SelectedTab = TabPage_World
             End If
 
             ' Обустраиваем меню MySQL
@@ -666,13 +674,13 @@ Public Class Launcher
             End If
 
             ' Если нет других mysqld.exe используется встроенный сервер MySQL и включен его автостарт и при этом это не первый запуск
-            If Not _MySqlLOCKED And My.Settings.UseIntMySQL And My.Settings.MySqlAutostart And Not My.Settings.FirstStart Then
+            If Not _MySqlLOCKED And My.Settings.UseIntMySQL And My.Settings.MySqlAutostart And launchON And Not My.Settings.FirstStart Then
                 ' Используем запуск с ожиданием завершения другого процесса, если таковой был
                 WaitProcessEnd(EProcess.mysqld, EAction.Start, False)
             End If
 
             ' Если нет других mysqld.exe и включен автозапуск сервера
-            If Not _MySqlLOCKED And ServerWowAutostart Then
+            If Not _MySqlLOCKED And Not _serversLOCKED And launchON And Not Not My.Settings.FirstStart And ServerWowAutostart Then
                 ' Выставляем флаг необходимости запуска всего комплекса
                 _needServerStart = True
                 GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
@@ -683,8 +691,15 @@ Public Class Launcher
             If _MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED Then
                 RichTextBox_ConsoleMySQL.Clear()
                 Button_UnlockAll.Visible = True
+                ' Запрещаем доступ до сброса настроек
+                TSMI_Reset.Enabled = False
             Else
                 Button_UnlockAll.Visible = False
+                If ServerWowAutostart Then
+                    _needServerStart = True
+                    ' Запрещаем доступ до сброса настроек
+                    TSMI_Reset.Enabled = False
+                End If
             End If
 
             ' ТЕПЕРЬ ПО LOCKED ПОДСКАЗКАМ
@@ -757,7 +772,7 @@ Public Class Launcher
     Private Sub TSMI_MySqlStart_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStart.Click
         ' Активируем вкладку MySQL
         TabControl1.SelectedTab = TabPage_MySQL
-        If Not _mysqlLOCKED Then TimerStartMySQL.Change(1000, 1000)
+        If Not _MySqlLOCKED And Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
     End Sub
 
     ''' <summary>
@@ -777,7 +792,8 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlStop_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStop.Click
-
+        _MySqlLOCKED = False
+        RichTextBox_ConsoleMySQL.Clear()
         ' Активируем вкладку MySQL
         TabControl1.SelectedTab = TabPage_MySQL
         ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
@@ -797,46 +813,49 @@ Public Class Launcher
     ''' Запускает сервер MySQL
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
-        If Not _MySqlLOCKED And Not _apacheLOCKED And Not _serversLOCKED And Not CheckProcess(EProcess.mysqld) Then
-            If Not _MySqlLOCKED And My.Settings.UseIntMySQL And IsNothing(_mysqlProcess) Then
-                GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "MySQL"), CONSOLE))
+        If Not _MySqlLOCKED Then
+            If Not CheckProcess(EProcess.mysqld) Then
 
-                Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
-                Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
-                ' Создаём информацию о процессе
-                Dim startInfo = New ProcessStartInfo("cmd.exe") With {
-                .Arguments = "/C " & exefile & " --defaults-file=" & settings & " --standalone --console",
-                .CreateNoWindow = True,
-                .RedirectStandardInput = True,
-                .RedirectStandardOutput = True,
-                .RedirectStandardError = True,
-                .UseShellExecute = False,
-                .WindowStyle = ProcessWindowStyle.Hidden,
-                .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2MYSQL
-                }
-                _mysqlProcess = New Process()
-                Try
-                    _mysqlProcess.StartInfo = startInfo
-                    ' Запускаем
-                    If _mysqlProcess.Start() Then
-                        GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P043_ServerStarted, "MySQL"), CONSOLE))
-                        AddHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
-                        AddHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
-                        AddHandler _mysqlProcess.Exited, AddressOf MySqlExited
-                        _mysqlProcess.BeginOutputReadLine()
-                        _mysqlProcess.BeginErrorReadLine()
-                    Else
-                        _mysqlProcess = Nothing
-                    End If
-                Catch ex As Exception
-                    ' MySQL выдал исключение
-                    GV.Log.WriteException(ex)
-                    UpdateMySQLConsole("[EConsole] " & String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE)
-                End Try
+                If Not _MySqlLOCKED And My.Settings.UseIntMySQL And IsNothing(_mysqlProcess) Then
+                    GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "MySQL"), CONSOLE))
+
+                    Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
+                    Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
+                    ' Создаём информацию о процессе
+                    Dim startInfo = New ProcessStartInfo("cmd.exe") With {
+                            .Arguments = "/C " & exefile & " --defaults-file=" & settings & " --standalone --console",
+                            .CreateNoWindow = True,
+                            .RedirectStandardInput = True,
+                            .RedirectStandardOutput = True,
+                            .RedirectStandardError = True,
+                            .UseShellExecute = False,
+                            .WindowStyle = ProcessWindowStyle.Hidden,
+                            .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2MYSQL
+                    }
+                    _mysqlProcess = New Process()
+                    Try
+                        _mysqlProcess.StartInfo = startInfo
+                        ' Запускаем
+                        If _mysqlProcess.Start() Then
+                            GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P043_ServerStarted, "MySQL"), CONSOLE))
+                            AddHandler _mysqlProcess.OutputDataReceived, AddressOf MySqlOutputDataReceived
+                            AddHandler _mysqlProcess.ErrorDataReceived, AddressOf MySqlErrorDataReceived
+                            AddHandler _mysqlProcess.Exited, AddressOf MySqlExited
+                            _mysqlProcess.BeginOutputReadLine()
+                            _mysqlProcess.BeginErrorReadLine()
+                        Else
+                            _mysqlProcess = Nothing
+                        End If
+                    Catch ex As Exception
+                        ' MySQL выдал исключение
+                        GV.Log.WriteException(ex)
+                        UpdateMySQLConsole("[EConsole] " & String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE)
+                    End Try
+                End If
+            Else
+                ' Сервер уже запущен
+                GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "MySQL"), WCONSOLE))
             End If
-
-            ' Сервер уже запущен
-            GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "MySQL"), WCONSOLE))
         End If
     End Sub
 
@@ -855,60 +874,62 @@ Public Class Launcher
     ''' Останавливает сервер MySQL
     ''' </summary>
     Friend Sub ShutdownMySQL(p As EProcess, a As EAction)
-        ' Проверяем наличие процесса
-        If CheckProcess(EProcess.mysqld) Then
-            GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "MySQL"), CONSOLE))
-            If My.Settings.UseIntMySQL Then
-                Dim login, pass, port As String
-                Select Case My.Settings.LastLoadedServerType
-                    Case GV.EModule.Classic.ToString
-                        login = My.Settings.MySqlClassicIntUserName
-                        pass = My.Settings.MySqlClassicIntPassword
-                        port = My.Settings.MySqlClassicIntPort
-                    Case GV.EModule.Tbc.ToString
-                        login = My.Settings.MySqlClassicIntUserName
-                        pass = My.Settings.MySqlClassicIntPassword
-                        port = My.Settings.MySqlClassicIntPort
-                    Case GV.EModule.Wotlk.ToString
-                        login = My.Settings.MySqlClassicIntUserName
-                        pass = My.Settings.MySqlClassicIntPassword
-                        port = My.Settings.MySqlClassicIntPort
-                    Case Else
-                        ' Неизвестный модуль
-                        GV.Log.WriteWarning(String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType))
-                        Exit Sub
-                End Select
-                ' Создаём информацию для процесса
-                Dim startInfo = New ProcessStartInfo With {
-            .CreateNoWindow = True,
-            .UseShellExecute = False,
-            .FileName = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqladmin.exe",
-            .Arguments = "-u " & login & " -p" & pass & " --port=" & port & " shutdown",
-            .WindowStyle = ProcessWindowStyle.Hidden
-            }
-                ' Выполняем
-                Try
-                    ' Блокируем меню серверов
-                    LockedServersMenu()
-                    Using exeProcess = Process.Start(startInfo)
-                        exeProcess.WaitForExit()
-                    End Using
-                Catch ex As Exception
-                    ' Исключение при остановке MySQL
-                    UpdateMainMenu(False)
-                    GV.Log.WriteException(ex)
-                    GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE))
-                End Try
+        If Not _MySqlLOCKED Then
+            ' Проверяем наличие процесса
+            If CheckProcess(EProcess.mysqld) Then
+                GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "MySQL"), CONSOLE))
+                If My.Settings.UseIntMySQL Then
+                    Dim login, pass, port As String
+                    Select Case My.Settings.LastLoadedServerType
+                        Case GV.EModule.Classic.ToString
+                            login = My.Settings.MySqlClassicIntUserName
+                            pass = My.Settings.MySqlClassicIntPassword
+                            port = My.Settings.MySqlClassicIntPort
+                        Case GV.EModule.Tbc.ToString
+                            login = My.Settings.MySqlClassicIntUserName
+                            pass = My.Settings.MySqlClassicIntPassword
+                            port = My.Settings.MySqlClassicIntPort
+                        Case GV.EModule.Wotlk.ToString
+                            login = My.Settings.MySqlClassicIntUserName
+                            pass = My.Settings.MySqlClassicIntPassword
+                            port = My.Settings.MySqlClassicIntPort
+                        Case Else
+                            ' Неизвестный модуль
+                            GV.Log.WriteWarning(String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType))
+                            Exit Sub
+                    End Select
+                    ' Создаём информацию для процесса
+                    Dim startInfo = New ProcessStartInfo With {
+                .CreateNoWindow = True,
+                .UseShellExecute = False,
+                .FileName = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqladmin.exe",
+                .Arguments = "-u " & login & " -p" & pass & " --port=" & port & " shutdown",
+                .WindowStyle = ProcessWindowStyle.Hidden
+                }
+                    ' Выполняем
+                    Try
+                        ' Блокируем меню серверов
+                        LockedServersMenu()
+                        Using exeProcess = Process.Start(startInfo)
+                            exeProcess.WaitForExit()
+                        End Using
+                    Catch ex As Exception
+                        ' Исключение при остановке MySQL
+                        UpdateMainMenu(False)
+                        GV.Log.WriteException(ex)
+                        GV.Log.WriteError(UpdateMySQLConsole(String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE))
+                    End Try
+                End If
             End If
-        End If
 
-        ' Создаём поток для ожидания остановки MySQL
-        Dim wpe = New Threading.Thread(Sub() WaitProcessEnd(p, a)) With {
-            .CurrentCulture = GV.CI,
-            .CurrentUICulture = GV.CI,
-            .IsBackground = True
-        }
-        wpe.Start()
+            ' Создаём поток для ожидания остановки MySQL
+            Dim wpe = New Threading.Thread(Sub() WaitProcessEnd(p, a)) With {
+                .CurrentCulture = GV.CI,
+                .CurrentUICulture = GV.CI,
+                .IsBackground = True
+            }
+            wpe.Start()
+        End If
 
     End Sub
 
@@ -1152,6 +1173,8 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStop_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStop.Click
         _apacheSTOP = True
+        _apacheLOCKED = False
+        RichTextBox_ConsoleMySQL.Clear()
         ShutdownApache()
         UpdateMainMenu(False)
     End Sub
@@ -1242,6 +1265,12 @@ Public Class Launcher
             Try
                 ' Проверяем наличие процесса/процессов и если что - убиваем.
                 CheckProcess(EProcess.apache, True)
+                TSSL_Apache.GetCurrentParent().Invoke(Sub()
+                                                          TSSL_Apache.Image = My.Resources.red_ball
+                                                      End Sub)
+                ' На всякий случай ещё и так
+                Dim id = GetApachePid()
+                If id > 0 Then Process.GetProcessById(id).Kill()
                 GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P045_ServerStopped, "Apache"), CONSOLE))
                 If Not _NeedExitLauncher Then UpdateMainMenu(False)
             Catch ex As Exception
@@ -1313,7 +1342,7 @@ Public Class Launcher
         Dim tcpClient = New Net.Sockets.TcpClient
         Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
         Try
-            If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
+            If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5), False) Then
                 tcpClient.Close()
                 If Me.Visible Then
                     TSSL_Apache.GetCurrentParent().Invoke(Sub()
@@ -1507,7 +1536,7 @@ Public Class Launcher
     ''' Останавливает сервер World.
     ''' </summary>
     ''' <param name="otherServers">Выключить так же и все прочие сервера.</param>
-    Friend Sub ShutdownWorld(otherServers As Boolean, ignoreLOCKED As Boolean)
+    Friend Sub ShutdownWorld(otherServers As Boolean)
         Dim processes = GetAllProcesses()
         Dim pc = processes.FindAll(Function(p) p.ProcessName = "mangosd")
         Dim id = 0
@@ -1548,15 +1577,17 @@ Public Class Launcher
                 If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
                 _WorldProcess = Nothing
             End If
+
         End If
 
         ' Завершаем остановку сервера World в потоке
-        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers, ignoreLOCKED)) With {
-            .CurrentUICulture = GV.CI,
-            .CurrentCulture = GV.CI,
-            .IsBackground = True
-        }
+        Dim sw As New Threading.Thread(Sub() StoppingWorld(id, otherServers)) With {
+                .CurrentUICulture = GV.CI,
+                .CurrentCulture = GV.CI,
+                .IsBackground = True
+            }
         sw.Start()
+
     End Sub
 
     ''' <summary>
@@ -1801,30 +1832,33 @@ Public Class Launcher
     ''' Останавливает сервер Realmd.
     ''' </summary>
     Friend Sub ShutdownRealmd()
-        Dim processes = GetAllProcesses()
-        Dim pc = processes.FindAll(Function(p) p.ProcessName = "realmd")
-        If pc.Count > 0 Then
-            For Each process In pc
-                Try
-                    If process.MainModule.FileName = My.Settings.CurrentFileRealmd Then
-                        Try
-                            process.Kill()
-                            Thread.Sleep(100)
-                            GV.Log.WriteInfo(My.Resources.P020_NeedServerStop)
-                            UpdateRealmdConsole(My.Resources.P020_NeedServerStop, CONSOLE)
-                        Catch
-                        End Try
-                    End If
-                Catch
-                    ' Нет доступа.
-                End Try
-            Next
-        Else
+        If Not _serversLOCKED Then
+            Dim processes = GetAllProcesses()
+            Dim pc = processes.FindAll(Function(p) p.ProcessName = "realmd")
+            If pc.Count > 0 Then
+                For Each process In pc
+                    Try
+                        If process.MainModule.FileName = My.Settings.CurrentFileRealmd Then
+                            Try
+                                process.Kill()
+                                Thread.Sleep(100)
+                                TSSL_Realm.Image = My.Resources.red_ball
+                                GV.Log.WriteInfo(My.Resources.P020_NeedServerStop)
+                                UpdateRealmdConsole(My.Resources.P020_NeedServerStop, CONSOLE)
+                            Catch
+                            End Try
+                        End If
+                    Catch
+                        ' Нет доступа.
+                    End Try
+                Next
+            Else
+            End If
+            _RealmdON = False
+            ' Удаляем хандлеры, если таковые были
+            If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
+            _RealmdProcess = Nothing
         End If
-        _RealmdON = False
-        ' Удаляем хандлеры, если таковые были
-        If Not IsNothing(_RealmdProcess) Then RealmdExited(Me, Nothing)
-        _RealmdProcess = Nothing
     End Sub
 
     ''' <summary>
@@ -1954,17 +1988,16 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
-        ' Выводим предупреждение
-        Dim str = If(_MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
-        Dim result = MessageBox.Show(str,
+        If Not My.Settings.FirstStart Then
+            ' Выводим предупреждение
+            Dim str = If(_MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
+            Dim result = MessageBox.Show(str,
                                      My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If result = DialogResult.Yes Then
-            If My.Settings.FirstStart Then
-                Me.Close()
-            Else
-                _NeedExitLauncher = True
+            If result = DialogResult.Yes Then
                 ShutdownAll(True)
             End If
+        Else
+            Me.Close()
         End If
     End Sub
 
@@ -1988,27 +2021,35 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStart_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStart.Click
-        _isLastCommandStart = True
-        _NeedServerStop = False
-        RichTextBox_ConsoleRealmd.Clear()
-        RichTextBox_ConsoleWorld.Clear()
-        If ServerWowAutostart Then
-            GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
-            GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+        If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
+            TSMI_Reset.Enabled = False
+            _isLastCommandStart = True
+            _NeedServerStop = False
+            _needServerStart = True
+            RichTextBox_ConsoleRealmd.Clear()
+            RichTextBox_ConsoleWorld.Clear()
+            If ServerWowAutostart Then
+                GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+            End If
         End If
     End Sub
 
     ''' <summary>
-    ''' МЕНЮ - ОСТАНОВКА СЕРВЕРА
+    ''' МЕНЮ - ОСТАНОВКА СЕРВЕРА WoW
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStop_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStop.Click
-        _isLastCommandStart = False
-        _NeedServerStop = True
-        _needServerStart = False
-        _NeedExitLauncher = False
-        ShutdownWorld(False, False)
+        If CheckProcess(EProcess.realmd) And CheckProcess(EProcess.world) Then
+            TSMI_Reset.Enabled = True
+            _isLastCommandStart = False
+            _NeedServerStop = True
+            _needServerStart = False
+            _NeedExitLauncher = False
+            _serversLOCKED = False
+            ShutdownWorld(False)
+        End If
     End Sub
 
     ''' <summary>
@@ -2031,21 +2072,15 @@ Public Class Launcher
         _ServerWowAutostart = Not ServerWowAutostart
         TSMI_WowAutoStart.Checked = ServerWowAutostart
         My.Settings.Save()
-    End Sub
-
-    ''' <summary>
-    ''' Запускает сервер WOW.
-    ''' </summary>
-    Friend Sub ServerStart()
-        If Not CheckProcess(EProcess.realmd) Or Not CheckProcess(EProcess.world) Then
-            _NeedExitLauncher = False
-            ' Сначала запускаем MySQL
-            StartMySQL(Nothing)
-            _needServerStart = True
-            ServerStart()
+        If ServerWowAutostart Then
+            ' Запрещаем доступ к меню смены сервера
+            TSMI_ServerSwitcher.Enabled = False
+            If Not CheckProcess(EProcess.realmd) Or Not CheckProcess(EProcess.world) Then
+                _needServerStart = True
+            End If
         Else
-            TabControl1.SelectedTab = TabPage_World
-            GV.Log.WriteWarning(String.Format(My.Resources.P041_AlreadyStarted, "WoW (realmd & world)"))
+            ' Разрешаем доступ к меню смены сервера
+            TSMI_ServerSwitcher.Enabled = True
         End If
     End Sub
 
@@ -2057,7 +2092,7 @@ Public Class Launcher
         GV.Log.WriteInfo(UpdateMySQLConsole(My.Resources.P040_CommandShutdown, CONSOLE))
         _NeedExitLauncher = shutdown
         ' Запускаем остановку всех серверов 
-        ShutdownWorld(True, False)
+        ShutdownWorld(True)
     End Sub
 
 #End Region
@@ -2151,9 +2186,6 @@ Public Class Launcher
         Return text
     End Function
 
-    Dim oldMessage As String = ""
-    Dim holdline As Integer
-
     ''' <summary>
     ''' Прямой вывод в консоль World.
     ''' </summary>
@@ -2181,17 +2213,7 @@ Public Class Launcher
                 RichTextBox_ConsoleWorld.AppendText(text)
                 RichTextBox_ConsoleWorld.ScrollToCaret()
         End Select
-        oldMessage = text
-        If oldMessage = "=" Then
-            holdline = RichTextBox_ConsoleWorld.Lines.Count
-        End If
         RichTextBox_ConsoleWorld.Select(RichTextBox_ConsoleWorld.GetFirstCharIndexOfCurrentLine(), 0)
-        If text.Contains("mangos>Halting process") Or text.Contains(My.Resources.E016_WorldCrashed) Then
-            ' Сервер World остановился. Удаляем хандлеры
-            If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
-            WorldProcess = Nothing
-            _worldON = False
-        End If
     End Sub
 
     ''' <summary>

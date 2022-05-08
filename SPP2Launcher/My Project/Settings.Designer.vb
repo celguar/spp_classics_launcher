@@ -1264,7 +1264,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Не выводить в консоль сообщения об ошибках."),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public Property ConsoleMessageFilter() As Integer
             Get
                 Return CType(Me("ConsoleMessageFilter"),Integer)

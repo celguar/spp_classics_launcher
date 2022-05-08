@@ -401,16 +401,39 @@ Module SPP2Helper
     ''' <param name="e"></param>
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
         If Not IsNothing(e.Data) Then
-            If My.Settings.ConsoleMessageFilter < 1 Then
+
+            If My.Settings.ConsoleMessageFilter = 0 Then
                 GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
-            Else
+            ElseIf My.Settings.ConsoleMessageFilter = 1 Then
                 If Not e.Data.Contains("ERROR") Then
                     GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
                 End If
+            Else
+                If e.Data.Contains("__") Or
+                    e.Data.Contains("Starting") Or
+                    e.Data.Contains("Initializing") Or
+                    e.Data.Contains("initialized") Or
+                    e.Data.Contains("Loading") Or
+                    e.Data.Contains("Loaded") Or
+                    e.Data.Contains("SQL") Or
+                    e.Data.Contains("SERVER STARTUP TIME") Then
+                    GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
+                End If
             End If
+
+            ' Эта строка говорит о том, что сервер полностью запустился.
             If e.Data.Contains("SERVER STARTUP TIME") Then
                 WorldStartTime = Date.Now.ToOADate()
             End If
+
+            ' Эта строка говорит о том, что сервер готов к смерти
+            If e.Data.Contains("mangos>Halting process") Or e.Data.Contains(My.Resources.E016_WorldCrashed) Then
+                ' Сервер World остановился. Удаляем хандлеры
+                If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then GV.SPP2Launcher.WorldExited(Nothing, Nothing)
+                GV.SPP2Launcher.WorldProcess = Nothing
+                GV.SPP2Launcher.WorldON = False
+            End If
+
         End If
     End Sub
 
@@ -421,8 +444,12 @@ Module SPP2Helper
     ''' <param name="e"></param>
     Friend Sub WorldErrorDataReceived(sender As Object, e As DataReceivedEventArgs)
         If Not IsNothing(e.Data) Then
-            If My.Settings.ConsoleMessageFilter < 1 Then
+            If My.Settings.ConsoleMessageFilter = 0 Then
                 GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+            ElseIf My.Settings.ConsoleMessageFilter = 2 Then
+                If e.Data.Contains("SQL") Then
+                    GV.SPP2Launcher.UpdateWorldConsole(e.Data, Color.Red)
+                End If
             End If
         End If
     End Sub
@@ -492,7 +519,7 @@ Module SPP2Helper
 
                         Do While Not pr.HasExited
                             ' Процесс найден, ждём его завершения
-                            Threading.Thread.Sleep(200)
+                            Threading.Thread.Sleep(1000)
                         Loop
                         ' Процесс завершен
                         If outMessage Then GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMySQLConsole(str, CONSOLE))
@@ -533,7 +560,6 @@ Module SPP2Helper
                 GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
                 If GV.NeedRestart Or My.Settings.FirstStart Then
                     If Not GV.ResetSettings Then
-                        My.Settings.FirstStart = False
                         My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
                         My.Settings.Save()
                     Else
@@ -541,7 +567,10 @@ Module SPP2Helper
                     End If
                 End If
                 GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
-                Application.Exit()
+                Try
+                    Application.Exit()
+                Catch
+                End Try
 
         End Select
 
@@ -566,9 +595,12 @@ Module SPP2Helper
     ''' </summary>
     ''' <param name="processID">Идентификатор процесса, который следует завалить.</param>
     ''' <param name="otherServers">Вырубить так же и прочие серверы.</param>
-    ''' <param name="ignoreLOCKED">Игнорирует изоляцию серверов.</param>
-    Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean, ignoreLOCKED As Boolean)
+    Friend Sub StoppingWorld(processID As Integer, otherServers As Boolean)
         WorldStartTime = 0
+
+        ' Очищаем контроллер автозапуска серверов WoW
+        BP.ProcessesAreStopped()
+
         If processID > 0 Then
             Do
                 ' Пишем в строку состояния - Идёт остановка серверов
@@ -582,7 +614,6 @@ Module SPP2Helper
                 Else
                     ' Процесс завершился
                     GV.Log.WriteInfo("Shutdown is OK!")
-                    GV.SPP2Launcher.WorldProcess = Nothing
                     Try
                         Dim pc = Process.GetProcessById(processID)
                         pc.Kill()
@@ -598,9 +629,6 @@ Module SPP2Helper
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
 
-        ' Очищаем контроллер автозапуска серверов WoW
-        BP.ProcessesAreStopped()
-
         ' Если идёт процесс BackUp то ждём завершения
         Do While BackupProcess
             Threading.Thread.Sleep(200)
@@ -608,7 +636,7 @@ Module SPP2Helper
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы
-            GV.SPP2Launcher.ShutdownApache()
+            If Not GV.SPP2Launcher.ApacheLOCKED Then CheckProcess(EProcess.apache, True)
             If GV.SPP2Launcher.NeedExitLauncher Then
                 ' Проверяем блокировку сервера MySQL
                 If Not GV.SPP2Launcher.MySqlLOCKED Then
@@ -618,8 +646,6 @@ Module SPP2Helper
                     GV.SPP2Launcher.EnableClosing = True
                     GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
                     If Not GV.ResetSettings Then
-                        My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString
-                        My.Settings.Save()
                         Application.Exit()
                     Else
                         IO.File.Delete(SPP2SettingsProvider.SettingsFile)
@@ -627,17 +653,10 @@ Module SPP2Helper
                     End If
                 End If
             Else
-                If ignoreLOCKED Then
-                    ' Тут, если честно - ОГОНЬ - РАЗБЛОКИРОВАТЬ ВСЁ
+                ' Проверяем блокировку сервера MySQL
+                If Not GV.SPP2Launcher.MySqlLOCKED Then
+                    ' Контроль за MySql с последующим обновлением параметров меню
                     GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
-                Else
-                    ' Проверяем блокировку сервера MySQL
-                    If Not GV.SPP2Launcher.MySqlLOCKED Then
-                        ' Контроль за MySql с последующим обновлением параметров меню
-                        GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
-                    Else
-                        GV.SPP2Launcher.UpdateMainMenu(False)
-                    End If
                 End If
             End If
         End If
@@ -675,8 +694,8 @@ Module SPP2Helper
                 GC.Collect()
             End If
 
-            ' Чекаем Http каждые 2 секунды
-            If Date.Now - _checkHttp > TimeSpan.FromSeconds(2) Then
+            ' Чекаем Http каждые 1 секунды
+            If Date.Now - _checkHttp > TimeSpan.FromSeconds(1) Then
                 _checkHttp = Date.Now
                 GV.SPP2Launcher.CheckHttp()
             End If

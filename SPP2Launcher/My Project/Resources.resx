@@ -287,7 +287,7 @@
     <value>..\Resources\red_ball.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="P040_CommandShutdown" xml:space="preserve">
-    <value>Остановка всех серверов.</value>
+    <value>Остановка неизолированных серверов.</value>
   </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Включить сайт</value>
@@ -401,7 +401,7 @@
     <value>Обнаружен процесс {0} которого не должно быть. Сервер изолирован до снятия проблемы.</value>
   </data>
   <data name="P047_Locked01" xml:space="preserve">
-    <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню "Остановить"</value>
+    <value>Это самая незначительная проблема. Откройте меню Apache и выберите пункт меню "Остановить".</value>
   </data>
   <data name="P047_Locked02" xml:space="preserve">
     <value>В результате этих действий сервер разблокируется и станет доступным для подключения.</value>
@@ -434,13 +434,13 @@
     <value>Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?</value>
   </data>
   <data name="P047_Locked10" xml:space="preserve">
-    <value>Что произойдёт если я выберу "Остановить": Вы можете потерять всё, включая трусы.</value>
+    <value>Что произойдёт если я выберу "Остановить": Скорее всего вы потеряете несохранённые данные.</value>
   </data>
   <data name="P047_Locked11" xml:space="preserve">
-    <value>Что произойдёт, если я завершу процесс через диспетчер задач: То же, что и с трусами.</value>
+    <value>Что произойдёт, если я завершу процесс через диспетчер задач: То же, и в предыдущем случае.</value>
   </data>
   <data name="P047_Locked12" xml:space="preserve">
-    <value>А если нажму "РАЗБЛОКИРОВАТЬ ВСЁ": Как правило - очнётесь без трусов, зато быстро и без истерик.</value>
+    <value>А если нажму "РАЗБЛОКИРОВАТЬ ВСЁ": Всё то же самое, что написано выше, зато быстро.</value>
   </data>
   <data name="P047_Locked07" xml:space="preserve">
     <value>Как вариант - зайдите в меню "Сохранения" и создайте резервную копию текущей базы данных.</value>
@@ -458,15 +458,6 @@
     <value>Изменение интерфейса на {0}. Произойдёт после перезагрузки.</value>
   </data>
   <data name="P047_Locked13" xml:space="preserve">
-    <value>Что же делать? - УЧИТЕ МАТЧАСТЬ. Не всё возможно сделать по щелчку пальцев.</value>
-  </data>
-  <data name="P047_Locked14" xml:space="preserve">
-    <value>Что произойдёт: Вы сохраните все свои и свойства ботов, что именно украшают  и делают SPP2</value>
-  </data>
-  <data name="P047_Locked15" xml:space="preserve">
-    <value>значимым и уважаемым проектом. Если Вы ничего не делаете ради этого - Ничего страшного!</value>
-  </data>
-  <data name="P047_Locked16" xml:space="preserve">
-    <value />
+    <value>Что же делать? - Не всё возможно сделать по щелчку пальцев, некоторые вещи требуют ручного вмешательства.</value>
   </data>
 </root>
