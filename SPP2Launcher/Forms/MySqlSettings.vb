@@ -68,6 +68,7 @@ Public Class MySqlSettings
                     My.Settings.MySqlWotlkIntPlayerbots = TextBox_Playerbot.Text
                     My.Settings.MySqlWotlkIntRealmd = TextBox_Realmd.Text
             End Select
+            If CheckBox_MySqlAutostart.Checked And Not CheckProcess(EProcess.mysqld) Then GV.SPP2Launcher.StartMySQL(Nothing)
         Else
             Select Case My.Settings.LastLoadedServerType
                 Case GV.EModule.Classic.ToString

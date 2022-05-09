@@ -704,7 +704,7 @@ Public Class Launcher
             End If
 
             ' Если нет других mysqld.exe и включен автозапуск сервера
-            If Not MySqlLOCKED And Not _serversLOCKED And launchON And Not Not My.Settings.FirstStart And ServerWowAutostart Then
+            If Not MySqlLOCKED And Not _serversLOCKED And launchON And Not My.Settings.FirstStart And ServerWowAutostart Then
                 ' Выставляем флаг необходимости запуска всего комплекса
                 _needServerStart = True
                 GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
@@ -2170,6 +2170,7 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStart_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStart.Click
         If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
+            If Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
             TSMI_Reset.Enabled = False
             _isLastCommandStart = True
             _NeedServerStop = False
@@ -2223,6 +2224,8 @@ Public Class Launcher
         If ServerWowAutostart Then
             ' Запрещаем доступ к меню смены сервера
             TSMI_ServerSwitcher.Enabled = False
+            ' Если MySQL ещё не запущен - вперёд
+            If CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
             If Not CheckProcess(EProcess.realmd) Or Not CheckProcess(EProcess.world) Then
                 _needServerStart = True
             End If
