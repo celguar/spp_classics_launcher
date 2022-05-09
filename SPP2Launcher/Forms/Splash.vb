@@ -128,15 +128,19 @@ Public Class Splash
             ' Запускаем настройки лаунчера
             Hide()
             Dim fLauncherSettings = New LauncherSettings
-            fLauncherSettings.ShowDialog()
-            Application.Restart()
+            Dim dr = fLauncherSettings.ShowDialog()
+            If Not dr = DialogResult.Cancel Then
+                Application.Restart()
+            Else
+                Application.Exit()
+            End If
         Else
-            Me.Hide()
-            ' Проверяем количество найденных модулей
-            If GV.Modules.Count = 0 Then
-                ' Нет ни одного модуля сервера WoW
-                GV.Log.WriteInfo(My.Resources.P005_Exiting)
-                Me.Close()
+        Me.Hide()
+        ' Проверяем количество найденных модулей
+        If GV.Modules.Count = 0 Then
+            ' Нет ни одного модуля сервера WoW
+            GV.Log.WriteInfo(My.Resources.P005_Exiting)
+            Me.Close()
             ElseIf GV.Modules.Count = 1 Then
                 ' У нас всего один сервер, его и запускаем
                 My.Settings.LastLoadedServerType = GV.Modules.Item(0).ModuleType.ToString

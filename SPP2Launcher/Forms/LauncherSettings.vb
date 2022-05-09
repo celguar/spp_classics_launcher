@@ -95,14 +95,14 @@ Public Class LauncherSettings
         Try
             ComboBox_AutosaveBackupCopies.SelectedIndex = CInt(My.Settings.AutosaveBackupCount)
         Catch ex As Exception
-            ComboBox_AutosaveBackupCopies.SelectedIndex = 5
+            ComboBox_AutosaveBackupCopies.SelectedIndex = 4
         End Try
 
         ' Количество ручных копий
         Try
             ComboBox_ManualBackupCopies.SelectedIndex = CInt(My.Settings.ManualBackupCount / 5)
         Catch ex As Exception
-            ComboBox_ManualBackupCopies.SelectedIndex = 1
+            ComboBox_ManualBackupCopies.SelectedIndex = 0
         End Try
 
         ' Расположение окна при открытии
