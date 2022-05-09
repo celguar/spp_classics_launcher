@@ -789,10 +789,12 @@ Public Class Launcher
         ' Выводим сообщение о перезагрузке приложения
         Dim dr = MessageBox.Show(My.Resources.P006_NeedReboot,
                                  My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        ' Устанавливаем флаг - нужна перезагрузка
-        GV.NeedRestart = True
-        ' Останавливаем ВСЕ сервера
-        ShutdownAll(True)
+        If dr = DialogResult.Yes Then
+            ' Устанавливаем флаг - нужна перезагрузка
+            GV.NeedRestart = True
+            ' Останавливаем ВСЕ сервера
+            ShutdownAll(True)
+        End If
     End Sub
 
 #End Region
