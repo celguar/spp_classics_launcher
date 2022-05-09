@@ -115,6 +115,11 @@ Module SPP2Helper
     ''' </summary>
     Friend Const SPP2SETTINGS As String = "SPP_Server\Settings"
 
+    ''' <summary>
+    ''' Каталог расположения резервных копий баз данных.
+    ''' </summary>
+    Friend Const SPP2SAVES As String = "SPP_Server\Saves"
+
 #End Region
 
 #Region " === ТАЙМЕРЫ === "
@@ -345,6 +350,56 @@ Module SPP2Helper
         Next
         Return False
     End Function
+
+    ''' <summary>
+    ''' Удаляет "лишние" бэкапы.
+    ''' </summary>
+    ''' <param name="autosave">Флаг проверки - autosave или ручные сохранения.</param>
+    ''' <param name="fileName"></param>
+    Friend Sub RemoveOldBackups(autosave As Boolean, fileName As String)
+        If Not My.Settings.UseSqlBackupProjectFolder Then
+            Try
+                Dim path = IO.Path.GetDirectoryName(fileName)
+                Dim name = IO.Path.GetFileName(fileName).Split("_"c)(0)
+                Dim sfiles As New List(Of SortedFiles)
+                ' Получаем список
+                Dim files = IO.Directory.GetFiles(path, name & "*", IO.SearchOption.TopDirectoryOnly)
+                Dim count = If(autosave, My.Settings.AutosaveBackupCount + 1, My.Settings.ManualBackupCount)
+                If files.Count > count Then
+                    ' Заполняем список
+                    For Each file In files
+                        sfiles.Add(New SortedFiles(IO.File.GetLastWriteTime(file), file))
+                    Next
+                    ' Сортируем по дате
+                    sfiles.OrderBy(Function(x) x.Created).ToList
+                    Do
+                        Try
+                            IO.File.Delete(sfiles(0).FileName)
+                            sfiles.RemoveAt(0)
+                            If sfiles.Count = count Then Exit Do
+                        Catch ex As Exception
+                            GV.Log.WriteException(ex)
+                            Exit Do
+                        End Try
+                    Loop
+                End If
+            Catch ex As Exception
+                GV.Log.WriteException(ex)
+            End Try
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Один файл.
+    ''' </summary>
+    Private Class SortedFiles
+        Public Created As Date
+        Public FileName As String
+        Sub New(created As Date, fileName As String)
+            Me.Created = created
+            Me.FileName = fileName
+        End Sub
+    End Class
 
 #End Region
 
@@ -609,8 +664,7 @@ Module SPP2Helper
                 Threading.Thread.Sleep(1000)
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
-                    GV.Log.WriteInfo(My.Resources.P039_WaitEnd)
-                    GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd)
+                    GV.Log.WriteInfo(GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd))
                 Else
                     ' Процесс завершился
                     GV.Log.WriteInfo("Shutdown is OK!")
@@ -629,10 +683,11 @@ Module SPP2Helper
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
 
-        ' Если идёт процесс BackUp то ждём завершения
-        Do While BackupProcess
-            Threading.Thread.Sleep(200)
-        Loop
+        ' Если необходимо, выполняем BackUp
+        If My.Settings.UseAutoBackupDatabase Then
+            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd)
+            GV.SPP2Launcher.AutoBackups()
+        End If
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы

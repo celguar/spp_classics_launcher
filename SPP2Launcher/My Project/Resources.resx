@@ -227,7 +227,7 @@
     <value>Остановка сервера по требованию.</value>
   </data>
   <data name="P006_NeedReboot" xml:space="preserve">
-    <value>Изменения произойдут после перезагрузки.</value>
+    <value>Для смены типа сервера требуется перезагрузка лаунчера. Выполнить сейчас?</value>
   </data>
   <data name="E014_WorldException" xml:space="preserve">
     <value>World выдал исключение:</value>
@@ -376,8 +376,8 @@
   <data name="P022_BackupStart" xml:space="preserve">
     <value>Резервное копирование базы {0}</value>
   </data>
-  <data name="P024_Success" xml:space="preserve">
-    <value>Успешное завершение.</value>
+  <data name="P024_BackupSuccess" xml:space="preserve">
+    <value>Успешное завершение резервного копирования {0}</value>
   </data>
   <data name="E018_StartException" xml:space="preserve">
     <value>Исключение при запуске сервера {0}</value>
@@ -459,5 +459,14 @@
   </data>
   <data name="P047_Locked13" xml:space="preserve">
     <value>Что же делать? - Не всё возможно сделать по щелчку пальцев, некоторые вещи требуют ручного вмешательства.</value>
+  </data>
+  <data name="P048_Backup" xml:space="preserve">
+    <value>Backup {0}...</value>
+  </data>
+  <data name="P053_CreateBackup" xml:space="preserve">
+    <value>Выполнить резерное копирование (autosave) прямо сейчас?</value>
+  </data>
+  <data name="P054_BackupNeedMySQL" xml:space="preserve">
+    <value>Для выполнения необходимо подключение к MySQL!</value>
   </data>
 </root>

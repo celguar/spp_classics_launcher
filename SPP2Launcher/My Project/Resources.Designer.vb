@@ -438,7 +438,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Изменения произойдут после перезагрузки..
+        '''  Ищет локализованную строку, похожую на Для смены типа сервера требуется перезагрузка лаунчера. Выполнить сейчас?.
         '''</summary>
         Friend ReadOnly Property P006_NeedReboot() As String
             Get
@@ -591,11 +591,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Успешное завершение..
+        '''  Ищет локализованную строку, похожую на Успешное завершение резервного копирования {0}.
         '''</summary>
-        Friend ReadOnly Property P024_Success() As String
+        Friend ReadOnly Property P024_BackupSuccess() As String
             Get
-                Return ResourceManager.GetString("P024_Success", resourceCulture)
+                Return ResourceManager.GetString("P024_BackupSuccess", resourceCulture)
             End Get
         End Property
         
@@ -861,6 +861,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Backup {0}....
+        '''</summary>
+        Friend ReadOnly Property P048_Backup() As String
+            Get
+                Return ResourceManager.GetString("P048_Backup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Не удалось запустить сервер {0}.
         '''</summary>
         Friend ReadOnly Property P049_NotStarted() As String
@@ -902,6 +911,24 @@ Namespace My.Resources
         Friend ReadOnly Property P052_FirstStart() As String
             Get
                 Return ResourceManager.GetString("P052_FirstStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Выполнить резерное копирование (autosave) прямо сейчас?.
+        '''</summary>
+        Friend ReadOnly Property P053_CreateBackup() As String
+            Get
+                Return ResourceManager.GetString("P053_CreateBackup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Для выполнения необходимо подключение к MySQL!.
+        '''</summary>
+        Friend ReadOnly Property P054_BackupNeedMySQL() As String
+            Get
+                Return ResourceManager.GetString("P054_BackupNeedMySQL", resourceCulture)
             End Get
         End Property
         

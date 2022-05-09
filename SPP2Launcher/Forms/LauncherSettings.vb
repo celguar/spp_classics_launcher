@@ -84,6 +84,27 @@ Public Class LauncherSettings
         ' Изменение консоли на ходу
         CheckBox_UpdateRightNow.Checked = My.Settings.UpdateConsoleRightNow
 
+        ' Создавать бэкапы при запуске/остановке
+        CheckBox_UseAutoBackups.Checked = My.Settings.UseAutoBackupDatabase
+
+        ' Использовать каталог проекта для резервных копий
+        CheckBox_SqlBackup.Checked = My.Settings.UseSqlBackupProjectFolder
+
+
+        ' Количество автоматических копий
+        Try
+            ComboBox_AutosaveBackupCopies.SelectedIndex = CInt(My.Settings.AutosaveBackupCount)
+        Catch ex As Exception
+            ComboBox_AutosaveBackupCopies.SelectedIndex = 5
+        End Try
+
+        ' Количество ручных копий
+        Try
+            ComboBox_ManualBackupCopies.SelectedIndex = CInt(My.Settings.ManualBackupCount / 5)
+        Catch ex As Exception
+            ComboBox_ManualBackupCopies.SelectedIndex = 1
+        End Try
+
         ' Расположение окна при открытии
         StartPosition = FormStartPosition.Manual
         Location = New Point(My.Settings.AppLocation.X + 40, My.Settings.AppLocation.Y + 40)
@@ -135,6 +156,11 @@ Public Class LauncherSettings
         My.Settings.UseConsoleBuffer = CheckBox_UseConsoleBuffering.Checked
         My.Settings.UseCommandAutoHints = CheckBox_UseAutoHints.Checked
 
+        ' Вкладка BACKUP
+        My.Settings.UseAutoBackupDatabase = CheckBox_UseAutoBackups.Checked
+        My.Settings.UseSqlBackupProjectFolder = CheckBox_SqlBackup.Checked
+        My.Settings.AutosaveBackupCount = ComboBox_AutosaveBackupCopies.SelectedIndex
+        My.Settings.ManualBackupCount = ComboBox_ManualBackupCopies.SelectedIndex * 5
         My.Settings.Save()
 
         Me.Close()
@@ -176,6 +202,21 @@ Public Class LauncherSettings
             My.Settings.ConsoleTheme = ComboBox_Theme.SelectedItem.ToString
             My.Settings.Save()
             GV.SPP2Launcher.SetConsoleTheme()
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' ПРИ ИЗМЕНЕНИИ КАТАЛОГА ХРАНЕНИЯ BACKUPS
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub CheckBox_SqlBackup_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_SqlBackup.CheckedChanged
+        If CheckBox_SqlBackup.Checked Then
+            ComboBox_AutosaveBackupCopies.Enabled = False
+            ComboBox_ManualBackupCopies.Enabled = False
+        Else
+            ComboBox_AutosaveBackupCopies.Enabled = True
+            ComboBox_ManualBackupCopies.Enabled = True
         End If
     End Sub
 

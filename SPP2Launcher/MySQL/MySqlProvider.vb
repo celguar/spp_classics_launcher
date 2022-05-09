@@ -149,7 +149,7 @@ Public Class MySqlProvider
                     Throw New Exception(String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType))
             End Select
         End If
-        _ConnectionString = "server=" & server & ";UID=" & userId & ";PWD=" & password & ";port=" & port
+        _ConnectionString = String.Format("server={0};user={1};pwd={2};port={3};sslmode=none;convert zero datetime=True", server, userId, password, port)
     End Sub
 
 #End Region
@@ -182,18 +182,17 @@ Public Class MySqlProvider
 
     ''' <summary>
     ''' Тест соединения с сервером MySQL.
-    ''' При ошибке возвращает True.
+    ''' При учпешном подключении возвращает True.
     ''' </summary>
-    ''' <param name="_err"></param>
     ''' <returns></returns>
-    Friend Shared Function TestSQL(ByRef _err As String) As Boolean
-        Using SqlConn = New MySqlConnection(ConnectionString)
+    Friend Shared Function TestConnection() As Boolean
+        Using SqlConn = New MySqlConnection(ConnectionString & "; connection timeout=1;default command timeout=1")
             Try
                 SqlConn.Open()
-                Return False
-            Catch ex As Exception
-                _err = ex.Message
                 Return True
+            Catch ex As Exception
+                'GV.Log.WriteSQLException(ex)
+                Return False
             End Try
         End Using
     End Function

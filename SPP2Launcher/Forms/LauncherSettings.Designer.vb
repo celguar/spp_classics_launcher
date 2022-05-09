@@ -53,6 +53,16 @@ Partial Class LauncherSettings
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox_FontStyle = New System.Windows.Forms.ComboBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TabPage_3 = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CheckBox_UseAutoBackups = New System.Windows.Forms.CheckBox()
+        Me.CheckBox_SqlBackup = New System.Windows.Forms.CheckBox()
+        Me.ComboBox_AutosaveBackupCopies = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.ComboBox_ManualBackupCopies = New System.Windows.Forms.ComboBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -62,6 +72,9 @@ Partial Class LauncherSettings
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage_3.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button_OK
@@ -108,6 +121,7 @@ Partial Class LauncherSettings
         resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage_3)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -158,6 +172,7 @@ Partial Class LauncherSettings
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TabPage2.Controls.Add(Me.GroupBox4)
         Me.TabPage2.Controls.Add(Me.GroupBox2)
         resources.ApplyResources(Me.TabPage2, "TabPage2")
@@ -262,6 +277,79 @@ Partial Class LauncherSettings
         resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.Name = "ComboBox_FontStyle"
         '
+        'TabPage_3
+        '
+        Me.TabPage_3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage_3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.TabPage_3.Controls.Add(Me.GroupBox5)
+        resources.ApplyResources(Me.TabPage_3, "TabPage_3")
+        Me.TabPage_3.Name = "TabPage_3"
+        '
+        'GroupBox5
+        '
+        resources.ApplyResources(Me.GroupBox5, "GroupBox5")
+        Me.GroupBox5.Controls.Add(Me.PictureBox2)
+        Me.GroupBox5.Controls.Add(Me.Label9)
+        Me.GroupBox5.Controls.Add(Me.ComboBox_ManualBackupCopies)
+        Me.GroupBox5.Controls.Add(Me.Label8)
+        Me.GroupBox5.Controls.Add(Me.ComboBox_AutosaveBackupCopies)
+        Me.GroupBox5.Controls.Add(Me.Label7)
+        Me.GroupBox5.Controls.Add(Me.CheckBox_UseAutoBackups)
+        Me.GroupBox5.Controls.Add(Me.CheckBox_SqlBackup)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.TabStop = False
+        '
+        'Label7
+        '
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        '
+        'CheckBox_UseAutoBackups
+        '
+        resources.ApplyResources(Me.CheckBox_UseAutoBackups, "CheckBox_UseAutoBackups")
+        Me.CheckBox_UseAutoBackups.Name = "CheckBox_UseAutoBackups"
+        Me.CheckBox_UseAutoBackups.UseVisualStyleBackColor = True
+        '
+        'CheckBox_SqlBackup
+        '
+        resources.ApplyResources(Me.CheckBox_SqlBackup, "CheckBox_SqlBackup")
+        Me.CheckBox_SqlBackup.Name = "CheckBox_SqlBackup"
+        Me.CheckBox_SqlBackup.UseVisualStyleBackColor = True
+        '
+        'ComboBox_AutosaveBackupCopies
+        '
+        Me.ComboBox_AutosaveBackupCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_AutosaveBackupCopies.FormattingEnabled = True
+        Me.ComboBox_AutosaveBackupCopies.Items.AddRange(New Object() {resources.GetString("ComboBox_AutosaveBackupCopies.Items"), resources.GetString("ComboBox_AutosaveBackupCopies.Items1"), resources.GetString("ComboBox_AutosaveBackupCopies.Items2"), resources.GetString("ComboBox_AutosaveBackupCopies.Items3"), resources.GetString("ComboBox_AutosaveBackupCopies.Items4")})
+        resources.ApplyResources(Me.ComboBox_AutosaveBackupCopies, "ComboBox_AutosaveBackupCopies")
+        Me.ComboBox_AutosaveBackupCopies.Name = "ComboBox_AutosaveBackupCopies"
+        '
+        'Label8
+        '
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.Name = "Label8"
+        '
+        'Label9
+        '
+        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.Name = "Label9"
+        '
+        'ComboBox_ManualBackupCopies
+        '
+        Me.ComboBox_ManualBackupCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_ManualBackupCopies.FormattingEnabled = True
+        Me.ComboBox_ManualBackupCopies.Items.AddRange(New Object() {resources.GetString("ComboBox_ManualBackupCopies.Items"), resources.GetString("ComboBox_ManualBackupCopies.Items1"), resources.GetString("ComboBox_ManualBackupCopies.Items2"), resources.GetString("ComboBox_ManualBackupCopies.Items3")})
+        resources.ApplyResources(Me.ComboBox_ManualBackupCopies, "ComboBox_ManualBackupCopies")
+        Me.ComboBox_ManualBackupCopies.Name = "ComboBox_ManualBackupCopies"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.info
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox2, resources.GetString("PictureBox2.ToolTip"))
+        '
         'LauncherSettings
         '
         resources.ApplyResources(Me, "$this")
@@ -285,6 +373,10 @@ Partial Class LauncherSettings
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage_3.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -317,4 +409,14 @@ Partial Class LauncherSettings
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents CheckBox_UpdateRightNow As CheckBox
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents TabPage_3 As TabPage
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents CheckBox_UseAutoBackups As CheckBox
+    Friend WithEvents CheckBox_SqlBackup As CheckBox
+    Friend WithEvents ComboBox_AutosaveBackupCopies As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents ComboBox_ManualBackupCopies As ComboBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

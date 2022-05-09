@@ -9,17 +9,17 @@ Namespace MySqlDataBases
         ''' <summary>
         ''' Сохраняет базу данных Realmd.
         ''' </summary>
-        Shared Function REALMD(autosave As Boolean) As String
+        Shared Function PLAYERBOTS(autosave As Boolean) As String
             If CheckProcess(EProcess.mysqld) Then
                 Dim file As String = ""
                 If My.Settings.UseSqlBackupProjectFolder Then
                     Select Case My.Settings.LastLoadedServerType
                         Case GV.EModule.Classic.ToString
-                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\vanilla\autosave\realmd.sql"
+                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\vanilla\autosave\playerbots.sql"
                         Case GV.EModule.Tbc.ToString
-                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\tbc\autosave\realmd.sql"
+                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\tbc\autosave\playerbots.sql"
                         Case GV.EModule.Wotlk.ToString
-                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\wotlk\autosave\realmd.sql"
+                            file = My.Settings.DirSPP2 & "\" & SPP2SAVES & "\wotlk\autosave\playerbots.sql"
                         Case Else
                             Dim str = String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType)
                             GV.Log.WriteError(str)
@@ -28,11 +28,11 @@ Namespace MySqlDataBases
                 Else
                     Select Case My.Settings.LastLoadedServerType
                         Case GV.EModule.Classic.ToString
-                            file = Application.StartupPath & "\Saves\classic\autosave\realmd"
+                            file = Application.StartupPath & "\Saves\classic\autosave\playerbots"
                         Case GV.EModule.Tbc.ToString
-                            file = Application.StartupPath & "\Saves\tbc\autosave\realmd"
+                            file = Application.StartupPath & "\Saves\tbc\autosave\playerbots"
                         Case GV.EModule.Wotlk.ToString
-                            file = Application.StartupPath & "\Saves\wotlk\autosave\realmd"
+                            file = Application.StartupPath & "\Saves\wotlk\autosave\playerbots"
                         Case Else
                             Dim str = String.Format(My.Resources.E008_UnknownModule, My.Settings.LastLoadedServerType)
                             GV.Log.WriteError(str)
@@ -40,7 +40,7 @@ Namespace MySqlDataBases
                     End Select
                     file = String.Format("{0}_{1}.sql", file, Strings.Format(Date.Now, "yyyy-MM-dd HH-mm-ss"))
                 End If
-                Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbRealmd))
+                Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbPlayerbots))
                     Using sqlComm As New MySqlCommand()
                         Using mb As New MySqlBackup(sqlComm)
                             Try
@@ -48,7 +48,7 @@ Namespace MySqlDataBases
                                 sqlConn.Open()
                                 sqlComm.Connection = sqlConn
                                 mb.ExportToFile(file)
-                                GV.Log.WriteSQL(String.Format(My.Resources.P024_BackupSuccess, "Realmd"))
+                                GV.Log.WriteSQL(String.Format(My.Resources.P024_BackupSuccess, "Playerbots"))
                                 ' Удаляем "старые" бэкапы
                                 RemoveOldBackups(autosave, file)
                                 Return ""

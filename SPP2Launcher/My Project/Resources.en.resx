@@ -187,7 +187,7 @@
     <value>Exiting the application.</value>
   </data>
   <data name="P006_NeedReboot" xml:space="preserve">
-    <value>Changes will take effect after reboot.</value>
+    <value>To change the server type, you need to restart the launcher. Execute now?</value>
   </data>
   <data name="P007_MessageCaption" xml:space="preserve">
     <value>Message</value>
@@ -237,8 +237,8 @@
   <data name="P023_InfoCaption" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="P024_Success" xml:space="preserve">
-    <value>Completed successfully.</value>
+  <data name="P024_BackupSuccess" xml:space="preserve">
+    <value>Backup completed successfully {0}</value>
   </data>
   <data name="P025_ReShowLauncher" xml:space="preserve">
     <value>Reloading the launcher after the server selector.</value>
@@ -327,6 +327,9 @@
   <data name="P047_Locked13" xml:space="preserve">
     <value>What to do? - Not everything can be done at the snap of a finger, some things require manual intervention.</value>
   </data>
+  <data name="P048_Backup" xml:space="preserve">
+    <value>Backup {0}...</value>
+  </data>
   <data name="P049_NotStarted" xml:space="preserve">
     <value>Failed to start {0} server</value>
   </data>
@@ -341,6 +344,12 @@
   </data>
   <data name="P052_FirstStart" xml:space="preserve">
     <value> - THIS IS THE FIRST LAUNCH!</value>
+  </data>
+  <data name="P053_CreateBackup" xml:space="preserve">
+    <value>Should I back up (autosave) right now?</value>
+  </data>
+  <data name="P054_BackupNeedMySQL" xml:space="preserve">
+    <value>Для выполнения необходимо подключение к MySQL!</value>
   </data>
   <data name="Real001_RealmdStart" xml:space="preserve">
     <value>Starting the Realmd server.</value>

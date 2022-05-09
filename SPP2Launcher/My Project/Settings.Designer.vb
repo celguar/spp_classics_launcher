@@ -1349,6 +1349,46 @@ Namespace My
                 Me("FirstStart") = value
             End Set
         End Property
+        
+        '''<summary>
+        '''Использовать в качестве резерных копий каталог проекта
+        '''</summary>
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Использовать в качестве резерных копий каталог проекта"),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property UseSqlBackupProjectFolder() As Boolean
+            Get
+                Return CType(Me("UseSqlBackupProjectFolder"),Boolean)
+            End Get
+            Set
+                Me("UseSqlBackupProjectFolder") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property AutosaveBackupCount() As Integer
+            Get
+                Return CType(Me("AutosaveBackupCount"),Integer)
+            End Get
+            Set
+                Me("AutosaveBackupCount") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
+        Public Property ManualBackupCount() As Integer
+            Get
+                Return CType(Me("ManualBackupCount"),Integer)
+            End Get
+            Set
+                Me("ManualBackupCount") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

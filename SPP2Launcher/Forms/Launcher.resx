@@ -131,7 +131,7 @@
   <data name="TSSL_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -159,7 +159,7 @@
   <data name="TSSL_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -187,7 +187,7 @@
   <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -215,7 +215,7 @@
   <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -340,7 +340,7 @@
     <value>Запуск WoW</value>
   </data>
   <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_WowAutoStart.Text" xml:space="preserve">
     <value>Защита серверов от падения</value>
@@ -354,7 +354,7 @@
   <data name="TSMI_ServerStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -367,7 +367,7 @@
 </value>
   </data>
   <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_ServerStart.Text" xml:space="preserve">
     <value>Запустить</value>
@@ -375,7 +375,7 @@
   <data name="TSMI_ServerStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -384,18 +384,24 @@
 </value>
   </data>
   <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_ServerStop.Text" xml:space="preserve">
     <value>Остановить</value>
   </data>
+  <data name="TSMI_CreateAutosave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_CreateAutosave.Text" xml:space="preserve">
+    <value>Создать резервную копию</value>
+  </data>
   <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 6</value>
+    <value>234, 6</value>
   </data>
   <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -416,7 +422,7 @@
   <data name="TSMI_MySqlRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        vwAAAL8BYqQFcwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -444,7 +450,7 @@
   <data name="TSMI_MySqlStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -511,7 +517,7 @@
 </value>
   </data>
   <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_MySQL.Text" xml:space="preserve">
     <value>MySQL</value>
@@ -519,7 +525,7 @@
   <data name="TSMI_ApacheStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -540,7 +546,7 @@
   <data name="TSMI_ApacheRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        vwAAAL8BYqQFcwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -568,7 +574,7 @@
   <data name="TSMI_ApacheStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADDAAAAwwGdzv4zAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -648,16 +654,16 @@
 </value>
   </data>
   <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_Apache.Text" xml:space="preserve">
     <value>Apache</value>
   </data>
   <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 6</value>
+    <value>234, 6</value>
   </data>
   <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 22</value>
+    <value>237, 26</value>
   </data>
   <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
     <value>Сменить тип сервера</value>
@@ -2694,6 +2700,12 @@
   </data>
   <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CreateAutosave.Name" xml:space="preserve">
+    <value>TSMI_CreateAutosave</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CreateAutosave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Launcher</value>

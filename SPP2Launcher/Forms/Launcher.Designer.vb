@@ -84,6 +84,7 @@ Partial Class Launcher
         Me.RichTextBox_ConsoleWorld = New System.Windows.Forms.RichTextBox()
         Me.Button_UnlockAll = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TSMI_CreateAutosave = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip_SPP2.SuspendLayout()
         Me.MenuStrip_SPP2.SuspendLayout()
         Me.ContextMenu_SPP2.SuspendLayout()
@@ -154,7 +155,7 @@ Partial Class Launcher
         '
         'TSMI_Server
         '
-        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_WowAutoStart, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_Server2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
+        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_WowAutoStart, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_CreateAutosave, Me.TSMI_Server2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
         resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
         Me.TSMI_Server.Name = "TSMI_Server"
         '
@@ -444,6 +445,11 @@ Partial Class Launcher
         Me.ToolTip1.InitialDelay = 500
         Me.ToolTip1.ReshowDelay = 100
         '
+        'TSMI_CreateAutosave
+        '
+        Me.TSMI_CreateAutosave.Name = "TSMI_CreateAutosave"
+        resources.ApplyResources(Me.TSMI_CreateAutosave, "TSMI_CreateAutosave")
+        '
         'Launcher
         '
         resources.ApplyResources(Me, "$this")
@@ -534,4 +540,5 @@ Partial Class Launcher
     Friend WithEvents TSMI_Reset As ToolStripMenuItem
     Friend WithEvents Button_UnlockAll As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents TSMI_CreateAutosave As ToolStripMenuItem
 End Class
