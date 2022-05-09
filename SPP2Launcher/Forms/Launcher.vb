@@ -781,7 +781,7 @@ Public Class Launcher
 #Region " === СМЕНИТЬ ТИП СЕРВЕРА === "
 
     ''' <summary>
-    ''' СМЕНА ТИПА СЕРВЕРА
+    ''' КНОПКА МЕНЮ - СМЕНА ТИПА СЕРВЕРА
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
