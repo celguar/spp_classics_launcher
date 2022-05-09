@@ -91,6 +91,9 @@ Public Class ServerSelector
     Private Sub Timer_FormClosing_Tick(sender As Object, e As EventArgs) Handles Timer_FormClosing.Tick
         Timer_FormClosing.Stop()
         Me.Hide()
+        ' Лишили FirstStart
+        My.Settings.FirstStart = False
+        My.Settings.Save()
         GV.SPP2Launcher = New Launcher
         GV.SPP2Launcher.ShowDialog()
         If My.Settings.FirstStart Then

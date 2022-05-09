@@ -194,14 +194,9 @@ Public Class GV
                           language:=CI.Name)
         Log.WriteInfo(My.Resources.P001_BaseInit)
 
-        ' Проверяем наличие другого запущенного лаунчера
-        ' Следует отметить, что фоновые процессы не будут пойманы.
-        ' Однако это компенсируется при запуске формы Launcher
-        ' Можно было бы поступить проще. Но, я уже так привык...
-        Dim listpc = GetAllProcesses()
-        Dim pc = listpc.FindAll(Function(p) p.ProcessName = Process.GetCurrentProcess().ProcessName)
-        If pc.Count > 1 Then
-            _ErrorCode = ECode.ErrorLauncherAlready
+        If IO.Directory.Exists(Application.StartupPath & "\SPP_Server") Then
+            My.Settings.DirSPP2 = Application.StartupPath & "\SPP_Server"
+            My.Settings.FirstStart = False
         End If
 
     End Sub
@@ -215,6 +210,15 @@ Public Class GV
     ''' </summary>
     Public Sub FullInit()
         Dim cat As String
+
+        ' Проверяем наличие другого запущенного лаунчера
+        ' Следует отметить, что фоновые процессы не будут пойманы.
+        Dim listpc = GetAllProcesses()
+        Dim pc = listpc.FindAll(Function(p) p.ProcessName = Process.GetCurrentProcess().ProcessName)
+        If pc.Count > 1 Then
+            ' Пока никак не реагируем
+            _ErrorCode = ECode.ErrorLauncherAlready
+        End If
 
         ' Проверяем наличие в корне каталога SPP_Server 
         cat = SPP2GLOBAL

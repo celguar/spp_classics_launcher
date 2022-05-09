@@ -108,7 +108,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск Apache"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property ApacheAutostart() As Boolean
             Get
                 Return CType(Me("ApacheAutostart"),Boolean)
@@ -124,7 +124,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск MySQL"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property MySqlAutostart() As Boolean
             Get
                 Return CType(Me("MySqlAutostart"),Boolean)

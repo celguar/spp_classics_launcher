@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>Parameters</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Button_DirSPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>424, 19</value>
+  </data>
+  <data name="TextBox_DirSPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 22</value>
+  </data>
   <data name="Label_ProjectDir.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 24</value>
   </data>
@@ -133,11 +136,11 @@
   <data name="Label_ProjectDir.ToolTip" xml:space="preserve">
     <value>Looks like SPP_Classics_V2</value>
   </data>
-  <data name="TabPage1.Text" xml:space="preserve">
-    <value>Main</value>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 57</value>
   </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Event Log</value>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Parameters</value>
   </data>
   <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 13</value>
@@ -145,11 +148,14 @@
   <data name="Label6.Text" xml:space="preserve">
     <value>Registration level:</value>
   </data>
-  <data name="TabPage2.Text" xml:space="preserve">
-    <value>Console</value>
+  <data name="GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 57</value>
   </data>
-  <data name="GroupBox4.Text" xml:space="preserve">
-    <value>Console World</value>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>Event Log</value>
+  </data>
+  <data name="TabPage1.Text" xml:space="preserve">
+    <value>Main</value>
   </data>
   <data name="CheckBox_UseAutoHints.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 17</value>
@@ -163,8 +169,8 @@
   <data name="CheckBox_UseConsoleBuffering.Text" xml:space="preserve">
     <value>Enable command buffering</value>
   </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>Style of all consoles</value>
+  <data name="GroupBox4.Text" xml:space="preserve">
+    <value>Console World</value>
   </data>
   <data name="PictureBox1.ToolTip" xml:space="preserve">
     <value> Enable this setting when changing appearance settings
@@ -193,6 +199,48 @@ console will reset the color style of already output lines.</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Background:</value>
+  </data>
+  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 129</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>Style of all consoles</value>
+  </data>
+  <data name="TabPage2.Text" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>manual save copies</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>autosave copies</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>Store no more</value>
+  </data>
+  <data name="CheckBox_UseAutoBackups.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 17</value>
+  </data>
+  <data name="CheckBox_UseAutoBackups.Text" xml:space="preserve">
+    <value>Create on start/stop</value>
+  </data>
+  <data name="CheckBox_SqlBackup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 17</value>
+  </data>
+  <data name="CheckBox_SqlBackup.Text" xml:space="preserve">
+    <value>Use project directories</value>
+  </data>
+  <data name="GroupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 110</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -117,10 +117,10 @@
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />
     <Compile Include="Classes\GV.vb" />
-    <Compile Include="Forms\ChangeRepack.Designer.vb">
-      <DependentUpon>ChangeRepack.vb</DependentUpon>
+    <Compile Include="Forms\ChangePathRepack.Designer.vb">
+      <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChangeRepack.vb">
+    <Compile Include="Forms\ChangePathRepack.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MySQL\DataBase\Characters\DataTable\CHARACTERS.vb" />
@@ -206,8 +206,8 @@
     <EmbeddedResource Include="Forms\ApacheSettings.resx">
       <DependentUpon>ApacheSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChangeRepack.resx">
-      <DependentUpon>ChangeRepack.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\ChangePathRepack.resx">
+      <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Launcher.en.resx">
       <DependentUpon>Launcher.vb</DependentUpon>

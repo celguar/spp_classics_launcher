@@ -125,11 +125,13 @@ Public Class Splash
         ElseIf GV.ErrorCode = GV.ECode.ErrorBaseCat Or
                 GV.ErrorCode = GV.ECode.ErrorMangoCat Or
                 GV.ErrorCode = GV.ECode.ErrorModulesCat Then
-            ' Запускаем настройки лаунчера
+            ' ЭТО ВЫБОР ПУТИ К ПРОЕКТУ
             Hide()
-            Dim fLauncherSettings = New LauncherSettings
-            Dim dr = fLauncherSettings.ShowDialog()
+            Dim fChangeRepack = New ChangePathRepack
+            Dim dr = fChangeRepack.ShowDialog()
             If Not dr = DialogResult.Cancel Then
+                My.Settings.FirstStart = False
+                My.Settings.Save()
                 Application.Restart()
             Else
                 Application.Exit()

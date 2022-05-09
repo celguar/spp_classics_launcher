@@ -12,10 +12,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ApacheAutostart" Description="Автоматический запуск Apache" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="MySqlAutostart" Description="Автоматический запуск MySQL" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UseIntApache" Description="Использовать встроенный Apache" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

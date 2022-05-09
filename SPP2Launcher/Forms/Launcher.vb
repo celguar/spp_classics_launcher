@@ -762,13 +762,18 @@ Public Class Launcher
     ''' Выполняет автосохранение.
     ''' </summary>
     Friend Sub AutoBackups()
-        OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "REALMD"))
-        MySqlDataBases.Backup.REALMD(True)
-        OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "CHARACTERS"))
-        MySqlDataBases.Backup.CHARACTERS(True)
-        OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"))
-        MySqlDataBases.Backup.PLAYERBOTS(True)
-        OutMessageStatusStrip("")
+        If CheckProcess(EProcess.mysqld) Then
+            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "REALMD"))
+            MySqlDataBases.Backup.REALMD(True)
+            Threading.Thread.Sleep(500)
+            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "CHARACTERS"))
+            MySqlDataBases.Backup.CHARACTERS(True)
+            Threading.Thread.Sleep(500)
+            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"))
+            MySqlDataBases.Backup.PLAYERBOTS(True)
+            Threading.Thread.Sleep(500)
+            OutMessageStatusStrip("")
+        End If
     End Sub
 
 #End Region
