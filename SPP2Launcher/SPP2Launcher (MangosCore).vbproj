@@ -206,6 +206,9 @@
     <EmbeddedResource Include="Forms\ApacheSettings.resx">
       <DependentUpon>ApacheSettings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePathRepack.en.resx">
+      <DependentUpon>ChangePathRepack.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePathRepack.resx">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </EmbeddedResource>

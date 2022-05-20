@@ -638,7 +638,7 @@ Module SPP2Helper
         Do
             Threading.Thread.Sleep(1000)
             If WorldStartTime > 0 Then
-                GV.SPP2Launcher.OutMessageStatusStrip(String.Format("Uptime: {0:dd\.hh\:mm\:ss} ", Date.Now - Date.FromOADate(WorldStartTime)))
+                GV.SPP2Launcher.UpdateMessageStatusStrip(String.Format("Uptime: {0:dd\.hh\:mm\:ss} ", Date.Now - Date.FromOADate(WorldStartTime)))
             End If
         Loop
     End Sub
@@ -659,12 +659,12 @@ Module SPP2Helper
         If processID > 0 Then
             Do
                 ' Пишем в строку состояния - Идёт остановка серверов
-                GV.Log.WriteInfo(GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.World004_StoppingWorld))
+                GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.World004_StoppingWorld))
 
                 Threading.Thread.Sleep(1000)
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
-                    GV.Log.WriteInfo(GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd))
+                    GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd))
                 Else
                     ' Процесс завершился
                     GV.Log.WriteInfo("Shutdown is OK!")
@@ -678,16 +678,21 @@ Module SPP2Helper
             Loop
         End If
 
-        GV.SPP2Launcher.OutMessageStatusStrip("")
+        GV.SPP2Launcher.UpdateMessageStatusStrip("")
 
         ' Гасим Realmd
         GV.SPP2Launcher.ShutdownRealmd()
 
         ' Если необходимо, выполняем BackUp
         If My.Settings.UseAutoBackupDatabase Then
-            GV.SPP2Launcher.OutMessageStatusStrip(My.Resources.P039_WaitEnd)
+            GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd)
             GV.SPP2Launcher.AutoBackups()
         End If
+
+        ' Останавливаем все таймеры
+        TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
             ' Надо погасить и прочие серверы
@@ -827,7 +832,7 @@ Module SPP2Helper
                                 control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     WorldStartTime = 0
-                                    GV.SPP2Launcher.OutMessageStatusStrip("")
+                                    GV.SPP2Launcher.UpdateMessageStatusStrip("")
                                     ' Сервер рухнул
                                     Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount, "10")
                                     GV.Log.WriteError(msg)

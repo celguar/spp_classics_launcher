@@ -44,11 +44,11 @@ Namespace MySqlDataBases
                     Using sqlComm As New MySqlCommand()
                         Using mb As New MySqlBackup(sqlComm)
                             Try
-                                GV.Log.WriteSQL(String.Format(My.Resources.P022_BackupStart, file))
+                                GV.Log.WriteSQL(GV.SPP2Launcher.UpdateWorldConsole(String.Format(My.Resources.P022_BackupStart, file), QCONSOLE))
                                 sqlConn.Open()
                                 sqlComm.Connection = sqlConn
                                 mb.ExportToFile(file)
-                                GV.Log.WriteSQL(String.Format(My.Resources.P024_BackupSuccess, "Realmd"))
+                                GV.Log.WriteSQL(GV.SPP2Launcher.UpdateWorldConsole(String.Format(My.Resources.P024_BackupSuccess, "Realmd"), QCONSOLE))
                                 ' Удаляем "старые" бэкапы
                                 RemoveOldBackups(autosave, file)
                                 Return ""

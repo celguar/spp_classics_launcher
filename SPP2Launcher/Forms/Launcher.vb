@@ -124,6 +124,11 @@ Public Class Launcher
     ''' </summary>
     Private _serversLOCKED As Boolean
 
+    ''' <summary>
+    ''' Флаг обнаружения включенного MySQL - БЕЗ РАЗНИЦЫ КАКОГО
+    ''' </summary>
+    Private _mysqlON As Boolean
+
 #End Region
 
 #Region " === КОНСТРУКТОР ИНИЦИАЛИЗАЦИИ === "
@@ -417,11 +422,11 @@ Public Class Launcher
     ''' Вывод сообщения в StatusStrip.
     ''' </summary>
     ''' <param name="text"></param>
-    Friend Function OutMessageStatusStrip(text As String) As String
+    Friend Function UpdateMessageStatusStrip(text As String) As String
         Try
             If Me.InvokeRequired Then
                 Me.Invoke(Sub()
-                              OutMessageStatusStrip(text)
+                              UpdateMessageStatusStrip(text)
                           End Sub)
             Else
                 TSSL_ALL.Text = text
@@ -703,12 +708,14 @@ Public Class Launcher
                 WaitProcessEnd(EProcess.mysqld, EAction.Start, False)
             End If
 
-            ' Если нет других mysqld.exe и включен автозапуск сервера
+            ' Если нет других mysqld.exe и включен автозапуск сервера - запускаем MySQL
             If Not MySqlLOCKED And Not _serversLOCKED And launchON And Not My.Settings.FirstStart And ServerWowAutostart Then
                 ' Выставляем флаг необходимости запуска всего комплекса
                 _needServerStart = True
+                ' Пишем - контроль включён
                 GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
                 GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                StartMySQL(Nothing)
             End If
 
             ' Отображение кнопки блокировки/разблокировки всех серверов
@@ -763,16 +770,16 @@ Public Class Launcher
     ''' </summary>
     Friend Sub AutoBackups()
         If CheckProcess(EProcess.mysqld) Then
-            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "REALMD"))
+            UpdateWorldConsole(String.Format(My.Resources.P048_Backup, "REALMD"), QCONSOLE)
             MySqlDataBases.Backup.REALMD(True)
             Threading.Thread.Sleep(500)
-            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "CHARACTERS"))
+            UpdateWorldConsole(String.Format(My.Resources.P048_Backup, "CHARACTERS"), QCONSOLE)
             MySqlDataBases.Backup.CHARACTERS(True)
             Threading.Thread.Sleep(500)
-            OutMessageStatusStrip(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"))
+            UpdateWorldConsole(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"), QCONSOLE)
             MySqlDataBases.Backup.PLAYERBOTS(True)
             Threading.Thread.Sleep(500)
-            OutMessageStatusStrip("")
+            UpdateMessageStatusStrip("")
         End If
     End Sub
 
@@ -809,7 +816,8 @@ Public Class Launcher
     Private Sub TSMI_MySqlStart_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStart.Click
         ' Активируем вкладку MySQL
         TabControl1.SelectedTab = TabPage_MySQL
-        If Not _MySqlLOCKED And Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
+        ' Если не изолирован и используется встроенный MySQL и отсутствует процесс тогда ВПЕРЁД
+        If Not _MySqlLOCKED And My.Settings.UseIntMySQL And Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
     End Sub
 
     ''' <summary>
@@ -818,9 +826,16 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlRestart_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlRestart.Click
-        ' Активируем вкладку MySQL
-        TabControl1.SelectedTab = TabPage_MySQL
-        If Not _mysqlLOCKED Then ShutdownMySQL(EProcess.mysqld, EAction.Start)
+        ' Если сервер не изолирован
+        If Not _MySqlLOCKED Then
+            ' Если не запущен Realmd и если не запущен World 
+            If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
+                ' Активируем вкладку MySQL
+                TabControl1.SelectedTab = TabPage_MySQL
+                ' Выключаем MySQl с последующим запуском
+                ShutdownMySQL(EProcess.mysqld, EAction.Start)
+            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -829,10 +844,11 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_MySqlStop_Click(sender As Object, e As EventArgs) Handles TSMI_MySqlStop.Click
+        ' Жёсткая остановка MySQL с обновлением главного меню
         _MySqlLOCKED = False
-        RichTextBox_ConsoleMySQL.Clear()
         ' Активируем вкладку MySQL
         TabControl1.SelectedTab = TabPage_MySQL
+        RichTextBox_ConsoleMySQL.Clear()
         ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
     End Sub
 
@@ -850,26 +866,34 @@ Public Class Launcher
     ''' Запускает сервер MySQL
     ''' </summary>
     Friend Sub StartMySQL(obj As Object)
-        If Not _MySqlLOCKED And Not _NeedExitLauncher Then
-            If Not CheckProcess(EProcess.mysqld) Then
 
-                If Not _MySqlLOCKED And My.Settings.UseIntMySQL And IsNothing(_mysqlProcess) Then
+        ' Проверяем изолированность
+        If Not _MySqlLOCKED Then
+
+            ' Если нет флага для выхода из программы и это встроенный MySQl, нет Realmd и нет World - запускаем
+            If Not _NeedExitLauncher And My.Settings.UseIntMySQL And Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
+
+                ' Проверка на наличие процесса MySql - GOOD
+                If Not CheckProcess(EProcess.mysqld) Then
+
+                    ' ЭТО СТАРТ ПРОЦЕССА MYSQL
                     GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "MySQL"), CONSOLE))
 
                     Dim exefile As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
                     Dim settings As String = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\SPP-Database.ini"
                     ' Создаём информацию о процессе
                     Dim startInfo = New ProcessStartInfo("cmd.exe") With {
-                            .Arguments = "/C " & exefile & " --defaults-file=" & settings & " --standalone --console",
-                            .CreateNoWindow = True,
-                            .RedirectStandardInput = True,
-                            .RedirectStandardOutput = True,
-                            .RedirectStandardError = True,
-                            .UseShellExecute = False,
-                            .WindowStyle = ProcessWindowStyle.Hidden,
-                            .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2MYSQL
+                        .Arguments = "/C " & exefile & " --defaults-file=" & settings & " --standalone --console",
+                        .CreateNoWindow = True,
+                        .RedirectStandardInput = True,
+                        .RedirectStandardOutput = True,
+                        .RedirectStandardError = True,
+                        .UseShellExecute = False,
+                        .WindowStyle = ProcessWindowStyle.Hidden,
+                        .WorkingDirectory = My.Settings.DirSPP2 & "\" & SPP2MYSQL
                     }
                     _mysqlProcess = New Process()
+
                     Try
                         _mysqlProcess.StartInfo = startInfo
                         ' Запускаем
@@ -888,12 +912,16 @@ Public Class Launcher
                         GV.Log.WriteException(ex)
                         UpdateMySQLConsole("[EConsole] " & String.Format(My.Resources.E019_StopException, "MySQL"), ECONSOLE)
                     End Try
+
+                Else
+                    ' Сервер уже запущен
+                    GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "MySQL"), WCONSOLE))
                 End If
-            Else
-                ' Сервер уже запущен
-                GV.Log.WriteWarning(UpdateMySQLConsole(String.Format(My.Resources.P041_AlreadyStarted, "MySQL"), WCONSOLE))
+
             End If
+
         End If
+
     End Sub
 
     ''' <summary>
@@ -911,7 +939,7 @@ Public Class Launcher
     ''' Останавливает сервер MySQL
     ''' </summary>
     Friend Sub ShutdownMySQL(p As EProcess, a As EAction)
-        If Not _MySqlLOCKED Then
+        If Not _MySqlLOCKED And Not CheckProcess(EProcess.world) Then
             ' Проверяем наличие процесса
             If CheckProcess(EProcess.mysqld) Then
                 GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "MySQL"), CONSOLE))
@@ -971,109 +999,6 @@ Public Class Launcher
     End Sub
 
     ''' <summary>
-    ''' Проверка соединения с сервером MySQL.
-    ''' </summary>
-    Friend Sub CheckMySQL2()
-        If MySqlProvider.TestConnection() Then
-            Try
-                If Me.Visible Then
-                    TSSL_MySQL.GetCurrentParent().Invoke(Sub()
-                                                             TSSL_MySQL.Image = My.Resources.green_ball
-                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                                                                 If Not _RealmdON Or Not _WorldON Then
-                                                                     Me.Icon = My.Resources.cmangos_orange
-                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                                                                 End If
-                                                             Else
-                                                                 Me.Icon = My.Resources.wow
-                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                                             End If
-                                                         End Sub)
-                Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                        If Not _RealmdON Or Not _WorldON Then
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                        End If
-                    Else
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                    End If
-                End If
-            Catch ex As Exception
-                GV.Log.WriteException(ex)
-            End Try
-        Else
-            Try
-                If Me.Visible Then
-                    TSSL_MySQL.GetCurrentParent().Invoke(Sub()
-                                                             TSSL_MySQL.Image = My.Resources.red_ball
-                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                                                                 Me.Icon = My.Resources.cmangos_red
-                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                                             Else
-                                                                 Me.Icon = My.Resources.wow
-                                                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                                             End If
-                                                         End Sub)
-                Else
-                    ' Меняем иконку в трее, коли свёрнуты
-                    If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                    Else
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                    End If
-                End If
-            Catch ex As Exception
-                GV.Log.WriteException(ex)
-            End Try
-
-        End If
-
-        If CheckProcess(EProcess.mysqld) Then
-
-            ' Если установлен автозапуск сервера Apache
-            If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not CheckProcess(EProcess.apache) Then
-                StartApache()
-            End If
-
-            ' Проверить на флаг остановки
-            If Not NeedServerStop Then
-                ' Поступил запрос на запуск серверов WoW
-                If _needServerStart Then
-                    ' Запускаем World через 1 сек.
-                    TimerStartWorld.Change(1000, 1000)
-                    GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
-                    ' А Realm через 3 сек.
-                    TimerStartRealmd.Change(3000, 3000)
-                    GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "realmd", "1000"))
-                    ' Выключаем флаг ручного запуска сервера
-                    _needServerStart = False
-                End If
-            End If
-
-            ' Автоподсказки
-            If HintCollection.Count = 0 Then
-                MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
-                If TextBox_Command.InvokeRequired Then
-                    TextBox_Command.Invoke(Sub()
-                                               TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
-                                               TextBox_Command.AutoCompleteCustomSource = HintCollection
-                                               TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
-                                           End Sub)
-                Else
-                    TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
-                    TextBox_Command.AutoCompleteCustomSource = HintCollection
-                    TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
-                End If
-            End If
-
-        Else
-            ' MySQL сдох - НЕЧЕГО ДЕЛАТЬ!
-        End If
-
-    End Sub
-
-    ''' <summary>
     ''' Проверка соединения с сервером MySQL
     ''' Отсюда стартует автоматом Apache
     ''' Остюда стартует при _NeedServerStart и серверы WoW
@@ -1121,6 +1046,7 @@ Public Class Launcher
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                 tcpClient.Close()
 
+                _mysqlON = False
                 Try
                     If Me.Visible Then
                         TSSL_MySQL.GetCurrentParent().Invoke(Sub()
@@ -1153,6 +1079,7 @@ Public Class Launcher
 
             Else
 
+                _mysqlON = True
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
 
@@ -1189,6 +1116,7 @@ Public Class Launcher
         Catch ex As Exception
             GV.Log.WriteException(ex)
 
+            _mysqlON = False
             Try
                 If Me.Visible Then
                     TSSL_MySQL.GetCurrentParent().Invoke(Sub()
@@ -1224,15 +1152,19 @@ Public Class Launcher
             If CheckProcess(EProcess.mysqld) Then
 
                 ' Если установлен автозапуск сервера Apache
-                If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not CheckProcess(EProcess.apache) Then
+                If _mysqlON = True And My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not CheckProcess(EProcess.apache) Then
+                    ChangeApacheMenu(False, True, True)
                     StartApache()
                 End If
 
                 ' Проверить на флаг остановки
                 If Not NeedServerStop Then
+
                     ' Поступил запрос на запуск серверов WoW
-                    If _needServerStart Then
+                    If _needServerStart And _mysqlON Then
                         If My.Settings.UseAutoBackupDatabase Then AutoBackups()
+                        ' Надо изменить меню MySQL - ВСЁ ЗАПРЕЩЕНО
+                        ChangeMySqlMenu(False, False, False)
                         ' Запускаем World через 1 сек.
                         TimerStartWorld.Change(1000, 1000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
@@ -1241,11 +1173,30 @@ Public Class Launcher
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "realmd", "1000"))
                         ' Выключаем флаг ручного запуска сервера
                         _needServerStart = False
+
+                    ElseIf My.Settings.UseIntMySQL And Not _mysqlON Then
+                        ' Надо изменить меню MySQL - ВСЁ РАЗРЕШЕНО
+                        ChangeMySqlMenu(True, True, True)
+                    End If
+
+                Else
+                    ' Поступил сигнал остановки - у нас ВНУТРЕННЕЕ MySQL?
+                    If My.Settings.UseIntMySQL Then
+                        ' Надо изменить меню MySQL
+                        ChangeMySqlMenu(True, True, True)
                     End If
                 End If
 
             Else
-                ' MySQL сдох - НЕЧЕГО ДЕЛАТЬ!
+
+                ' Запуск если надо
+                If _needServerStart And _mysqlON Then
+                    Dim a = 1
+                Else
+                    ' MySQL молчит!
+                    ' Надо изменить меню MySQL
+                    If My.Settings.UseIntMySQL Then ChangeMySqlMenu(True, True, True)
+                End If
             End If
 
         End Try
@@ -1270,6 +1221,24 @@ Public Class Launcher
 
     End Sub
 
+    ''' <summary>
+    ''' Изменение ВСЕХ пунктов меню MySQL
+    ''' </summary>
+    ''' <param name="start">Доступ к меню запуска.</param>
+    ''' <param name="restart">Доступ к меню перезапуска.</param>
+    ''' <param name="stop">Доступ меню остановки.</param>
+    Private Sub ChangeMySqlMenu(start As Boolean, restart As Boolean, [stop] As Boolean)
+        If Me.InvokeRequired Then
+            Me.Invoke(Sub()
+                          ChangeMySqlMenu(start, restart, [stop])
+                      End Sub)
+        Else
+            TSMI_MySqlStart.Enabled = start
+            TSMI_MySqlRestart.Enabled = restart
+            TSMI_MySqlStop.Enabled = [stop]
+        End If
+    End Sub
+
 #End Region
 
 #Region " === СЕРВЕР APACHE === "
@@ -1281,8 +1250,10 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStart.Click
         If Not _apacheLOCKED Then
-            If CheckProcess(EProcess.mysqld) Then
+            If Not CheckProcess(EProcess.apache) And _mysqlON Then
                 _apacheSTOP = False
+                ' Изменяем меню
+                ChangeApacheMenu(False, True, True)
                 ' Запускаем Apache
                 StartApache()
             Else
@@ -1300,15 +1271,20 @@ Public Class Launcher
         If Not _apacheLOCKED Then
             _apacheSTOP = False
             ShutdownApache()
-            If CheckProcess(EProcess.mysqld) Then
+            If _mysqlON Then
                 If My.Settings.ApacheAutostart Then
+                    ' Меняем меню
+                    ChangeApacheMenu(False, False, True)
                     ' Ничего не делаем, MySQL сам поднимет Apache
                 Else
+                    ' Меняем меню
+                    ChangeApacheMenu(False, True, True)
                     ' Запускаем Apache
                     StartApache()
                 End If
             Else
                 ' Без MySQL Apache не фиг делать - сайт не подымется
+                ChangeApacheMenu(False, False, False)
             End If
         End If
     End Sub
@@ -1320,10 +1296,18 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStop_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStop.Click
         _apacheSTOP = True
-        _apacheLOCKED = False
-        RichTextBox_ConsoleMySQL.Clear()
-        ShutdownApache()
-        UpdateMainMenu(False)
+        If _ApacheLOCKED Then
+            ' Это остановка изолированного сервера
+            _ApacheLOCKED = False
+            RichTextBox_ConsoleMySQL.Clear()
+            ChangeApacheMenu(True, True, True)
+            ShutdownApache()
+            UpdateMainMenu(False)
+        Else
+            ChangeApacheMenu(True, True, True)
+            ShutdownApache()
+            UpdateMainMenu(False)
+        End If
     End Sub
 
     ''' <summary>
@@ -1412,8 +1396,9 @@ Public Class Launcher
             Try
                 ' Сначала так
                 Dim id = GetApachePid()
+                ' Если естть - убиваем головной процесс
                 If id > 0 Then Process.GetProcessById(id).Kill()
-                ' Затем проверяем наличие процесса/процессов и если что - убиваем.
+                ' Затем проверяем наличие процесса/процессов и если что ТОЖЕ УБИВАЕМ!!!
                 CheckProcess(EProcess.apache, True)
                 TSSL_Apache.GetCurrentParent().Invoke(Sub()
                                                           TSSL_Apache.Image = My.Resources.red_ball
@@ -1449,7 +1434,7 @@ Public Class Launcher
     ''' <summary>
     ''' Проверка доступности Web сервера.
     ''' </summary>
-    Public Sub CheckHttp()
+    Friend Sub CheckHttp()
         Dim host, port As String
         If My.Settings.UseIntApache Then
             Select Case My.Settings.LastLoadedServerType
@@ -1491,29 +1476,62 @@ Public Class Launcher
         Try
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(0.5), False) Then
                 tcpClient.Close()
-                If Me.Visible Then
-                    TSSL_Apache.GetCurrentParent().Invoke(Sub()
-                                                              TSSL_Apache.Image = My.Resources.red_ball
-                                                          End Sub)
-                End If
+                ' Красный
+                ChangeApacheStatusIcon(False)
             Else
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
-                If Me.Visible Then
-                    TSSL_Apache.GetCurrentParent().Invoke(Sub()
-                                                              TSSL_Apache.Image = My.Resources.green_ball
-                                                          End Sub)
-                End If
+                ' Зелёный
+                ChangeApacheStatusIcon(True)
             End If
         Catch ex As Exception
-            If Me.Visible Then
-                TSSL_Apache.GetCurrentParent().Invoke(Sub()
-                                                          TSSL_Apache.Image = My.Resources.red_ball
-                                                      End Sub)
-            End If
+            ' Красный
+            ChangeApacheStatusIcon(False)
             GV.Log.WriteException(ex)
         End Try
         ac.AsyncWaitHandle.Close()
+    End Sub
+
+    ''' <summary>
+    ''' Изменение пунктов меню Apache.
+    ''' </summary>
+    ''' <param name="start">Доступ к меню запуска.</param>
+    ''' <param name="restart">Доступ к меню перезапуска.</param>
+    ''' <param name="[stop]">Доступ к меню остановки.</param>
+    Friend Sub ChangeApacheMenu(start As Boolean, restart As Boolean, [stop] As Boolean)
+        If Me.InvokeRequired Then
+            Me.Invoke(Sub()
+                          ChangeApacheMenu(start, restart, [stop])
+                      End Sub)
+        Else
+            TSMI_ApacheStart.Enabled = start
+            TSMI_ApacheRestart.Enabled = restart
+            TSMI_ApacheStop.Enabled = [stop]
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Если status = True - зелёный...
+    ''' </summary>
+    ''' <param name="status"></param>
+    Friend Sub ChangeApacheStatusIcon(status As Boolean)
+        If Not IsNothing(Me) Then
+            If Me.Visible Then
+                If Me.InvokeRequired Then
+                    Me.Invoke(Sub()
+                                  ChangeApacheStatusIcon(status)
+                              End Sub)
+                Else
+                    If status Then
+                        TSSL_Apache.Image = My.Resources.green_ball
+                    Else
+                        TSSL_Apache.Image = My.Resources.red_ball
+                    End If
+                End If
+            Else
+                ' Других иконок для Apache нет.
+            End If
+        End If
     End Sub
 
 #End Region
@@ -1530,7 +1548,7 @@ Public Class Launcher
                     GV.Log.WriteInfo(My.Resources.World001_WorldStart)
 
                     ' Исключаем повторный запуск World
-                    _worldON = True
+                    _WorldON = True
 
                     Dim login As String = ""
                     Dim world As String = ""
@@ -1648,7 +1666,7 @@ Public Class Launcher
                         End If
                     Catch ex As Exception
                         ' World выдал исключение
-                        _worldON = False
+                        _WorldON = False
                         Try
                             _WorldProcess.Dispose()
                         Catch
@@ -1658,8 +1676,8 @@ Public Class Launcher
                                         My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
                 Else
-                    TimerStartWorld.Change(2000, 2000)
-                    GV.Log.WriteWarning(My.Resources.P035_ThereIsProblems)
+                    'TimerStartWorld.Change(2000, 2000)
+                    'GV.Log.WriteWarning(My.Resources.P035_ThereIsProblems)
                 End If
             Else
                 GV.Log.WriteInfo(String.Format(My.Resources.P041_AlreadyStarted, "World"))
@@ -1764,7 +1782,10 @@ Public Class Launcher
                     Try
                         ' Меняем иконку в трее, коли свёрнуты
                         If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                            Try
+                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                            Catch
+                            End Try
                         Else
                             Try
                                 Me.NotifyIcon_SPP2.Icon = My.Resources.wow
@@ -1822,22 +1843,37 @@ Public Class Launcher
             If Me.Visible Then
                 _worldON = False
                 TSSL_Realm.GetCurrentParent().Invoke(Sub()
-                                                         TSSL_World.Image = My.Resources.red_ball
-                                                         If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                                                             Me.Icon = My.Resources.cmangos_orange
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                                                         Else
-                                                             Me.Icon = My.Resources.wow
-                                                             Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                                         End If
+                                                         Try
+                                                             TSSL_World.Image = My.Resources.red_ball
+                                                             If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
+                                                                 Try
+                                                                     Me.Icon = My.Resources.cmangos_orange
+                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                                                 Catch
+                                                                 End Try
+                                                             Else
+                                                                 Try
+                                                                     Me.Icon = My.Resources.wow
+                                                                     Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                                                 Catch
+                                                                 End Try
+                                                             End If
+                                                         Catch
+                                                         End Try
                                                      End Sub)
             Else
                 Try
                     ' Меняем иконку в трее, коли свёрнуты
                     If Not NeedServerStop AndAlso Me.ServerWowAutostart Or _isLastCommandStart Then
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                        Try
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                        Catch
+                        End Try
                     Else
-                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                        Try
+                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                        Catch
+                        End Try
                     End If
                 Catch
                 End Try
