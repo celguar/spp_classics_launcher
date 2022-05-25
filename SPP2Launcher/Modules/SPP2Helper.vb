@@ -684,7 +684,7 @@ Module SPP2Helper
         GV.SPP2Launcher.ShutdownRealmd()
 
         ' Если необходимо, выполняем BackUp
-        If My.Settings.UseAutoBackupDatabase Then
+        If My.Settings.UseAutoBackupDatabase And GV.SPP2Launcher.NeedExitLauncher Then
             GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd)
             GV.SPP2Launcher.AutoBackups()
         End If

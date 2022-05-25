@@ -1,4 +1,5 @@
-﻿Imports System.Threading
+﻿
+Imports System.Threading
 
 Public Class Launcher
 
@@ -82,7 +83,7 @@ Public Class Launcher
 
 #Region " === ПРИВАТНЫЕ ПОЛЯ === "
 
-    Private _needServerStart As Boolean
+    Private _NeedServerStart As Boolean
 
     ''' <summary>
     ''' Хранит команду ручного запуска сервера.
@@ -200,14 +201,12 @@ Public Class Launcher
         UpdateSettings()
 
         ' Включем поток ежесекундного тика
-        If Not My.Settings.FirstStart Then
-            Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {
-                .CurrentCulture = GV.CI,
-                .CurrentUICulture = GV.CI,
-                .IsBackground = True
-            }
-            tikTok.Start()
-        End If
+        Dim tikTok = New Threading.Thread(Sub() EverySecond()) With {
+            .CurrentCulture = GV.CI,
+            .CurrentUICulture = GV.CI,
+            .IsBackground = True
+        }
+        tikTok.Start()
 
         ' Включаем поток вывода команды разработчиков
         _isStart = New Threading.Thread(Sub() PreStart()) With {
@@ -225,22 +224,17 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Launcher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If My.Settings.FirstStart Then
+        If EnableClosing = False Then
+            Try
+                Me.WindowState = FormWindowState.Minimized
+            Catch
+            End Try
+            e.Cancel = True
+        Else
+            GV.Log.WriteInfo(My.Resources.P005_Exiting)
             Threading.Thread.Sleep(1000)
             GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
-        Else
-            If EnableClosing = False Then
-                Try
-                    Me.WindowState = FormWindowState.Minimized
-                Catch
-                End Try
-                e.Cancel = True
-            Else
-                GV.Log.WriteInfo(My.Resources.P005_Exiting)
-                Threading.Thread.Sleep(1000)
-                GV.SPP2Launcher.NotifyIcon_SPP2.Visible = False
-                If GV.NeedRestart Then Application.Restart()
-            End If
+            If GV.NeedRestart Then Application.Restart()
         End If
     End Sub
 
@@ -330,7 +324,8 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_CreateAutosave_Click(sender As Object, e As EventArgs) Handles TSMI_CreateAutosave.Click
-        If CheckProcess(EProcess.mysqld) Then
+        If _mysqlON Then
+            ' MySQL работает
             Dim dr = MessageBox.Show(My.Resources.P053_CreateBackup,
                                      My.Resources.P007_MessageCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If dr = DialogResult.Yes Then AutoBackups()
@@ -357,8 +352,7 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_Reset_Click(sender As Object, e As EventArgs) Handles TSMI_Reset.Click
         If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
-            Dim str = If(My.Settings.FirstStart, My.Resources.P014_Reset2, My.Resources.P014_Reset1)
-            Dim dr = MessageBox.Show(str,
+            Dim dr = MessageBox.Show(My.Resources.P014_Reset,
                                      My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
             If dr = DialogResult.Yes Then
                 ' Устанавливаем флаги - нужна перезагрузка, это сброс настроек
@@ -506,7 +500,7 @@ Public Class Launcher
         My.Settings.Save()
 
         ' Выводим имя в заголовок
-        Text = My.Resources.P010_LauncherCaption & " : " & srv & If(My.Settings.FirstStart, My.Resources.P052_FirstStart, "")
+        Text = My.Resources.P010_LauncherCaption & " : " & srv
 
         ' Инициализируем MySQL
         GV.SQL = New MySqlProvider()
@@ -531,27 +525,33 @@ Public Class Launcher
         RichTextBox_ConsoleMySQL.Font = fnt
 
         ' Настраиваем контроллер BP и запускаем процесс контроля
-        If Not My.Settings.FirstStart Then
-            BP.AddProcess(GV.EProcess.Realmd)
-            BP.AddProcess(GV.EProcess.World)
-            If Not IsNothing(PC) Then PC.Abort()
-            PC = New Threading.Thread(Sub() Controller()) With {
+        BP.AddProcess(GV.EProcess.Realmd)
+        BP.AddProcess(GV.EProcess.World)
+        If Not IsNothing(PC) Then PC.Abort()
+        PC = New Threading.Thread(Sub() Controller()) With {
                 .CurrentCulture = GV.CI,
                 .CurrentUICulture = GV.CI,
                 .IsBackground = True
             }
-            PC.CurrentCulture = GV.CI
-            PC.CurrentUICulture = GV.CI
-            PC.Start()
-        End If
+        PC.CurrentCulture = GV.CI
+        PC.CurrentUICulture = GV.CI
+        PC.Start()
 
         ' Разбираемся с пунктом меню смены типа сервера
         If ServerWowAutostart Then
             ' Запрещаем доступ к меню смены сервера
             TSMI_ServerSwitcher.Enabled = False
+            ' Запрещаем доступ к меню сброса настроек
+            TSMI_Reset.Enabled = False
+            ' Запрещаем доступ к меню запуска серверов
+            TSMI_ServerStart.Enabled = False
         Else
             ' Разрешаем доступ к меню смены сервера
             TSMI_ServerSwitcher.Enabled = True
+            ' Разрешаем доступ к меню сброса настроек
+            TSMI_Reset.Enabled = True
+            ' Разрешаем доступ к меню запуска серверов
+            TSMI_ServerStart.Enabled = True
         End If
 
         ' Устанавливаем тему консоли.
@@ -562,32 +562,8 @@ Public Class Launcher
 
         TabControl1.SelectedTab = TabPage_World
 
-        ' Если это первый запуск - предупреждаем
-        If My.Settings.FirstStart Then
-            MessageBox.Show(My.Resources.P012_FirstStart,
-                            My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ' Выключаем все меню запуска/перезапуска серверов
-            TSMI_MySqlStart.Visible = False
-            TSMI_MySqlRestart.Visible = False
-            TSMI_MySqlStop.Visible = False
-            TSMI_MySQL1.Visible = False
-            TSMI_ApacheStart.Visible = False
-            TSMI_ApacheRestart.Visible = False
-            TSMI_ApacheStop.Visible = False
-            TSMI_Apache1.Visible = False
-            TSMI_ServerStart.Visible = False
-            TSMI_ServerStop.Visible = False
-            TSMI_Server2.Visible = False
-            TSMI_RunWow.Enabled = False
-            TSMI_ServerSwitcher.Enabled = False
-            TSMI_Tools.Visible = False
-            TSMI_Bots.Visible = False
-            TSMI_Reset.Enabled = False
-            UpdateMainMenu(True)
-        Else
-            ' Настраиваем меню серверов.
-            UpdateMainMenu(True)
-        End If
+        ' Настраиваем меню серверов.
+        UpdateMainMenu(True)
 
     End Sub
 
@@ -624,10 +600,10 @@ Public Class Launcher
 
             ' Обходим проверку блокировки серверов, если это выход из приложения
             If Not _NeedExitLauncher Then
-                If Not My.Settings.FirstStart And launchON Then
+                If launchON Then
 
                     ' Проверяем процесс Apache которого не должно быть
-                    If launchON AndAlso CheckProcess(EProcess.apache) Then _apacheLOCKED = True Else _apacheLOCKED = False
+                    If launchON AndAlso CheckProcess(EProcess.apache) Then _ApacheLOCKED = True Else _ApacheLOCKED = False
 
                     ' Проверяем процесс MySQL которого не должно быть
                     If CheckProcess(EProcess.mysqld) Then _MySqlLOCKED = True Else _MySqlLOCKED = False
@@ -703,19 +679,27 @@ Public Class Launcher
             End If
 
             ' Если нет других mysqld.exe используется встроенный сервер MySQL и включен его автостарт и при этом это не первый запуск
-            If Not MySqlLOCKED And Not ApacheLOCKED And My.Settings.UseIntMySQL And My.Settings.MySqlAutostart And launchON And Not My.Settings.FirstStart Then
+            If Not MySqlLOCKED And Not ApacheLOCKED And My.Settings.UseIntMySQL And My.Settings.MySqlAutostart And launchON Then
                 ' Используем запуск с ожиданием завершения другого процесса, если таковой был
                 WaitProcessEnd(EProcess.mysqld, EAction.Start, False)
             End If
 
             ' Если нет других mysqld.exe и включен автозапуск сервера - запускаем MySQL
-            If Not MySqlLOCKED And Not _serversLOCKED And launchON And Not My.Settings.FirstStart And ServerWowAutostart Then
+            If Not MySqlLOCKED And My.Settings.UseIntMySQL And Not _serversLOCKED And launchON And ServerWowAutostart Then
+
                 ' Выставляем флаг необходимости запуска всего комплекса
-                _needServerStart = True
+                _NeedServerStart = True
+
+                ' Изменяем пункты меню - ЗАПРЕЩАЕМ
+                ChangeServersMenu(False, False, False)
+
                 ' Пишем - контроль включён
                 GV.SPP2Launcher.UpdateRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
                 GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+
+                ' Запускаем MySQL
                 StartMySQL(Nothing)
+
             End If
 
             ' Отображение кнопки блокировки/разблокировки всех серверов
@@ -728,8 +712,8 @@ Public Class Launcher
                 Button_UnlockAll.Visible = False
                 If ServerWowAutostart Then
                     _needServerStart = True
-                    ' Запрещаем доступ до сброса настроек
-                    TSMI_Reset.Enabled = False
+                    ' Изменяем пункты меню - ЗАПРЕЩАЕМ
+                    ChangeServersMenu(False, False, False)
                 End If
             End If
 
@@ -758,6 +742,25 @@ Public Class Launcher
                 GV.Log.WriteWarning(UpdateMySQLConsole(My.Resources.P047_Locked13 & vbCrLf, QCONSOLE))
             End If
 
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Изменение пунктов меню запуска серверов, смены типа серверов и сброса настроек
+    ''' </summary>
+    ''' <param name="serversStart">Пункт меню запуска серверов WoW</param>
+    ''' <param name="changeServerType">Пункт меню смены типа сервера WoW</param>
+    ''' <param name="reset">Пункт меню сброса настроек приложения.</param>
+    Public Sub ChangeServersMenu(serversStart As Boolean, changeServerType As Boolean, reset As Boolean)
+        If Me.InvokeRequired Then
+            Me.Invoke(Sub()
+                          ChangeServersMenu(serversStart, changeServerType, reset)
+                      End Sub)
+        Else
+            ' Запрещаем доступ к меню запуска серверов
+            TSMI_ServerStart.Enabled = serversStart
+            TSMI_ServerSwitcher.Enabled = changeServerType
+            TSMI_Reset.Enabled = reset
         End If
     End Sub
 
@@ -1161,29 +1164,48 @@ Public Class Launcher
                 If Not NeedServerStop Then
 
                     ' Поступил запрос на запуск серверов WoW
-                    If _needServerStart And _mysqlON Then
+                    If _NeedServerStart And _mysqlON Then
+
                         If My.Settings.UseAutoBackupDatabase Then AutoBackups()
+
+                        ' Надо изменить пункты меню
+                        ChangeServersMenu(False, False, False)
+
                         ' Надо изменить меню MySQL - ВСЁ ЗАПРЕЩЕНО
                         ChangeMySqlMenu(False, False, False)
+
                         ' Запускаем World через 1 сек.
                         TimerStartWorld.Change(1000, 1000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "world", "1000"))
+
                         ' А Realm через 3 сек.
                         TimerStartRealmd.Change(3000, 3000)
                         GV.Log.WriteInfo(String.Format(My.Resources.P021_TimerSetted, "realmd", "1000"))
+
                         ' Выключаем флаг ручного запуска сервера
-                        _needServerStart = False
+                        _NeedServerStart = False
 
                     ElseIf My.Settings.UseIntMySQL And Not _mysqlON Then
+
                         ' Надо изменить меню MySQL - ВСЁ РАЗРЕШЕНО
                         ChangeMySqlMenu(True, True, True)
+
+                        ' Изменяем пункты меню - РАЗРЕШАЕМ
+                        ChangeServersMenu(True, True, True)
+
                     End If
 
                 Else
+
                     ' Поступил сигнал остановки - у нас ВНУТРЕННЕЕ MySQL?
                     If My.Settings.UseIntMySQL Then
+
                         ' Надо изменить меню MySQL
                         ChangeMySqlMenu(True, True, True)
+
+                        ' Изменяем пункты меню - РАЗРЕШАЕМ
+                        ChangeServersMenu(True, True, True)
+
                     End If
                 End If
 
@@ -1306,7 +1328,7 @@ Public Class Launcher
         Else
             ChangeApacheMenu(True, True, True)
             ShutdownApache()
-            UpdateMainMenu(False)
+            'UpdateMainMenu(False)
         End If
     End Sub
 
@@ -1396,7 +1418,7 @@ Public Class Launcher
             Try
                 ' Сначала так
                 Dim id = GetApachePid()
-                ' Если естть - убиваем головной процесс
+                ' Если есть - убиваем головной процесс
                 If id > 0 Then Process.GetProcessById(id).Kill()
                 ' Затем проверяем наличие процесса/процессов и если что ТОЖЕ УБИВАЕМ!!!
                 CheckProcess(EProcess.apache, True)
@@ -1404,7 +1426,7 @@ Public Class Launcher
                                                           TSSL_Apache.Image = My.Resources.red_ball
                                                       End Sub)
                 GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P045_ServerStopped, "Apache"), CONSOLE))
-                If Not _NeedExitLauncher Then UpdateMainMenu(False)
+                'If Not _NeedExitLauncher Then UpdateMainMenu(False)
             Catch ex As Exception
                 ' Исключение при остановке Apache
                 GV.Log.WriteException(ex)
@@ -2172,16 +2194,11 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
-        If Not My.Settings.FirstStart Then
-            ' Выводим предупреждение
-            Dim str = If(_MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
-            Dim result = MessageBox.Show(str,
-                                     My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If result = DialogResult.Yes Then
-                ShutdownAll(True)
-            End If
-        Else
-            Me.Close()
+        ' Выводим предупреждение
+        Dim str = If(_MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
+        Dim result = MessageBox.Show(str, My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.Yes Then
+            ShutdownAll(True)
         End If
     End Sub
 
@@ -2206,11 +2223,17 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStart_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStart.Click
         If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
-            If Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
-            TSMI_Reset.Enabled = False
+            If My.Settings.UseIntMySQL And Not CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
+
+            ' Изменяем пункты меню - ЗАПРЕЩАЕМ
+            ChangeServersMenu(False, False, False)
+
+            ' То же с MySQL
+            ChangeMySqlMenu(False, False, False)
+
             _isLastCommandStart = True
             _NeedServerStop = False
-            _needServerStart = True
+            _NeedServerStart = True
             RichTextBox_ConsoleRealmd.Clear()
             RichTextBox_ConsoleWorld.Clear()
             If ServerWowAutostart Then
@@ -2227,10 +2250,13 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStop_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStop.Click
         If CheckProcess(EProcess.realmd) And CheckProcess(EProcess.world) Then
-            TSMI_Reset.Enabled = True
+
+            ' Изменяем пункты меню - РАЗРЕШАЕМ
+            ChangeServersMenu(True, True, True)
+
             _isLastCommandStart = False
             _NeedServerStop = True
-            _needServerStart = False
+            _NeedServerStart = False
             _NeedExitLauncher = False
             _serversLOCKED = False
             ShutdownWorld(False)
@@ -2243,6 +2269,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_WowAutoStart_Click(sender As Object, e As EventArgs) Handles TSMI_WowAutoStart.Click
+
         Select Case My.Settings.LastLoadedServerType
             Case GV.EModule.Classic.ToString
                 My.Settings.ServerClassicAutostart = Not ServerWowAutostart
@@ -2254,20 +2281,28 @@ Public Class Launcher
                 ' Неизвестный модуль
                 GV.Log.WriteInfo(My.Resources.E008_UnknownModule)
         End Select
+
         _ServerWowAutostart = Not ServerWowAutostart
         TSMI_WowAutoStart.Checked = ServerWowAutostart
         My.Settings.Save()
+
         If ServerWowAutostart Then
-            ' Запрещаем доступ к меню смены сервера
-            TSMI_ServerSwitcher.Enabled = False
-            ' Если MySQL ещё не запущен - вперёд
-            If CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
-            If Not CheckProcess(EProcess.realmd) Or Not CheckProcess(EProcess.world) Then
-                _needServerStart = True
+
+            ' Изменяем пункты меню - ЗАПРЕЩАЕМ
+            ChangeServersMenu(False, False, False)
+
+            ' Если используется встроенный MySQL и ещё не запущен - вперёд
+            If My.Settings.UseIntMySQL Then
+                If CheckProcess(EProcess.mysqld) Then TimerStartMySQL.Change(1000, 1000)
             End If
+
+            If Not CheckProcess(EProcess.realmd) Or Not CheckProcess(EProcess.world) Then
+                _NeedServerStart = True
+            End If
+
         Else
-            ' Разрешаем доступ к меню смены сервера
-            TSMI_ServerSwitcher.Enabled = True
+                ' Изменяем пункты меню - РАЗРЕШАЕМ
+                ChangeServersMenu(True, True, True)
         End If
     End Sub
 

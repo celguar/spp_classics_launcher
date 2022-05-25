@@ -39,6 +39,9 @@ Partial Class LauncherSettings
         Me.ComboBox_LogLevel = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ComboBox_PostMessageMessageFilter = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.CheckBox_UseAutoHints = New System.Windows.Forms.CheckBox()
         Me.CheckBox_UseConsoleBuffering = New System.Windows.Forms.CheckBox()
         Me.ComboBox_MessageFilter = New System.Windows.Forms.ComboBox()
@@ -81,7 +84,6 @@ Partial Class LauncherSettings
         '
         resources.ApplyResources(Me.Button_OK, "Button_OK")
         Me.Button_OK.Name = "Button_OK"
-        Me.ToolTip1.SetToolTip(Me.Button_OK, resources.GetString("Button_OK.ToolTip"))
         Me.Button_OK.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -92,20 +94,17 @@ Partial Class LauncherSettings
         Me.GroupBox1.Controls.Add(Me.Label_ProjectDir)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.GroupBox1, resources.GetString("GroupBox1.ToolTip"))
         '
         'Button_DirSPP2
         '
         resources.ApplyResources(Me.Button_DirSPP2, "Button_DirSPP2")
         Me.Button_DirSPP2.Name = "Button_DirSPP2"
-        Me.ToolTip1.SetToolTip(Me.Button_DirSPP2, resources.GetString("Button_DirSPP2.ToolTip"))
         Me.Button_DirSPP2.UseVisualStyleBackColor = True
         '
         'TextBox_DirSPP2
         '
         resources.ApplyResources(Me.TextBox_DirSPP2, "TextBox_DirSPP2")
         Me.TextBox_DirSPP2.Name = "TextBox_DirSPP2"
-        Me.ToolTip1.SetToolTip(Me.TextBox_DirSPP2, resources.GetString("TextBox_DirSPP2.ToolTip"))
         '
         'Label_ProjectDir
         '
@@ -119,7 +118,6 @@ Partial Class LauncherSettings
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.TabControl1)
         Me.Panel1.Name = "Panel1"
-        Me.ToolTip1.SetToolTip(Me.Panel1, resources.GetString("Panel1.ToolTip"))
         '
         'TabControl1
         '
@@ -130,17 +128,15 @@ Partial Class LauncherSettings
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.ToolTip1.SetToolTip(Me.TabControl1, resources.GetString("TabControl1.ToolTip"))
         '
         'TabPage1
         '
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
-        Me.ToolTip1.SetToolTip(Me.TabPage1, resources.GetString("TabPage1.ToolTip"))
         '
         'GroupBox3
         '
@@ -151,85 +147,95 @@ Partial Class LauncherSettings
         Me.GroupBox3.Controls.Add(Me.ComboBox_LogLevel)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.GroupBox3, resources.GetString("GroupBox3.ToolTip"))
         '
         'Label6
         '
         resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        Me.ToolTip1.SetToolTip(Me.Label6, resources.GetString("Label6.ToolTip"))
         '
         'ComboBox_SqlLogLevel
         '
-        resources.ApplyResources(Me.ComboBox_SqlLogLevel, "ComboBox_SqlLogLevel")
         Me.ComboBox_SqlLogLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_SqlLogLevel.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_SqlLogLevel, "ComboBox_SqlLogLevel")
         Me.ComboBox_SqlLogLevel.Name = "ComboBox_SqlLogLevel"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_SqlLogLevel, resources.GetString("ComboBox_SqlLogLevel.ToolTip"))
         '
         'Label4
         '
         resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        Me.ToolTip1.SetToolTip(Me.Label4, resources.GetString("Label4.ToolTip"))
         '
         'ComboBox_LogLevel
         '
-        resources.ApplyResources(Me.ComboBox_LogLevel, "ComboBox_LogLevel")
         Me.ComboBox_LogLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_LogLevel.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_LogLevel, "ComboBox_LogLevel")
         Me.ComboBox_LogLevel.Name = "ComboBox_LogLevel"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_LogLevel, resources.GetString("ComboBox_LogLevel.ToolTip"))
         '
         'TabPage2
         '
-        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TabPage2.Controls.Add(Me.GroupBox4)
         Me.TabPage2.Controls.Add(Me.GroupBox2)
+        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Name = "TabPage2"
-        Me.ToolTip1.SetToolTip(Me.TabPage2, resources.GetString("TabPage2.ToolTip"))
         '
         'GroupBox4
         '
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
+        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Controls.Add(Me.ComboBox_PostMessageMessageFilter)
+        Me.GroupBox4.Controls.Add(Me.Label10)
         Me.GroupBox4.Controls.Add(Me.CheckBox_UseAutoHints)
         Me.GroupBox4.Controls.Add(Me.CheckBox_UseConsoleBuffering)
         Me.GroupBox4.Controls.Add(Me.ComboBox_MessageFilter)
         Me.GroupBox4.Controls.Add(Me.Label5)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.GroupBox4, resources.GetString("GroupBox4.ToolTip"))
+        '
+        'Label11
+        '
+        resources.ApplyResources(Me.Label11, "Label11")
+        Me.Label11.Name = "Label11"
+        '
+        'ComboBox_PostMessageMessageFilter
+        '
+        Me.ComboBox_PostMessageMessageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_PostMessageMessageFilter.FormattingEnabled = True
+        Me.ComboBox_PostMessageMessageFilter.Items.AddRange(New Object() {resources.GetString("ComboBox_PostMessageMessageFilter.Items"), resources.GetString("ComboBox_PostMessageMessageFilter.Items1"), resources.GetString("ComboBox_PostMessageMessageFilter.Items2")})
+        resources.ApplyResources(Me.ComboBox_PostMessageMessageFilter, "ComboBox_PostMessageMessageFilter")
+        Me.ComboBox_PostMessageMessageFilter.Name = "ComboBox_PostMessageMessageFilter"
+        '
+        'Label10
+        '
+        resources.ApplyResources(Me.Label10, "Label10")
+        Me.Label10.Name = "Label10"
         '
         'CheckBox_UseAutoHints
         '
         resources.ApplyResources(Me.CheckBox_UseAutoHints, "CheckBox_UseAutoHints")
         Me.CheckBox_UseAutoHints.Name = "CheckBox_UseAutoHints"
-        Me.ToolTip1.SetToolTip(Me.CheckBox_UseAutoHints, resources.GetString("CheckBox_UseAutoHints.ToolTip"))
         Me.CheckBox_UseAutoHints.UseVisualStyleBackColor = True
         '
         'CheckBox_UseConsoleBuffering
         '
         resources.ApplyResources(Me.CheckBox_UseConsoleBuffering, "CheckBox_UseConsoleBuffering")
         Me.CheckBox_UseConsoleBuffering.Name = "CheckBox_UseConsoleBuffering"
-        Me.ToolTip1.SetToolTip(Me.CheckBox_UseConsoleBuffering, resources.GetString("CheckBox_UseConsoleBuffering.ToolTip"))
         Me.CheckBox_UseConsoleBuffering.UseVisualStyleBackColor = True
         '
         'ComboBox_MessageFilter
         '
-        resources.ApplyResources(Me.ComboBox_MessageFilter, "ComboBox_MessageFilter")
         Me.ComboBox_MessageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_MessageFilter.FormattingEnabled = True
         Me.ComboBox_MessageFilter.Items.AddRange(New Object() {resources.GetString("ComboBox_MessageFilter.Items"), resources.GetString("ComboBox_MessageFilter.Items1"), resources.GetString("ComboBox_MessageFilter.Items2")})
+        resources.ApplyResources(Me.ComboBox_MessageFilter, "ComboBox_MessageFilter")
         Me.ComboBox_MessageFilter.Name = "ComboBox_MessageFilter"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_MessageFilter, resources.GetString("ComboBox_MessageFilter.ToolTip"))
         '
         'Label5
         '
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
-        Me.ToolTip1.SetToolTip(Me.Label5, resources.GetString("Label5.ToolTip"))
         '
         'GroupBox2
         '
@@ -244,12 +250,11 @@ Partial Class LauncherSettings
         Me.GroupBox2.Controls.Add(Me.ComboBox_FontStyle)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.GroupBox2, resources.GetString("GroupBox2.ToolTip"))
         '
         'PictureBox1
         '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.info
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
@@ -258,59 +263,51 @@ Partial Class LauncherSettings
         '
         resources.ApplyResources(Me.CheckBox_UpdateRightNow, "CheckBox_UpdateRightNow")
         Me.CheckBox_UpdateRightNow.Name = "CheckBox_UpdateRightNow"
-        Me.ToolTip1.SetToolTip(Me.CheckBox_UpdateRightNow, resources.GetString("CheckBox_UpdateRightNow.ToolTip"))
         Me.CheckBox_UpdateRightNow.UseVisualStyleBackColor = True
         '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        Me.ToolTip1.SetToolTip(Me.Label1, resources.GetString("Label1.ToolTip"))
         '
         'Label3
         '
         resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        Me.ToolTip1.SetToolTip(Me.Label3, resources.GetString("Label3.ToolTip"))
         '
         'ComboBox_Theme
         '
-        resources.ApplyResources(Me.ComboBox_Theme, "ComboBox_Theme")
         Me.ComboBox_Theme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_Theme.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_Theme, "ComboBox_Theme")
         Me.ComboBox_Theme.Name = "ComboBox_Theme"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_Theme, resources.GetString("ComboBox_Theme.ToolTip"))
         '
         'ComboBox_FontSize
         '
-        resources.ApplyResources(Me.ComboBox_FontSize, "ComboBox_FontSize")
         Me.ComboBox_FontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_FontSize.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_FontSize, "ComboBox_FontSize")
         Me.ComboBox_FontSize.Name = "ComboBox_FontSize"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_FontSize, resources.GetString("ComboBox_FontSize.ToolTip"))
         '
         'Label2
         '
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        Me.ToolTip1.SetToolTip(Me.Label2, resources.GetString("Label2.ToolTip"))
         '
         'ComboBox_FontStyle
         '
-        resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_FontStyle.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_FontStyle, "ComboBox_FontStyle")
         Me.ComboBox_FontStyle.Name = "ComboBox_FontStyle"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_FontStyle, resources.GetString("ComboBox_FontStyle.ToolTip"))
         '
         'TabPage_3
         '
-        resources.ApplyResources(Me.TabPage_3, "TabPage_3")
         Me.TabPage_3.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TabPage_3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TabPage_3.Controls.Add(Me.GroupBox5)
+        resources.ApplyResources(Me.TabPage_3, "TabPage_3")
         Me.TabPage_3.Name = "TabPage_3"
-        Me.ToolTip1.SetToolTip(Me.TabPage_3, resources.GetString("TabPage_3.ToolTip"))
         '
         'GroupBox5
         '
@@ -325,12 +322,11 @@ Partial Class LauncherSettings
         Me.GroupBox5.Controls.Add(Me.CheckBox_SqlBackup)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.GroupBox5, resources.GetString("GroupBox5.ToolTip"))
         '
         'PictureBox2
         '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.info
+        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.TabStop = False
         Me.ToolTip1.SetToolTip(Me.PictureBox2, resources.GetString("PictureBox2.ToolTip"))
@@ -339,50 +335,43 @@ Partial Class LauncherSettings
         '
         resources.ApplyResources(Me.Label9, "Label9")
         Me.Label9.Name = "Label9"
-        Me.ToolTip1.SetToolTip(Me.Label9, resources.GetString("Label9.ToolTip"))
         '
         'ComboBox_ManualBackupCopies
         '
-        resources.ApplyResources(Me.ComboBox_ManualBackupCopies, "ComboBox_ManualBackupCopies")
         Me.ComboBox_ManualBackupCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_ManualBackupCopies.FormattingEnabled = True
         Me.ComboBox_ManualBackupCopies.Items.AddRange(New Object() {resources.GetString("ComboBox_ManualBackupCopies.Items"), resources.GetString("ComboBox_ManualBackupCopies.Items1"), resources.GetString("ComboBox_ManualBackupCopies.Items2"), resources.GetString("ComboBox_ManualBackupCopies.Items3")})
+        resources.ApplyResources(Me.ComboBox_ManualBackupCopies, "ComboBox_ManualBackupCopies")
         Me.ComboBox_ManualBackupCopies.Name = "ComboBox_ManualBackupCopies"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_ManualBackupCopies, resources.GetString("ComboBox_ManualBackupCopies.ToolTip"))
         '
         'Label8
         '
         resources.ApplyResources(Me.Label8, "Label8")
         Me.Label8.Name = "Label8"
-        Me.ToolTip1.SetToolTip(Me.Label8, resources.GetString("Label8.ToolTip"))
         '
         'ComboBox_AutosaveBackupCopies
         '
-        resources.ApplyResources(Me.ComboBox_AutosaveBackupCopies, "ComboBox_AutosaveBackupCopies")
         Me.ComboBox_AutosaveBackupCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_AutosaveBackupCopies.FormattingEnabled = True
         Me.ComboBox_AutosaveBackupCopies.Items.AddRange(New Object() {resources.GetString("ComboBox_AutosaveBackupCopies.Items"), resources.GetString("ComboBox_AutosaveBackupCopies.Items1"), resources.GetString("ComboBox_AutosaveBackupCopies.Items2"), resources.GetString("ComboBox_AutosaveBackupCopies.Items3"), resources.GetString("ComboBox_AutosaveBackupCopies.Items4")})
+        resources.ApplyResources(Me.ComboBox_AutosaveBackupCopies, "ComboBox_AutosaveBackupCopies")
         Me.ComboBox_AutosaveBackupCopies.Name = "ComboBox_AutosaveBackupCopies"
-        Me.ToolTip1.SetToolTip(Me.ComboBox_AutosaveBackupCopies, resources.GetString("ComboBox_AutosaveBackupCopies.ToolTip"))
         '
         'Label7
         '
         resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        Me.ToolTip1.SetToolTip(Me.Label7, resources.GetString("Label7.ToolTip"))
         '
         'CheckBox_UseAutoBackups
         '
         resources.ApplyResources(Me.CheckBox_UseAutoBackups, "CheckBox_UseAutoBackups")
         Me.CheckBox_UseAutoBackups.Name = "CheckBox_UseAutoBackups"
-        Me.ToolTip1.SetToolTip(Me.CheckBox_UseAutoBackups, resources.GetString("CheckBox_UseAutoBackups.ToolTip"))
         Me.CheckBox_UseAutoBackups.UseVisualStyleBackColor = True
         '
         'CheckBox_SqlBackup
         '
         resources.ApplyResources(Me.CheckBox_SqlBackup, "CheckBox_SqlBackup")
         Me.CheckBox_SqlBackup.Name = "CheckBox_SqlBackup"
-        Me.ToolTip1.SetToolTip(Me.CheckBox_SqlBackup, resources.GetString("CheckBox_SqlBackup.ToolTip"))
         Me.CheckBox_SqlBackup.UseVisualStyleBackColor = True
         '
         'LauncherSettings
@@ -395,7 +384,6 @@ Partial Class LauncherSettings
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LauncherSettings"
-        Me.ToolTip1.SetToolTip(Me, resources.GetString("$this.ToolTip"))
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -455,4 +443,7 @@ Partial Class LauncherSettings
     Friend WithEvents Label9 As Label
     Friend WithEvents ComboBox_ManualBackupCopies As ComboBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents ComboBox_PostMessageMessageFilter As ComboBox
 End Class

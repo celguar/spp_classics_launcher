@@ -12,10 +12,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ApacheAutostart" Description="Автоматический запуск Apache" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MySqlAutostart" Description="Автоматический запуск MySQL" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="UseIntApache" Description="Использовать встроенный Apache" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -287,7 +287,7 @@
     <Setting Name="SqlLogLevel" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="ConsoleMessageFilter" Description="Не выводить в консоль сообщения об ошибках." Type="System.Int32" Scope="User">
+    <Setting Name="ConsoleMessageFilter" Description="Фильтр сообщений для консоли в начале запуска" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="UseConsoleBuffer" Description="Сохранять введённые команды в буфере." Type="System.Boolean" Scope="User">
@@ -309,10 +309,13 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="AutosaveBackupCount" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="ManualBackupCount" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="ConsolePostMessageFilter" Description="Фильтр сообщений для консоли после запуска" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

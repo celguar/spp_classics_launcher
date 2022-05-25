@@ -108,7 +108,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск Apache"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property ApacheAutostart() As Boolean
             Get
                 Return CType(Me("ApacheAutostart"),Boolean)
@@ -124,7 +124,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск MySQL"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property MySqlAutostart() As Boolean
             Get
                 Return CType(Me("MySqlAutostart"),Boolean)
@@ -1259,10 +1259,10 @@ Namespace My
         End Property
         
         '''<summary>
-        '''Не выводить в консоль сообщения об ошибках.
+        '''Фильтр сообщений для консоли в начале запуска
         '''</summary>
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Configuration.SettingsDescriptionAttribute("Не выводить в консоль сообщения об ошибках."),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Фильтр сообщений для консоли в начале запуска"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public Property ConsoleMessageFilter() As Integer
@@ -1368,7 +1368,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property AutosaveBackupCount() As Integer
             Get
                 Return CType(Me("AutosaveBackupCount"),Integer)
@@ -1380,13 +1380,29 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("15")>  _
         Public Property ManualBackupCount() As Integer
             Get
                 Return CType(Me("ManualBackupCount"),Integer)
             End Get
             Set
                 Me("ManualBackupCount") = value
+            End Set
+        End Property
+        
+        '''<summary>
+        '''Фильтр сообщений для консоли после запуска
+        '''</summary>
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Фильтр сообщений для консоли после запуска"),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property ConsolePostMessageFilter() As Integer
+            Get
+                Return CType(Me("ConsolePostMessageFilter"),Integer)
+            End Get
+            Set
+                Me("ConsolePostMessageFilter") = value
             End Set
         End Property
     End Class

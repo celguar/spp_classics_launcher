@@ -241,9 +241,6 @@
   <data name="E013_SettingsNotFound" xml:space="preserve">
     <value>Не найден каталог Settings модулей серверов.</value>
   </data>
-  <data name="P012_FirstStart" xml:space="preserve">
-    <value>Это первый запуск приложения. Пробегитесь по настройкам...</value>
-  </data>
   <data name="E015_RealmdCrashed" xml:space="preserve">
     <value>Сервер REALMD внезапно прекратил работу {0} раз. Перезапуск через {1} сек.</value>
   </data>
@@ -367,9 +364,6 @@
   <data name="E017_SeeLog" xml:space="preserve">
     <value>Произошла ошибка. Подробности в Log-файле приложения.</value>
   </data>
-  <data name="P014_Reset1" xml:space="preserve">
-    <value>Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?</value>
-  </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Внимание!</value>
   </data>
@@ -430,7 +424,7 @@
   <data name="P051_NeedMySQL" xml:space="preserve">
     <value>Сервер {0} невозможно запустить без доступного сервера MySQL.</value>
   </data>
-  <data name="P014_Reset2" xml:space="preserve">
+  <data name="P014_Reset" xml:space="preserve">
     <value>Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?</value>
   </data>
   <data name="P047_Locked10" xml:space="preserve">
@@ -468,5 +462,17 @@
   </data>
   <data name="P054_BackupNeedMySQL" xml:space="preserve">
     <value>Для выполнения необходимо подключение к MySQL!</value>
+  </data>
+  <data name="P055_PostMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="locale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\locale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="protect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\protect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

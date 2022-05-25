@@ -375,6 +375,16 @@ Namespace My.Resources
         '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property locale() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("locale", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property mysql() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("mysql", resourceCulture)
@@ -492,15 +502,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Это первый запуск приложения. Пробегитесь по настройкам....
-        '''</summary>
-        Friend ReadOnly Property P012_FirstStart() As String
-            Get
-                Return ResourceManager.GetString("P012_FirstStart", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Включить сайт.
         '''</summary>
         Friend ReadOnly Property P013_SiteAutostart() As String
@@ -510,20 +511,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Данное действие вызовет немедленную остановку всех серверов и перезагрузку лаунчера. Продолжить?.
-        '''</summary>
-        Friend ReadOnly Property P014_Reset1() As String
-            Get
-                Return ResourceManager.GetString("P014_Reset1", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Ищет локализованную строку, похожую на Данное действие вызовет сброс настроек приложения по умолчанию. Продолжить?.
         '''</summary>
-        Friend ReadOnly Property P014_Reset2() As String
+        Friend ReadOnly Property P014_Reset() As String
             Get
-                Return ResourceManager.GetString("P014_Reset2", resourceCulture)
+                Return ResourceManager.GetString("P014_Reset", resourceCulture)
             End Get
         End Property
         
@@ -933,6 +925,25 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на .
+        '''</summary>
+        Friend ReadOnly Property P055_PostMessage() As String
+            Get
+                Return ResourceManager.GetString("P055_PostMessage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property protect() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("protect", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Ищет локализованную строку, похожую на Запуск сервера Realmd.
         '''</summary>
         Friend ReadOnly Property Real001_RealmdStart() As String
@@ -975,6 +986,16 @@ Namespace My.Resources
         Friend ReadOnly Property ru() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ru", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property save() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("save", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

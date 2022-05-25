@@ -204,16 +204,10 @@
   <data name="P011_AllChars" xml:space="preserve">
     <value>Total Characters {0}</value>
   </data>
-  <data name="P012_FirstStart" xml:space="preserve">
-    <value>This is the first launch of the application. Run through the settings...</value>
-  </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
   </data>
-  <data name="P014_Reset1" xml:space="preserve">
-    <value>This action will immediately stop all servers and restart the launcher. Do you want to continue?</value>
-  </data>
-  <data name="P014_Reset2" xml:space="preserve">
+  <data name="P014_Reset" xml:space="preserve">
     <value>This action will reset the application settings to default. Proceed?</value>
   </data>
   <data name="P015_ChangeLocale" xml:space="preserve">

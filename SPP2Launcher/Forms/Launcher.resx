@@ -117,27 +117,245 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Updates.Name" xml:space="preserve">
-    <value>TSMI_Updates</value>
+  <metadata name="StatusStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="StatusStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TSSL_MySQL.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TSSL_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
+        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
+        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
+        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
+        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
+        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
+        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
+        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
+        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
+        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
+        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
+        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
+        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSSL_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="TSSL_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="TSSL_Apache.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TSSL_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
+        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
+        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
+        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
+        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
+        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
+        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
+        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
+        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
+        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
+        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
+        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
+        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSSL_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="TSSL_Apache.Text" xml:space="preserve">
+    <value>HTTP</value>
+  </data>
+  <data name="TSSL_Realm.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
+        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
+        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
+        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
+        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
+        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
+        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
+        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
+        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
+        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
+        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
+        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
+        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSSL_Realm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="TSSL_Realm.Text" xml:space="preserve">
+    <value>Realm</value>
+  </data>
+  <data name="TSSL_World.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
+        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
+        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
+        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
+        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
+        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
+        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
+        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
+        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
+        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
+        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
+        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
+        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSSL_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="TSSL_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 17</value>
+  </data>
   <data name="TSSL_Online.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 17</value>
   </data>
-  <data name="Button_UnlockAll.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="TSSL_Online.Text" xml:space="preserve">
+    <value>Онлайн:</value>
   </data>
-  <data name="&gt;&gt;Button_UnlockAll.Parent" xml:space="preserve">
+  <data name="TSSL_Count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 17</value>
+  </data>
+  <data name="TSSL_Count.Text" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 359</value>
+  </data>
+  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 22</value>
+  </data>
+  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
+    <value>StatusStrip_SPP2</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="MenuStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>159, 17</value>
+  </metadata>
+  <metadata name="MenuStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TSMI_RunWow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        3wEGwmDly80jxAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 24</value>
+  </data>
+  <data name="TSMI_RunWow.Text" xml:space="preserve">
+    <value>Запуск WoW</value>
+  </data>
+  <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_WowAutoStart.Text" xml:space="preserve">
+    <value>Защита серверов от падения</value>
+  </data>
+  <data name="TSMI_WowAutoStart.ToolTipText" xml:space="preserve">
+    <value> Установка данного параметра помимо автоматического
+запуска realmd и mangos при загрузке лаунчера, так же
+запускает и механизм контроля над ними.
+То есть при падении они будут автоматически запущены.
+HTTP сервер не контролируется!</value>
+  </data>
+  <data name="TSMI_ServerStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -149,11 +367,567 @@
         4juAQu5AzAaWpDMA5WdeCHMUjIJRMKwAAwMAmfAbf6gl2AUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="TSSL_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+  <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_ServerStart.Text" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="TSMI_ServerStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAA/klE
+        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
+        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
+        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
+        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
+        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_ServerStop.Text" xml:space="preserve">
+    <value>Остановить</value>
+  </data>
+  <data name="TSMI_CreateAutosave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_CreateAutosave.Text" xml:space="preserve">
+    <value>Создать резервную копию</value>
+  </data>
+  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 6</value>
+  </data>
+  <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAB/UlE
+        QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
+        waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
+        hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
+        3Tx4k4CYkjNQCwtEJ5UAXgdAMSha7KM6/ht75L1V1HObysUnqgHVTjkgxgEwDHKIbVjzf33ntNvSalYl
+        LGycYnwi8lCTyASkOACCe4EO6ftvGVD1T0hKYzvQCBGISWQCUh0Astw6pOG/spH3Pw5uwa1AI4QhJpEJ
+        iHUAyGL7yPb/WjbR/wUlVW8zMbEUA7WLQUyhABByACjeQbSRW/Z/cUWjt8B4nwjUpg7RTQWA2wGguO79
+        b+Ff8V9O2+kHJ4/QOqByByCmfTYEBbdNWNN/VdOAv7zCMieBJXIMUCkPRAeVAbIDXBMmAvN7539d+4T/
+        wtKaD5lYWCuBSiQhKmkEQJWRgYGRdnrZhJfmPoX/JVXMPrBx8MwASukCMe0rI0lpWQZVNQ0JIwvn3TwC
+        4juAQu5AzAaWpDMA5WdeCHMUjIJRMKwAAwMAmfAbf6gl2AUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_MySqlStart.Text" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="TSMI_MySqlRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        twAAALcBRi4NFgAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
+        zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
+        JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
+        f/4CBxqCKPjzOCxbmmHKa0Jyng/mfL/cRvZ9SMppgMVeibK9QRiSrGTAos3FwIrDvH79D+ob25Ff3hEp
+        LAqt2ngQCanlMKS4scJaC1OuN2qkCas3+YXJFsxP2oIj3kYyweZVwYoK40+c6kZxdZdMbso9gt9W5mBd
+        ei58gVZ0dJ1C5+nz2Oqug9FWI7tAcWRmeWY17I5CMjBek1MLK0r+HhyEp+44UoqOwuRoxLyEDLh2uinp
+        VFXc2N5LV1BUHpB3HzEQMWtYlU6xcapYDlaU9PSGsa2qU7Teh8Xry5CSmkkJp6hjHj58hBJPA9KLj8rC
+        yntB23kJ6Xj77t3XHgMrEuOCnT3IdrdLA3MWrKVE2zUxMVTg4pWbqKprRZrDg2Vpe5Boq5Nm4i2l32Ug
+        NnQ6jExnm3z55i4wUyKzJkYNffMLcwp3IznLg8SMXbIzUQM0F7hrCFYkJgRC55C5o022NC5+HSXK0MR8
+        hij4SfD+2YuhC+LxfPieDsSEOrthLY0YiLeUoKJ639eSSf5986ZZFJ4t9mmxMSpYUXJVTDSb0yffAZPD
+        iyVrHOi7e/dLJiaJu4bg4+2++4dv3O6jKUiLi1XDigqzyiqbYNkckF0w2g9hffYenOm+TCZmCCYIfqYv
+        oa2jB1XeXtS23PgkTLy9c6/fJc4pi8utwIrDhK/dQmpBvZyAZILe7kRrDf4oPAB3TStKK/3Ic3mR5QpG
+        BpGYF8IEdeJVNIeyPssdhRXVxDa2iDG8sTZqIjKOqZg5n0ZvZJ/M0WP61ZCBLFs2dUj5ESlLm1eBFbVM
+        PNZ+FmabB8bsv6IG/MNQYfo3xC1aDWdpGRWfqbmelvpYDStyjH36bBD7G0Jy4Czf4ILBUozfE+1YmmzF
+        5iL5+00TxKqu+RZYcSTGCKY/efIU/f0DVNQo+EUw0rAZCVbUE1bUE1bUE1bUE1bUE1bUE1bUiVEx/wGV
+        ROw39ZbjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSMI_MySqlRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_MySqlRestart.Text" xml:space="preserve">
+    <value>Перезапустить</value>
+  </data>
+  <data name="TSMI_MySqlStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAA/klE
+        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
+        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
+        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
+        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
+        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_MySqlStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_MySqlStop.Text" xml:space="preserve">
+    <value>Остановить</value>
+  </data>
+  <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="TSMI_MySqlSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
+        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
+        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
+        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
+        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
+        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
+        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
+        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
+        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
+        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
+        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
+        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
+        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
+        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
+        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
+        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
+        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
+        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
+        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
+        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TSMI_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAADsKAAA7CgEzSyaRAAAAB3RJ
+        TUUH5AYMCjAUTJzedAAAAlRJREFUWEft1duLTVEcwPHlMu6M3HnQcc2lXCLK/R4yJbklmTkzSe5yyT0P
+        UjPnuA2j8CbyICGR8kLx6h/wP3jwF/D97rW2RiNe5ijav/p09lpn7bN++7fW2icUUUQR/0+UK+qJsRiS
+        2unLvxFxwjE4gRZsxAzUIQ2qZcQE+mMLpmINdiejkQbWMmIS07EeLoVPPxuHMQ5pYK0iJtAPm1Gf2pqF
+        veiTtWsaccIVmJOuczuxKLuuacTJVqIUmqs9Qrma903AfvTO2jWLONkqbMe21M65IZfC45pu6O6IE3n8
+        rsEjOSL1yWPqUrhJh2d93R5xol4Yj5EohUaeuOlHEgPgJj2IejsctBidMx2c+n59dOKYQVgAz/tazIMn
+        YBqWw1JPRF94FIfC+0q4CTdqnR2e0a+ogk2TDTqKL2jN2nns6AjhG59xI13FA7TBcu+DT/UWFdj/BK77
+        M7gxQ2jOfn8mGjDMxll8xDv4BhuFN3iO21iHXXCs9mATXuI4XG+f1KTuox35WB/E33iF1akvZ2WyJbiA
+        u7iOk2jCY5xCB0zwHvIbHWvV5uMivP8hHG8CN2AyVvMQ7uA1YgJdIv6AE7nm7/EBvs8PwH53sqWcBM+y
+        yR2BlbJik+FyPMItONadbqImdhkvYDJT4B7p9N9QrmyAN/jePoZLGAg3if1umtM4hzP4BEvrd3kFrmAh
+        XFuv7bdqn7EVbkr7z8PvPIYpgd9FLPlcmICTe/NTWK0QGtt/1tLKJlOb97kES7AsXXcd/8eICfinYvlz
+        HNv0ii2iiCL+/QjhO+YjaHjLxGGTAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
+  </data>
+  <data name="TSMI_ApacheStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAB/UlE
+        QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
+        waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
+        hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
+        3Tx4k4CYkjNQCwtEJ5UAXgdAMSha7KM6/ht75L1V1HObysUnqgHVTjkgxgEwDHKIbVjzf33ntNvSalYl
+        LGycYnwi8lCTyASkOACCe4EO6ftvGVD1T0hKYzvQCBGISWQCUh0Astw6pOG/spH3Pw5uwa1AI4QhJpEJ
+        iHUAyGL7yPb/WjbR/wUlVW8zMbEUA7WLQUyhABByACjeQbSRW/Z/cUWjt8B4nwjUpg7RTQWA2wGguO79
+        b+Ff8V9O2+kHJ4/QOqByByCmfTYEBbdNWNN/VdOAv7zCMieBJXIMUCkPRAeVAbIDXBMmAvN7539d+4T/
+        wtKaD5lYWCuBSiQhKmkEQJWRgYGRdnrZhJfmPoX/JVXMPrBx8MwASukCMe0rI0lpWQZVNQ0JIwvn3TwC
+        4juAQu5AzAaWpDMA5WdeCHMUjIJRMKwAAwMAmfAbf6gl2AUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_ApacheStart.Text" xml:space="preserve">
+    <value>Запустить</value>
+  </data>
+  <data name="TSMI_ApacheRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        twAAALcBRi4NFgAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
+        zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
+        JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
+        f/4CBxqCKPjzOCxbmmHKa0Jyng/mfL/cRvZ9SMppgMVeibK9QRiSrGTAos3FwIrDvH79D+ob25Ff3hEp
+        LAqt2ngQCanlMKS4scJaC1OuN2qkCas3+YXJFsxP2oIj3kYyweZVwYoK40+c6kZxdZdMbso9gt9W5mBd
+        ei58gVZ0dJ1C5+nz2Oqug9FWI7tAcWRmeWY17I5CMjBek1MLK0r+HhyEp+44UoqOwuRoxLyEDLh2uinp
+        VFXc2N5LV1BUHpB3HzEQMWtYlU6xcapYDlaU9PSGsa2qU7Teh8Xry5CSmkkJp6hjHj58hBJPA9KLj8rC
+        yntB23kJ6Xj77t3XHgMrEuOCnT3IdrdLA3MWrKVE2zUxMVTg4pWbqKprRZrDg2Vpe5Boq5Nm4i2l32Ug
+        NnQ6jExnm3z55i4wUyKzJkYNffMLcwp3IznLg8SMXbIzUQM0F7hrCFYkJgRC55C5o022NC5+HSXK0MR8
+        hij4SfD+2YuhC+LxfPieDsSEOrthLY0YiLeUoKJ639eSSf5986ZZFJ4t9mmxMSpYUXJVTDSb0yffAZPD
+        iyVrHOi7e/dLJiaJu4bg4+2++4dv3O6jKUiLi1XDigqzyiqbYNkckF0w2g9hffYenOm+TCZmCCYIfqYv
+        oa2jB1XeXtS23PgkTLy9c6/fJc4pi8utwIrDhK/dQmpBvZyAZILe7kRrDf4oPAB3TStKK/3Ic3mR5QpG
+        BpGYF8IEdeJVNIeyPssdhRXVxDa2iDG8sTZqIjKOqZg5n0ZvZJ/M0WP61ZCBLFs2dUj5ESlLm1eBFbVM
+        PNZ+FmabB8bsv6IG/MNQYfo3xC1aDWdpGRWfqbmelvpYDStyjH36bBD7G0Jy4Czf4ILBUozfE+1YmmzF
+        5iL5+00TxKqu+RZYcSTGCKY/efIU/f0DVNQo+EUw0rAZCVbUE1bUE1bUE1bUE1bUE1bUE1bUiVEx/wGV
+        ROw39ZbjHwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSMI_ApacheRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_ApacheRestart.Text" xml:space="preserve">
+    <value>Перезапустить</value>
+  </data>
+  <data name="TSMI_ApacheStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC7AAAAuwGdWYJhAAAA/klE
+        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
+        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
+        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
+        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
+        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_ApacheStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_ApacheStop.Text" xml:space="preserve">
+    <value>Остановить</value>
+  </data>
+  <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 6</value>
+  </data>
+  <data name="TSMI_ApacheSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
+        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
+        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
+        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
+        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
+        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
+        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
+        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
+        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
+        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
+        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
+        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
+        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
+        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
+        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
+        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
+        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
+        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
+        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
+        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TSMI_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_Apache.Text" xml:space="preserve">
+    <value>Apache</value>
+  </data>
+  <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 6</value>
+  </data>
+  <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 26</value>
+  </data>
+  <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
+    <value>Сменить тип сервера</value>
+  </data>
+  <data name="TSMI_Server.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AAAASUVORK5CYII=
+</value>
   </data>
   <data name="TSMI_Server.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 24</value>
+  </data>
+  <data name="TSMI_Server.Text" xml:space="preserve">
+    <value>Серверы</value>
+  </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Bots.Text" xml:space="preserve">
+    <value>Боты</value>
+  </data>
+  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Characters.Text" xml:space="preserve">
+    <value>Персонажи</value>
+  </data>
+  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Saves.Text" xml:space="preserve">
+    <value>Сохранения</value>
+  </data>
+  <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_World.Text" xml:space="preserve">
+    <value>Настройки Mangos</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Updates.Text" xml:space="preserve">
+    <value>Обновления</value>
+  </data>
+  <data name="TSMI_Tools.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABGJJREFUWEftV31InVUc1mtamkn4heQHV7ioqGBq+JnpnR8L1KGCeBkqUeGfEpEb
+        ZoLUlu4qDBtF0D+WUGDI2C4RA2HKihFj3Y2Vt7UkWiyzsjFlTBnz1/Oce85F5/X11rL6owce3vc953fO
+        85zf+bo37H/8F7EP9OjnP45nwdXa2lrB87b+Dopzn11wgPsmJz869fY7714dHnEvjoy4f/1g8sPvJyYm
+        DoyNjSXq0JBRB97Jzc2VlpYWqa+vp4k7unwbIO4Cl0Ax/GXpd5n/+ls5fnxciouLr6CvBh2+KyiynpCQ
+        IPn5+VJVVaVM1NXVmUyENB3j4yfk6jcL8vPib3L9h5/kyJE3BSbe0NWWeAa8FR0dLWlpaVtM6OnYMROb
+        AbEitD3j/fIrWfjuuqLn9Kc08b4OsUQZGNSEzgRN1DBwN6DtufPnL8qlS/OK09OnaWJUV1viafCmRSYs
+        F6YBxD6Z910LrA2+NzQ0rGMgD+kQS5SAQTOhF+ZiYmLiIyoyOHzZ2dkcsRImm5ubxencz0yeiIyM7NFx
+        luB0rN5vIjMzkwbuwoBDRW3HyYGBAent7VXtYMLndDqXKU4SyASzOdne3m7TbXZEBbhsTMTHx1NcIE56
+        gmTh2NTUlKysrIjL5RK043Qp1NTUuA4efEEOH35dmaAZFL/or7WGmo6oqKiAOOF2u/l+TUX4cdTj8ai6
+        /v5+1t1AWZq/SiGLosYEvj1gjKoJAU+Cr6DTz9l5U1OTEhoeHpbGxkZ29p4RHxoakoyMjAWUZbDhfTig
+        R34GtFpDOwMmpgcHB5UJr9crKSkpYrPZbmwSZ1bs/uig4DZO9r/+BcBAWWtrq5pjrGYpLS3liNbBy3rk
+        m9O+Z2iLiIiQ6upqlYmcnBwJDw+/h/Imf/Xegnv4Lk9GinNr8v7A6GnkNX/I3uHVvLw8tfCMOKZEYmJi
+        LjocDhkdHZXCwsI9M3GMh1FbW1tAPCkpifP/MWhD3SEe1T6fj+viJdXibwLP7kmKd3R0BMSTk5MpfhYM
+        7GXc/z1cnGtra1JeXn5IFz8Q2PmpgoIC6ezsDIhz66H8C/BxBm0GRt/T3d0tGxsbNPFAmeBencOcbhFP
+        TU2lOPf6EwwKBph4jiaIysrK0aKiopBPPAOeYldKSkq2iKenp1N8CcxlkBXKysqe7+rqkr6+Pq6b1acA
+        XbUr8sEfKyoqtojb7XaKL4Mhd4Sr2zs3N6cygav8FjIRpassoa5hpC4gzi2GsjWwlgGhAovSgdHfNiZw
+        cJ3UVbuC1/BNnnBZWVkSGxtLAy5V8yeBUSfi0LowOzurTGBa+dtzG/jDgIwAmaZHwf3gUlxc3AaeL4Nc
+        8dyS4ZqM5Tfj+c4ygk/TH+sfBh+Dkd6ZmZl7MHMZ39G6jjGq3eaOWcirkqu8GXwLrATjQCNiEAlyhVPE
+        tDfGjClTZscpehS7ij/RY3WZMRpwQhqwjJ3TCMVVYBCYdiRjKE5jZlAG/OY/JZNJGjD8NxEW9gelOyY4
+        JAIGrQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 24</value>
+  </data>
+  <data name="TSMI_Tools.Text" xml:space="preserve">
+    <value>Инструменты</value>
+  </data>
+  <data name="TSMI_Tools.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TSMI_English.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHqSURBVChTY5g0c9+Oq2+qpx9LaQaiw4mNB27efbs2
+        uXFNQh2Q4Zm9zSNth23MhqjGnXMC86vnHmVYsuLU/42r/v37f/vhl0Ubbs9ffwfI/j+l539fK5AxaeHl
+        3rkXTp54/K+r5t/fnxM2XWBIajm45+S7/0uX/z+49////23TrgLJ/6mZ/xMSgXRJ36Uvi9Z87+4Gsuet
+        uiRpMgOkYeGGu3UTrz7cd/9PUz1INRDExPwPjwAxcjP/v3hx4c5bR8/lRU1HBHUnMgAdCnIDGggN/e/n
+        B2XDAFDZmWsvGdYk1v6f3PE/JeV/fPz/yMj/ISEgpT4+/1xdf9nb/7S0/G5i8lVP76u29s9gt1Z5Kxw2
+        2Nr+MbMAs0Byf//+/fP3z+8/f05efcFgH7epZ875qLQdV66+///2zc/keJAqI5Pf+oZgDX+fOjnun7lV
+        QnpWSMJ6BuFsBvOwdYvXg0Lmc2Pdh66umJJjQPYfbd1fmtpAV1vZL/n5//+XWXNfJMQ0TT3HIJjOMHnz
+        5X///n5vrzh64HZhw8G8hsNAF/4N8fgd5Pzv79/wtG2hcau3H77198+P1wm+2UVLGKrmHZjikuycuUhQ
+        Zw6PxmQO1Qnnr71olbZoETc5feUlg3gxg2gBg3CuiGFd757rrqZ5ADxMaKrXB946AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TSMI_English.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="TSMI_English.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_English.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="TSMI_Russian.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG+SURBVChTZZA9SyNRFIZPL7gLphkLEzAWRnFCSAIm
+        yPiVgThFAsnCNFnQIkUKhRQ2YmEhWARSBEQQxL8g1iIsi4gsyy7bbgghhBBCGObr3rkzc8e9NxvZBV9e
+        TvU8B84B2379r9Q0eXWdapqnaWQ8xqORPRyag4He72vdnsaFvwneQikr9SfxPM91XUKI4zgY405nNBWm
+        LKd53qMIITbb7SHk8693d8HtbXBzE1xf06srennpt1pes+k2GuTiwjk/x2dn6PTUbjYRwAAA6PFxoKpB
+        uUyLBaoovix7W1tuNkvSaScexysraGnJjkQsSbKnQr0elEq0UPCVPU5vbv6jYxM6HLbm581slgl9Lhwd
+        cTq/5+VyUzqVckQRx2IoGuW0IJihkJFOWwA9uAf4XWv8ytd/5g5/SLXvmeq35P6LWHmOqU/R0tdw4Yug
+        PIbkh487z4nPJ2w/AfCrVXd315Ukksk4ySReW0PLy/biorWwYAqCMTenf5jVZ2YMUewwAQN4+wdupUJU
+        lZQ/OcUiVhQsy2h7297YsNbXzVTKSCQYbayutpnADjEBdAANYDzpCGA4eQc7sAfQBWCLGcoL8Aeq8DrK
+        gzQbegAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TSMI_Russian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="TSMI_Russian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="TSMI_Russian.Text" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="TSMI_LanguageTool.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 26</value>
+  </data>
+  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="TSMI_Launcher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAWxJREFUWEft1j0oBnEAx/GT18JmkFIWGxaljCyMBsprXhYDg1BMSmKRKMrAJoO3
+        LF4nGSwGMcgkwoAUJWVQfH/nTtd19zwPHpen7luf7vlf/7v/M9ybERaWKBWgBWXmKOCq8IpnvGMIf1Y1
+        +tHr8IB5ZKED+hP5yEEP+uCcH4nO3YpkeDaNG1zjytpqwUYoLaxxEUpwAXt+LDR3D+nwLcliN4s3TOIc
+        x8iAnXNutL4z96sUjOIUi8hD2L+qHQvoNEcBpwtTd8WBtdUF+6sGsIutGGieFq2DqoHG2SiH5mxbW+cx
+        c0iDZ91YxUoUy1iDFmyDaoLGemCVYgnuc2k8gVTEpRFo0RNrO47Aq8UMGsxRWAAVQxfhBiq1I8j0NnzC
+        IezbsAJxawy6ov3c4RJ2+9j8/GkMw+sYt3X4vo6bMRXBDh6hjxHdy2fQY1jVw+sYt0H8+DmgA4/wgnvc
+        ohCBloku6FMsVzvCwhI4w/gACIF8s8Bg+pQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 26</value>
+  </data>
+  <data name="TSMI_Launcher.Text" xml:space="preserve">
+    <value>Приложение</value>
+  </data>
+  <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 6</value>
+  </data>
+  <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 26</value>
+  </data>
+  <data name="TSMI_Reset.Text" xml:space="preserve">
+    <value>Сброс всех настроек</value>
+  </data>
+  <data name="TSMI_Settings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
+        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
+        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
+        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
+        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
+        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
+        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
+        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
+        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
+        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
+        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
+        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
+        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
+        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
+        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
+        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
+        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
+        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
+        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
+        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 24</value>
+  </data>
+  <data name="TSMI_Settings.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 28</value>
+  </data>
+  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
+    <value>MenuStrip_SPP2</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="NotifyIcon_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>300, 17</value>
+  </metadata>
+  <metadata name="ContextMenu_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>440, 17</value>
+  </metadata>
+  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
+    <value>Открыть приложение</value>
+  </data>
+  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 6</value>
   </data>
   <data name="TSMI_CloseLauncher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -194,73 +968,20 @@
         iI+IhfhZ4WB8XCzOW8p/+ZpXyHP4G8WG3Ptcpv+jsrL6B5EHloRzCFnUAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;TSMI_OpenLauncher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
   </data>
-  <data name="&gt;&gt;TabPage_World.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
+    <value>Выход</value>
   </data>
-  <data name="&gt;&gt;TSMI_Server2.Name" xml:space="preserve">
-    <value>TSMI_Server2</value>
+  <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 54</value>
   </data>
-  <data name="&gt;&gt;TSMI_LanguageTool.Name" xml:space="preserve">
-    <value>TSMI_LanguageTool</value>
+  <data name="&gt;&gt;ContextMenu_SPP2.Name" xml:space="preserve">
+    <value>ContextMenu_SPP2</value>
   </data>
-  <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
-  </data>
-  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TSSL_Apache.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
-        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
-        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
-        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
-        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
-        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
-        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
-        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
-        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
-        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
-        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
-        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
-        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
-        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheRestart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="&gt;&gt;TSMI_WowAutoStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_MySqlRestart.Text" xml:space="preserve">
-    <value>Перезапустить</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ContextMenu_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="NotifyIcon_SPP2.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -816,238 +1537,315 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="TSMI_Server.Text" xml:space="preserve">
-    <value>Серверы</value>
+  <data name="NotifyIcon_SPP2.Text" xml:space="preserve">
+    <value>Single Player Project v2</value>
   </data>
-  <data name="&gt;&gt;TSSL_MySQL.Name" xml:space="preserve">
-    <value>TSSL_MySQL</value>
+  <data name="NotifyIcon_SPP2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;TSSL_Realm.Name" xml:space="preserve">
-    <value>TSSL_Realm</value>
+  <metadata name="ContextMenuStrip_Console.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>598, 17</value>
+  </metadata>
+  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
   </data>
-  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="TSMI_Copy.Text" xml:space="preserve">
+    <value>Копировать</value>
   </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 26</value>
   </data>
-  <data name="TSSL_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
-        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
-        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
-        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
-        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
-        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
-        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
-        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
-        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
-        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
-        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
-        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
-        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
-        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="TSSL_Count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 17</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 8.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;Button_UnlockAll.Name" xml:space="preserve">
-    <value>Button_UnlockAll</value>
-  </data>
-  <data name="TSMI_Reset.Text" xml:space="preserve">
-    <value>Сброс всех настроек</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
-  </data>
-  <data name="TSMI_WowAutoStart.Text" xml:space="preserve">
-    <value>Защита серверов от падения</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="TSMI_Bots.Text" xml:space="preserve">
-    <value>Боты</value>
-  </data>
-  <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 6</value>
-  </data>
-  <data name="TSMI_Tools.Text" xml:space="preserve">
-    <value>Инструменты</value>
-  </data>
-  <data name="ContextMenu_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 54</value>
+  <data name="&gt;&gt;ContextMenuStrip_Console.Name" xml:space="preserve">
+    <value>ContextMenuStrip_Console</value>
   </data>
   <data name="&gt;&gt;ContextMenuStrip_Console.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <metadata name="TextBox_Command.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TextBox_Command.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="&gt;&gt;TSMI_Bots.Name" xml:space="preserve">
-    <value>TSMI_Bots</value>
+  <data name="TextBox_Command.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
   </data>
-  <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
+  <data name="TextBox_Command.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 339</value>
   </data>
-  <data name="TSSL_MySQL.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="TextBox_Command.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 24</value>
   </data>
-  <data name="&gt;&gt;TSSL_Apache.Name" xml:space="preserve">
-    <value>TSSL_Apache</value>
+  <data name="TextBox_Command.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 20</value>
   </data>
-  <data name="&gt;&gt;TSMI_ServerStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TextBox_Command.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
-  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="&gt;&gt;TextBox_Command.Name" xml:space="preserve">
+    <value>TextBox_Command</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TextBox_Command.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="TabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="TabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;TSMI_WowAutoStart.Name" xml:space="preserve">
-    <value>TSMI_WowAutoStart</value>
+  <metadata name="TabPage_MySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleMySQL</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Parent" xml:space="preserve">
+    <value>TabPage_MySQL</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage_MySQL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
   </data>
   <data name="TabPage_MySQL.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="TSSL_World.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
   </data>
-  <data name="&gt;&gt;TSMI_Tools.Name" xml:space="preserve">
-    <value>TSMI_Tools</value>
+  <data name="TabPage_MySQL.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;TSSL_Online.Name" xml:space="preserve">
-    <value>TSSL_Online</value>
+  <data name="TabPage_MySQL.Text" xml:space="preserve">
+    <value>MySQL</value>
   </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Name" xml:space="preserve">
-    <value>MenuStrip_SPP2</value>
+  <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
+    <value>TabPage_MySQL</value>
   </data>
-  <data name="&gt;&gt;TSMI_Tools.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TabPage_MySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSMI_MySqlRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+  <data name="&gt;&gt;TabPage_MySQL.Parent" xml:space="preserve">
+    <value>TabControl1</value>
   </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Name" xml:space="preserve">
-    <value>StatusStrip_SPP2</value>
+  <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+  <metadata name="TabPage_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleRealmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="RichTextBox_ConsoleWorld.ToolTip" xml:space="preserve">
+  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
+  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="TSMI_ApacheRestart.Text" xml:space="preserve">
-    <value>Перезапустить</value>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleRealmd</value>
   </data>
-  <data name="TSMI_ServerStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
-        QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
-        waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
-        hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
-        3Tx4k4CYkjNQCwtEJ5UAXgdAMSha7KM6/ht75L1V1HObysUnqgHVTjkgxgEwDHKIbVjzf33ntNvSalYl
-        LGycYnwi8lCTyASkOACCe4EO6ftvGVD1T0hKYzvQCBGISWQCUh0Astw6pOG/spH3Pw5uwa1AI4QhJpEJ
-        iHUAyGL7yPb/WjbR/wUlVW8zMbEUA7WLQUyhABByACjeQbSRW/Z/cUWjt8B4nwjUpg7RTQWA2wGguO79
-        b+Ff8V9O2+kHJ4/QOqByByCmfTYEBbdNWNN/VdOAv7zCMieBJXIMUCkPRAeVAbIDXBMmAvN7539d+4T/
-        wtKaD5lYWCuBSiQhKmkEQJWRgYGRdnrZhJfmPoX/JVXMPrBx8MwASukCMe0rI0lpWQZVNQ0JIwvn3TwC
-        4juAQu5AzAaWpDMA5WdeCHMUjIJRMKwAAwMAmfAbf6gl2AUAAAAASUVORK5CYII=
-</value>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Parent" xml:space="preserve">
+    <value>TabPage_Realmd</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="TabPage_Realmd.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>624, 381</value>
+  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;TSSL_Online.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
   </data>
-  <data name="TSMI_ApacheStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
-        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
-        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
-        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
-        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
-        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
-</value>
+  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="TSMI_Saves.Text" xml:space="preserve">
-    <value>Сохранения</value>
+  <data name="TabPage_Realmd.Text" xml:space="preserve">
+    <value>Realm</value>
   </data>
-  <data name="&gt;&gt;TSSL_Apache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
+    <value>TabPage_Realmd</value>
   </data>
-  <data name="TSMI_MySqlSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
-        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
-        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
-        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
-        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
-        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
-        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
-        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
-        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
-        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
-        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
-        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
-        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
-        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
-        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
-        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
-        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
-        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
-        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
-        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
-        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;TabPage_Realmd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TSMI_ServerSwitcher.Name" xml:space="preserve">
-    <value>TSMI_ServerSwitcher</value>
+  <data name="&gt;&gt;TabPage_Realmd.Parent" xml:space="preserve">
+    <value>TabControl1</value>
   </data>
-  <data name="TSSL_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+  <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="TabPage_World.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RichTextBox_ConsoleWorld.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="RichTextBox_ConsoleWorld.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 273</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RichTextBox_ConsoleWorld.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
+    <value>RichTextBox_ConsoleWorld</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
+    <value>TabPage_World</value>
   </data>
   <data name="&gt;&gt;RichTextBox_ConsoleWorld.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="TSMI_Russian.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG+SURBVChTZZA9SyNRFIZPL7gLphkLEzAWRnFCSAIm
-        yPiVgThFAsnCNFnQIkUKhRQ2YmEhWARSBEQQxL8g1iIsi4gsyy7bbgghhBBCGObr3rkzc8e9NxvZBV9e
-        TvU8B84B2379r9Q0eXWdapqnaWQ8xqORPRyag4He72vdnsaFvwneQikr9SfxPM91XUKI4zgY405nNBWm
-        LKd53qMIITbb7SHk8693d8HtbXBzE1xf06srennpt1pes+k2GuTiwjk/x2dn6PTUbjYRwAAA6PFxoKpB
-        uUyLBaoovix7W1tuNkvSaScexysraGnJjkQsSbKnQr0elEq0UPCVPU5vbv6jYxM6HLbm581slgl9Lhwd
-        cTq/5+VyUzqVckQRx2IoGuW0IJihkJFOWwA9uAf4XWv8ytd/5g5/SLXvmeq35P6LWHmOqU/R0tdw4Yug
-        PIbkh487z4nPJ2w/AfCrVXd315Ukksk4ySReW0PLy/biorWwYAqCMTenf5jVZ2YMUewwAQN4+wdupUJU
-        lZQ/OcUiVhQsy2h7297YsNbXzVTKSCQYbayutpnADjEBdAANYDzpCGA4eQc7sAfQBWCLGcoL8Aeq8DrK
-        gzQbegAAAABJRU5ErkJggg==
-</value>
+  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
   </data>
-  <data name="TSSL_Realm.Text" xml:space="preserve">
-    <value>Realm</value>
+  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 279</value>
   </data>
+  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPage_World.Text" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.Name" xml:space="preserve">
+    <value>TabPage_World</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9pt, style=Bold</value>
+  </data>
+  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 31</value>
+  </data>
+  <data name="TabControl1.ShowToolTips" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>624, 307</value>
+  </data>
+  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Button_UnlockAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="Button_UnlockAll.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="Button_UnlockAll.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 8.25pt, style=Bold</value>
+  </data>
+  <data name="Button_UnlockAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 4</value>
+  </data>
+  <data name="Button_UnlockAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 23</value>
+  </data>
+  <data name="Button_UnlockAll.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="Button_UnlockAll.Text" xml:space="preserve">
+    <value>РАЗБЛОКИРОВАТЬ ВСЁ</value>
+  </data>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>798, 17</value>
+  </metadata>
   <data name="Button_UnlockAll.ToolTip" xml:space="preserve">
     <value> При нажатии на эту кнопку будут автоматически остановлены
 все сервера мешающие нормальному запуску приложения.
@@ -1056,617 +1854,32 @@
 выполните стандартный выход из него. В противном случае все
 несохранённые данные могут быть потеряны.</value>
   </data>
-  <data name="TabPage_Realmd.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Button_UnlockAll.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ToolStripMenuItem1</value>
+  <data name="&gt;&gt;Button_UnlockAll.Name" xml:space="preserve">
+    <value>Button_UnlockAll</value>
   </data>
-  <data name="RichTextBox_ConsoleWorld.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;Button_UnlockAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox_ConsoleMySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 273</value>
-  </data>
-  <data name="TSMI_RunWow.Text" xml:space="preserve">
-    <value>Запуск WoW</value>
-  </data>
-  <data name="TSMI_ApacheStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
-        QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
-        waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
-        hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
-        3Tx4k4CYkjNQCwtEJ5UAXgdAMSha7KM6/ht75L1V1HObysUnqgHVTjkgxgEwDHKIbVjzf33ntNvSalYl
-        LGycYnwi8lCTyASkOACCe4EO6ftvGVD1T0hKYzvQCBGISWQCUh0Astw6pOG/spH3Pw5uwa1AI4QhJpEJ
-        iHUAyGL7yPb/WjbR/wUlVW8zMbEUA7WLQUyhABByACjeQbSRW/Z/cUWjt8B4nwjUpg7RTQWA2wGguO79
-        b+Ff8V9O2+kHJ4/QOqByByCmfTYEBbdNWNN/VdOAv7zCMieBJXIMUCkPRAeVAbIDXBMmAvN7539d+4T/
-        wtKaD5lYWCuBSiQhKmkEQJWRgYGRdnrZhJfmPoX/JVXMPrBx8MwASukCMe0rI0lpWQZVNQ0JIwvn3TwC
-        4juAQu5AzAaWpDMA5WdeCHMUjIJRMKwAAwMAmfAbf6gl2AUAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;TSMI_CloseLauncher.Name" xml:space="preserve">
-    <value>TSMI_CloseLauncher</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Copy.Name" xml:space="preserve">
-    <value>TSMI_Copy</value>
-  </data>
-  <data name="TSMI_ApacheStart.Text" xml:space="preserve">
-    <value>Запустить</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlRestart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAADsKAAA7CgEzSyaRAAAAB3RJ
-        TUUH5AYMCjAUTJzedAAAAlRJREFUWEft1duLTVEcwPHlMu6M3HnQcc2lXCLK/R4yJbklmTkzSe5yyT0P
-        UjPnuA2j8CbyICGR8kLx6h/wP3jwF/D97rW2RiNe5ijav/p09lpn7bN++7fW2icUUUQR/0+UK+qJsRiS
-        2unLvxFxwjE4gRZsxAzUIQ2qZcQE+mMLpmINdiejkQbWMmIS07EeLoVPPxuHMQ5pYK0iJtAPm1Gf2pqF
-        veiTtWsaccIVmJOuczuxKLuuacTJVqIUmqs9Qrma903AfvTO2jWLONkqbMe21M65IZfC45pu6O6IE3n8
-        rsEjOSL1yWPqUrhJh2d93R5xol4Yj5EohUaeuOlHEgPgJj2IejsctBidMx2c+n59dOKYQVgAz/tazIMn
-        YBqWw1JPRF94FIfC+0q4CTdqnR2e0a+ogk2TDTqKL2jN2nns6AjhG59xI13FA7TBcu+DT/UWFdj/BK77
-        M7gxQ2jOfn8mGjDMxll8xDv4BhuFN3iO21iHXXCs9mATXuI4XG+f1KTuox35WB/E33iF1akvZ2WyJbiA
-        u7iOk2jCY5xCB0zwHvIbHWvV5uMivP8hHG8CN2AyVvMQ7uA1YgJdIv6AE7nm7/EBvs8PwH53sqWcBM+y
-        yR2BlbJik+FyPMItONadbqImdhkvYDJT4B7p9N9QrmyAN/jePoZLGAg3if1umtM4hzP4BEvrd3kFrmAh
-        XFuv7bdqn7EVbkr7z8PvPIYpgd9FLPlcmICTe/NTWK0QGtt/1tLKJlOb97kES7AsXXcd/8eICfinYvlz
-        HNv0ii2iiCL+/QjhO+YjaHjLxGGTAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Button_UnlockAll.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSSL_Realm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
-    <value>Сменить тип сервера</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Copy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Characters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip_Console.Name" xml:space="preserve">
-    <value>ContextMenuStrip_Console</value>
-  </data>
-  <data name="TSMI_Tools.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAABGJJREFUWEftV31InVUc1mtamkn4heQHV7ioqGBq+JnpnR8L1KGCeBkqUeGfEpEb
-        ZoLUlu4qDBtF0D+WUGDI2C4RA2HKihFj3Y2Vt7UkWiyzsjFlTBnz1/Oce85F5/X11rL6owce3vc953fO
-        85zf+bo37H/8F7EP9OjnP45nwdXa2lrB87b+Dopzn11wgPsmJz869fY7714dHnEvjoy4f/1g8sPvJyYm
-        DoyNjSXq0JBRB97Jzc2VlpYWqa+vp4k7unwbIO4Cl0Ax/GXpd5n/+ls5fnxciouLr6CvBh2+KyiynpCQ
-        IPn5+VJVVaVM1NXVmUyENB3j4yfk6jcL8vPib3L9h5/kyJE3BSbe0NWWeAa8FR0dLWlpaVtM6OnYMROb
-        AbEitD3j/fIrWfjuuqLn9Kc08b4OsUQZGNSEzgRN1DBwN6DtufPnL8qlS/OK09OnaWJUV1viafCmRSYs
-        F6YBxD6Z910LrA2+NzQ0rGMgD+kQS5SAQTOhF+ZiYmLiIyoyOHzZ2dkcsRImm5ubxencz0yeiIyM7NFx
-        luB0rN5vIjMzkwbuwoBDRW3HyYGBAent7VXtYMLndDqXKU4SyASzOdne3m7TbXZEBbhsTMTHx1NcIE56
-        gmTh2NTUlKysrIjL5RK043Qp1NTUuA4efEEOH35dmaAZFL/or7WGmo6oqKiAOOF2u/l+TUX4cdTj8ai6
-        /v5+1t1AWZq/SiGLosYEvj1gjKoJAU+Cr6DTz9l5U1OTEhoeHpbGxkZ29p4RHxoakoyMjAWUZbDhfTig
-        R34GtFpDOwMmpgcHB5UJr9crKSkpYrPZbmwSZ1bs/uig4DZO9r/+BcBAWWtrq5pjrGYpLS3liNbBy3rk
-        m9O+Z2iLiIiQ6upqlYmcnBwJDw+/h/Imf/Xegnv4Lk9GinNr8v7A6GnkNX/I3uHVvLw8tfCMOKZEYmJi
-        LjocDhkdHZXCwsI9M3GMh1FbW1tAPCkpifP/MWhD3SEe1T6fj+viJdXibwLP7kmKd3R0BMSTk5MpfhYM
-        7GXc/z1cnGtra1JeXn5IFz8Q2PmpgoIC6ezsDIhz66H8C/BxBm0GRt/T3d0tGxsbNPFAmeBencOcbhFP
-        TU2lOPf6EwwKBph4jiaIysrK0aKiopBPPAOeYldKSkq2iKenp1N8CcxlkBXKysqe7+rqkr6+Pq6b1acA
-        XbUr8sEfKyoqtojb7XaKL4Mhd4Sr2zs3N6cygav8FjIRpassoa5hpC4gzi2GsjWwlgGhAovSgdHfNiZw
-        cJ3UVbuC1/BNnnBZWVkSGxtLAy5V8yeBUSfi0LowOzurTGBa+dtzG/jDgIwAmaZHwf3gUlxc3AaeL4Nc
-        8dyS4ZqM5Tfj+c4ygk/TH+sfBh+Dkd6ZmZl7MHMZ39G6jjGq3eaOWcirkqu8GXwLrATjQCNiEAlyhVPE
-        tDfGjClTZscpehS7ij/RY3WZMRpwQhqwjJ3TCMVVYBCYdiRjKE5jZlAG/OY/JZNJGjD8NxEW9gelOyY4
-        JAIGrQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;ContextMenu_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_English.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHqSURBVChTY5g0c9+Oq2+qpx9LaQaiw4mNB27efbs2
-        uXFNQh2Q4Zm9zSNth23MhqjGnXMC86vnHmVYsuLU/42r/v37f/vhl0Ubbs9ffwfI/j+l539fK5AxaeHl
-        3rkXTp54/K+r5t/fnxM2XWBIajm45+S7/0uX/z+49////23TrgLJ/6mZ/xMSgXRJ36Uvi9Z87+4Gsuet
-        uiRpMgOkYeGGu3UTrz7cd/9PUz1INRDExPwPjwAxcjP/v3hx4c5bR8/lRU1HBHUnMgAdCnIDGggN/e/n
-        B2XDAFDZmWsvGdYk1v6f3PE/JeV/fPz/yMj/ISEgpT4+/1xdf9nb/7S0/G5i8lVP76u29s9gt1Z5Kxw2
-        2Nr+MbMAs0Byf//+/fP3z+8/f05efcFgH7epZ875qLQdV66+///2zc/keJAqI5Pf+oZgDX+fOjnun7lV
-        QnpWSMJ6BuFsBvOwdYvXg0Lmc2Pdh66umJJjQPYfbd1fmtpAV1vZL/n5//+XWXNfJMQ0TT3HIJjOMHnz
-        5X///n5vrzh64HZhw8G8hsNAF/4N8fgd5Pzv79/wtG2hcau3H77198+P1wm+2UVLGKrmHZjikuycuUhQ
-        Zw6PxmQO1Qnnr71olbZoETc5feUlg3gxg2gBg3CuiGFd757rrqZ5ADxMaKrXB946AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button_UnlockAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 4</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleWorld</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon_SPP2.Name" xml:space="preserve">
-    <value>NotifyIcon_SPP2</value>
-  </data>
-  <data name="&gt;&gt;TSMI_CreateAutosave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button_UnlockAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
-        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
-        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
-        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
-        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
-        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
-        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
-        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
-        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
-        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
-        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
-        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
-        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
-        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Count.Name" xml:space="preserve">
-    <value>TSSL_Count</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TabControl1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TabPage_World.Text" xml:space="preserve">
-    <value>World</value>
-  </data>
-  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Russian.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
-  </data>
-  <data name="TextBox_Command.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 339</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server.Name" xml:space="preserve">
-    <value>TSMI_Server</value>
-  </data>
-  <data name="TSMI_Settings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="TSMI_MySqlStart.Text" xml:space="preserve">
-    <value>Запустить</value>
-  </data>
-  <data name="TSMI_RunWow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 24</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStart.Name" xml:space="preserve">
-    <value>TSMI_MySqlStart</value>
-  </data>
-  <data name="TextBox_Command.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="TabPage_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 279</value>
-  </data>
-  <data name="TSMI_WowAutoStart.ToolTipText" xml:space="preserve">
-    <value> Установка данного параметра помимо автоматического
-запуска realmd и mangos при загрузке лаунчера, так же
-запускает и механизм контроля над ними.
-То есть при падении они будут автоматически запущены.</value>
-  </data>
-  <data name="TSSL_World.Text" xml:space="preserve">
-    <value>World</value>
-  </data>
-  <data name="ToolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 6</value>
-  </data>
-  <data name="TabPage_World.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 307</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlSettings.Name" xml:space="preserve">
-    <value>TSMI_MySqlSettings</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="TSMI_CreateAutosave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TabControl1.ShowToolTips" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TSSL_Online.Text" xml:space="preserve">
-    <value>Онлайн:</value>
-  </data>
-  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleMySQL</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_RunWow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="TSMI_MySqlStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Realm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MenuStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TSMI_Russian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="Button_UnlockAll.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MenuStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 28</value>
-  </data>
-  <data name="TextBox_Command.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 20</value>
-  </data>
-  <data name="&gt;&gt;TSSL_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ContextMenu_SPP2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;TSMI_Updates.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip_SPP2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="TSMI_RunWow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        3wEGwmDly80jxAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Name" xml:space="preserve">
-    <value>TabPage_MySQL</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TabPage_Realmd.Text" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ContextMenuStrip_Console.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;TSMI_World.Name" xml:space="preserve">
-    <value>TSMI_World</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="TSMI_Characters.Text" xml:space="preserve">
-    <value>Персонажи</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox_Command.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 273</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Launcher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_ServerStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
-        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
-        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
-        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
-        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
-        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerSwitcher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NotifyIcon_SPP2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="NotifyIcon_SPP2.Text" xml:space="preserve">
-    <value>Single Player Project v2</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL1.Name" xml:space="preserve">
-    <value>TSMI_MySQL1</value>
-  </data>
-  <data name="&gt;&gt;TSSL_World.Name" xml:space="preserve">
-    <value>TSSL_World</value>
-  </data>
-  <data name="TSMI_Copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
-  </data>
-  <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
-  </data>
-  <data name="&gt;&gt;TSMI_S1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button_UnlockAll.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;TSMI_English.Name" xml:space="preserve">
-    <value>TSMI_English</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;TSMI_Apache.Name" xml:space="preserve">
-    <value>TSMI_Apache</value>
-  </data>
-  <data name="TSMI_OpenLauncher.Text" xml:space="preserve">
-    <value>Открыть приложение</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Bots.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Name" xml:space="preserve">
-    <value>TextBox_Command</value>
-  </data>
-  <data name="StatusStrip_SPP2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TSMI_ServerStart.Text" xml:space="preserve">
-    <value>Запустить</value>
-  </data>
-  <data name="TSMI_Copy.Text" xml:space="preserve">
-    <value>Копировать</value>
-  </data>
-  <data name="TSMI_Apache.Text" xml:space="preserve">
-    <value>Apache</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache1.Name" xml:space="preserve">
-    <value>TSMI_Apache1</value>
-  </data>
-  <data name="TSMI_Launcher.Text" xml:space="preserve">
-    <value>Приложение</value>
-  </data>
-  <data name="&gt;&gt;TSMI_CreateAutosave.Name" xml:space="preserve">
-    <value>TSMI_CreateAutosave</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStop.Name" xml:space="preserve">
-    <value>TSMI_MySqlStop</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSMI_ServerStop.Text" xml:space="preserve">
-    <value>Остановить</value>
-  </data>
-  <data name="&gt;&gt;TSMI_OpenLauncher.Name" xml:space="preserve">
-    <value>TSMI_OpenLauncher</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Saves.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStop.Name" xml:space="preserve">
-    <value>TSMI_ApacheStop</value>
-  </data>
-  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 31</value>
-  </data>
-  <data name="TSMI_English.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="TSMI_MySqlStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
-        QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
-        T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
-        mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
-        GTm5+cb4J9T9tAio/m8ZSBw29yv7L65gSHllBKqOubi5eYQlVcKEpTWzhKU1MgljzUx+UYUsJmZWkOWU
-        VcejYBSMghEAGBgAALP/DuJLdwoAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="TSMI_CreateAutosave.Text" xml:space="preserve">
-    <value>Создать резервную копию</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Launcher</value>
-  </data>
-  <data name="TSMI_English.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="StatusStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 359</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleWorld.Parent" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="RichTextBox_ConsoleWorld.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 8.25pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 8.25pt, style=Bold</value>
-  </data>
-  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="TSSL_Realm.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheStart.Name" xml:space="preserve">
-    <value>TSMI_ApacheStart</value>
-  </data>
-  <data name="&gt;&gt;TSSL_ALL.Name" xml:space="preserve">
-    <value>TSSL_ALL</value>
-  </data>
-  <data name="&gt;&gt;ContextMenu_SPP2.Name" xml:space="preserve">
-    <value>ContextMenu_SPP2</value>
-  </data>
-  <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button_UnlockAll.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 8.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;TSMI_S1.Name" xml:space="preserve">
-    <value>TSMI_S1</value>
-  </data>
-  <data name="TSMI_Settings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
-        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
-        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
-        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
-        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
-        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
-        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
-        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
-        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
-        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
-        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
-        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
-        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
-        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
-        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
-        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
-        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
-        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
-        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
-        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
-        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Button_UnlockAll.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TSMI_Settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 24</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Server2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MenuStrip_SPP2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>624, 381</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2222,534 +2435,301 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="&gt;&gt;TSMI_Settings.Name" xml:space="preserve">
-    <value>TSMI_Settings</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySQL.Name" xml:space="preserve">
-    <value>TSMI_MySQL</value>
-  </data>
-  <data name="TextBox_Command.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Apache.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_OpenLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheSettings.Name" xml:space="preserve">
-    <value>TSMI_ApacheSettings</value>
-  </data>
-  <data name="ContextMenuStrip_Console.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 26</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;TSMI_Sever1.Name" xml:space="preserve">
-    <value>TSMI_Sever1</value>
-  </data>
-  <data name="TSMI_Russian.Text" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="TSMI_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 26</value>
-  </data>
-  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 6</value>
-  </data>
-  <data name="TabPage_World.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <data name="TSMI_ApacheStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="TSMI_Updates.Text" xml:space="preserve">
-    <value>Обновления</value>
-  </data>
-  <data name="TSSL_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="&gt;&gt;TSMI_CloseLauncher.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_English.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="NotifyIcon_SPP2.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TSMI_MySqlStop.Text" xml:space="preserve">
-    <value>Остановить</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.Name" xml:space="preserve">
-    <value>TabPage_Realmd</value>
-  </data>
-  <data name="TSSL_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
-        06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
-        vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
-        VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
-        MgZtIyguLo7p9PmwbN9GYdhE/A4HfPwIAwOC/wzHf3naORgexpH0NHzd3VgslrigXZLsTlebo7GRXaEh
-        3Fings4HfGp3MyRMAQbiQO6OZiO7x47CVluL0+3uENZRklqtnuVwuz+d2KqlUpLwr10DNdVQUQqVZSMs
-        Pz2ce6FScFZojm1Jxem5RoZON186YDIltba5OK74Gdu4MbyO+BEyt0CBEQqDDMRZaQyIvSsho/lNvgqn
-        y8URszldKti3b9sVx1UqEhS0/jCBN/N+guWLQB0PaRtGqFaCbBFvo2bhmjSe02tWYxf3dMhk2i2la7Wb
-        6q1WzufoaJ4SxrsV0RAvh2RRYPN6SBVMUoBiNe9F4cvhk6jJSEOMkxy9XidFRUUtPHHyFLYzldREzODf
-        xJXiCMKk1UCeFnIzxTpFdKJiMHEFf0yfhq2slNKKChYvXSoLDCFEr9fftNvtNBj0eJZEQukeOJzPUEEO
-        Q3uy4dAOOGXkemwkdVlaHEJrMBjuC29ooIA0d8GCxKKiItqdTloM23kQ6OBuGzz1QW8X3HHSpV2PTZeJ
-        R2hKSkqIjo7WDJs/Iy4u7ph4ULSJ270pRva0zMJgaxODTiv+sqPcOleFy+3GbDYjl8vLg7YvMCYmJsa0
-        NSvrXXnVWZqtzbQ3NeIRtIm48tzvZOt0H8Rn+1VoQ0Ys38byZTJZVUJ8QmdSSkr/huTkVyql6qFMJqse
-        Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="&gt;&gt;Button_UnlockAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_Russian.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Characters.Name" xml:space="preserve">
-    <value>TSMI_Characters</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_World.Name" xml:space="preserve">
-    <value>TabPage_World</value>
-  </data>
-  <data name="Button_UnlockAll.Text" xml:space="preserve">
-    <value>РАЗБЛОКИРОВАТЬ ВСЁ</value>
-  </data>
-  <data name="TSMI_Server.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="TextBox_Command.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TabPage_World.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TSMI_CloseLauncher.Text" xml:space="preserve">
-    <value>Выход</value>
-  </data>
-  <data name="TabPage_Realmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 279</value>
-  </data>
-  <data name="TSSL_Apache.Text" xml:space="preserve">
-    <value>HTTP</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStart.Name" xml:space="preserve">
-    <value>TSMI_ServerStart</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_CloseLauncher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 6</value>
-  </data>
-  <data name="&gt;&gt;TSSL_ALL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_English.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="&gt;&gt;TabPage_Realmd.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TSMI_MySqlRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        uwAAALsBnVmCYQAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
-        rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
-        zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
-        JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
-        f/4CBxqCKPjzOCxbmmHKa0Jyng/mfL/cRvZ9SMppgMVeibK9QRiSrGTAos3FwIrDvH79D+ob25Ff3hEp
-        LAqt2ngQCanlMKS4scJaC1OuN2qkCas3+YXJFsxP2oIj3kYyweZVwYoK40+c6kZxdZdMbso9gt9W5mBd
-        ei58gVZ0dJ1C5+nz2Oqug9FWI7tAcWRmeWY17I5CMjBek1MLK0r+HhyEp+44UoqOwuRoxLyEDLh2uinp
-        VFXc2N5LV1BUHpB3HzEQMWtYlU6xcapYDlaU9PSGsa2qU7Teh8Xry5CSmkkJp6hjHj58hBJPA9KLj8rC
-        yntB23kJ6Xj77t3XHgMrEuOCnT3IdrdLA3MWrKVE2zUxMVTg4pWbqKprRZrDg2Vpe5Boq5Nm4i2l32Ug
-        NnQ6jExnm3z55i4wUyKzJkYNffMLcwp3IznLg8SMXbIzUQM0F7hrCFYkJgRC55C5o022NC5+HSXK0MR8
-        hij4SfD+2YuhC+LxfPieDsSEOrthLY0YiLeUoKJ639eSSf5986ZZFJ4t9mmxMSpYUXJVTDSb0yffAZPD
-        iyVrHOi7e/dLJiaJu4bg4+2++4dv3O6jKUiLi1XDigqzyiqbYNkckF0w2g9hffYenOm+TCZmCCYIfqYv
-        oa2jB1XeXtS23PgkTLy9c6/fJc4pi8utwIrDhK/dQmpBvZyAZILe7kRrDf4oPAB3TStKK/3Ic3mR5QpG
-        BpGYF8IEdeJVNIeyPssdhRXVxDa2iDG8sTZqIjKOqZg5n0ZvZJ/M0WP61ZCBLFs2dUj5ESlLm1eBFbVM
-        PNZ+FmabB8bsv6IG/MNQYfo3xC1aDWdpGRWfqbmelvpYDStyjH36bBD7G0Jy4Czf4ILBUozfE+1YmmzF
-        5iL5+00TxKqu+RZYcSTGCKY/efIU/f0DVNQo+EUw0rAZCVbUE1bUE1bUE1bUE1bUE1bUE1bUiVEx/wGV
-        ROw39ZbjHwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;TSMI_MySqlRestart.Name" xml:space="preserve">
-    <value>TSMI_MySqlRestart</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TSSL_Count.Text" xml:space="preserve">
-    <value>N/A</value>
-  </data>
-  <data name="Button_UnlockAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 23</value>
-  </data>
-  <data name="RichTextBox_ConsoleMySQL.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;TextBox_Command.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;TabPage_MySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Russian.Name" xml:space="preserve">
-    <value>TSMI_Russian</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="TabPage_Realmd.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TSMI_LanguageTool.Text" xml:space="preserve">
-    <value>Язык интерфейса</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
-    <value>ToolStripMenuItem7</value>
-  </data>
-  <data name="TSMI_ApacheRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Sever1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TSMI_Reset.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="StatusStrip_SPP2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>624, 22</value>
-  </data>
-  <data name="&gt;&gt;TSMI_RunWow.Name" xml:space="preserve">
-    <value>TSMI_RunWow</value>
-  </data>
-  <data name="StatusStrip_SPP2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TSMI_LanguageTool.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>640, 420</value>
   </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleMySQL.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;TSSL_MySQL.Name" xml:space="preserve">
+    <value>TSSL_MySQL</value>
   </data>
-  <data name="&gt;&gt;TSMI_Reset.Name" xml:space="preserve">
-    <value>TSMI_Reset</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox_ConsoleRealmd.Name" xml:space="preserve">
-    <value>RichTextBox_ConsoleRealmd</value>
-  </data>
-  <data name="TabPage_MySQL.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSMI_ApacheSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
-        FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
-        unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
-        7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
-        0WZzaJ2NYdyzflbB2C5uQ3idJQ1pqUaozb8D8pp03WIIe2wLArlfwLn6VmBw+xxSh39AOHcG2ZM/IYym
-        xVyRFBNyqCEt1RRz5EWeon1tTLj5Swt/CLaVkxKda6cQQNPyWDWShrTlMQt/AOQp2tfGGBtpmQlugiV1
-        fAc8An1gA8as4YpzVBNjXIwxRvNgTh5d4VziAIzLu2DAPGloTbFqWkN0B8bssdtf0cG5pWZLcg9M8YMS
-        jcipYA40Tv5i1B5TDLNROXGUiyvGvZkLfWSnQk8kD/ISbW8ObMK68XTrl/dLnMDmr9nlkHLcIhNlJbwy
-        +WQjXCI0GdquqHGvn9LArCi7Hi+m3fJXc0FmcnGlMBPaKrjw9Bpi+zAZ2RU4EcrDMMdfiPKq6Dd4ZcMO
-        /mIinC/VkYdr7S2QJ3lTj95p19Vne8KbBg8KHdjYnj0FM38MOmxapNa3CQPz4Zp3eWA+oniztFVRS17k
-        Sd6etRNgPKnKK6n1b8s07jRolnKgDWxX5bArC916T80fnL7ZgHzUu17Vg6jB4UYdfOUAGhxg0BqDUd8W
-        jOEQ1ajxroJCa605QK/RLx/3X+8zurgJauwlyt+j27AEai4FQzj9CIpGcJhyTkfy0GNcqrkFvaaAQh/d
-        vVJPnsPorebSoDL4rg7QobPLlXov0zMbLLy0xgtq5woMYVGRdKBGXOmLDoa7cgOK6NBxMtJM4gDlteTV
-        b4kXyLsLe1AvseR6qGaDrNq1Cj95N0q0ZQvQNx8OKbCRKCuhXWeXUY405TVqZxZUpkDta/ghsElznzUJ
-        ajd+NpHD+Ck5PMlDeNWe632KdsYhbxuZlz/TLypeY4xbPRE05TV91gSQl2h7c3Qb/cxc8gAGXGsV/NGz
-        DuY0XitstpDC5zexJ3wZM775lPtQTx4qk/92T/FTnaNlKrwFQ3j3XzpX/xXJYxq9yFO0r41Ba+RSG9iC
-        fkf2Tkhe5Cna14bSuATdLA8vuBWBvVwGVJYEdM1HxXimlHvPjJDrMqMGtVRTzFGcPEX72mgb5xSdpiCo
-        8BAqLUnoNIXgCeNkWjXW5qdTXlaJDXrsmQp2LcSBcqQhbedsCJRYr8L6DmMAHr+x3+5/YSsWtDFOeDzu
-        uGzVsBX7124IFFRsClQ2fFSIuKaYmBbQqmVbqLZN54RWre12zWuhbcJVeE5bgo2JtKaYmL5/PNLYdO3G
-        EDxbSAj8AdePNKxOTN8e33z1tfTLz7+QfCb7VPJJU5P04wcPpI2NjdKGhgZpPUIqlTZIJJJ6SZ2kHuVN
-        37YPfP9Qa4NWxiXwocYGGPsOcx8hJUjpNaRcOf/zqKv7C8R/6Y/sjuewAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="TSMI_World.Text" xml:space="preserve">
-    <value>Настройки Mangos</value>
-  </data>
-  <data name="&gt;&gt;MenuStrip_SPP2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TSSL_Count.Type" xml:space="preserve">
+  <data name="&gt;&gt;TSSL_MySQL.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox_ConsoleMySQL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;TSSL_Apache.Name" xml:space="preserve">
+    <value>TSSL_Apache</value>
   </data>
-  <data name="&gt;&gt;TSMI_Launcher.Name" xml:space="preserve">
-    <value>TSMI_Launcher</value>
+  <data name="&gt;&gt;TSSL_Apache.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabPage_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 279</value>
+  <data name="&gt;&gt;TSSL_Realm.Name" xml:space="preserve">
+    <value>TSSL_Realm</value>
   </data>
-  <data name="TSMI_Tools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 24</value>
+  <data name="&gt;&gt;TSSL_Realm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9pt, style=Bold</value>
-  </data>
-  <data name="RichTextBox_ConsoleRealmd.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStop.Name" xml:space="preserve">
-    <value>TSMI_ServerStop</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ServerStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TSSL_ALL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 17</value>
-  </data>
-  <data name="&gt;&gt;TSMI_ApacheRestart.Name" xml:space="preserve">
-    <value>TSMI_ApacheRestart</value>
+  <data name="&gt;&gt;TSSL_World.Name" xml:space="preserve">
+    <value>TSSL_World</value>
   </data>
   <data name="&gt;&gt;TSSL_World.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox_ConsoleRealmd.Text" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;TSSL_ALL.Name" xml:space="preserve">
+    <value>TSSL_ALL</value>
   </data>
-  <data name="TSMI_ApacheStop.Text" xml:space="preserve">
-    <value>Остановить</value>
+  <data name="&gt;&gt;TSSL_ALL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSSL_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+  <data name="&gt;&gt;TSSL_Online.Name" xml:space="preserve">
+    <value>TSSL_Online</value>
   </data>
-  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+  <data name="&gt;&gt;TSSL_Online.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Count.Name" xml:space="preserve">
+    <value>TSSL_Count</value>
+  </data>
+  <data name="&gt;&gt;TSSL_Count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_RunWow.Name" xml:space="preserve">
+    <value>TSMI_RunWow</value>
+  </data>
+  <data name="&gt;&gt;TSMI_RunWow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server.Name" xml:space="preserve">
+    <value>TSMI_Server</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_WowAutoStart.Name" xml:space="preserve">
+    <value>TSMI_WowAutoStart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_WowAutoStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStart.Name" xml:space="preserve">
+    <value>TSMI_ServerStart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStop.Name" xml:space="preserve">
+    <value>TSMI_ServerStop</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CreateAutosave.Name" xml:space="preserve">
+    <value>TSMI_CreateAutosave</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CreateAutosave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server2.Name" xml:space="preserve">
+    <value>TSMI_Server2</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Server2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL.Name" xml:space="preserve">
+    <value>TSMI_MySQL</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlStart.Name" xml:space="preserve">
+    <value>TSMI_MySqlStart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlRestart.Name" xml:space="preserve">
+    <value>TSMI_MySqlRestart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlRestart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlStop.Name" xml:space="preserve">
+    <value>TSMI_MySqlStop</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL1.Name" xml:space="preserve">
+    <value>TSMI_MySQL1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySQL1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlSettings.Name" xml:space="preserve">
+    <value>TSMI_MySqlSettings</value>
+  </data>
+  <data name="&gt;&gt;TSMI_MySqlSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache.Name" xml:space="preserve">
+    <value>TSMI_Apache</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStart.Name" xml:space="preserve">
+    <value>TSMI_ApacheStart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheRestart.Name" xml:space="preserve">
+    <value>TSMI_ApacheRestart</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheRestart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStop.Name" xml:space="preserve">
+    <value>TSMI_ApacheStop</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache1.Name" xml:space="preserve">
+    <value>TSMI_Apache1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Apache1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheSettings.Name" xml:space="preserve">
+    <value>TSMI_ApacheSettings</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ApacheSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Sever1.Name" xml:space="preserve">
+    <value>TSMI_Sever1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Sever1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerSwitcher.Name" xml:space="preserve">
+    <value>TSMI_ServerSwitcher</value>
+  </data>
+  <data name="&gt;&gt;TSMI_ServerSwitcher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Tools.Name" xml:space="preserve">
+    <value>TSMI_Tools</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Tools.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Bots.Name" xml:space="preserve">
+    <value>TSMI_Bots</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Bots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Characters.Name" xml:space="preserve">
+    <value>TSMI_Characters</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Characters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TSMI_Saves.Name" xml:space="preserve">
     <value>TSMI_Saves</value>
   </data>
-  <data name="TabPage_Realmd.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;TSMI_Saves.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_World.Name" xml:space="preserve">
+    <value>TSMI_World</value>
   </data>
   <data name="&gt;&gt;TSMI_World.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox_ConsoleRealmd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>610, 273</value>
+  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ToolStripMenuItem1</value>
   </data>
-  <data name="&gt;&gt;ToolTip1.Name" xml:space="preserve">
-    <value>ToolTip1</value>
+  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
+  <data name="&gt;&gt;TSMI_Updates.Name" xml:space="preserve">
+    <value>TSMI_Updates</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Updates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Settings.Name" xml:space="preserve">
+    <value>TSMI_Settings</value>
   </data>
   <data name="&gt;&gt;TSMI_Settings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TextBox_Command.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;TSMI_LanguageTool.Name" xml:space="preserve">
+    <value>TSMI_LanguageTool</value>
   </data>
-  <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;TSMI_LanguageTool.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="TSMI_ApacheRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        uwAAALsBnVmCYQAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
-        rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
-        zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
-        JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
-        f/4CBxqCKPjzOCxbmmHKa0Jyng/mfL/cRvZ9SMppgMVeibK9QRiSrGTAos3FwIrDvH79D+ob25Ff3hEp
-        LAqt2ngQCanlMKS4scJaC1OuN2qkCas3+YXJFsxP2oIj3kYyweZVwYoK40+c6kZxdZdMbso9gt9W5mBd
-        ei58gVZ0dJ1C5+nz2Oqug9FWI7tAcWRmeWY17I5CMjBek1MLK0r+HhyEp+44UoqOwuRoxLyEDLh2uinp
-        VFXc2N5LV1BUHpB3HzEQMWtYlU6xcapYDlaU9PSGsa2qU7Teh8Xry5CSmkkJp6hjHj58hBJPA9KLj8rC
-        yntB23kJ6Xj77t3XHgMrEuOCnT3IdrdLA3MWrKVE2zUxMVTg4pWbqKprRZrDg2Vpe5Boq5Nm4i2l32Ug
-        NnQ6jExnm3z55i4wUyKzJkYNffMLcwp3IznLg8SMXbIzUQM0F7hrCFYkJgRC55C5o022NC5+HSXK0MR8
-        hij4SfD+2YuhC+LxfPieDsSEOrthLY0YiLeUoKJ639eSSf5986ZZFJ4t9mmxMSpYUXJVTDSb0yffAZPD
-        iyVrHOi7e/dLJiaJu4bg4+2++4dv3O6jKUiLi1XDigqzyiqbYNkckF0w2g9hffYenOm+TCZmCCYIfqYv
-        oa2jB1XeXtS23PgkTLy9c6/fJc4pi8utwIrDhK/dQmpBvZyAZILe7kRrDf4oPAB3TStKK/3Ic3mR5QpG
-        BpGYF8IEdeJVNIeyPssdhRXVxDa2iDG8sTZqIjKOqZg5n0ZvZJ/M0WP61ZCBLFs2dUj5ESlLm1eBFbVM
-        PNZ+FmabB8bsv6IG/MNQYfo3xC1aDWdpGRWfqbmelvpYDStyjH36bBD7G0Jy4Czf4ILBUozfE+1YmmzF
-        5iL5+00TxKqu+RZYcSTGCKY/efIU/f0DVNQo+EUw0rAZCVbUE1bUE1bUE1bUE1bUE1bUE1bUiVEx/wGV
-        ROw39ZbjHwAAAABJRU5ErkJggg==
-</value>
+  <data name="&gt;&gt;TSMI_English.Name" xml:space="preserve">
+    <value>TSMI_English</value>
   </data>
-  <data name="TabPage_MySQL.Text" xml:space="preserve">
-    <value>MySQL</value>
+  <data name="&gt;&gt;TSMI_English.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="TabControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MenuStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>159, 17</value>
-  </metadata>
-  <metadata name="StatusStrip_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleMySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TabPage_MySQL.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ContextMenu_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>440, 17</value>
-  </metadata>
-  <metadata name="NotifyIcon_SPP2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>300, 17</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleWorld.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RichTextBox_ConsoleRealmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MenuStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="StatusStrip_SPP2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TextBox_Command.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>798, 17</value>
-  </metadata>
-  <metadata name="TabPage_Realmd.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ContextMenuStrip_Console.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>598, 17</value>
-  </metadata>
-  <metadata name="TabPage_World.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;TSMI_Russian.Name" xml:space="preserve">
+    <value>TSMI_Russian</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Russian.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Launcher.Name" xml:space="preserve">
+    <value>TSMI_Launcher</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Launcher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_S1.Name" xml:space="preserve">
+    <value>TSMI_S1</value>
+  </data>
+  <data name="&gt;&gt;TSMI_S1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Reset.Name" xml:space="preserve">
+    <value>TSMI_Reset</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Reset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NotifyIcon_SPP2.Name" xml:space="preserve">
+    <value>NotifyIcon_SPP2</value>
+  </data>
+  <data name="&gt;&gt;NotifyIcon_SPP2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_OpenLauncher.Name" xml:space="preserve">
+    <value>TSMI_OpenLauncher</value>
+  </data>
+  <data name="&gt;&gt;TSMI_OpenLauncher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
+    <value>ToolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CloseLauncher.Name" xml:space="preserve">
+    <value>TSMI_CloseLauncher</value>
+  </data>
+  <data name="&gt;&gt;TSMI_CloseLauncher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Copy.Name" xml:space="preserve">
+    <value>TSMI_Copy</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Copy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolTip1.Name" xml:space="preserve">
+    <value>ToolTip1</value>
+  </data>
+  <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Launcher</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

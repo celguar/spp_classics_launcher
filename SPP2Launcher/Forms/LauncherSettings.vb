@@ -69,6 +69,12 @@ Public Class LauncherSettings
         Catch
         End Try
 
+
+        Try
+            ComboBox_PostMessageMessageFilter.SelectedIndex = My.Settings.ConsolePostMessageFilter
+        Catch ex As Exception
+        End Try
+
         ' Включение буферизации консоли ввода
         Try
             CheckBox_UseConsoleBuffering.Checked = My.Settings.UseConsoleBuffer
@@ -153,6 +159,7 @@ Public Class LauncherSettings
         My.Settings.ConsoleFontStyle = CType(ComboBox_FontStyle.SelectedIndex, FontStyle)
         My.Settings.UpdateConsoleRightNow = CheckBox_UpdateRightNow.Checked
         My.Settings.ConsoleMessageFilter = ComboBox_MessageFilter.SelectedIndex
+        My.Settings.ConsolePostMessageFilter = ComboBox_PostMessageMessageFilter.SelectedIndex
         My.Settings.UseConsoleBuffer = CheckBox_UseConsoleBuffering.Checked
         My.Settings.UseCommandAutoHints = CheckBox_UseAutoHints.Checked
 
