@@ -1,9 +1,25 @@
 ﻿
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports System.Security.Cryptography
 Imports System.Text
 
 Module SPP2Helper
+
+    ''' <summary>
+    ''' Строка ожидаемая для вывода в консоль World
+    ''' </summary>
+    Friend WaitWorldMessage As String = ""
+
+    ''' <summary>
+    ''' Команда полностью выполнена
+    ''' </summary>
+    Friend CommandSuccessfull As Boolean
+
+    ''' <summary>
+    ''' Интервал проверки состояния сервера Realmd.
+    ''' </summary>
+    Friend ChangeRealmdCheck As Double = 2.3
 
     ''' <summary>
     ''' Семейство шрифтов для консоли.
@@ -37,6 +53,19 @@ Module SPP2Helper
 
 #Region " === ПЕРЕЧИСЛЕНИЯ === "
 
+    ''' <summary>
+    ''' Процесс вызвавший процедуру.
+    ''' </summary>
+    Friend Enum ECaller
+
+        mysql
+
+        realmd
+
+        world
+
+    End Enum
+
     Friend Enum EProcess As Byte
 
         mysqld
@@ -46,6 +75,8 @@ Module SPP2Helper
         realmd
 
         world
+
+        wow
 
     End Enum
 
@@ -197,19 +228,12 @@ Module SPP2Helper
     ''' </summary>
     ''' <returns></returns>
     Friend Function LoadFont() As Font
-        Dim program = Application.StartupPath
-        Try
-            If Not IO.File.Exists(program & "\" & "notomono-regular.ttf") Then
-                IO.File.WriteAllBytes(program & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
-            End If
-        Catch
-            ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
-            program = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
-            If Not IO.Directory.Exists(program) Then IO.Directory.CreateDirectory(program)
-            IO.File.WriteAllBytes(program & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
-        End Try
+        Dim cat = SPP2SettingsProvider.SettingsFolder
+        If Not IO.File.Exists(cat & "\" & "notomono-regular.ttf") Then
+            IO.File.WriteAllBytes(cat & "\" & "notomono-regular.ttf", My.Resources.notomono_regular)
+        End If
         F = New System.Drawing.Text.PrivateFontCollection()
-        F.AddFontFile(program & "\" & "notomono-regular.ttf")
+        F.AddFontFile(cat & "\" & "notomono-regular.ttf")
         Return New Font(F.Families(0), My.Settings.ConsoleFontSize)
     End Function
 
@@ -313,27 +337,32 @@ Module SPP2Helper
     ''' <returns></returns>
     Friend Function CheckProcess(p As EProcess, Optional ByVal kill As Boolean = False) As Boolean
         Dim pm As String = ""
+        Dim path As String = ""
+
         Select Case p
+
             Case EProcess.mysqld
                 pm = "mysqld"
+                path = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
+
             Case EProcess.apache
                 pm = "spp-httpd"
+                path = My.Settings.DirSPP2 & "\" & SPP2APACHE & "\bin\spp-httpd.exe"
+
             Case EProcess.realmd
                 pm = "realmd"
+                path = My.Settings.CurrentFileRealmd
+
             Case EProcess.world
                 pm = "mangosd"
-        End Select
-        Dim path As String = ""
-        Select Case p
-            Case EProcess.mysqld
-                path = My.Settings.DirSPP2 & "\" & SPP2MYSQL & "\bin\mysqld.exe"
-            Case EProcess.apache
-                path = My.Settings.DirSPP2 & "\" & SPP2APACHE & "\bin\spp-httpd.exe"
-            Case EProcess.realmd
-                path = My.Settings.CurrentFileRealmd
-            Case EProcess.world
                 path = My.Settings.CurrentFileWorld
+
+            Case EProcess.wow
+                pm = "Wow"
+                path = My.Settings.WowClientPath
+
         End Select
+
         Dim processes = Process.GetProcessesByName(pm)
         For Each pr In processes
             Try
@@ -395,10 +424,12 @@ Module SPP2Helper
     Private Class SortedFiles
         Public Created As Date
         Public FileName As String
+
         Sub New(created As Date, fileName As String)
             Me.Created = created
             Me.FileName = fileName
         End Sub
+
     End Class
 
 #End Region
@@ -457,7 +488,7 @@ Module SPP2Helper
     Friend Sub WorldOutputDataReceived(sender As Object, e As DataReceivedEventArgs)
         If Not IsNothing(e.Data) Then
 
-            If My.Settings.ConsoleMessageFilter = 0 Then
+            If GV.SPP2Launcher.CurrentWorldConsoleFilter = 0 Then
                 GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
             ElseIf My.Settings.ConsoleMessageFilter = 1 Then
                 If Not e.Data.Contains("ERROR") Then
@@ -482,14 +513,22 @@ Module SPP2Helper
             End If
 
             ' Эта строка говорит о том, что сервер готов к смерти
-            If e.Data.Contains("mangos>Halting process") Or e.Data.Contains(My.Resources.E016_WorldCrashed) Then
+            If e.Data.Contains("mangos>Halting process") Or
+                e.Data.Contains(My.Resources.E016_WorldCrashed) Or
+                e.Data.Contains("mangos>mangos>") Then
                 ' Сервер World остановился. Удаляем хандлеры
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then GV.SPP2Launcher.WorldExited(Nothing, Nothing)
                 GV.SPP2Launcher.WorldProcess = Nothing
                 GV.SPP2Launcher.WorldON = False
             End If
 
+            ' Ожидаемая строка выполнения команды сервером
+            If e.Data.Contains(WaitWorldMessage) Then
+                CommandSuccessfull = True
+            End If
+
         End If
+
     End Sub
 
     ''' <summary>
@@ -556,12 +595,12 @@ Module SPP2Helper
 
             Case EProcess.realmd
                 path = My.Settings.CurrentFileRealmd
-                str = String.Format(My.Resources.Real003_RealmdStopped, "Realmd")
+                str = String.Format(My.Resources.P045_ServerStopped, "Realmd")
                 timer = TimerStartRealmd
 
             Case EProcess.world
                 path = My.Settings.CurrentFileWorld
-                str = String.Format(My.Resources.World003_WorldStopped, "World")
+                str = String.Format(My.Resources.P045_ServerStopped, "World")
                 timer = TimerStartWorld
 
         End Select
@@ -578,6 +617,7 @@ Module SPP2Helper
                         Loop
                         ' Процесс завершен
                         If outMessage Then GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMySQLConsole(str, CONSOLE))
+                        GV.SPP2Launcher.UpdateMessageStatusStrip("")
                         Exit For
                     End If
                 Catch ex As Exception
@@ -659,15 +699,16 @@ Module SPP2Helper
         If processID > 0 Then
             Do
                 ' Пишем в строку состояния - Идёт остановка серверов
-                GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.World004_StoppingWorld))
+                GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(String.Format(My.Resources.P044_ServerStop, "World...")))
 
-                Threading.Thread.Sleep(1000)
+                Threading.Thread.Sleep(500)
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
-                    GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd))
+                    'GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd))
                 Else
                     ' Процесс завершился
-                    GV.Log.WriteInfo("Shutdown is OK!")
+                    GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(String.Format(My.Resources.P045_ServerStopped, "World")))
+                    GV.SPP2Launcher.ChangeIcons(ECaller.world)
                     Try
                         Dim pc = Process.GetProcessById(processID)
                         pc.Kill()
@@ -675,28 +716,50 @@ Module SPP2Helper
                     End Try
                     Exit Do
                 End If
+                Threading.Thread.Sleep(500)
             Loop
         End If
 
+        ' Гасим Realmd
+        If Not GV.SPP2Launcher.ServersLOCKED Then GV.SPP2Launcher.ShutdownRealmd()
+        GV.SPP2Launcher.ChangeIcons(ECaller.realmd)
         GV.SPP2Launcher.UpdateMessageStatusStrip("")
 
-        ' Гасим Realmd
-        GV.SPP2Launcher.ShutdownRealmd()
-
         ' Если необходимо, выполняем BackUp
-        If My.Settings.UseAutoBackupDatabase And GV.SPP2Launcher.NeedExitLauncher Then
-            GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd)
+        If My.Settings.UseAutoBackupDatabase And GV.SPP2Launcher.NeedExitLauncher And Not GV.SPP2Launcher.ServersLOCKED Then
+            ' Идёт бэкап БД
             GV.SPP2Launcher.AutoBackups()
+            Do
+                Threading.Thread.Sleep(500)
+                If Not GV.SPP2Launcher.IsBackupStarted Then Exit Do
+            Loop
         End If
 
-        ' Останавливаем все таймеры
+        ' Гасим любые проявления запуска таймеров
         TimerStartMySQL.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         TimerStartRealmd.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
         TimerStartWorld.Change(Threading.Timeout.Infinite, Threading.Timeout.Infinite)
+        'PC.Abort()
+
+        GV.SPP2Launcher.UpdateMessageStatusStrip("")
+
+        Threading.Thread.Sleep(2000)
 
         If GV.SPP2Launcher.NeedExitLauncher Or otherServers Then
-            ' Надо погасить и прочие серверы
-            If Not GV.SPP2Launcher.ApacheLOCKED Then CheckProcess(EProcess.apache, True)
+
+            ' Дождитесь окончания
+            GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd)
+
+            ' Требуется погасить и шелупонь
+            If Not GV.SPP2Launcher.ApacheLOCKED Then
+                CheckProcess(EProcess.apache, True)
+                ' Ожидание
+                Do
+                    If (Not CheckProcess(EProcess.apache)) Then Exit Do
+                    Threading.Thread.Sleep(500)
+                Loop
+            End If
+
             If GV.SPP2Launcher.NeedExitLauncher Then
                 ' Проверяем блокировку сервера MySQL
                 If Not GV.SPP2Launcher.MySqlLOCKED Then
@@ -719,6 +782,9 @@ Module SPP2Helper
                     GV.SPP2Launcher.ShutdownMySQL(EProcess.mysqld, EAction.UpdateMainMenu)
                 End If
             End If
+
+        Else
+            GV.SPP2Launcher.UpdateMessageStatusStrip("")
         End If
 
     End Sub
@@ -747,6 +813,8 @@ Module SPP2Helper
             ' Пауза в пол секунды
             Threading.Thread.Sleep(500)
 
+            If GV.SPP2Launcher.NeedExitLauncher Then Exit Do
+
             ' Чекаем MySQL каждые 2 секунды
             If Date.Now - _checkMySQL > TimeSpan.FromSeconds(2) Then
                 _checkMySQL = Date.Now
@@ -760,20 +828,20 @@ Module SPP2Helper
                 GV.SPP2Launcher.CheckHttp()
             End If
 
-            ' Чекаем Realmd каждые 2 секунды
-            If Date.Now - _checkRealmd > TimeSpan.FromSeconds(2) Then
+            ' Чекаем Realmd согласно ChangeRealmdCheck
+            If Date.Now - _checkRealmd > TimeSpan.FromSeconds(ChangeRealmdCheck) Then
                 _checkRealmd = Date.Now
                 GV.SPP2Launcher.CheckRealmd()
             End If
 
-            ' Чекаем World каждые 2 секунды
-            If Date.Now - _checkWorld > TimeSpan.FromSeconds(2) Then
+            ' Чекаем World каждые 1.7 секунды
+            If Date.Now - _checkWorld > TimeSpan.FromSeconds(1.7) Then
                 _checkWorld = Date.Now
                 GV.SPP2Launcher.CheckWorld()
             End If
 
-            ' Обновляем инфо в строке состояния каждые 2 сек.
-            If Date.Now - _updateStatus > TimeSpan.FromSeconds(2) Then
+            ' Обновляем инфо в строке состояния каждые 1 сек.
+            If Date.Now - _updateStatus > TimeSpan.FromSeconds(1) Then
                 _updateStatus = Date.Now
                 GV.SPP2Launcher.OutInfoPlayers()
             End If
@@ -781,12 +849,18 @@ Module SPP2Helper
             ' Проверка наличия процессов серверов
             Dim lp = GetAllProcesses()
             For Each control In BP.Processes
+
+                If GV.SPP2Launcher.NeedExitLauncher Then Exit Do
+
                 If control.WasLaunched Then
                     ' Да, этот процесс уже был однажды запущен
                     Dim processes = lp.FindAll(Function(p) p.ProcessName = control.Name)
 
                     Dim ok = False
                     For Each existing In processes
+
+                        If GV.SPP2Launcher.NeedExitLauncher Then Exit Do
+
                         Try
                             Dim path As String = ""
 
@@ -819,7 +893,8 @@ Module SPP2Helper
                                 control.CrashCount += 1
                                 If Not GV.SPP2Launcher.NeedServerStop Then
                                     ' Сервер рухнул
-                                    Dim msg = String.Format(My.Resources.E015_RealmdCrashed, control.CrashCount, "10")
+                                    Dim msg = String.Format(My.Resources.E015_RealmdCrashed, control.CrashCount,
+                                                            If(GV.SPP2Launcher.ServerWowAutostart, My.Resources.P055_RestartIs, ""))
                                     GV.Log.WriteError(msg)
                                     GV.SPP2Launcher.UpdateRealmdConsole(msg, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной запуск) через 10 секунд
@@ -834,7 +909,8 @@ Module SPP2Helper
                                     WorldStartTime = 0
                                     GV.SPP2Launcher.UpdateMessageStatusStrip("")
                                     ' Сервер рухнул
-                                    Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount, "10")
+                                    Dim msg = String.Format(My.Resources.E016_WorldCrashed, control.CrashCount,
+                                                            If(GV.SPP2Launcher.ServerWowAutostart, My.Resources.P055_RestartIs, ""))
                                     GV.Log.WriteError(msg)
                                     GV.SPP2Launcher.UpdateWorldConsole(msg, Color.Red)
                                     ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд

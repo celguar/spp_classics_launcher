@@ -63,15 +63,18 @@ Public Class LauncherSettings
         Catch
         End Try
 
-        ' Фильтр сообщений для консоли World
+        ' Автоматический запуск клиента по факту загрузки серверов
+        CheckBox_ClientAutoStart.Checked = My.Settings.ClientAutoStart
+
+        ' Фильтр сообщений для консоли World перед загрузкой сервера
         Try
             ComboBox_MessageFilter.SelectedIndex = My.Settings.ConsoleMessageFilter
         Catch
         End Try
 
-
+        ' Фильтр сообщений для консоли World после загрузки сервера
         Try
-            ComboBox_PostMessageMessageFilter.SelectedIndex = My.Settings.ConsolePostMessageFilter
+            ComboBox_PostMessageFilter.SelectedIndex = My.Settings.ConsolePostMessageFilter
         Catch ex As Exception
         End Try
 
@@ -152,6 +155,7 @@ Public Class LauncherSettings
         My.Settings.DirSPP2 = TextBox_DirSPP2.Text
         My.Settings.LogLevel = ComboBox_LogLevel.SelectedIndex
         My.Settings.SqlLogLevel = ComboBox_SqlLogLevel.SelectedIndex
+        My.Settings.ClientAutoStart = CheckBox_ClientAutoStart.Checked
 
         ' Вкладка КОНСОЛЬ
         My.Settings.ConsoleTheme = If(IsNothing(ComboBox_Theme.SelectedItem.ToString), "Black Theme", ComboBox_Theme.SelectedItem.ToString)
@@ -159,7 +163,7 @@ Public Class LauncherSettings
         My.Settings.ConsoleFontStyle = CType(ComboBox_FontStyle.SelectedIndex, FontStyle)
         My.Settings.UpdateConsoleRightNow = CheckBox_UpdateRightNow.Checked
         My.Settings.ConsoleMessageFilter = ComboBox_MessageFilter.SelectedIndex
-        My.Settings.ConsolePostMessageFilter = ComboBox_PostMessageMessageFilter.SelectedIndex
+        My.Settings.ConsolePostMessageFilter = ComboBox_PostMessageFilter.SelectedIndex
         My.Settings.UseConsoleBuffer = CheckBox_UseConsoleBuffering.Checked
         My.Settings.UseCommandAutoHints = CheckBox_UseAutoHints.Checked
 

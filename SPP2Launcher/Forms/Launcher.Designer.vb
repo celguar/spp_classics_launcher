@@ -27,8 +27,8 @@ Partial Class Launcher
         Me.StatusStrip_SPP2 = New System.Windows.Forms.StatusStrip()
         Me.TSSL_MySQL = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Apache = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TSSL_Realm = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_World = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TSSL_Realm = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_ALL = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Online = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TSSL_Count = New System.Windows.Forms.ToolStripStatusLabel()
@@ -38,8 +38,7 @@ Partial Class Launcher
         Me.TSMI_WowAutoStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_ServerStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_ServerStop = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_CreateAutosave = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Server2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_MySQL = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_MySqlStart = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_MySqlRestart = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,6 +57,7 @@ Partial Class Launcher
         Me.TSMI_Bots = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Characters = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Saves = New System.Windows.Forms.ToolStripMenuItem()
+        Me.СменитьIPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_World = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_Updates = New System.Windows.Forms.ToolStripMenuItem()
@@ -98,7 +98,7 @@ Partial Class Launcher
         'StatusStrip_SPP2
         '
         Me.StatusStrip_SPP2.BackColor = System.Drawing.Color.LightGray
-        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_Realm, Me.TSSL_World, Me.TSSL_ALL, Me.TSSL_Online, Me.TSSL_Count})
+        Me.StatusStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSSL_MySQL, Me.TSSL_Apache, Me.TSSL_World, Me.TSSL_Realm, Me.TSSL_ALL, Me.TSSL_Online, Me.TSSL_Count})
         resources.ApplyResources(Me.StatusStrip_SPP2, "StatusStrip_SPP2")
         Me.StatusStrip_SPP2.Name = "StatusStrip_SPP2"
         Me.StatusStrip_SPP2.ShowItemToolTips = True
@@ -114,15 +114,15 @@ Partial Class Launcher
         resources.ApplyResources(Me.TSSL_Apache, "TSSL_Apache")
         Me.TSSL_Apache.Name = "TSSL_Apache"
         '
-        'TSSL_Realm
-        '
-        resources.ApplyResources(Me.TSSL_Realm, "TSSL_Realm")
-        Me.TSSL_Realm.Name = "TSSL_Realm"
-        '
         'TSSL_World
         '
         resources.ApplyResources(Me.TSSL_World, "TSSL_World")
         Me.TSSL_World.Name = "TSSL_World"
+        '
+        'TSSL_Realm
+        '
+        resources.ApplyResources(Me.TSSL_Realm, "TSSL_Realm")
+        Me.TSSL_Realm.Name = "TSSL_Realm"
         '
         'TSSL_ALL
         '
@@ -155,7 +155,7 @@ Partial Class Launcher
         '
         'TSMI_Server
         '
-        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_WowAutoStart, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.TSMI_CreateAutosave, Me.TSMI_Server2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
+        Me.TSMI_Server.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_WowAutoStart, Me.TSMI_ServerStart, Me.TSMI_ServerStop, Me.ToolStripMenuItem2, Me.TSMI_MySQL, Me.TSMI_Apache, Me.TSMI_Sever1, Me.TSMI_ServerSwitcher})
         resources.ApplyResources(Me.TSMI_Server, "TSMI_Server")
         Me.TSMI_Server.Name = "TSMI_Server"
         '
@@ -175,16 +175,10 @@ Partial Class Launcher
         resources.ApplyResources(Me.TSMI_ServerStop, "TSMI_ServerStop")
         Me.TSMI_ServerStop.Name = "TSMI_ServerStop"
         '
-        'TSMI_CreateAutosave
+        'ToolStripMenuItem2
         '
-        Me.TSMI_CreateAutosave.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.save
-        Me.TSMI_CreateAutosave.Name = "TSMI_CreateAutosave"
-        resources.ApplyResources(Me.TSMI_CreateAutosave, "TSMI_CreateAutosave")
-        '
-        'TSMI_Server2
-        '
-        Me.TSMI_Server2.Name = "TSMI_Server2"
-        resources.ApplyResources(Me.TSMI_Server2, "TSMI_Server2")
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        resources.ApplyResources(Me.ToolStripMenuItem2, "ToolStripMenuItem2")
         '
         'TSMI_MySQL
         '
@@ -261,7 +255,7 @@ Partial Class Launcher
         '
         'TSMI_Tools
         '
-        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Characters, Me.TSMI_Saves, Me.TSMI_World, Me.ToolStripMenuItem1, Me.TSMI_Updates})
+        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Characters, Me.TSMI_Saves, Me.СменитьIPToolStripMenuItem, Me.TSMI_World, Me.ToolStripMenuItem1, Me.TSMI_Updates})
         resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
         Me.TSMI_Tools.Name = "TSMI_Tools"
         '
@@ -272,13 +266,19 @@ Partial Class Launcher
         '
         'TSMI_Characters
         '
-        Me.TSMI_Characters.Name = "TSMI_Characters"
         resources.ApplyResources(Me.TSMI_Characters, "TSMI_Characters")
+        Me.TSMI_Characters.Name = "TSMI_Characters"
         '
         'TSMI_Saves
         '
         Me.TSMI_Saves.Name = "TSMI_Saves"
         resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
+        '
+        'СменитьIPToolStripMenuItem
+        '
+        Me.СменитьIPToolStripMenuItem.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.lan_switcher
+        Me.СменитьIPToolStripMenuItem.Name = "СменитьIPToolStripMenuItem"
+        resources.ApplyResources(Me.СменитьIPToolStripMenuItem, "СменитьIPToolStripMenuItem")
         '
         'TSMI_World
         '
@@ -517,7 +517,6 @@ Partial Class Launcher
     Friend WithEvents TSMI_Sever1 As ToolStripSeparator
     Friend WithEvents TSMI_ServerStart As ToolStripMenuItem
     Friend WithEvents TSMI_ServerStop As ToolStripMenuItem
-    Friend WithEvents TSMI_Server2 As ToolStripSeparator
     Friend WithEvents TSMI_ServerSwitcher As ToolStripMenuItem
     Friend WithEvents TSMI_MySQL1 As ToolStripSeparator
     Friend WithEvents TSMI_MySqlSettings As ToolStripMenuItem
@@ -545,5 +544,6 @@ Partial Class Launcher
     Friend WithEvents TSMI_Reset As ToolStripMenuItem
     Friend WithEvents Button_UnlockAll As Button
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents TSMI_CreateAutosave As ToolStripMenuItem
+    Friend WithEvents СменитьIPToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
 End Class

@@ -121,7 +121,7 @@
   <data name="TSSL_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -140,7 +140,7 @@
   <data name="TSSL_Apache.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -159,7 +159,7 @@
   <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -178,7 +178,7 @@
   <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
+        vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
         06QyXbTLxkjmbNMWlbesFTeywNs41kyOM04fSroNS5HZFIo12bJZ65ZRkb89o9OHtj70wAPvec/zvLzn
         vOdI/0dsbOzkW15v7mO/397V09Pl6+199OSZ/6r33j2jUqmcGpR9G/X19ZqeZ/6+P2/fpuaXA1hSN3E0
         VUP1/kK8HR10P+/729rSkhGUf4m6hobsvpf9lBfsJW/2TC7tNHC39gLei7XUGfPJj4zgZF4uL/r7aWhq
@@ -312,15 +312,16 @@
     <value>Fall protection for servers</value>
   </data>
   <data name="TSMI_WowAutoStart.ToolTipText" xml:space="preserve">
-    <value> Setting this parameter in addition to automatic start realmd
-and mangos when launcher is loaded, also launches the
-mechanism of control over them.
-That is, when they fall, they will be automatically launched.</value>
+    <value>Setting this parameter in addition to automatic
+start realmd and mangos when launcher is loaded, also
+launches the mechanism of control over them.
+That is, when they fall, they will be automatically launched.
+HTTP server is out of control!</value>
   </data>
   <data name="TSMI_ServerStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -341,7 +342,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ServerStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -355,13 +356,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ServerStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
-  <data name="TSMI_CreateAutosave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
-  </data>
-  <data name="TSMI_CreateAutosave.Text" xml:space="preserve">
-    <value>Create a backup</value>
-  </data>
-  <data name="TSMI_Server2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 6</value>
   </data>
   <data name="TSMI_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -387,7 +382,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -400,7 +395,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_MySqlStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_MySqlStart.Text" xml:space="preserve">
     <value>Start</value>
@@ -408,7 +403,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_MySqlRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        wgAAAMIBT4kc1wAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -428,7 +423,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_MySqlRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_MySqlRestart.Text" xml:space="preserve">
     <value>Restart</value>
@@ -436,7 +431,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_MySqlStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -445,18 +440,18 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_MySqlStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_MySqlStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
   <data name="TSMI_MySQL1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
+    <value>113, 6</value>
   </data>
   <data name="TSMI_MySqlSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
         FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
         unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
         7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
@@ -480,7 +475,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_MySqlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_MySqlSettings.Text" xml:space="preserve">
     <value>Settings</value>
@@ -521,7 +516,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ApacheStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -534,7 +529,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_ApacheStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_ApacheStart.Text" xml:space="preserve">
     <value>Start</value>
@@ -542,7 +537,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ApacheRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        wgAAAMIBT4kc1wAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -562,7 +557,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_ApacheRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_ApacheRestart.Text" xml:space="preserve">
     <value>Restart</value>
@@ -570,7 +565,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_ApacheStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADGAAAAxgGwdJvFAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -579,18 +574,18 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_ApacheStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_ApacheStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
   <data name="TSMI_Apache1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
+    <value>113, 6</value>
   </data>
   <data name="TSMI_ApacheSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
         FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
         unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
         7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
@@ -614,7 +609,7 @@ That is, when they fall, they will be automatically launched.</value>
 </value>
   </data>
   <data name="TSMI_ApacheSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>116, 22</value>
   </data>
   <data name="TSMI_ApacheSettings.Text" xml:space="preserve">
     <value>Settings</value>
@@ -631,7 +626,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_Tools.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABGJJREFUWEftV31InVUc1mtamkn4heQHV7ioqGBq+JnpnR8L1KGCeBkqUeGfEpEb
+        vAAADrwBlbxySQAABGJJREFUWEftV31InVUc1mtamkn4heQHV7ioqGBq+JnpnR8L1KGCeBkqUeGfEpEb
         ZoLUlu4qDBtF0D+WUGDI2C4RA2HKihFj3Y2Vt7UkWiyzsjFlTBnz1/Oce85F5/X11rL6owce3vc953fO
         85zf+bo37H/8F7EP9OjnP45nwdXa2lrB87b+Dopzn11wgPsmJz869fY7714dHnEvjoy4f/1g8sPvJyYm
         DoyNjSXq0JBRB97Jzc2VlpYWqa+vp4k7unwbIO4Cl0Ax/GXpd5n/+ls5fnxciouLr6CvBh2+KyiynpCQ
@@ -659,17 +654,41 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_Tools.Text" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
   <data name="TSMI_Bots.Text" xml:space="preserve">
     <value>Bots</value>
+  </data>
+  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
   </data>
   <data name="TSMI_Characters.Text" xml:space="preserve">
     <value>Characters</value>
   </data>
+  <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
   <data name="TSMI_Saves.Text" xml:space="preserve">
     <value>Saves</value>
   </data>
+  <data name="СменитьIPToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
+  <data name="СменитьIPToolStripMenuItem.Text" xml:space="preserve">
+    <value>Lan Switcher</value>
+  </data>
+  <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
+  </data>
   <data name="TSMI_World.Text" xml:space="preserve">
-    <value>World</value>
+    <value>World settings</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 6</value>
+  </data>
+  <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 22</value>
   </data>
   <data name="TSMI_Updates.Text" xml:space="preserve">
     <value>Updates</value>
@@ -677,7 +696,7 @@ That is, when they fall, they will be automatically launched.</value>
   <data name="TSMI_Settings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
+        vAAADrwBlbxySQAABMRJREFUWEftVltPYmcUFTR2GhvatGna9MGfQvrY9MGXmThOpqIzgjo6o7TjDUaO
         FwQUhQOHq8hdLgcQryjecbSt0zbpX/An+BN29z49MDBi0Faf2pWs5Mvea6+9c74L1P2PfwKDe1nuz+Qh
         unEs0J/OA8XE9P3DHMgw/P45JPd/F8jvnYPZn2bE9P3Dk8oXIju/QjD3N2lNMTF9N9B7eYWb3wFnInc5
         7U60iGEBi9nDgm/jZ/BtiqR19qhiAKpxxnOX7uQ2zHiTCjF8M0y5Eopo7hSWd99BfO83WN4+A5M/y+js
@@ -707,7 +726,7 @@ That is, when they fall, they will be automatically launched.</value>
     <value>Settings</value>
   </data>
   <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="TSMI_LanguageTool.Text" xml:space="preserve">
     <value>Language</value>
@@ -740,17 +759,29 @@ That is, when they fall, they will be automatically launched.</value>
         gzQbegAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="TSMI_Launcher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vQAADr0BR/uQrQAAAWxJREFUWEft1j0oBnEAx/GT18JmkFIWGxaljCyMBsprXhYDg1BMSmKRKMrAJoO3
+        LF4nGSwGMcgkwoAUJWVQfH/nTtd19zwPHpen7luf7vlf/7v/M9ybERaWKBWgBWXmKOCq8IpnvGMIf1Y1
+        +tHr8IB5ZKED+hP5yEEP+uCcH4nO3YpkeDaNG1zjytpqwUYoLaxxEUpwAXt+LDR3D+nwLcliN4s3TOIc
+        x8iAnXNutL4z96sUjOIUi8hD2L+qHQvoNEcBpwtTd8WBtdUF+6sGsIutGGieFq2DqoHG2SiH5mxbW+cx
+        c0iDZ91YxUoUy1iDFmyDaoLGemCVYgnuc2k8gVTEpRFo0RNrO47Aq8UMGsxRWAAVQxfhBiq1I8j0NnzC
+        IezbsAJxawy6ov3c4RJ2+9j8/GkMw+sYt3X4vo6bMRXBDh6hjxHdy2fQY1jVw+sYt0H8+DmgA4/wgnvc
+        ohCBloku6FMsVzvCwhI4w/gACIF8s8Bg+pQAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="TSMI_Launcher.Text" xml:space="preserve">
     <value>Application</value>
   </data>
   <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>153, 6</value>
   </data>
   <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="TSMI_Reset.Text" xml:space="preserve">
     <value>Reset to default</value>

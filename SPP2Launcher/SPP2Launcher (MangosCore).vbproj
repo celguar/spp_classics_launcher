@@ -63,7 +63,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>cmangos_red.ico</ApplicationIcon>
+    <ApplicationIcon>wow.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
@@ -89,6 +89,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -117,16 +118,30 @@
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />
     <Compile Include="Classes\GV.vb" />
+    <Compile Include="Classes\SPR6.vb" />
     <Compile Include="Forms\ChangePathRepack.Designer.vb">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChangePathRepack.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Accounts.Designer.vb">
+      <DependentUpon>Accounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Accounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LanSwitcher.Designer.vb">
+      <DependentUpon>LanSwitcher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LanSwitcher.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MySQL\DataBase\Characters\DataTable\CHARACTERS.vb" />
     <Compile Include="MySQL\DataBase\Characters\CHARACTERS.vb" />
     <Compile Include="MySQL\DataBase\Mangos\DataTable\COMMAND.vb" />
     <Compile Include="MySQL\DataBase\PlayerBots\PLAYERBOTS.vb" />
+    <Compile Include="MySQL\DataBase\Realmd\DataTable\ACCOUNT.vb" />
     <Compile Include="MySQL\DataBase\Realmd\REALMD.vb" />
     <Compile Include="MySQL\MySqlClient.vb" />
     <Compile Include="Classes\SPP2Module.vb" />
@@ -212,6 +227,18 @@
     <EmbeddedResource Include="Forms\ChangePathRepack.resx">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Accounts.en.resx">
+      <DependentUpon>Accounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Accounts.resx">
+      <DependentUpon>Accounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LanSwitcher.en.resx">
+      <DependentUpon>LanSwitcher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LanSwitcher.resx">
+      <DependentUpon>LanSwitcher.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Launcher.en.resx">
       <DependentUpon>Launcher.vb</DependentUpon>
     </EmbeddedResource>
@@ -272,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MySQL\DataBase\PlayerBots\DataTable\" />
-    <Folder Include="MySQL\DataBase\Realmd\DataTable\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +306,8 @@
     <Content Include="ExtDlls\Ionic.Zip.dll" />
     <Content Include="ExtDlls\MySql.Data.dll" />
     <Content Include="ExtDlls\MySqlBackup.dll" />
+    <Content Include="launcher.ico" />
+    <Content Include="wow.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

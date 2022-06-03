@@ -260,7 +260,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("wotlkchracters")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("wotlkcharacters")>  _
         Public Property MySqlWotlkIntCharacters() As String
             Get
                 Return CType(Me("MySqlWotlkIntCharacters"),String)
@@ -1396,13 +1396,29 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Фильтр сообщений для консоли после запуска"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
         Public Property ConsolePostMessageFilter() As Integer
             Get
                 Return CType(Me("ConsolePostMessageFilter"),Integer)
             End Get
             Set
                 Me("ConsolePostMessageFilter") = value
+            End Set
+        End Property
+        
+        '''<summary>
+        '''Автоматический запуск клиента по факту загрузки серверов
+        '''</summary>
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Configuration.SettingsDescriptionAttribute("Автоматический запуск клиента по факту загрузки серверов"),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property ClientAutoStart() As Boolean
+            Get
+                Return CType(Me("ClientAutoStart"),Boolean)
+            End Get
+            Set
+                Me("ClientAutoStart") = value
             End Set
         End Property
     End Class

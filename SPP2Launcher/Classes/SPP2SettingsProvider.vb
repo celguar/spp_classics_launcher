@@ -28,6 +28,12 @@ Public Class SPP2SettingsProvider
     Public Shared ReadOnly Property SettingsFile As String
 
     ''' <summary>
+    ''' Только для чтения: Возвращает путь к каталогу к файла конфигурации.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared ReadOnly Property SettingsFolder As String
+
+    ''' <summary>
     ''' Возвращает имя приложения.
     ''' </summary>
     ''' <returns></returns>
@@ -129,15 +135,17 @@ Public Class SPP2SettingsProvider
     Public Shared Sub ApplyProvider(configFilePath As String, ParamArray settingsList() As ApplicationSettingsBase)
         Try
             ' Проверяем доступность каталога на запись
-            If Not IO.Directory.Exists(IO.Path.GetDirectoryName(configFilePath)) Then IO.Directory.CreateDirectory(IO.Path.GetDirectoryName(configFilePath))
+            If Not IO.Directory.Exists(IO.Path.GetDirectoryName(configFilePath)) Then IO.Directory.CreateDirectory(SettingsFolder)
+            _SettingsFolder = IO.Path.GetDirectoryName(configFilePath)
             IO.File.WriteAllText(IO.Path.GetDirectoryName(configFilePath) & "test.file", "")
             IO.File.Delete(IO.Path.GetDirectoryName(configFilePath) & "test.file")
             _SettingsFile = configFilePath
         Catch ex As Exception
-            ' Указанный каталог недоступен - сохраняем параметры в LocalApplicationData
-            Dim program = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
-            If Not IO.Directory.Exists(program) Then IO.Directory.CreateDirectory(program)
-            _SettingsFile = program & "\" & IO.Path.GetFileName(configFilePath)
+            ' Указанный каталог недоступен - сохраняем параметры в MyDocuments
+            _SettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
+            If Not IO.Directory.Exists(_SettingsFolder) Then IO.Directory.CreateDirectory(_SettingsFolder)
+            If Not IO.Directory.Exists(_SettingsFolder & "\Settings") Then IO.Directory.CreateDirectory(_SettingsFolder & "\Settings")
+            _SettingsFile = _SettingsFolder & "\Settings\" & IO.Path.GetFileName(configFilePath)
         End Try
         For Each settings In settingsList
             Dim provider = New SPP2SettingsProvider()

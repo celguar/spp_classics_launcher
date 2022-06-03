@@ -45,7 +45,7 @@
       <Value Profile="(Default)">wotlkarmory</Value>
     </Setting>
     <Setting Name="MySqlWotlkIntCharacters" Type="System.String" Scope="User">
-      <Value Profile="(Default)">wotlkchracters</Value>
+      <Value Profile="(Default)">wotlkcharacters</Value>
     </Setting>
     <Setting Name="MySqlWotlkIntLogs" Type="System.String" Scope="User">
       <Value Profile="(Default)">wotlklogs</Value>
@@ -315,7 +315,10 @@
       <Value Profile="(Default)">15</Value>
     </Setting>
     <Setting Name="ConsolePostMessageFilter" Description="Фильтр сообщений для консоли после запуска" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ClientAutoStart" Description="Автоматический запуск клиента по факту загрузки серверов" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -166,8 +166,7 @@ Public Class GV
             ' Всякий раз проводим Upgrade на случай, если файл разрушен.
             My.Settings.Upgrade()
         Catch ex As Exception
-            ' По хорошему, в таком случае, надо поменять расположение файла на какую нибудь директорию пользователя,
-            ' а не выдавать ошибку... Может в последующих релизах...
+            ' Тут уже и не знаю что делать!
             _ErrorCode = ECode.ErrorLauncherConfig
             Exit Sub
         End Try
@@ -187,10 +186,12 @@ Public Class GV
 
         ' Инициализация журнала событий
         Dim _err = NewExitCode()
+        Dim cat = SPP2SettingsProvider.SettingsFolder
+        If Not IO.Directory.Exists(cat & "\Logs") Then IO.Directory.CreateDirectory(cat & "\Logs")
         Log = New EasyLog(logLevel:=CType(My.Settings.LogLevel, EasyLog.ESeverity),
                           sqlLogLevel:=CType(My.Settings.SqlLogLevel, EasyLog.ESqlSeverity),
                           _err:=_err,
-                          logDir:=".\Logs",
+                          logDir:=cat & "\Logs",
                           language:=CI.Name)
         Log.WriteInfo(My.Resources.P001_BaseInit)
 

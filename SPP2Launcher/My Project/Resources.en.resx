@@ -157,10 +157,10 @@
     <value>Some exception: world</value>
   </data>
   <data name="E015_RealmdCrashed" xml:space="preserve">
-    <value>The REALMD server has crashed {0} times. Restart after {1} sec.</value>
+    <value>The REALMD server has crashed {0} times. {1}</value>
   </data>
   <data name="E016_WorldCrashed" xml:space="preserve">
-    <value>The WORLD server has crashed {0} times. Restart after {1} sec.</value>
+    <value>The WORLD server has crashed {0} times. {1}</value>
   </data>
   <data name="E017_SeeLog" xml:space="preserve">
     <value>An error has occurred. Details in the application log file.</value>
@@ -204,6 +204,9 @@
   <data name="P011_AllChars" xml:space="preserve">
     <value>Total Characters {0}</value>
   </data>
+  <data name="P012_ConsoleCommand" xml:space="preserve">
+    <value>Console command: {0}</value>
+  </data>
   <data name="P013_SiteAutostart" xml:space="preserve">
     <value>Enable site</value>
   </data>
@@ -215,6 +218,12 @@
   </data>
   <data name="P016_WarningCaption" xml:space="preserve">
     <value>Attention!</value>
+  </data>
+  <data name="P017_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="P018_Change" xml:space="preserve">
+    <value>Change</value>
   </data>
   <data name="P019_ControlEnabled" xml:space="preserve">
     <value>Server control is enabled.</value>
@@ -249,14 +258,32 @@
   <data name="P029_LaunchMain" xml:space="preserve">
     <value>launching the main application.</value>
   </data>
+  <data name="P030_ControlDisabled" xml:space="preserve">
+    <value>Server control is disabled.</value>
+  </data>
+  <data name="P031_ChangeToRestart" xml:space="preserve">
+    <value>The changes will take effect after the application is restarted.</value>
+  </data>
+  <data name="P032_AutoBackup" xml:space="preserve">
+    <value>Autosave database...</value>
+  </data>
   <data name="P033_TimerTriggered" xml:space="preserve">
     <value>Timer {0} has expired.</value>
+  </data>
+  <data name="P034_SmallLengthUserName" xml:space="preserve">
+    <value>The username must be at least four characters long.</value>
   </data>
   <data name="P035_ThereIsProblems" xml:space="preserve">
     <value>While there are problems to start the World server. Delayed 2 sec...</value>
   </data>
+  <data name="P036_SmallLengthUserPass" xml:space="preserve">
+    <value>The user password must be at least six characters long.</value>
+  </data>
   <data name="P037_WorldNotStarted" xml:space="preserve">
     <value>The server is not ready to accept commands...</value>
+  </data>
+  <data name="P038_AccountNotFound" xml:space="preserve">
+    <value>Account {0} not found!</value>
   </data>
   <data name="P039_WaitEnd" xml:space="preserve">
     <value>Wait for the end...</value>
@@ -342,40 +369,19 @@
   <data name="P053_CreateBackup" xml:space="preserve">
     <value>Should I back up (autosave) right now?</value>
   </data>
-  <data name="P054_BackupNeedMySQL" xml:space="preserve">
+  <data name="P054_NeedMySQL" xml:space="preserve">
     <value>Для выполнения необходимо подключение к MySQL!</value>
   </data>
-  <data name="Real001_RealmdStart" xml:space="preserve">
-    <value>Starting the Realmd server.</value>
+  <data name="P055_RestartIs" xml:space="preserve">
+    <value>Restart after 10 sec.</value>
   </data>
-  <data name="Real002_RealmdStarted" xml:space="preserve">
-    <value>The Realmd server started successfully.</value>
+  <data name="P056_UserFound" xml:space="preserve">
+    <value>User named {0} already exists!</value>
   </data>
-  <data name="Real003_RealmdStopped" xml:space="preserve">
-    <value>The Realmd server has stopped.</value>
+  <data name="P057_Repeat" xml:space="preserve">
+    <value>Repeat?</value>
   </data>
-  <data name="SQL001_Shutdown" xml:space="preserve">
-    <value>Stop MySQL server.</value>
-  </data>
-  <data name="SQL003_Started" xml:space="preserve">
-    <value>MySQL server started successfully.</value>
-  </data>
-  <data name="SQL004_Stopped" xml:space="preserve">
-    <value>The MySQL server was successfully stopped.</value>
-  </data>
-  <data name="World001_WorldStart" xml:space="preserve">
-    <value>World server launch.</value>
-  </data>
-  <data name="World002_WorldStarted" xml:space="preserve">
-    <value>World server started successfully.</value>
-  </data>
-  <data name="World003_WorldStopped" xml:space="preserve">
-    <value>The World server has been stopped.</value>
-  </data>
-  <data name="World004_StoppingWorld" xml:space="preserve">
-    <value>World server is shutting down...</value>
-  </data>
-  <data name="World005_YourSendCommand" xml:space="preserve">
-    <value>Console command: {0}</value>
+  <data name="P058_AccountChanged" xml:space="preserve">
+    <value>Account settings successfully changed!</value>
   </data>
 </root>

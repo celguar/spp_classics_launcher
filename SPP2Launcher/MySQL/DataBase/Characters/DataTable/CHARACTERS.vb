@@ -7,7 +7,7 @@ Namespace MySqlDataBases.CHARACTERS
     ''' <summary>
     ''' Таблица Caracters базы Characters
     ''' </summary>
-    Public Class CHARACTERS
+    Public Class ACCOUNT
 
         ''' <summary>
         ''' Возвращает общее количество чаров в базе данных.

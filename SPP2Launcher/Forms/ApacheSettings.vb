@@ -35,6 +35,7 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_OK_Click(sender As Object, e As EventArgs) Handles Button_OK.Click
+        MessageBox.Show(My.Resources.P031_ChangeToRestart, My.Resources.P016_WarningCaption)
         My.Settings.UseIntApache = CheckBox_UseIntApache.Checked
         My.Settings.ApacheAutostart = CheckBox_ApacheAutostart.Checked
         If CheckBox_UseIntApache.Checked Then

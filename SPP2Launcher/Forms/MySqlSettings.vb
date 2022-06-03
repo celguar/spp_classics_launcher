@@ -3,6 +3,9 @@ Public Class MySqlSettings
 
     Private _IsLoading As Boolean = True
 
+    ''' <summary>
+    ''' ПРИ СОЗДАНИИ ОБЪЕКТА
+    ''' </summary>
     Sub New()
         InitializeComponent()
 
@@ -30,6 +33,7 @@ Public Class MySqlSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_OK_Click(sender As Object, e As EventArgs) Handles Button_OK.Click
+        MessageBox.Show(My.Resources.P031_ChangeToRestart, My.Resources.P016_WarningCaption)
         My.Settings.UseIntMySQL = CheckBox_UseIntMySQL.Checked
         My.Settings.MySqlAutostart = CheckBox_MySqlAutostart.Checked
         If CheckBox_UseIntMySQL.Checked Then

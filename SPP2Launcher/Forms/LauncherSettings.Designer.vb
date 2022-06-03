@@ -32,6 +32,8 @@ Partial Class LauncherSettings
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox_ClientAutoStart = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ComboBox_SqlLogLevel = New System.Windows.Forms.ComboBox()
@@ -40,7 +42,7 @@ Partial Class LauncherSettings
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.ComboBox_PostMessageMessageFilter = New System.Windows.Forms.ComboBox()
+        Me.ComboBox_PostMessageFilter = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.CheckBox_UseAutoHints = New System.Windows.Forms.CheckBox()
         Me.CheckBox_UseConsoleBuffering = New System.Windows.Forms.CheckBox()
@@ -70,6 +72,7 @@ Partial Class LauncherSettings
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -133,10 +136,24 @@ Partial Class LauncherSettings
         '
         Me.TabPage1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.TabPage1.Controls.Add(Me.GroupBox6)
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
         resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
+        '
+        'GroupBox6
+        '
+        resources.ApplyResources(Me.GroupBox6, "GroupBox6")
+        Me.GroupBox6.Controls.Add(Me.CheckBox_ClientAutoStart)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.TabStop = False
+        '
+        'CheckBox_ClientAutoStart
+        '
+        resources.ApplyResources(Me.CheckBox_ClientAutoStart, "CheckBox_ClientAutoStart")
+        Me.CheckBox_ClientAutoStart.Name = "CheckBox_ClientAutoStart"
+        Me.CheckBox_ClientAutoStart.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -184,7 +201,7 @@ Partial Class LauncherSettings
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.Label11)
-        Me.GroupBox4.Controls.Add(Me.ComboBox_PostMessageMessageFilter)
+        Me.GroupBox4.Controls.Add(Me.ComboBox_PostMessageFilter)
         Me.GroupBox4.Controls.Add(Me.Label10)
         Me.GroupBox4.Controls.Add(Me.CheckBox_UseAutoHints)
         Me.GroupBox4.Controls.Add(Me.CheckBox_UseConsoleBuffering)
@@ -199,13 +216,13 @@ Partial Class LauncherSettings
         resources.ApplyResources(Me.Label11, "Label11")
         Me.Label11.Name = "Label11"
         '
-        'ComboBox_PostMessageMessageFilter
+        'ComboBox_PostMessageFilter
         '
-        Me.ComboBox_PostMessageMessageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_PostMessageMessageFilter.FormattingEnabled = True
-        Me.ComboBox_PostMessageMessageFilter.Items.AddRange(New Object() {resources.GetString("ComboBox_PostMessageMessageFilter.Items"), resources.GetString("ComboBox_PostMessageMessageFilter.Items1"), resources.GetString("ComboBox_PostMessageMessageFilter.Items2")})
-        resources.ApplyResources(Me.ComboBox_PostMessageMessageFilter, "ComboBox_PostMessageMessageFilter")
-        Me.ComboBox_PostMessageMessageFilter.Name = "ComboBox_PostMessageMessageFilter"
+        Me.ComboBox_PostMessageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_PostMessageFilter.FormattingEnabled = True
+        Me.ComboBox_PostMessageFilter.Items.AddRange(New Object() {resources.GetString("ComboBox_PostMessageFilter.Items"), resources.GetString("ComboBox_PostMessageFilter.Items1"), resources.GetString("ComboBox_PostMessageFilter.Items2")})
+        resources.ApplyResources(Me.ComboBox_PostMessageFilter, "ComboBox_PostMessageFilter")
+        Me.ComboBox_PostMessageFilter.Name = "ComboBox_PostMessageFilter"
         '
         'Label10
         '
@@ -389,6 +406,8 @@ Partial Class LauncherSettings
         Me.Panel1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
@@ -445,5 +464,7 @@ Partial Class LauncherSettings
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents ComboBox_PostMessageMessageFilter As ComboBox
+    Friend WithEvents ComboBox_PostMessageFilter As ComboBox
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents CheckBox_ClientAutoStart As CheckBox
 End Class
