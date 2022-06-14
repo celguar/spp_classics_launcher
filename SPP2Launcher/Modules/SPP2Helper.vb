@@ -51,7 +51,7 @@ Module SPP2Helper
     ''' </summary>
     Friend BackupProcess As Boolean
 
-#Region " === ПЕРЕЧИСЛЕНИЯ === "
+#Region " === ПЕРЕЧИСЛЕНИЯ И СТРУКТУРЫ === "
 
     ''' <summary>
     ''' Процесс вызвавший процедуру.
@@ -91,6 +91,34 @@ Module SPP2Helper
         UpdateMainMenu
 
     End Enum
+
+    Friend Enum ECommand
+
+        AccountCreate
+
+        AccountSetPassword
+
+        SetGmLevel
+
+        SetAddon
+
+    End Enum
+
+    Public Structure ConsoleCommand
+
+        Public Command As String
+
+        Public Message As ECommand
+
+        Public MyAction As Action(Of Boolean)
+
+        Sub New(command As String, message As ECommand, action As Action(Of Boolean))
+            Me.Command = command
+            Me.Message = message
+            Me.MyAction = action
+        End Sub
+
+    End Structure
 
 #End Region
 
@@ -287,8 +315,9 @@ Module SPP2Helper
     ''' <summary>
     ''' Функция возвращает список имеющихся адресов IpV4 на данном компьютере.
     ''' </summary>
+    ''' <param name="addANY">Флаг добавления в список значение ANY.</param>
     ''' <returns>Список IpV4 адаптеров в системе.</returns>
-    Friend Function GetLocalIpAddresses() As List(Of String)
+    Friend Function GetLocalIpAddresses(addANY As Boolean) As List(Of String)
         Dim strHostName As String
         Dim alladdresses() As Net.IPAddress
         Dim addresses As New List(Of String)
@@ -306,7 +335,7 @@ Module SPP2Helper
 
         ' Добавляем loopback
         addresses.Add(Net.IPAddress.Loopback.ToString)
-        addresses.Add("ANY")
+        If addANY Then addresses.Add("0.0.0.0")
 
         Return addresses
     End Function
@@ -520,15 +549,78 @@ Module SPP2Helper
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then GV.SPP2Launcher.WorldExited(Nothing, Nothing)
                 GV.SPP2Launcher.WorldProcess = Nothing
                 GV.SPP2Launcher.WorldON = False
+                CheckProcess(EProcess.world, True)
+                ' Если постфильтр > 0 тогда выводим и этот текст
+                If My.Settings.ConsolePostMessageFilter > 0 Then GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
             End If
 
             ' Ожидаемая строка выполнения команды сервером
-            If e.Data.Contains(WaitWorldMessage) Then
+            If WaitWorldMessage.Length > 0 And e.Data.Contains(WaitWorldMessage) Then
                 CommandSuccessfull = True
+                ' Если постфильтр > 0 тогда выводим и этот текст
+                If My.Settings.ConsolePostMessageFilter > 0 Then GV.SPP2Launcher.UpdateWorldConsole(e.Data, My.Settings.WorldConsoleForeColor)
             End If
 
         End If
 
+    End Sub
+
+    ''' <summary>
+    ''' Ожидание выполнения команды. При успешном выполнении возвращает True.
+    ''' False следует считать как timeout.
+    ''' </summary>
+    ''' <param name="obj">Структура вида ConsoleCommand.</param>
+    Friend Sub WaitSuccessfull(obj As Object)
+        Try
+            Dim cm = CType(obj, ConsoleCommand)
+            Dim t = Now
+            CommandSuccessfull = False
+            Dim result As Boolean
+
+            Select Case cm.Message
+
+                Case ECommand.AccountCreate
+                    WaitWorldMessage = "Account created:"
+
+                Case ECommand.AccountSetPassword
+                    WaitWorldMessage = "The password was changed"
+
+                Case ECommand.SetGmLevel
+                    WaitWorldMessage = "You change security level"
+
+                Case ECommand.SetAddon
+                    WaitWorldMessage = "has been granted"
+
+            End Select
+
+            ' Отправляем команду в консоль
+            GV.SPP2Launcher.SendCommandToWorld(cm.Command)
+            GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P068_WaitExecution, CONSOLE)
+
+            Do
+                If Not GV.SPP2Launcher.WorldON Then Exit Do
+                If Now > t.AddSeconds(60) Then Exit Do
+                If CommandSuccessfull Then
+                    result = True
+                    Exit Do
+                End If
+                Threading.Thread.Sleep(500)
+            Loop
+
+            WaitWorldMessage = String.Empty
+            CommandSuccessfull = False
+
+            If Not result Then
+                ' Таймаут
+                GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P069_Timeout, ECONSOLE)
+            End If
+
+            ' Пеерходим в нужную процедуру
+            cm.MyAction(result)
+
+        Catch ex As Exception
+            GV.Log.WriteException(ex)
+        End Try
     End Sub
 
     ''' <summary>

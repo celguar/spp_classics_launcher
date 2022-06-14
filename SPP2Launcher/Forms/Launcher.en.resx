@@ -156,7 +156,7 @@
         Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
@@ -175,7 +175,7 @@
         Gxq6Kqj5LoQLzglySiDxNSTpP4st++OUWLJAAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="TSSL_World.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TSSL_Realm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAxFJREFUOE+Nk2tI1FkYxv9dJKGgVrAggi3IWgm7EKVZE2UxQcuMTgZj2mSJOjZa
@@ -305,8 +305,25 @@
   <data name="TSMI_Server.Text" xml:space="preserve">
     <value>Servers</value>
   </data>
+  <data name="TSMI_WowAutoStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAApBJREFUWEft
+        1UtIVFEcBnBxES1itEl7UkiUPYiQFhUZRYURIiESGClFBEJiUpFE7SpsYVhUmwoEqUVaRkG4KTHahIQg
+        IT0Fc8Z86+SZh9d53a9v6jTMbc5c8ToTLfrgBzP3P+d/voGBSfung+p1NoJFDrnGevSqXBvBorkXCJ1c
+        ayNYNPcCwYo1NoJFsy/gP7FaEFJIyKvU0Y7lCEIKmRfwlq0ShBQyL+AuXSkIKp7jGzHdVAff5VLl3FtT
+        AH/LDfguFCrnknmByZIVgqAS+tSJ3/G3Nxtm3itl0P3ar2EwAHdlvmEew7yAq3i5IKgg4Ad0Pcrf1vTz
+        uefSEejTU4aZt74y7rxkXmDi4DJBUNEe3eS3CxoE3r6E7vMYnoX6e+A6nKvcQeYFxouWCkIi2vMGIPJt
+        Ewg7P8N1NE95VjIvMFa4RBDMaM/uAV53nFDvB0yUb1aeiWFeYPTAYkEwM3m+BJgcjzPd2qj8/B/MC4zs
+        zxaERL7XFEMf6APGhpS0J3eU52KYFxguyBYEFdeZIuh9X4BBR5Te+9HwPmLq4S3lecm8wNC+LEFQCXd3
+        AM6eqFDnK4we2gDf/WuG5xGu00XKHWReYHDPIgdBJfzuDcAfWkSw4wVGStZHZ76Gq9FZxMSpQsPZGOb/
+        kAO77Q8IKmMVexFoa4GvsQ7Dxblxc/f1cwi0P4Xn9sW4WYzH8ip1BnbZ8yhMSJEt8qrE+bZzYS0hBe7K
+        K2ZOf35mMyGJumi+XD9znDsy06mBkARdlCVXzy7O7RnV5CFY1Ep2uc5aHNsycug1YRY0qpIrkpO+rbaz
+        5CHM4D1tkseSGy7OonpSFflKFTRPfjx14SV2qiVB3VRO6XL898JLF8iX/2MxaWk/AO8xxfpDmr91AAAA
+        AElFTkSuQmCC
+</value>
+  </data>
   <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_WowAutoStart.Text" xml:space="preserve">
     <value>Fall protection for servers</value>
@@ -321,7 +338,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_ServerStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -334,7 +351,7 @@ HTTP server is out of control!</value>
 </value>
   </data>
   <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_ServerStart.Text" xml:space="preserve">
     <value>Start</value>
@@ -342,7 +359,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_ServerStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -351,13 +368,13 @@ HTTP server is out of control!</value>
 </value>
   </data>
   <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_ServerStop.Text" xml:space="preserve">
     <value>Stop</value>
   </data>
   <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 6</value>
+    <value>207, 6</value>
   </data>
   <data name="TSMI_MySQL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -377,12 +394,12 @@ HTTP server is out of control!</value>
 </value>
   </data>
   <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -403,7 +420,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_MySqlRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        uwAAALsBnVmCYQAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -431,7 +448,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_MySqlStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -511,12 +528,12 @@ HTTP server is out of control!</value>
 </value>
   </data>
   <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_ApacheStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAB/UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAB/UlE
         QVRYR2MYBaNgFAwJwMvLK8zFycErIiQIFaETkJSSZVBQUJAITyzcbeQYs1NAQtUTKMzGyMQMUUBroKSi
         waBvYKidXTXlpUtc738Tr8IPSgae87gFJPSB0owQVTQEyqoaDAZAB2SUT3rpEt//3ym2979deOt/A+f0
         hzLqNrWs7NySIjLaUNU0AOgOcIzpgWCgQ6yD6/7q2MWfElcwjAMq5QE6BqKJmgCnA6COcIzp/m/uX/5D
@@ -537,7 +554,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_ApacheRestart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        vgAAAL4BsOPnlwAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
+        uwAAALsBnVmCYQAAA7FJREFUWEfFletPE2kUxkWNRjYxcTXxmmhW1g8bXSUWr1hK1SqRW7bUAgVRULRQ
         rMqmXEQ0oCsW2oJIKwLeIihe6iVqDBoDXhKNi37BRPcPWPWL8YtfffY9bztkdjyiicn4Jr/MzDNnznnm
         zMyZUWLF/GBYUU9YUU9YUU9YUU9YUU9YUU9Y8UuMGxp6ifMXwwh1XUBrxyX4g93wHzuJgQePIc7/pMQJ
         JgtGR49HghU55rZ3nYOzIgBbSQAbtjZjbYEfazY1wWivh9FagR3lh9E/8Ajh6zdRVOwkQ9M0OThY8X88
@@ -565,7 +582,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_ApacheStop.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAADCAAAAwgFPiRzXAAAA/klE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAC/AAAAvwFipAVzAAAA/klE
         QVRYR2MYBaNgFIwCfICLm4eBmZmJx87ZK8bFN6bOzj2izs6DOKysaRIDNIIHYhKZICWrlMHZzScmvWzC
         T5+Uvv/uCd3/PYjBib3/1U39fwKNCIOYRCa48fQPQ3RCZn1m7YL/9lHd/x1ieojCTrF9/9XMgv4DjciE
         mEQmuP3yP0NUfEZDRs38//bR3f8dgYYTg53iRh0w6oBRB4w6YLg4ALkodogGGhzbSxA7ArFz/ATqOABU
@@ -615,10 +632,37 @@ HTTP server is out of control!</value>
     <value>Settings</value>
   </data>
   <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 6</value>
+    <value>207, 6</value>
+  </data>
+  <data name="TSMI_ServerSwitcher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABOJJREFUWEfV
+        VntMVnUYRv/qH/9rbV3XarVWKUmiaVtt1aplpJWVNdfSLoPIZqYZhqKBUQNsaYUiFytKkz6vxKVCQkFB
+        bt9nUOrH5YPMUUvXJwi4Fk/Pc3xPndAWKtR6t2f78b7vc/kdzlEi/rfVnDxlPhEkWokF1v53ioa3HVp1
+        N052pePkj+nQmb3bbTzyRbMNYf+rQP9aB2F/ggJstPHIFo3uaMm8D+hZAfx8EXEhzyloyZyqEHfZ2sgV
+        TQrC/sXA0WigK+IUjk5AOLBYAXy2NjJFg3ta19wPhJOAw6MImjvgObwUmnHnXlsf/qL41uP+ROBIFBCi
+        cYdB5yPjcTyQqADbbH14i8JTW9fGAMeWAG28cTtNvVDvWCLauMPdGKMNX1G0sNtP845IIEjDlkFQj7Pu
+        wFIFKDLa8BQFp7VlPQD8xJfvAG96kGaHzFTQWT3NuNOWNU0hphv9/ItiJd2NfPGCY4FmGn1nhjJ2zdXT
+        LHgjuv1JClBq9PMrCs1oXzedLxn/4QnQ4Bsz6uD70GnQWT3NtPPDIohD7qMmc+5FkbKexmVA0w1APcUb
+        zag9BtvvHONAZ6enmXaarkdP43IFKDeZcysKzGzPfpCf2StANYX3mYFu2eoJwLPT00w72g0tRCj7IYV4
+        3OTOvkiuONHwOoWvA/aYcC2hmwY9AXh2epppR7v110JcauwyubMrEmeFch7mJ/YyUEHB3UQVUUPUEQc9
+        AXh2epppR7vikBvKnaEQT5rs0IukqhP1ybzNNUC5CUp4L6HHfMATgGenp5lrLg65vQ0pCrDXZIdWJDzV
+        kfsIP615wBcU+soEJVxJ6KbfegLw7PQ0c83FEZca0qLmbJP/5+JyTW8d/7stvxooNiEJ7iR2EfodN3kC
+        8Oz0NNOOay5u+VXorV+hAMIos/j74tIznbmP8a2eC2yjQKEJlRJfEm6I/Z4APP9hrh3tiiOuNKglTWo/
+        ZzZnLiVU0r7aN4CiK4EtJG83oSKihJCBHrHfE4Bnp6eZdrQrjrjSoJY0pS0Pszu9OIztzJvJzyke+JTE
+        z0xAt9hBfE64Iepp6oVrrh3tiiOuNKRFTWnTI87s/lpKpoR9NamA7wrgEyMWED7CG0SPV4ZlBp3V8xpv
+        JsSVhrR8l6N/XyqaU25ViNFm+2exGf993hN8k2OBXBI+JD4mNhBuEPeJyGiP51fAs9Nzb+waiysNaUmT
+        2vKg11yzPVVKpGT91W8C+ZcB2VzOIz4g8gndQGIbCYnLqNITgGenp5l2tCuOuNKQljTzL0V/zVunPwX+
+        8PTh9bOAr58F3udiJpFlJCVfT+gWHxG6kW5XTlMv1NNMO9oVR1xpSEua0qaHvOgZa/ZOgLq+3fzucy4B
+        VnFJeNcIawgJrCPcQLqRTHRDQWf1XEPtiiOuNKTl6uZcjL4qvgvJUwJm7wT45bfi2cDbXPDiHWI1IYH3
+        CIm5T0jiXrg3FLQrjrjSGKQ7UDJHAXrN3gmQ2pUxDgNp/JMqjUuDkU5kECuHCO2KcwatgbTR6EofqwAZ
+        Zu8EGBNYNnn1/uWTf21IugV1Syah+rVJqEqYiIpF0di5cAJK50eh+KUoFL44HltfuAmb4yNREBeJTXHj
+        4Hs+ElvY28FZ0bwoZ7dswc0OtzIhmloTUUtNadOnl1hJzwvM/r+siIjfAZAL8X7KWA0JAAAAAElFTkSu
+        QmCC
+</value>
   </data>
   <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 26</value>
+    <value>210, 22</value>
   </data>
   <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
     <value>Select server modification</value>
@@ -655,40 +699,167 @@ HTTP server is out of control!</value>
     <value>Tools</value>
   </data>
   <data name="TSMI_Bots.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>219, 26</value>
   </data>
   <data name="TSMI_Bots.Text" xml:space="preserve">
     <value>Bots</value>
   </data>
-  <data name="TSMI_Characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+  <data name="TSMI_Accounts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
-  <data name="TSMI_Characters.Text" xml:space="preserve">
-    <value>Characters</value>
+  <data name="TSMI_Accounts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="TSMI_Accounts.Text" xml:space="preserve">
+    <value>Accounts</value>
   </data>
   <data name="TSMI_Saves.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>219, 26</value>
   </data>
   <data name="TSMI_Saves.Text" xml:space="preserve">
     <value>Saves</value>
   </data>
-  <data name="СменитьIPToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
-  </data>
-  <data name="СменитьIPToolStripMenuItem.Text" xml:space="preserve">
-    <value>Lan Switcher</value>
-  </data>
   <data name="TSMI_World.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>219, 26</value>
   </data>
   <data name="TSMI_World.Text" xml:space="preserve">
     <value>World settings</value>
   </data>
+  <data name="TSMI_QuickSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAZBJREFUSEu1lU1OwkAcxdnjGRC9kjEGPw6gd2HhAXTXD9wIiQnqsnUl7NUNK7sa
+        ZlFJIIQF/tsZ7PS10zJx+vJLmEc677VlZmi1/HmzoLcOeuugtw56wGX4jSnoFdoDdj1Z/LcD/Y62z975
+        5vZr2UgB3Tulb7fbRgro3idpeiMFajrpKVr3gvi8wGUYd4Yc5pajGkiv1lkQq3O1/I0OBgbppFNR4NW9
+        QPnhsf7nUk7dT0mBx07eflpOZUc2cthLtJaz91BS4DJaBeNoXdWRMyYdvVAW0Hj8re9A77BXpeN+tuoO
+        +dEIOR7x9kNykIgC0rPuOdATynOIfUBZ3RE/HCKdR343W4krSeUd6AW7DlFAb0NE1KqkI2dU0g5RQL+n
+        DNhD2JGNijjpKvTMCkj9j2W2P7K4UtLrjAqmfEN7NkvIRnroVJCz60RnQS6dyBkNtGCuwviiSBDTaSiz
+        S9MJ9EYo+6A8nUBvxK5Am06gNyItSNJ9TTqB3giX3UwXVekEelNq/1DRWwe9ddBbB71d/PkvE+dutHWN
+        0sAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="TSMI_QuickSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="TSMI_QuickSettings.Text" xml:space="preserve">
+    <value>Quick server settings</value>
+  </data>
+  <data name="TSMI_OpenSite.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="TSMI_OpenSite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 26</value>
+  </data>
+  <data name="TSMI_OpenSite.Text" xml:space="preserve">
+    <value>Open local registration site</value>
+  </data>
   <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 6</value>
+    <value>216, 6</value>
   </data>
   <data name="TSMI_Updates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 22</value>
+    <value>219, 26</value>
   </data>
   <data name="TSMI_Updates.Text" xml:space="preserve">
     <value>Updates</value>
@@ -724,6 +895,21 @@ HTTP server is out of control!</value>
   </data>
   <data name="TSMI_Settings.Text" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="TSMI_LanguageTool.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAipJREFUOE+t
+        k9FrUnEUx38+9dZjD/4HRbG2CIogGogQaNCzICqKgrui6JJQUUGLwktNrNsSxqDeGkyJ2oMEFau1rRuM
+        ghjSctHEwijhluPa/HZ+1+tDzNtTX/jAz3O+v+O559zLjCSKoqtcLov/gnt0+35JkiSC1O/3R8LFPbp9
+        v4rFotjr9aCqKlTlF37fe6LBzzzGc9zDTCZTllgkqsRD4hGx5HA4trvdLhRFgTL3GMrBCwP4mWI8VygU
+        tAKLuVwOyWQS8XgckUgEwWAQiUQCnU4H7XYbLWkBjQOTGvzMYzyXz+e1AtV0Oo1oNIpQKIRAIACPx6P9
+        5sZms4mdxja2bt7X4Gce47lUKiWyLeoAVGCPLqhUoEsFflKBiiAM/r3VGgnPhcNhkdWpg1EFak4nFvx+
+        XLVavwuCULttsdQ5Mzab7HK5RI7dbnexH2UmY8cGbJ4D3p0B3pwEXo0Bzw8DL49BvnZisLZMBqBZNahj
+        fVEDtSUq8PUi8Ok88MECvD8LbJwC1ieAtXG8yE5oa6MJgx4am9SxfnWgLyU2+/kGkz9eZ3L9CpOXLh/6
+        VsseReXSESxnxvF61q2trR+LYW96Ghu0av2qgaylB8L8W3ilNW1QQ9SpKfRosKv0juhOA02KVf9dGc6Z
+        ZW1dQxQa7K7Ph6cmU013Guh0uua7sw53aeWvte263eh5vagw9kx3Guh49BYbi6xwzGZzbMgcY6ucefrO
+        dOf/EGN/AEZr72ii0WGwAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 22</value>
@@ -762,7 +948,7 @@ HTTP server is out of control!</value>
   <data name="TSMI_Launcher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAWxJREFUWEft1j0oBnEAx/GT18JmkFIWGxaljCyMBsprXhYDg1BMSmKRKMrAJoO3
+        vAAADrwBlbxySQAAAWxJREFUWEft1j0oBnEAx/GT18JmkFIWGxaljCyMBsprXhYDg1BMSmKRKMrAJoO3
         LF4nGSwGMcgkwoAUJWVQfH/nTtd19zwPHpen7luf7vlf/7v/M9ybERaWKBWgBWXmKOCq8IpnvGMIf1Y1
         +tHr8IB5ZKED+hP5yEEP+uCcH4nO3YpkeDaNG1zjytpqwUYoLaxxEUpwAXt+LDR3D+nwLcliN4s3TOIc
         x8iAnXNutL4z96sUjOIUi8hD2L+qHQvoNEcBpwtTd8WBtdUF+6sGsIutGGieFq2DqoHG2SiH5mxbW+cx
@@ -779,6 +965,33 @@ HTTP server is out of control!</value>
   </data>
   <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 6</value>
+  </data>
+  <data name="TSMI_Reset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABOJJREFUWEfV
+        VntMVnUYRv/qH/9rbV3XarVWKUmiaVtt1aplpJWVNdfSLoPIZqYZhqKBUQNsaYUiFytKkz6vxKVCQkFB
+        bt9nUOrH5YPMUUvXJwi4Fk/Pc3xPndAWKtR6t2f78b7vc/kdzlEi/rfVnDxlPhEkWokF1v53ioa3HVp1
+        N052pePkj+nQmb3bbTzyRbMNYf+rQP9aB2F/ggJstPHIFo3uaMm8D+hZAfx8EXEhzyloyZyqEHfZ2sgV
+        TQrC/sXA0WigK+IUjk5AOLBYAXy2NjJFg3ta19wPhJOAw6MImjvgObwUmnHnXlsf/qL41uP+ROBIFBCi
+        cYdB5yPjcTyQqADbbH14i8JTW9fGAMeWAG28cTtNvVDvWCLauMPdGKMNX1G0sNtP845IIEjDlkFQj7Pu
+        wFIFKDLa8BQFp7VlPQD8xJfvAG96kGaHzFTQWT3NuNOWNU0hphv9/ItiJd2NfPGCY4FmGn1nhjJ2zdXT
+        LHgjuv1JClBq9PMrCs1oXzedLxn/4QnQ4Bsz6uD70GnQWT3NtPPDIohD7qMmc+5FkbKexmVA0w1APcUb
+        zag9BtvvHONAZ6enmXaarkdP43IFKDeZcysKzGzPfpCf2StANYX3mYFu2eoJwLPT00w72g0tRCj7IYV4
+        3OTOvkiuONHwOoWvA/aYcC2hmwY9AXh2epppR7v110JcauwyubMrEmeFch7mJ/YyUEHB3UQVUUPUEQc9
+        AXh2epppR7vikBvKnaEQT5rs0IukqhP1ybzNNUC5CUp4L6HHfMATgGenp5lrLg65vQ0pCrDXZIdWJDzV
+        kfsIP615wBcU+soEJVxJ6KbfegLw7PQ0c83FEZca0qLmbJP/5+JyTW8d/7stvxooNiEJ7iR2EfodN3kC
+        8Oz0NNOOay5u+VXorV+hAMIos/j74tIznbmP8a2eC2yjQKEJlRJfEm6I/Z4APP9hrh3tiiOuNKglTWo/
+        ZzZnLiVU0r7aN4CiK4EtJG83oSKihJCBHrHfE4Bnp6eZdrQrjrjSoJY0pS0Pszu9OIztzJvJzyke+JTE
+        z0xAt9hBfE64Iepp6oVrrh3tiiOuNKRFTWnTI87s/lpKpoR9NamA7wrgEyMWED7CG0SPV4ZlBp3V8xpv
+        JsSVhrR8l6N/XyqaU25ViNFm+2exGf993hN8k2OBXBI+JD4mNhBuEPeJyGiP51fAs9Nzb+waiysNaUmT
+        2vKg11yzPVVKpGT91W8C+ZcB2VzOIz4g8gndQGIbCYnLqNITgGenp5l2tCuOuNKQljTzL0V/zVunPwX+
+        8PTh9bOAr58F3udiJpFlJCVfT+gWHxG6kW5XTlMv1NNMO9oVR1xpSEua0qaHvOgZa/ZOgLq+3fzucy4B
+        VnFJeNcIawgJrCPcQLqRTHRDQWf1XEPtiiOuNKTl6uZcjL4qvgvJUwJm7wT45bfi2cDbXPDiHWI1IYH3
+        CIm5T0jiXrg3FLQrjrjSGKQ7UDJHAXrN3gmQ2pUxDgNp/JMqjUuDkU5kECuHCO2KcwatgbTR6EofqwAZ
+        Zu8EGBNYNnn1/uWTf21IugV1Syah+rVJqEqYiIpF0di5cAJK50eh+KUoFL44HltfuAmb4yNREBeJTXHj
+        4Hs+ElvY28FZ0bwoZ7dswc0OtzIhmloTUUtNadOnl1hJzwvM/r+siIjfAZAL8X7KWA0JAAAAAElFTkSu
+        QmCC
+</value>
   </data>
   <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 22</value>

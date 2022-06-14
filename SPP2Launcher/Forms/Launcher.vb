@@ -74,7 +74,7 @@ Public Class Launcher
     Friend ReadOnly Property NeedServerStop As Boolean
 
     ''' <summary>
-    ''' Флаг автоматического запуска сервера WoW. 
+    ''' Флаг автоматического запуска сервера WoW. Он же контроль от падения. 
     ''' </summary>
     Friend ReadOnly Property ServerWowAutostart As Boolean
 
@@ -226,6 +226,13 @@ Public Class Launcher
         If Not IO.Directory.Exists(cat & "\Saves\tbc\autosave") Then IO.Directory.CreateDirectory(cat & "\Saves\tbc\autosave")
         If Not IO.Directory.Exists(cat & "\Saves\wotlk") Then IO.Directory.CreateDirectory(cat & "\Saves\wotlk")
         If Not IO.Directory.Exists(cat & "\Saves\wotlk\autosave") Then IO.Directory.CreateDirectory(cat & "\Saves\wotlk\autosave")
+
+        ' Исправляем СТАРЫЕ параметры
+        If My.Settings.ApacheClassicIntHost = "ANY" Then My.Settings.ApacheClassicIntHost = "0.0.0.0"
+        If My.Settings.ApacheTbcIntHost = "ANY" Then My.Settings.ApacheTbcIntHost = "0.0.0.0"
+        If My.Settings.ApacheWotlkIntHost = "ANY" Then My.Settings.ApacheWotlkIntHost = "0.0.0.0"
+        My.Settings.Save()
+
     End Sub
 
 #End Region
@@ -363,24 +370,54 @@ Public Class Launcher
 #Region " === ЛАУНЧЕР === "
 
     ''' <summary>
-    ''' МЕНЮ - ПЕРСОНАЖИ
+    ''' МЕНЮ - АККАУНТЫ
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub TSMI_Characters_Click(sender As Object, e As EventArgs) Handles TSMI_Characters.Click
-        If Not CheckProcess(EProcess.mysqld) Then
+    Private Sub TSMI_Accounts_Click(sender As Object, e As EventArgs) Handles TSMI_Accounts.Click
+        If Not _mysqlON Then
             MessageBox.Show(My.Resources.P054_NeedMySQL,
-                            "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         Else
             If Not GV.SPP2Launcher.WorldON Then
                 MessageBox.Show(String.Format(My.Resources.P037_WorldNotStarted),
-                                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Exit Sub
             End If
         End If
-        Dim fChars As New Accounts
-        Dim res = fChars.ShowDialog()
+        Dim fAccounts As New Accounts
+        Dim res = fAccounts.ShowDialog()
+    End Sub
+
+    ''' <summary>
+    ''' МЕНЮ - СМЕНИТЬ IP
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TSMI_QuickSettings_Click(sender As Object, e As EventArgs) Handles TSMI_QuickSettings.Click
+        If Not _mysqlON Then
+            MessageBox.Show(My.Resources.P054_NeedMySQL,
+                            My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        Else
+            If CheckProcess(EProcess.realmd) Or CheckProcess(EProcess.world) Then
+                MessageBox.Show(My.Resources.P059_FirstServerStop,
+                            My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        End If
+        Dim fLan = New QuickServerSet
+        Dim res = fLan.ShowDialog()
+    End Sub
+
+    ''' <summary>
+    ''' МЕНЮ - ОТКРЫТЬ ЛОКАЛЬНЫЙ САЙТ РЕГИСТРАЦИИ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TSMI_OpenSite_Click(sender As Object, e As EventArgs) Handles TSMI_OpenSite.Click
+        System.Diagnostics.Process.Start("http://127.0.0.1")
     End Sub
 
     ''' <summary>
@@ -594,7 +631,11 @@ Public Class Launcher
         ' Выводим состояние пункта меню автозапуска сервера
         TSMI_WowAutoStart.Checked = ServerWowAutostart
 
+        ' Активируем вкладку World
         TabControl1.SelectedTab = TabPage_World
+
+        ' Разбираемся с меню сайта
+        TSMI_OpenSite.Enabled = My.Settings.UseIntApache
 
         ' Настраиваем меню серверов.
         UpdateMainMenu(True)
@@ -1367,15 +1408,15 @@ Public Class Launcher
                     Dim listen As String = ""
                     Select Case My.Settings.LastLoadedServerType
                         Case GV.EModule.Classic.ToString
-                            listen = If(My.Settings.ApacheClassicIntHost = "ANY",
+                            listen = If(My.Settings.ApacheClassicIntHost = "0.0.0.0",
                                         "Listen " & My.Settings.ApacheClassicIntPort,
                                         "Listen " & My.Settings.ApacheClassicIntHost & ":" & My.Settings.ApacheClassicIntPort)
                         Case GV.EModule.Tbc.ToString
-                            listen = If(My.Settings.ApacheTbcIntHost = "ANY",
+                            listen = If(My.Settings.ApacheTbcIntHost = "0.0.0.0",
                                         "Listen " & My.Settings.ApacheTbcIntPort,
                                         "Listen " & My.Settings.ApacheTbcIntHost & ":" & My.Settings.ApacheTbcIntPort)
                         Case GV.EModule.Wotlk.ToString
-                            listen = If(My.Settings.ApacheWotlkIntHost = "ANY",
+                            listen = If(My.Settings.ApacheWotlkIntHost = "0.0.0.0",
                                         "Listen " & My.Settings.ApacheWotlkIntPort,
                                         "Listen " & My.Settings.ApacheWotlkIntHost & ":" & My.Settings.ApacheWotlkIntPort)
                     End Select
@@ -1505,7 +1546,7 @@ Public Class Launcher
             End Select
         End If
         If host = "" Or port = "" Then Exit Sub
-        If host = "ANY" Then host = "127.0.0.1"
+        If host = "0.0.0.0" Then host = "127.0.0.1"
         Dim tcpClient = New Net.Sockets.TcpClient
         Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
         Try
@@ -1774,6 +1815,8 @@ Public Class Launcher
                             If _WorldON Then
                                 ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
                                 SendCommandToWorld(".saveall")
+                                ' Делаем паузу
+                                Threading.Thread.Sleep(1000)
                                 SendCommandToWorld("server shutdown 0")
                             Else
                                 ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
@@ -2091,6 +2134,8 @@ Public Class Launcher
         Me.TopMost = True
         Me.WindowState = FormWindowState.Normal
         Me.TopMost = False
+        Me.StartPosition = FormStartPosition.Manual
+        Me.Size = My.Settings.AppSize
     End Sub
 
 #End Region
@@ -2103,7 +2148,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ServerStart_Click(sender As Object, e As EventArgs) Handles TSMI_ServerStart.Click
-        AutoStart()
+        StartWorldRealmd()
     End Sub
 
     ''' <summary>
@@ -2146,7 +2191,7 @@ Public Class Launcher
         My.Settings.Save()
 
         If Not MySqlLOCKED And Not ApacheLOCKED And Not ServersLOCKED And ServerWowAutostart Then
-            AutoStart()
+            StartWorldRealmd()
         Else
             OutWorldConsole(My.Resources.P030_ControlDisabled, CONSOLE)
             OutRealmdConsole(My.Resources.P030_ControlDisabled, CONSOLE)
@@ -2156,7 +2201,7 @@ Public Class Launcher
     ''' <summary>
     ''' Запускает серверы по необходимости.
     ''' </summary>
-    Private Sub AutoStart()
+    Private Sub StartWorldRealmd()
         If Not CheckProcess(EProcess.realmd) And Not CheckProcess(EProcess.world) Then
 
             ' Не запущен ни один из серверов
@@ -2174,12 +2219,20 @@ Public Class Launcher
             RichTextBox_ConsoleRealmd.Clear()
             RichTextBox_ConsoleWorld.Clear()
 
+            ' Ожидание сервера World
+            OutRealmdConsole(My.Resources.P067_WorldWait, CONSOLE)
+
         Else
 
             If CheckProcess(EProcess.realmd) And CheckProcess(EProcess.world) Then
 
-                OutWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
-                OutRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                If ServerWowAutostart Then
+                    OutWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                    OutRealmdConsole(My.Resources.P019_ControlEnabled, CONSOLE)
+                Else
+                    OutWorldConsole(My.Resources.P030_ControlDisabled, CONSOLE)
+                    OutRealmdConsole(My.Resources.P030_ControlDisabled, CONSOLE)
+                End If
 
             Else
 
@@ -2237,8 +2290,6 @@ Public Class Launcher
         GV.Log.WriteInfo(UpdateMySQLConsole(My.Resources.P040_CommandShutdown, CONSOLE))
         Thread.Sleep(500)
         _NeedExitLauncher = shutdown
-        ' Гасим Realmd
-        ShutdownRealmd()
         ' Запускаем остановку всех серверов 
         ShutdownWorld(True)
     End Sub
@@ -2306,19 +2357,19 @@ Public Class Launcher
 
         Dim t = String.Format(My.Resources.P012_ConsoleCommand, text)
         GV.Log.WriteInfo(t)
-        OutWorldConsole(t, CONSOLE)
+        UpdateWorldConsole(t, CONSOLE)
         If Not IsNothing(_WorldProcess) Then
             _WorldProcess.StandardInput.WriteLine(text)
             If Not _WorldON Then
-                OutWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
+                UpdateWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
             End If
         Else
-            OutWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
+            UpdateWorldConsole(My.Resources.P037_WorldNotStarted, CONSOLE)
         End If
     End Sub
 
     ''' <summary>
-    ''' Вывод сообщения в консоль сервера World.
+    ''' Вывод сообщения в консоль сервера World с учётом Invoke.
     ''' </summary>
     ''' <param name="text">Текст для вывода.</param>
     Friend Function UpdateWorldConsole(text As String, color As Drawing.Color) As String
@@ -2599,222 +2650,227 @@ Public Class Launcher
     ''' <param name="caller"></param>
     Friend Sub ChangeIcons(caller As ECaller)
 
-        If Not IsNothing(Me) Then
-            If Me.InvokeRequired Then
-                Me.Invoke(Sub()
-                              ChangeIcons(caller)
-                          End Sub)
-            Else
+        Try
 
-                ' Проверка для пунктов меню
-                If Not _isBackupStarted Then
-                    If CheckProcess(EProcess.world) Or CheckProcess(EProcess.realmd) Then
-                        TSMI_Reset.Enabled = False
-                        TSMI_ServerSwitcher.Enabled = False
-                    Else
-                        TSMI_Reset.Enabled = True
-                        TSMI_ServerSwitcher.Enabled = True
-                    End If
-                End If
+            If Not IsNothing(Me) Then
+                If Me.InvokeRequired Then
+                    Me.Invoke(Sub()
+                                  ChangeIcons(caller)
+                              End Sub)
+                Else
 
-                Select Case caller
-
-                    Case ECaller.mysql
-
-                        If Not _WorldON Then
-
-                            If _mysqlON Then
-
-                                ' Запрещаем доступ к повторному запуску MySQL
-                                TSMI_MySqlStart.Enabled = False
-
-                                ' MySQL запущен
-                                If Me.Visible Then
-                                    ' Основное окно открыто
-                                    TSSL_MySQL.Image = My.Resources.green_ball
-                                    If _isLastCommandStart Or ServerWowAutostart Then
-                                        Me.Icon = My.Resources.cmangos_red
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                    Else
-                                        Me.Icon = My.Resources.wow
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                    End If
-                                Else
-                                    ' Меняем иконку в трее, коли свёрнуты
-                                    If _isLastCommandStart Or ServerWowAutostart Then
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                    Else
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                    End If
-                                End If
-
-                            Else
-
-                                ' MySQL не запущен
-                                If Me.Visible Then
-                                    ' Основное окно октрыто
-                                    TSSL_MySQL.Image = My.Resources.red_ball
-                                    If _isLastCommandStart Or ServerWowAutostart Then
-                                        Me.Icon = My.Resources.cmangos_red
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                    Else
-                                        Me.Icon = My.Resources.wow
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                    End If
-                                Else
-                                    ' Меняем иконку в трее, коли свёрнуты
-                                    If _isLastCommandStart Or ServerWowAutostart Then
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
-                                    Else
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                    End If
-                                End If
-
-                            End If
-
-                        End If
-
-                    Case ECaller.realmd
-
-                        If _RealmdON Then
-
-                            ' Realmd запущен
+                    ' Проверка для пунктов меню
+                    If Not _isBackupStarted Then
+                        If CheckProcess(EProcess.world) Or CheckProcess(EProcess.realmd) Then
                             TSMI_Reset.Enabled = False
                             TSMI_ServerSwitcher.Enabled = False
-
-                            If Me.Visible Then
-                                ' Основное окно открыто
-                                TSSL_Realm.Image = My.Resources.green_ball
-                                If _isLastCommandStart Or ServerWowAutostart Then
-                                    If Not _WorldON Then
-                                        Me.Icon = My.Resources.cmangos_realmd_started
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                                    End If
-                                End If
-                            Else
-                                ' Меняем иконку в трее, коли свёрнуты
-                                If _isLastCommandStart Or ServerWowAutostart Then
-                                    If Not _WorldON Then
-                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                                    End If
-                                End If
-                            End If
-
                         Else
-
-                            ' Realmd не запущен
-                            If WorldON And Not CheckProcess(EProcess.realmd) Then
-                                TSMI_ServerStart.Enabled = True
-                            End If
-
-                            ChangeRealmdCheck = 1.1
-                            If Me.Visible Then
-                                ' Основное окно открыто
-                                TSSL_Realm.Image = My.Resources.red_ball
-                                If _isLastCommandStart Or ServerWowAutostart Then
-                                    Me.Icon = My.Resources.cmangos_realmd_started
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                                Else
-                                    Me.Icon = My.Resources.wow
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                End If
-                            Else
-                                ' Меняем иконку в трее, коли свёрнуты
-                                If _isLastCommandStart Or ServerWowAutostart Then
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
-                                Else
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                End If
-                            End If
-
+                            TSMI_Reset.Enabled = True
+                            TSMI_ServerSwitcher.Enabled = True
                         End If
+                    End If
 
+                    Select Case caller
 
-                    Case ECaller.world
+                        Case ECaller.mysql
 
-                        If WorldON Then
+                            If Not _WorldON Then
 
-                            ' World запущен
-                            If Me.Visible Then
+                                If _mysqlON Then
 
+                                    ' Запрещаем доступ к повторному запуску MySQL
+                                    TSMI_MySqlStart.Enabled = False
+
+                                    ' MySQL запущен
+                                    If Me.Visible Then
+                                        ' Основное окно открыто
+                                        TSSL_MySQL.Image = My.Resources.green_ball
+                                        If _isLastCommandStart Or ServerWowAutostart Then
+                                            Me.Icon = My.Resources.cmangos_red
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                        Else
+                                            Me.Icon = My.Resources.wow
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                        End If
+                                    Else
+                                        ' Меняем иконку в трее, коли свёрнуты
+                                        If _isLastCommandStart Or ServerWowAutostart Then
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                        Else
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                        End If
+                                    End If
+
+                                Else
+
+                                    ' MySQL не запущен
+                                    If Me.Visible Then
+                                        ' Основное окно октрыто
+                                        TSSL_MySQL.Image = My.Resources.red_ball
+                                        If _isLastCommandStart Or ServerWowAutostart Then
+                                            Me.Icon = My.Resources.cmangos_red
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                        Else
+                                            Me.Icon = My.Resources.wow
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                        End If
+                                    Else
+                                        ' Меняем иконку в трее, коли свёрнуты
+                                        If _isLastCommandStart Or ServerWowAutostart Then
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_red
+                                        Else
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                        End If
+                                    End If
+
+                                End If
+
+                            End If
+
+                        Case ECaller.realmd
+
+                            If _RealmdON Then
+
+                                ' Realmd запущен
                                 TSMI_Reset.Enabled = False
                                 TSMI_ServerSwitcher.Enabled = False
 
-                                ' Основное окно открыто
-                                TSSL_World.Image = My.Resources.green_ball
-                                If _RealmdON Then
-                                    Select Case My.Settings.LastLoadedServerType
-                                        Case GV.EModule.Classic.ToString
-                                            Me.Icon = My.Resources.cmangos_classic
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
-                                        Case GV.EModule.Tbc.ToString
-                                            Me.Icon = My.Resources.cmangos_tbc
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
-                                        Case GV.EModule.Wotlk.ToString
-                                            Me.Icon = My.Resources.cmangos_wotlk
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
-                                    End Select
+                                If Me.Visible Then
+                                    ' Основное окно открыто
+                                    TSSL_Realm.Image = My.Resources.green_ball
+                                    If _isLastCommandStart Or ServerWowAutostart Then
+                                        If Not _WorldON Then
+                                            Me.Icon = My.Resources.cmangos_realmd_started
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                                        End If
+                                    End If
                                 Else
-                                    Me.Icon = My.Resources.cmangos_orange
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    ' Меняем иконку в трее, коли свёрнуты
+                                    If _isLastCommandStart Or ServerWowAutostart Then
+                                        If Not _WorldON Then
+                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                                        End If
+                                    End If
                                 End If
+
                             Else
-                                ' Меняем иконку в трее, коли свёрнуты
-                                If _RealmdON Then
-                                    Select Case My.Settings.LastLoadedServerType
-                                        Case GV.EModule.Classic.ToString
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
-                                        Case GV.EModule.Tbc.ToString
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
-                                        Case GV.EModule.Wotlk.ToString
-                                            Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
-                                    End Select
-                                Else
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
-                                End If
-                            End If
 
-                        Else
-
-                            ' World не запущен
-                            If Not _isBackupStarted Then
-                                If Not CheckProcess(EProcess.world) Then
+                                ' Realmd не запущен
+                                If WorldON And Not CheckProcess(EProcess.realmd) Then
                                     TSMI_ServerStart.Enabled = True
-                                Else
-                                    TSMI_ServerStart.Enabled = False
                                 End If
-                            End If
 
-                            TSSL_World.Image = My.Resources.red_ball
-
-                            If _isLastCommandStart Or ServerWowAutostart Then
+                                ChangeRealmdCheck = 1.1
                                 If Me.Visible Then
                                     ' Основное окно открыто
-                                    Me.Icon = My.Resources.cmangos_orange
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    TSSL_Realm.Image = My.Resources.red_ball
+                                    If _isLastCommandStart Or ServerWowAutostart Then
+                                        Me.Icon = My.Resources.cmangos_realmd_started
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                                    Else
+                                        Me.Icon = My.Resources.wow
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                    End If
                                 Else
                                     ' Меняем иконку в трее, коли свёрнуты
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    If _isLastCommandStart Or ServerWowAutostart Then
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_realmd_started
+                                    Else
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                    End If
+                                End If
+
+                            End If
+
+
+                        Case ECaller.world
+
+                            If WorldON Then
+
+                                ' World запущен
+                                If Me.Visible Then
+
+                                    TSMI_Reset.Enabled = False
+                                    TSMI_ServerSwitcher.Enabled = False
+
+                                    ' Основное окно открыто
+                                    TSSL_World.Image = My.Resources.green_ball
+                                    If _RealmdON Then
+                                        Select Case My.Settings.LastLoadedServerType
+                                            Case GV.EModule.Classic.ToString
+                                                Me.Icon = My.Resources.cmangos_classic
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
+                                            Case GV.EModule.Tbc.ToString
+                                                Me.Icon = My.Resources.cmangos_tbc
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
+                                            Case GV.EModule.Wotlk.ToString
+                                                Me.Icon = My.Resources.cmangos_wotlk
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
+                                        End Select
+                                    Else
+                                        Me.Icon = My.Resources.cmangos_orange
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    End If
+                                Else
+                                    ' Меняем иконку в трее, коли свёрнуты
+                                    If _RealmdON Then
+                                        Select Case My.Settings.LastLoadedServerType
+                                            Case GV.EModule.Classic.ToString
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_classic
+                                            Case GV.EModule.Tbc.ToString
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_tbc
+                                            Case GV.EModule.Wotlk.ToString
+                                                Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_wotlk
+                                        End Select
+                                    Else
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    End If
                                 End If
 
                             Else
-                                If Me.Visible Then
-                                    ' Основное окно открыто
-                                    Me.Icon = My.Resources.wow
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.wow
-                                Else
-                                    ' Меняем иконку в трее, коли свёрнуты
-                                    Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+
+                                ' World не запущен
+                                If Not _isBackupStarted Then
+                                    If Not CheckProcess(EProcess.world) Then
+                                        TSMI_ServerStart.Enabled = True
+                                    Else
+                                        TSMI_ServerStart.Enabled = False
+                                    End If
                                 End If
+
+                                TSSL_World.Image = My.Resources.red_ball
+
+                                If _isLastCommandStart Or ServerWowAutostart Then
+                                    If Me.Visible Then
+                                        ' Основное окно открыто
+                                        Me.Icon = My.Resources.cmangos_orange
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    Else
+                                        ' Меняем иконку в трее, коли свёрнуты
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.cmangos_orange
+                                    End If
+
+                                Else
+                                    If Me.Visible Then
+                                        ' Основное окно открыто
+                                        Me.Icon = My.Resources.wow
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                    Else
+                                        ' Меняем иконку в трее, коли свёрнуты
+                                        Me.NotifyIcon_SPP2.Icon = My.Resources.wow
+                                    End If
+                                End If
+
                             End If
 
-                        End If
+                            If WorldON And RealmdON Then TSMI_ServerStart.Enabled = False
 
-                        If WorldON And RealmdON Then TSMI_ServerStart.Enabled = False
-
-                End Select
+                    End Select
+                End If
             End If
-        End If
+
+        Catch
+        End Try
 
     End Sub
 

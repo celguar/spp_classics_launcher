@@ -490,4 +490,37 @@
   <data name="P058_AccountChanged" xml:space="preserve">
     <value>Параметры аккаунта успешно изменены!</value>
   </data>
+  <data name="P059_FirstServerStop" xml:space="preserve">
+    <value>Операция возможна только при остановленном сервере World и Realmd</value>
+  </data>
+  <data name="P060_RealmsNotFound" xml:space="preserve">
+    <value>На этом сервере не найдено ни одного мира!</value>
+  </data>
+  <data name="P061_NeedIpAddress" xml:space="preserve">
+    <value>Требуется указать существующий IP адрес.</value>
+  </data>
+  <data name="P062_NeedServerName" xml:space="preserve">
+    <value>Требуется ввести имя мира для сервера.</value>
+  </data>
+  <data name="P063_QuickSettingsChanged" xml:space="preserve">
+    <value>Изменения в настройках сервера успешно применены!</value>
+  </data>
+  <data name="P064_NeedUserName" xml:space="preserve">
+    <value>Введите имя аккаунта!</value>
+  </data>
+  <data name="P065_AccountCreated" xml:space="preserve">
+    <value>Новый аккаунт успешно создан!</value>
+  </data>
+  <data name="P066_AccountChanged" xml:space="preserve">
+    <value>Параметры аккаунта успешно изменены!</value>
+  </data>
+  <data name="P067_WorldWait" xml:space="preserve">
+    <value>Ожидание сервера World...</value>
+  </data>
+  <data name="P068_WaitExecution" xml:space="preserve">
+    <value>Ожидание выполнения...</value>
+  </data>
+  <data name="P069_Timeout" xml:space="preserve">
+    <value>Таймаут выполения команды.</value>
+  </data>
 </root>

@@ -384,4 +384,37 @@
   <data name="P058_AccountChanged" xml:space="preserve">
     <value>Account settings successfully changed!</value>
   </data>
+  <data name="P059_FirstServerStop" xml:space="preserve">
+    <value>The operation is possible only when the World server and Realmd are stopped</value>
+  </data>
+  <data name="P060_RealmsNotFound" xml:space="preserve">
+    <value>No worlds found on this server!</value>
+  </data>
+  <data name="P061_NeedIpAddress" xml:space="preserve">
+    <value>An existing IP address is required.</value>
+  </data>
+  <data name="P062_NeedServerName" xml:space="preserve">
+    <value>You need to enter a world name for the server.</value>
+  </data>
+  <data name="P063_QuickSettingsChanged" xml:space="preserve">
+    <value>Server settings changes applied successfully!</value>
+  </data>
+  <data name="P064_NeedUserName" xml:space="preserve">
+    <value>Enter account name!</value>
+  </data>
+  <data name="P065_AccountCreated" xml:space="preserve">
+    <value>New account successfully created!</value>
+  </data>
+  <data name="P066_AccountChanged" xml:space="preserve">
+    <value>Account settings successfully changed!</value>
+  </data>
+  <data name="P067_WorldWait" xml:space="preserve">
+    <value>Waiting for World server...</value>
+  </data>
+  <data name="P068_WaitExecution" xml:space="preserve">
+    <value>Waiting for execution...</value>
+  </data>
+  <data name="P069_Timeout" xml:space="preserve">
+    <value>Command execution timeout.</value>
+  </data>
 </root>

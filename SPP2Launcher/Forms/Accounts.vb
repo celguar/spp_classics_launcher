@@ -1,6 +1,5 @@
 ﻿
 Imports System.Security.Cryptography
-Imports SecureRemotePassword
 
 Public Class Accounts
 
@@ -27,7 +26,7 @@ Public Class Accounts
     Private Sub Button_Next_Click(sender As Object, e As EventArgs) Handles Button_Next1.Click
         If RadioButton_Create.Checked Then
             ' Это создание нового аккаунта
-            Button_Next2_Click(sender, e)
+            ChangeAccount()
         Else
             ' Это изменение существующего аккаунта
             SplitContainer1.Panel1Collapsed = True
@@ -43,6 +42,8 @@ Public Class Accounts
             ComboBox_AccountSearch.Width = 144
             Button_Back.Location = New Point(12, 119)
             Button_Next2.Location = New Point(112, 119)
+
+            ComboBox_AccountSearch.Items.Clear()
 
             ' Получаем префикс бота
             Dim botPrefix = GV.SPP2Launcher.IniPlayerBots.ReadString("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountPrefix")
@@ -76,62 +77,89 @@ Public Class Accounts
     End Sub
 
     ''' <summary>
-    ''' НАЖАТИЕ КНОПКИ ДАЛЕЕ НА ВТОРОМ ШАГЕ / ВЫПОЛНЕНИЕ ИЗМЕНЕНИЙ
+    ''' НАЖАТИЕ КНОПКИ ДАЛЕЕ ПРИ ИЗМЕНЕНИИ АККАУНТА
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_Next2_Click(sender As Object, e As EventArgs) Handles Button_Next2.Click
+        If Not IsNothing(ComboBox_AccountSearch.SelectedItem) AndAlso ComboBox_AccountSearch.SelectedItem.ToString.Length > 0 Then
+            ChangeAccount()
+        Else
+            ' Введите имя пользователя!
+            MessageBox.Show(My.Resources.P064_NeedUserName,
+                            My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
 
-        ' Это создание нового аккаунта
-        SplitContainer1.Panel1Collapsed = True
-        SplitContainer1.Panel2Collapsed = True
-        SplitContainer2.Panel1Collapsed = True
-        SplitContainer2.Panel2Collapsed = False
-        ' Настройка контролов
-        Me.Height = 228
-        Me.Width = 278
-        ' Блокируем доступ до смены расширения типа игры
-        ComboBox_Expansion.Enabled = False
+    ''' <summary>
+    ''' ИЗМЕНЕНИЕ ПАРАМЕТРОВ АККАУНТА
+    ''' </summary>
+    Private Sub ChangeAccount()
 
-        If RadioButton_Create.Checked Then
+        If GV.SPP2Launcher.WorldON And Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
 
-            ' Изменяем текст на кнопке
-            Button_Create.Text = My.Resources.P017_Create
-            ' Устанавливаем GM = Player
-            ComboBox_AccountType.SelectedIndex = 0
+            ' Настраиваем форму
+            SplitContainer1.Panel1Collapsed = True
+            SplitContainer1.Panel2Collapsed = True
+            SplitContainer2.Panel1Collapsed = True
+            SplitContainer2.Panel2Collapsed = False
+            ' Настройка контролов
+            Me.Height = 228
+            Me.Width = 278
 
-            ' И устанавливаем тип текущей игры
-            Select Case My.Settings.LastLoadedServerType
-                Case GV.EModule.Classic.ToString
-                    ComboBox_Expansion.SelectedIndex = 2
-                Case GV.EModule.Tbc.ToString
-                    ComboBox_Expansion.SelectedIndex = 1
-                Case GV.EModule.Wotlk.ToString
-                    ComboBox_Expansion.SelectedIndex = 0
-            End Select
+            If RadioButton_Create.Checked Then
+
+                ' Блокируем доступ до смены расширения типа игры
+                ComboBox_Expansion.Enabled = False
+
+                ' Изменяем текст на кнопке
+                Button_Create.Text = My.Resources.P017_Create
+
+                ' Устанавливаем GM = Player
+                ComboBox_AccountType.SelectedIndex = 0
+
+                ' И устанавливаем тип текущей игры
+                Select Case My.Settings.LastLoadedServerType
+                    Case GV.EModule.Classic.ToString
+                        ComboBox_Expansion.SelectedIndex = 0
+                    Case GV.EModule.Tbc.ToString
+                        ComboBox_Expansion.SelectedIndex = 1
+                    Case GV.EModule.Wotlk.ToString
+                        ComboBox_Expansion.SelectedIndex = 2
+                End Select
+
+            Else
+
+                ' Снимаем блок до смены расширения типа игры
+                ComboBox_Expansion.Enabled = True
+
+                ' Изменяем текст на кнопке
+                Button_Create.Text = My.Resources.P018_Change
+
+                ' Блокируем доступ до имени пользователя
+                TextBox_UserName.Enabled = False
+                    TextBox_UserName.Text = ComboBox_AccountSearch.SelectedItem.ToString
+
+                If CheckBox_ChangePassword.Checked = True Then
+                    ' Разрешаем доступ до пароля пользователя
+                    TextBox_Password.Enabled = True
+                Else
+                    ' Блокируем доступ до пароля пользователя
+                    TextBox_Password.Enabled = False
+                End If
+
+                Dim dr = GetAccountInfo(TextBox_UserName.Text)
+                If Not IsNothing(dr) Then
+                    ComboBox_Expansion.SelectedIndex = CInt(dr("expansion"))
+                    ComboBox_AccountType.SelectedIndex = CInt(dr("gmlevel"))
+                End If
+
+            End If
 
         Else
-
-            ' Изменяем текст на кнопке
-            Button_Create.Text = My.Resources.P018_Change
-            ' Блокируем доступ до имени пользователя
-            TextBox_UserName.Enabled = False
-            TextBox_UserName.Text = ComboBox_AccountSearch.SelectedItem.ToString
-
-            If CheckBox_ChangePassword.Checked = True Then
-                ' Разрешаем доступ до пароля пользователя
-                TextBox_Password.Enabled = True
-            Else
-                ' Блокируем доступ до пароля пользователя
-                TextBox_Password.Enabled = False
-            End If
-
-            Dim dr = GetAccountInfo(TextBox_UserName.Text)
-            If Not IsNothing(dr) Then
-                ComboBox_Expansion.SelectedIndex = CInt(dr("expansion"))
-                ComboBox_AccountType.SelectedIndex = CInt(dr("gmlevel"))
-            End If
-
+            ' Необходим допуск к консоли World
+            MessageBox.Show(My.Resources.P037_WorldNotStarted,
+                            My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
     End Sub
@@ -145,7 +173,7 @@ Public Class Accounts
 
         If RadioButton_Create.Checked Then
 
-            ' Это создание нового аккаунта
+            ' Это создание аккаунта
             If TextBox_UserName.Text.Trim.Length < 3 Then
 
                 ' Количество символов в имени пользователя должно быть не менее 3
@@ -164,51 +192,37 @@ Public Class Accounts
 
                 Else
 
-                    ' Проверяем наличие пользователей с таким именем
-                    Dim _err = New Tuple(Of Boolean, String)(False, "OK")
-                    Dim dr = MySqlDataBases.REALMD.ACCOUNT.SELECT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper, _err)
+                    If GV.SPP2Launcher.WorldON And Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
 
-                    If _err.Item1 = False And Not IsNothing(dr) Then
+                        ' Проверяем наличие пользователей с таким именем
+                        Dim _err = New Tuple(Of Boolean, String)(False, "OK")
+                        Dim dr = MySqlDataBases.REALMD.ACCOUNT.SELECT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper, _err)
 
-                        ' Пользователь с таким именем уже существует
-                        MessageBox.Show(String.Format(My.Resources.P056_UserFound, TextBox_UserName.Text.Trim),
+                        If _err.Item1 = False Then
+
+                            ' Пользователь с таким именем уже существует
+                            MessageBox.Show(String.Format(My.Resources.P056_UserFound, TextBox_UserName.Text.Trim),
                                         My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-                    Else
-
-                        If GV.SPP2Launcher.WorldON Then
-
-                            Dim sa As New SPR6(TextBox_UserName.Text, TextBox_Password.Text)
-                            Dim verifier = sa.Verifier
-                            Dim salt = sa.Salt
-
-                            ' Создаём новый аккаунт
-                            Dim res = MySqlDataBases.REALMD.ACCOUNT.INSERT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper,
-                                                                                   ComboBox_AccountType.SelectedIndex,
-                                                                                   verifier,
-                                                                                   salt)
-                            If res.Item1 = False Then
-                                MessageBox.Show("Успешно создан!",
-                                                My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Else
-                                MessageBox.Show(res.Item2,
-                                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End If
-
-                            ' Создаём новый аккаунт
-                            'GV.SPP2Launcher.SendCommandToWorld(String.Format(".account create {0} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim))
-
-                            ' Ожидаем выполнения команды
-                            'Threading.Thread.Sleep(1000)
-
-                            ' Меняем уровень GM
-                            'GV.SPP2Launcher.SendCommandToWorld(String.Format(".account set gmlevel {0} {1}", TextBox_UserName.Text.Trim, ComboBox_AccountType.SelectedIndex))
                         Else
-                            MessageBox.Show(String.Format(My.Resources.P037_WorldNotStarted),
-                                            My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+                            ' Отправляем команду на создание аккаунта
+                            Dim cmd = String.Format(".account create {0} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim)
+                            Dim cm = New ConsoleCommand(cmd, ECommand.AccountCreate, AddressOf AccountCreated)
+                            Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+                            t.Start(cm)
+
+                            ' Запрещаем доступ к кнопке СОЗДАТЬ
+                            Button_Create.Enabled = False
+
                         End If
 
+                    Else
+                        ' Необходим допуск к консоли World
+                        MessageBox.Show(My.Resources.P037_WorldNotStarted,
+                                        My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
+
                 End If
             End If
 
@@ -228,35 +242,42 @@ Public Class Accounts
 
                 End If
 
-                ' Получаем параметры аккаунта
-                Dim dr = GetAccountInfo(TextBox_UserName.Text.Trim.ToUpper)
-                If Not IsNothing(dr) Then
+                If GV.SPP2Launcher.WorldON And Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
 
-                    If DeleteAccount(TextBox_UserName.Text.Trim.ToUpper) Then
+                    ' Отправляем команду на изменение пароля
+                    Dim cmd = String.Format(".account set password {0} {1} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim)
+                    Dim cm = New ConsoleCommand(cmd, ECommand.AccountSetPassword, AddressOf PasswordChanged)
+                    Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+                    t.Start(cm)
 
-                        ' Создаём новый аккаунт
-                        GV.SPP2Launcher.SendCommandToWorld(String.Format(".account create {0} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim))
+                    ' Запрещаем доступ к кнопке ИЗМЕНИТЬ
+                    Button_Create.Enabled = False
 
-                        ' Ожидаем выполнения команды
-                        CommandSuccessfull = False
-                        WaitWorldMessage = "Account created: " & TextBox_UserName.Text.Trim
-
-                        ' Обновляем параметры аккаунта
-                        If UpdateAccount(dr) Then Close()
-                        'MessageBox.Show(My.Resources.P058_AccountChanged,
-                        'My.Resources.P023_InfoCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        'End If
-
-                    End If
+                Else
+                    ' Необходим допуск к консоли World
+                    MessageBox.Show(My.Resources.P037_WorldNotStarted,
+                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Close()
                 End If
 
             Else
 
                 If GV.SPP2Launcher.WorldON Then
 
-                    ' Изменяем уровень GM доступа.
-                    GV.SPP2Launcher.SendCommandToWorld(String.Format(".account set gmlevel {0} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim))
+                    ' Меняем уровень GM
+                    Dim cmd = String.Format(".account set gmlevel {0} {1}", TextBox_UserName.Text.Trim, ComboBox_AccountType.SelectedIndex)
+                    Dim cm = New ConsoleCommand(cmd, ECommand.SetGmLevel, AddressOf LevelStep2Changed)
+                    Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+                    t.Start(cm)
 
+                    ' Запрещаем доступ к кнопке ИЗМЕНИТЬ
+                    Button_Create.Enabled = False
+
+                Else
+                    ' Необходим допуск к консоли World
+                    MessageBox.Show(My.Resources.P037_WorldNotStarted,
+                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Close()
                 End If
 
             End If
@@ -264,6 +285,128 @@ Public Class Accounts
         End If
 
     End Sub
+
+#Region " === СОЗДАТЬ АККАУНТ === "
+
+    ''' <summary>
+    ''' Аккаунт успешно создан?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub AccountCreated(result As Boolean)
+        If Not result Then Close()
+
+        ' Меняем уровень GM
+        Dim cmd = String.Format(".account set gmlevel {0} {1}",
+                                Me.Invoke(Function() As Object
+                                              Return TextBox_UserName.Text.Trim
+                                          End Function),
+                                Me.Invoke(Function() As Object
+                                              Return ComboBox_AccountType.SelectedIndex
+                                          End Function))
+        Dim cm = New ConsoleCommand(cmd, ECommand.SetGmLevel, AddressOf LevelStep1Changed)
+        Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+        t.Start(cm)
+
+    End Sub
+
+    ''' <summary>
+    ''' Уровень GM успешно изменён?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub LevelStep1Changed(result As Boolean)
+        If Not result Then Close()
+
+        ' Устанавливаем аддон
+        Dim cmd = String.Format(".account set addon {0} {1}",
+                                Me.Invoke(Function() As Object
+                                              Return TextBox_UserName.Text.Trim
+                                          End Function),
+                                Me.Invoke(Function() As Object
+                                              Return ComboBox_Expansion.SelectedIndex
+                                          End Function))
+        Dim cm = New ConsoleCommand(cmd, ECommand.SetAddon, AddressOf AddonStep1Changed)
+        Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+        t.Start(cm)
+
+    End Sub
+
+    ''' <summary>
+    ''' Аддон успешно изменён?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub AddonStep1Changed(result As Boolean)
+        If Not result Then Close()
+
+        Me.Invoke(Sub()
+                      ' Новый пользователь успешно создан
+                      MessageBox.Show(My.Resources.P065_AccountCreated,
+                                      My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                      Close()
+                  End Sub)
+    End Sub
+
+#End Region
+
+#Region " === ИЗМЕНИТЬ АККАУНТ === "
+
+    ''' <summary>
+    ''' Пароль успешно изменён?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub PasswordChanged(result As Boolean)
+        If Not result Then Close()
+
+        ' Меняем уровень GM
+        Dim cmd = String.Format(".account set gmlevel {0} {1}",
+                                Me.Invoke(Function() As Object
+                                              Return TextBox_UserName.Text.Trim()
+                                          End Function),
+                                Me.Invoke(Function() As Object
+                                              Return ComboBox_AccountType.SelectedIndex
+                                          End Function))
+        Dim cm = New ConsoleCommand(cmd, ECommand.SetGmLevel, AddressOf LevelStep2Changed)
+        Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+        t.Start(cm)
+
+    End Sub
+
+    ''' <summary>
+    ''' Уровень GM успешно изменён?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub LevelStep2Changed(result As Boolean)
+        If Not result Then Close()
+
+        ' Устанавливаем аддон
+        Dim cmd = String.Format(".account set addon {0} {1}",
+                                Me.Invoke(Function() As Object
+                                              Return TextBox_UserName.Text.Trim
+                                          End Function),
+                                Me.Invoke(Function() As Object
+                                              Return ComboBox_Expansion.SelectedIndex
+                                          End Function))
+        Dim cm = New ConsoleCommand(cmd, ECommand.SetAddon, AddressOf AddonStep2Changed)
+        Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+        t.Start(cm)
+
+    End Sub
+
+    ''' <summary>
+    ''' Аддон успешно изменён?
+    ''' </summary>
+    ''' <param name="result"></param>
+    Public Sub AddonStep2Changed(result As Boolean)
+        If Not result Then Close()
+
+        Me.Invoke(Sub()
+                      ' Данные пользователя успешно изменены
+                      MessageBox.Show(My.Resources.P066_AccountChanged,
+                                      My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                      Close()
+                  End Sub)
+    End Sub
+
+#End Region
 
     ''' <summary>
     ''' Возвращает строку DataRow с параметрами аккаунта.
@@ -288,56 +431,6 @@ Public Class Accounts
             End If
         Loop
         Return dr
-    End Function
-
-    ''' <summary>
-    ''' Удалаяет указанный аккаунт. При успешном удалении возвращает True. 
-    ''' </summary>
-    ''' <param name="accountName">Имя пользователя.</param>
-    ''' <returns></returns>
-    Private Function DeleteAccount(accountName As String) As Boolean
-        Dim ok As Boolean
-        Do
-            Dim _err = New Tuple(Of Boolean, String)(False, "OK")
-            If MySqlDataBases.REALMD.ACCOUNT.DELETE_ACCOUNT(accountName).Item1 = False Then
-                ok = True
-                Exit Do
-            Else
-                ' Ошибка удаления аккаунта
-                Dim res = MessageBox.Show(_err.Item2 & vbCrLf & My.Resources.P057_Repeat,
-                                          My.Resources.E003_ErrorCaption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-                If res = DialogResult.Cancel Then
-                    ok = False
-                    Exit Do
-                End If
-            End If
-        Loop
-        Return ok
-    End Function
-
-    ''' <summary>
-    ''' Обновляет параметры указанного аккаунта из DataRow. При успешном обновлении возвращает True.
-    ''' </summary>
-    ''' <param name="dr"></param>
-    ''' <returns></returns>
-    Private Function UpdateAccount(dr As DataRow) As Boolean
-        Dim ok As Boolean
-        Do
-            Dim _err = New Tuple(Of Boolean, String)(False, "OK")
-            If MySqlDataBases.REALMD.ACCOUNT.UPDATE_ACCOUNT(dr, ComboBox_AccountType.SelectedIndex).Item1 = False Then
-                ok = True
-                Exit Do
-            Else
-                ' Ошибка удаления аккаунта
-                Dim res = MessageBox.Show(_err.Item2 & vbCrLf & My.Resources.P057_Repeat,
-                                          My.Resources.E003_ErrorCaption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
-                If res = DialogResult.Cancel Then
-                    ok = False
-                    Exit Do
-                End If
-            End If
-        Loop
-        Return ok
     End Function
 
 End Class

@@ -1052,6 +1052,105 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Операция возможна только при остановленном сервере World и Realmd.
+        '''</summary>
+        Friend ReadOnly Property P059_FirstServerStop() As String
+            Get
+                Return ResourceManager.GetString("P059_FirstServerStop", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на На этом сервере не найдено ни одного мира!.
+        '''</summary>
+        Friend ReadOnly Property P060_RealmsNotFound() As String
+            Get
+                Return ResourceManager.GetString("P060_RealmsNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Требуется указать существующий IP адрес..
+        '''</summary>
+        Friend ReadOnly Property P061_NeedIpAddress() As String
+            Get
+                Return ResourceManager.GetString("P061_NeedIpAddress", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Требуется ввести имя мира для сервера..
+        '''</summary>
+        Friend ReadOnly Property P062_NeedServerName() As String
+            Get
+                Return ResourceManager.GetString("P062_NeedServerName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Изменения в настройках сервера успешно применены!.
+        '''</summary>
+        Friend ReadOnly Property P063_QuickSettingsChanged() As String
+            Get
+                Return ResourceManager.GetString("P063_QuickSettingsChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Введите имя аккаунта!.
+        '''</summary>
+        Friend ReadOnly Property P064_NeedUserName() As String
+            Get
+                Return ResourceManager.GetString("P064_NeedUserName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Новый аккаунт успешно создан!.
+        '''</summary>
+        Friend ReadOnly Property P065_AccountCreated() As String
+            Get
+                Return ResourceManager.GetString("P065_AccountCreated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Параметры аккаунта успешно изменены!.
+        '''</summary>
+        Friend ReadOnly Property P066_AccountChanged() As String
+            Get
+                Return ResourceManager.GetString("P066_AccountChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Ожидание сервера World....
+        '''</summary>
+        Friend ReadOnly Property P067_WorldWait() As String
+            Get
+                Return ResourceManager.GetString("P067_WorldWait", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Ожидание выполнения....
+        '''</summary>
+        Friend ReadOnly Property P068_WaitExecution() As String
+            Get
+                Return ResourceManager.GetString("P068_WaitExecution", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Таймаут выполения команды..
+        '''</summary>
+        Friend ReadOnly Property P069_Timeout() As String
+            Get
+                Return ResourceManager.GetString("P069_Timeout", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property protect() As System.Drawing.Bitmap

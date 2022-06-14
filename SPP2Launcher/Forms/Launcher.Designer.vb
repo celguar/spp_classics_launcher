@@ -55,10 +55,11 @@ Partial Class Launcher
         Me.TSMI_ServerSwitcher = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Tools = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Bots = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_Characters = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Accounts = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Saves = New System.Windows.Forms.ToolStripMenuItem()
-        Me.СменитьIPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_World = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_QuickSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_OpenSite = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_Updates = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Settings = New System.Windows.Forms.ToolStripMenuItem()
@@ -161,9 +162,8 @@ Partial Class Launcher
         '
         'TSMI_WowAutoStart
         '
-        Me.TSMI_WowAutoStart.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.protect
-        Me.TSMI_WowAutoStart.Name = "TSMI_WowAutoStart"
         resources.ApplyResources(Me.TSMI_WowAutoStart, "TSMI_WowAutoStart")
+        Me.TSMI_WowAutoStart.Name = "TSMI_WowAutoStart"
         '
         'TSMI_ServerStart
         '
@@ -249,13 +249,12 @@ Partial Class Launcher
         '
         'TSMI_ServerSwitcher
         '
-        Me.TSMI_ServerSwitcher.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.warning
-        Me.TSMI_ServerSwitcher.Name = "TSMI_ServerSwitcher"
         resources.ApplyResources(Me.TSMI_ServerSwitcher, "TSMI_ServerSwitcher")
+        Me.TSMI_ServerSwitcher.Name = "TSMI_ServerSwitcher"
         '
         'TSMI_Tools
         '
-        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Characters, Me.TSMI_Saves, Me.СменитьIPToolStripMenuItem, Me.TSMI_World, Me.ToolStripMenuItem1, Me.TSMI_Updates})
+        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Accounts, Me.TSMI_Saves, Me.TSMI_World, Me.TSMI_QuickSettings, Me.TSMI_OpenSite, Me.ToolStripMenuItem1, Me.TSMI_Updates})
         resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
         Me.TSMI_Tools.Name = "TSMI_Tools"
         '
@@ -264,26 +263,30 @@ Partial Class Launcher
         Me.TSMI_Bots.Name = "TSMI_Bots"
         resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
         '
-        'TSMI_Characters
+        'TSMI_Accounts
         '
-        resources.ApplyResources(Me.TSMI_Characters, "TSMI_Characters")
-        Me.TSMI_Characters.Name = "TSMI_Characters"
+        resources.ApplyResources(Me.TSMI_Accounts, "TSMI_Accounts")
+        Me.TSMI_Accounts.Name = "TSMI_Accounts"
         '
         'TSMI_Saves
         '
         Me.TSMI_Saves.Name = "TSMI_Saves"
         resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
         '
-        'СменитьIPToolStripMenuItem
-        '
-        Me.СменитьIPToolStripMenuItem.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.lan_switcher
-        Me.СменитьIPToolStripMenuItem.Name = "СменитьIPToolStripMenuItem"
-        resources.ApplyResources(Me.СменитьIPToolStripMenuItem, "СменитьIPToolStripMenuItem")
-        '
         'TSMI_World
         '
         Me.TSMI_World.Name = "TSMI_World"
         resources.ApplyResources(Me.TSMI_World, "TSMI_World")
+        '
+        'TSMI_QuickSettings
+        '
+        resources.ApplyResources(Me.TSMI_QuickSettings, "TSMI_QuickSettings")
+        Me.TSMI_QuickSettings.Name = "TSMI_QuickSettings"
+        '
+        'TSMI_OpenSite
+        '
+        resources.ApplyResources(Me.TSMI_OpenSite, "TSMI_OpenSite")
+        Me.TSMI_OpenSite.Name = "TSMI_OpenSite"
         '
         'ToolStripMenuItem1
         '
@@ -304,7 +307,6 @@ Partial Class Launcher
         'TSMI_LanguageTool
         '
         Me.TSMI_LanguageTool.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_English, Me.TSMI_Russian})
-        Me.TSMI_LanguageTool.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.locale
         resources.ApplyResources(Me.TSMI_LanguageTool, "TSMI_LanguageTool")
         Me.TSMI_LanguageTool.Name = "TSMI_LanguageTool"
         '
@@ -330,9 +332,8 @@ Partial Class Launcher
         '
         'TSMI_Reset
         '
-        Me.TSMI_Reset.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.warning
-        Me.TSMI_Reset.Name = "TSMI_Reset"
         resources.ApplyResources(Me.TSMI_Reset, "TSMI_Reset")
+        Me.TSMI_Reset.Name = "TSMI_Reset"
         '
         'NotifyIcon_SPP2
         '
@@ -497,7 +498,7 @@ Partial Class Launcher
     Friend WithEvents TSMI_Launcher As ToolStripMenuItem
     Friend WithEvents TSSL_Online As ToolStripStatusLabel
     Friend WithEvents TSSL_MySQL As ToolStripStatusLabel
-    Friend WithEvents TSMI_Characters As ToolStripMenuItem
+    Friend WithEvents TSMI_Accounts As ToolStripMenuItem
     Friend WithEvents TSMI_Saves As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents TSMI_Updates As ToolStripMenuItem
@@ -544,6 +545,7 @@ Partial Class Launcher
     Friend WithEvents TSMI_Reset As ToolStripMenuItem
     Friend WithEvents Button_UnlockAll As Button
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents СменитьIPToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TSMI_QuickSettings As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
+    Friend WithEvents TSMI_OpenSite As ToolStripMenuItem
 End Class

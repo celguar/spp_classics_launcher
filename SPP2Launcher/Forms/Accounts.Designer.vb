@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Accounts
     Inherits System.Windows.Forms.Form
 
     'Форма переопределяет dispose для очистки списка компонентов.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Accounts
     'Примечание: следующая процедура является обязательной для конструктора форм Windows Forms
     'Для ее изменения используйте конструктор форм Windows Form.  
     'Не изменяйте ее в редакторе исходного кода.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Accounts))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -31,6 +31,7 @@ Partial Class Accounts
         Me.Button_Next2 = New System.Windows.Forms.Button()
         Me.Button_Back = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox_AccountSearch = New System.Windows.Forms.ComboBox()
         Me.CheckBox_ChangePassword = New System.Windows.Forms.CheckBox()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -43,7 +44,6 @@ Partial Class Accounts
         Me.Button_Create = New System.Windows.Forms.Button()
         Me.TextBox_UserName = New System.Windows.Forms.TextBox()
         Me.TextBox_Password = New System.Windows.Forms.TextBox()
-        Me.ComboBox_AccountSearch = New System.Windows.Forms.ComboBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -121,6 +121,13 @@ Partial Class Accounts
         Me.GroupBox2.Controls.Add(Me.CheckBox_ChangePassword)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
+        '
+        'ComboBox_AccountSearch
+        '
+        Me.ComboBox_AccountSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_AccountSearch.FormattingEnabled = True
+        resources.ApplyResources(Me.ComboBox_AccountSearch, "ComboBox_AccountSearch")
+        Me.ComboBox_AccountSearch.Name = "ComboBox_AccountSearch"
         '
         'CheckBox_ChangePassword
         '
@@ -209,14 +216,7 @@ Partial Class Accounts
         resources.ApplyResources(Me.TextBox_Password, "TextBox_Password")
         Me.TextBox_Password.Name = "TextBox_Password"
         '
-        'ComboBox_AccountSearch
-        '
-        Me.ComboBox_AccountSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_AccountSearch.FormattingEnabled = True
-        resources.ApplyResources(Me.ComboBox_AccountSearch, "ComboBox_AccountSearch")
-        Me.ComboBox_AccountSearch.Name = "ComboBox_AccountSearch"
-        '
-        'Chars
+        'Accounts
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -225,7 +225,7 @@ Partial Class Accounts
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "Chars"
+        Me.Name = "Accounts"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()

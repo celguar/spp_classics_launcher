@@ -140,6 +140,46 @@ Namespace MySqlDataBases.REALMD
         ''' <summary>
         ''' Изменяет параметры аккаунта.
         ''' </summary>
+        ''' <param name="username">Имя аккаунта.</param>
+        ''' <param name="expansion">Расширение.</param>
+        ''' <returns></returns>
+        Shared Function UPDATE_ACCOUNT(username As String, expansion As Integer) As Tuple(Of Boolean, String)
+            If CheckProcess(EProcess.mysqld) Then
+                Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbRealmd))
+                    Using sqlComm As New MySqlCommand
+                        Try
+                            Dim cmd As String = ""
+                            cmd &= "UPDATE account "
+                            cmd &= "SET username = @UserName, expansion = @Expansion "
+                            cmd &= "WHERE username = @UserName"
+                            With sqlComm
+                                .Connection = sqlConn
+                                .CommandType = CommandType.Text
+                                .CommandText = cmd
+                                .Parameters.AddWithValue("@UserName", username)
+                                .Parameters.AddWithValue("@Expansion", expansion)
+                            End With
+
+                            GV.Log.WriteSQL(sqlComm.CommandText)
+                            sqlConn.Open()
+                            Dim count = sqlComm.ExecuteNonQuery
+                            GV.Log.WriteSQL(String.Format("Account {0} changed.", username))
+                            Return New Tuple(Of Boolean, String)(False, "OK")
+                        Catch ex As Exception
+                            GV.Log.WriteSQLException(ex)
+                            Return New Tuple(Of Boolean, String)(True, ex.Message)
+                        End Try
+                    End Using
+                End Using
+            Else
+                GV.Log.WriteSQL(My.Resources.P054_NeedMySQL)
+                Return New Tuple(Of Boolean, String)(True, My.Resources.P054_NeedMySQL)
+            End If
+        End Function
+
+        ''' <summary>
+        ''' Изменяет параметры аккаунта.
+        ''' </summary>
         ''' <param name="dr">DataRow содержащий необходимые параметры.</param>
         ''' <returns></returns>
         Shared Function UPDATE_ACCOUNT(dr As DataRow, gmLevel As Integer) As Tuple(Of Boolean, String)
