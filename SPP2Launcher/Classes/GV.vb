@@ -198,9 +198,12 @@ Public Class GV
         If IO.Directory.Exists(Application.StartupPath & "\SPP_Server") Then
             My.Settings.DirSPP2 = Application.StartupPath & "\SPP_Server"
             My.Settings.FirstStart = False
-        ElseIf IO.Directory.Exists(IO.Path.GetDirectoryName(Application.StartupPath & ".txt")) Then
-            My.Settings.DirSPP2 = IO.Path.GetDirectoryName(Application.StartupPath & ".txt")
-            My.Settings.FirstStart = False
+        Else
+            Dim parent = IO.Path.GetDirectoryName(Application.StartupPath & ".txt")
+            If IO.Directory.Exists(parent) Then
+                My.Settings.DirSPP2 = parent
+                My.Settings.FirstStart = False
+            End If
         End If
 
     End Sub

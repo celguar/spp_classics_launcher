@@ -924,7 +924,7 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Configuration.SettingsDescriptionAttribute("Каталог проекта Single Player Project v2"),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("D:\GAME\SERVER\WOW\SPP_Classics_V2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\GAMES\SERVER\WOW\SPP_Classics_V2")>  _
         Public Property DirSPP2() As String
             Get
                 Return CType(Me("DirSPP2"),String)
@@ -945,10 +945,10 @@ Namespace My
                 Me("ServerClassicAutostart") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("0.0.0.0")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ANY")>  _
         Public Property ApacheClassicIntHost() As String
             Get
                 Return CType(Me("ApacheClassicIntHost"),String)
@@ -969,10 +969,10 @@ Namespace My
                 Me("ApacheClassicIntPort") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("0.0.0.0")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ANY")>  _
         Public Property ApacheTbcIntHost() As String
             Get
                 Return CType(Me("ApacheTbcIntHost"),String)
@@ -993,10 +993,10 @@ Namespace My
                 Me("ApacheTbcIntPort") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.DefaultSettingValueAttribute("0.0.0.0")>
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ANY")>  _
         Public Property ApacheWotlkIntHost() As String
             Get
                 Return CType(Me("ApacheWotlkIntHost"),String)
