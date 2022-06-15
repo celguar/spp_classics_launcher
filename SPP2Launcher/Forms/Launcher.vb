@@ -31,7 +31,7 @@ Public Class Launcher
     ''' Файл конфигурации Auction House Bot.
     ''' </summary>
     ''' <returns></returns>
-    Friend ReadOnly Property IniAHBot As IniFiles
+    Friend ReadOnly Property IniAhBot As IniFiles
 
     ''' <summary>
     ''' Флаг требования запуска сервера Realmd.

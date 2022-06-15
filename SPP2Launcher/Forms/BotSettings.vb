@@ -20,8 +20,8 @@ Public Class BotSettings
 
 #Region " === PLAYERBOTS === "
 
-            CheckBox_PlayerbotEnabled.Checked = GV.SPP2Launcher.IniPlayerBots.ReadBool("AiPlayerbotConf", "AiPlayerbot.Enabled")
-            If Not CheckBox_PlayerbotEnabled.Checked Then CheckBox_PlayerbotEnabled_CheckedChanged(Me, e)
+            CheckBox_PlayerbotsEnabled.Checked = GV.SPP2Launcher.IniPlayerBots.ReadBool("AiPlayerbotConf", "AiPlayerbot.Enabled")
+            If Not CheckBox_PlayerbotsEnabled.Checked Then CheckBox_PlayerbotsEnabled_CheckedChanged(Me, e)
             TextBox_RandomBotAccountCount.Text = GV.SPP2Launcher.IniPlayerBots.ReadInt32("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountCount").ToString
             CheckBox_RandomBotAutologin.Checked = GV.SPP2Launcher.IniPlayerBots.ReadBool("AiPlayerbotConf", "AiPlayerbot.RandomBotAutologin")
             TextBox_MinRandomBots.Text = GV.SPP2Launcher.IniPlayerBots.ReadInt32("AiPlayerbotConf", "AiPlayerbot.MinRandomBots").ToString
@@ -58,6 +58,19 @@ Public Class BotSettings
 
 #End Region
 
+#Region " === AHBOT === "
+
+            CheckBox_AhBotEnabled.Checked = GV.SPP2Launcher.IniAhBot.ReadBool("AhbotConf", "AhBot.Enabled")
+            If Not CheckBox_AhBotEnabled.Checked Then CheckBox_AhBotEnabled_CheckedChanged(Me, e)
+            TextBox_TimeMin.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Time.Min").ToString
+            TextBox_TimeMax.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Time.Max").ToString
+            TextBox_ChanceSell.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Chance.Sell").ToString
+            TextBox_ChanceBuy.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Chance.Buy").ToString
+            TextBox_BidMin.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Bid.Min").ToString
+            TextBox_BidMax.Text = GV.SPP2Launcher.IniAhBot.ReadInt32("AhbotConf", "AuctionHouseBot.Bid.Max").ToString
+
+#End Region
+
         Catch ex As Exception
             GV.Log.WriteException(ex)
             MessageBox.Show(ex.Message,
@@ -66,14 +79,23 @@ Public Class BotSettings
     End Sub
 
     ''' <summary>
-    ''' ПРИ ИЗМЕНЕНИИ РАЗРЕШЕНИЯ PLAYERBOT
+    ''' ПРИ ИЗМЕНЕНИИ РАЗРЕШЕНИЯ PLAYERBOTS
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub CheckBox_PlayerbotEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_PlayerbotEnabled.CheckedChanged
-        TextBox_RandomBotAccountCount.Enabled = CheckBox_PlayerbotEnabled.Checked
-        GroupBox_MainPB.Enabled = CheckBox_PlayerbotEnabled.Checked
-        GroupBox_OtherPB.Enabled = CheckBox_PlayerbotEnabled.Checked
+    Private Sub CheckBox_PlayerbotsEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_PlayerbotsEnabled.CheckedChanged
+        TextBox_RandomBotAccountCount.Enabled = CheckBox_PlayerbotsEnabled.Checked
+        GroupBox_MainPB.Enabled = CheckBox_PlayerbotsEnabled.Checked
+        GroupBox_OtherPB.Enabled = CheckBox_PlayerbotsEnabled.Checked
+    End Sub
+
+    ''' <summary>
+    ''' ПРИ ИЗМЕНЕНИИ РАЗРЕШЕНИЯ AHBOT
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub CheckBox_AhBotEnabled_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_AhBotEnabled.CheckedChanged
+        GroupBox_MainAhBot.Enabled = CheckBox_AhBotEnabled.Checked
     End Sub
 
     ''' <summary>
@@ -86,13 +108,13 @@ Public Class BotSettings
 
 #Region " === PLAYERBOTS === "
 
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.Enabled", BoolToStr(CheckBox_PlayerbotEnabled.Checked))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountCount", IsInteger(TextBox_RandomBotAccountCount.Text))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.Enabled", BoolToStr(CheckBox_PlayerbotsEnabled.Checked))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountCount", IsInteger(TextBox_RandomBotAccountCount, 0, 1000))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAutologin", BoolToStr(CheckBox_RandomBotAutologin.Checked))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MinRandomBots", IsInteger(TextBox_MinRandomBots.Text))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MaxRandomBots", IsInteger(TextBox_MaxRandomBots.Text))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMinLevel", IsInteger(TextBox_RandomBotMinLevel.Text))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMaxLevel", IsInteger(TextBox_RandomBotMaxLevel.Text))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MinRandomBots", IsInteger(TextBox_MinRandomBots, 0, 1000))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MaxRandomBots", IsInteger(TextBox_MaxRandomBots, 0, 1000))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMinLevel", IsInteger(TextBox_RandomBotMinLevel, 1, 80))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMaxLevel", IsInteger(TextBox_RandomBotMaxLevel, 1, 80))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotJoinLfg", BoolToStr(CheckBox_RandomBotJoinLfg.Checked))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotJoinBG", BoolToStr(CheckBox_RandomBotJoinBG.Checked))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.EnableGuildTasks", BoolToStr(CheckBox_EnableGuildTasks.Checked))
@@ -125,6 +147,18 @@ Public Class BotSettings
 
 #End Region
 
+#Region "=== AHBOT === "
+
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AhBot.Enabled", BoolToStr(CheckBox_AhBotEnabled.Checked))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Time.Min", IsInteger(TextBox_TimeMin, 1, 72))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Time.Max", IsInteger(TextBox_TimeMax, 1, 72))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Chance.Sell", IsInteger(TextBox_ChanceSell, 0, 100))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Chance.Buy", IsInteger(TextBox_ChanceBuy, 0, 100))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Bid.Min", IsInteger(TextBox_BidMin, 0, 100))
+            GV.SPP2Launcher.IniAhBot.Write("AhbotConf", "AuctionHouseBot.Bid.Max", IsInteger(TextBox_BidMax, 0, 100))
+
+#End Region
+
             MessageBox.Show(My.Resources.P071_Saved,
                             My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Close()
@@ -149,10 +183,15 @@ Public Class BotSettings
     ''' <summary>
     ''' Проверяет значение на числовое.
     ''' </summary>
-    ''' <param name="value">Значение.</param>
+    ''' <param name="caller">TextBox вызвавший проверку.</param>
     ''' <returns></returns>
-    Private Function IsInteger(value As String) As String
-        Return CInt(value).ToString
+    Private Function IsInteger(caller As TextBox, min As Integer, max As Integer) As String
+        Dim res = CInt(caller.Text)
+        If res < min Or res > max Then
+            caller.BackColor = Color.Coral
+            Throw New Exception(String.Format(My.Resources.P072_IllegalNumber, min, max))
+        End If
+        Return res.ToString
     End Function
 
 End Class

@@ -423,4 +423,7 @@
   <data name="P071_Saved" xml:space="preserve">
     <value>Settings successfully saved!</value>
   </data>
+  <data name="P072_IllegalNumber" xml:space="preserve">
+    <value>Minimum value {0} maximum value {1}</value>
+  </data>
 </root>

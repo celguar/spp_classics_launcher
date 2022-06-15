@@ -1179,6 +1179,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Минимальное значение {0} максимальное {1}.
+        '''</summary>
+        Friend ReadOnly Property P072_IllegalNumber() As String
+            Get
+                Return ResourceManager.GetString("P072_IllegalNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property protect() As System.Drawing.Bitmap

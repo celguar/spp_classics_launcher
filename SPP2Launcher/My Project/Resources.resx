@@ -532,4 +532,7 @@
   <data name="P071_Saved" xml:space="preserve">
     <value>Настройки успешно сохранены!</value>
   </data>
+  <data name="P072_IllegalNumber" xml:space="preserve">
+    <value>Минимальное значение {0} максимальное {1}</value>
+  </data>
 </root>

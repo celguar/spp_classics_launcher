@@ -25,7 +25,7 @@ Partial Class BotSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(BotSettings))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage_PB1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox_PlayerbotEnabled = New System.Windows.Forms.CheckBox()
+        Me.CheckBox_PlayerbotsEnabled = New System.Windows.Forms.CheckBox()
         Me.TextBox_RandomBotAccountCount = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox_MainPB = New System.Windows.Forms.GroupBox()
@@ -51,10 +51,22 @@ Partial Class BotSettings
         Me.CheckBox_EnableGreet = New System.Windows.Forms.CheckBox()
         Me.CheckBox_GearScoreCheck = New System.Windows.Forms.CheckBox()
         Me.TabPage_AHB = New System.Windows.Forms.TabPage()
+        Me.CheckBox_AhBotEnabled = New System.Windows.Forms.CheckBox()
+        Me.GroupBox_MainAhBot = New System.Windows.Forms.GroupBox()
+        Me.TextBox_TimeMax = New System.Windows.Forms.TextBox()
+        Me.TextBox_TimeMin = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox_BidMax = New System.Windows.Forms.TextBox()
+        Me.TextBox_BidMin = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox_ChanceBuy = New System.Windows.Forms.TextBox()
+        Me.TextBox_ChanceSell = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Button_Save = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CheckBox_AllowLegendary = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage_PB1.SuspendLayout()
         Me.GroupBox_MainPB.SuspendLayout()
@@ -62,6 +74,8 @@ Partial Class BotSettings
         Me.GroupBox_OtherPB.SuspendLayout()
         Me.GroupBox_MapsPB.SuspendLayout()
         Me.TabPage_AHB.SuspendLayout()
+        Me.GroupBox_MainAhBot.SuspendLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -76,7 +90,7 @@ Partial Class BotSettings
         '
         'TabPage_PB1
         '
-        Me.TabPage_PB1.Controls.Add(Me.CheckBox_PlayerbotEnabled)
+        Me.TabPage_PB1.Controls.Add(Me.CheckBox_PlayerbotsEnabled)
         Me.TabPage_PB1.Controls.Add(Me.TextBox_RandomBotAccountCount)
         Me.TabPage_PB1.Controls.Add(Me.Label5)
         Me.TabPage_PB1.Controls.Add(Me.GroupBox_MainPB)
@@ -84,11 +98,11 @@ Partial Class BotSettings
         Me.TabPage_PB1.Name = "TabPage_PB1"
         Me.TabPage_PB1.UseVisualStyleBackColor = True
         '
-        'CheckBox_PlayerbotEnabled
+        'CheckBox_PlayerbotsEnabled
         '
-        resources.ApplyResources(Me.CheckBox_PlayerbotEnabled, "CheckBox_PlayerbotEnabled")
-        Me.CheckBox_PlayerbotEnabled.Name = "CheckBox_PlayerbotEnabled"
-        Me.CheckBox_PlayerbotEnabled.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBox_PlayerbotsEnabled, "CheckBox_PlayerbotsEnabled")
+        Me.CheckBox_PlayerbotsEnabled.Name = "CheckBox_PlayerbotsEnabled"
+        Me.CheckBox_PlayerbotsEnabled.UseVisualStyleBackColor = True
         '
         'TextBox_RandomBotAccountCount
         '
@@ -248,11 +262,80 @@ Partial Class BotSettings
         '
         'TabPage_AHB
         '
-        Me.TabPage_AHB.Controls.Add(Me.CheckBox1)
-        Me.TabPage_AHB.Controls.Add(Me.GroupBox1)
+        Me.TabPage_AHB.Controls.Add(Me.CheckBox_AhBotEnabled)
+        Me.TabPage_AHB.Controls.Add(Me.GroupBox_MainAhBot)
         resources.ApplyResources(Me.TabPage_AHB, "TabPage_AHB")
         Me.TabPage_AHB.Name = "TabPage_AHB"
         Me.TabPage_AHB.UseVisualStyleBackColor = True
+        '
+        'CheckBox_AhBotEnabled
+        '
+        resources.ApplyResources(Me.CheckBox_AhBotEnabled, "CheckBox_AhBotEnabled")
+        Me.CheckBox_AhBotEnabled.Name = "CheckBox_AhBotEnabled"
+        Me.CheckBox_AhBotEnabled.UseVisualStyleBackColor = True
+        '
+        'GroupBox_MainAhBot
+        '
+        Me.GroupBox_MainAhBot.Controls.Add(Me.CheckBox_AllowLegendary)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.Label7)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TrackBar1)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_TimeMax)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_TimeMin)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.Label3)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_BidMax)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_BidMin)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.Label2)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceBuy)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceSell)
+        Me.GroupBox_MainAhBot.Controls.Add(Me.Label6)
+        resources.ApplyResources(Me.GroupBox_MainAhBot, "GroupBox_MainAhBot")
+        Me.GroupBox_MainAhBot.Name = "GroupBox_MainAhBot"
+        Me.GroupBox_MainAhBot.TabStop = False
+        '
+        'TextBox_TimeMax
+        '
+        resources.ApplyResources(Me.TextBox_TimeMax, "TextBox_TimeMax")
+        Me.TextBox_TimeMax.Name = "TextBox_TimeMax"
+        '
+        'TextBox_TimeMin
+        '
+        resources.ApplyResources(Me.TextBox_TimeMin, "TextBox_TimeMin")
+        Me.TextBox_TimeMin.Name = "TextBox_TimeMin"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.Name = "Label3"
+        '
+        'TextBox_BidMax
+        '
+        resources.ApplyResources(Me.TextBox_BidMax, "TextBox_BidMax")
+        Me.TextBox_BidMax.Name = "TextBox_BidMax"
+        '
+        'TextBox_BidMin
+        '
+        resources.ApplyResources(Me.TextBox_BidMin, "TextBox_BidMin")
+        Me.TextBox_BidMin.Name = "TextBox_BidMin"
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.Name = "Label2"
+        '
+        'TextBox_ChanceBuy
+        '
+        resources.ApplyResources(Me.TextBox_ChanceBuy, "TextBox_ChanceBuy")
+        Me.TextBox_ChanceBuy.Name = "TextBox_ChanceBuy"
+        '
+        'TextBox_ChanceSell
+        '
+        resources.ApplyResources(Me.TextBox_ChanceSell, "TextBox_ChanceSell")
+        Me.TextBox_ChanceSell.Name = "TextBox_ChanceSell"
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
         '
         'TabPage1
         '
@@ -266,17 +349,21 @@ Partial Class BotSettings
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'TrackBar1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.TabStop = False
+        resources.ApplyResources(Me.TrackBar1, "TrackBar1")
+        Me.TrackBar1.Name = "TrackBar1"
         '
-        'CheckBox1
+        'Label7
         '
-        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        '
+        'CheckBox_AllowLegendary
+        '
+        resources.ApplyResources(Me.CheckBox_AllowLegendary, "CheckBox_AllowLegendary")
+        Me.CheckBox_AllowLegendary.Name = "CheckBox_AllowLegendary"
+        Me.CheckBox_AllowLegendary.UseVisualStyleBackColor = True
         '
         'BotSettings
         '
@@ -300,6 +387,9 @@ Partial Class BotSettings
         Me.GroupBox_MapsPB.PerformLayout()
         Me.TabPage_AHB.ResumeLayout(False)
         Me.TabPage_AHB.PerformLayout()
+        Me.GroupBox_MainAhBot.ResumeLayout(False)
+        Me.GroupBox_MainAhBot.PerformLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -308,7 +398,7 @@ Partial Class BotSettings
     Friend WithEvents TabPage_PB1 As TabPage
     Friend WithEvents TabPage_AHB As TabPage
     Friend WithEvents GroupBox_MainPB As GroupBox
-    Friend WithEvents CheckBox_PlayerbotEnabled As CheckBox
+    Friend WithEvents CheckBox_PlayerbotsEnabled As CheckBox
     Friend WithEvents TextBox_RandomBotMinLevel As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox_MinRandomBots As TextBox
@@ -334,6 +424,18 @@ Partial Class BotSettings
     Private WithEvents CheckBox_GearScoreCheck As CheckBox
     Friend WithEvents Button_Save As Button
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents CheckBox_AhBotEnabled As CheckBox
+    Friend WithEvents GroupBox_MainAhBot As GroupBox
+    Friend WithEvents TextBox_ChanceBuy As TextBox
+    Friend WithEvents TextBox_ChanceSell As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TextBox_BidMax As TextBox
+    Friend WithEvents TextBox_BidMin As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox_TimeMax As TextBox
+    Friend WithEvents TextBox_TimeMin As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TrackBar1 As TrackBar
+    Friend WithEvents CheckBox_AllowLegendary As CheckBox
 End Class
