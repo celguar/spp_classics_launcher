@@ -1151,6 +1151,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Ищет локализованную строку, похожую на Укажите путь к клиенту WoW (wow.exe).
+        '''</summary>
+        Friend ReadOnly Property P070_PathWowClient() As String
+            Get
+                Return ResourceManager.GetString("P070_PathWowClient", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property protect() As System.Drawing.Bitmap

@@ -115,13 +115,16 @@ Public Class Splash
             Me.Opacity -= 0.04
             Thread.Sleep(10)
         Loop
+
         ' Останавливаем фэйдер и проверяем код ошибки
         FadeOut.Stop()
+
         ' Выход если приложение уже запущено или не удалось загрузить конфигурацию лаунчера
         If GV.ErrorCode = GV.ECode.ErrorLauncherAlready Or
             GV.ErrorCode = GV.ECode.ErrorLauncherConfig Then
             If Not IsNothing(GV.Log) Then GV.Log.WriteInfo(My.Resources.P005_Exiting)
             Close()
+
         ElseIf GV.ErrorCode = GV.ECode.ErrorBaseCat Or
                 GV.ErrorCode = GV.ECode.ErrorMangoCat Or
                 GV.ErrorCode = GV.ECode.ErrorModulesCat Then
@@ -136,13 +139,17 @@ Public Class Splash
             Else
                 Application.Exit()
             End If
+
         Else
-        Me.Hide()
+
+            Me.Hide()
+
             ' Проверяем количество найденных модулей
             If GV.Modules.Count = 0 Then
                 ' Нет ни одного модуля сервера WoW
                 GV.Log.WriteInfo(My.Resources.P005_Exiting)
                 Me.Close()
+
             ElseIf GV.Modules.Count = 1 Then
                 ' У нас всего один сервер, его и запускаем
                 My.Settings.LastLoadedServerType = GV.Modules.Item(0).ModuleType.ToString
@@ -150,6 +157,7 @@ Public Class Splash
                 GV.SPP2Launcher = fLauncher
                 fLauncher.ShowDialog()
                 If GV.NeedRestart Then Application.Restart()
+
             ElseIf My.Settings.LastLoadedServerType = "" Or My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString Then
                 ' Тип сервера ещё не настроен или было предложение о смене типа сервера
                 Dim fServerSelector As New ServerSelector()
@@ -159,6 +167,7 @@ Public Class Splash
                 Else
                     Me.Close()
                 End If
+
             Else
                 ' Есть настройки автозапуска лаунчера
                 Try
@@ -170,7 +179,9 @@ Public Class Splash
                     GV.Log.WriteException(ex)
                 End Try
             End If
+
         End If
+
     End Sub
 
     ''' <summary>

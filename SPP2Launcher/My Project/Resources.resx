@@ -523,4 +523,7 @@
   <data name="P069_Timeout" xml:space="preserve">
     <value>Таймаут выполения команды.</value>
   </data>
+  <data name="P070_PathWowClient" xml:space="preserve">
+    <value>Укажите путь к клиенту WoW (wow.exe)</value>
+  </data>
 </root>

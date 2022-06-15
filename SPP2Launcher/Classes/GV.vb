@@ -200,6 +200,11 @@ Public Class GV
             My.Settings.FirstStart = False
         End If
 
+        If IO.Directory.Exists(IO.Path.GetDirectoryName(Application.StartupPath & ".txt")) Then
+            My.Settings.DirSPP2 = IO.Path.GetDirectoryName(Application.StartupPath & ".txt")
+            My.Settings.FirstStart = False
+        End If
+
     End Sub
 
 #End Region

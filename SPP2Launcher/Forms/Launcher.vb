@@ -199,7 +199,10 @@ Public Class Launcher
         Me.Location = loc
 
         ' Если всего один модуль, то прячем смену типа сервера
-        If GV.Modules.Count = 1 Then TSMI_ServerSwitcher.Visible = False
+        If GV.Modules.Count = 1 Then
+            TSMI_ServerSwitcher.Visible = False
+            TSMI_Sever1.Visible = False
+        End If
 
         ' Настраиваем таймеры
         TimerStartMySQL = New Threading.Timer(AddressOf TimerTik_StartMySQL)
@@ -308,7 +311,8 @@ Public Class Launcher
         Try
             If My.Settings.WowClientPath = "" Then
                 Using openFileDialog As New OpenFileDialog()
-                    openFileDialog.InitialDirectory = "c:\"
+                    openFileDialog.Title = My.Resources.P070_PathWowClient
+                    openFileDialog.InitialDirectory = My.Settings.DirSPP2
                     openFileDialog.Filter = My.Resources.P003_SetWowClientPath
                     openFileDialog.FilterIndex = 1
                     openFileDialog.RestoreDirectory = True

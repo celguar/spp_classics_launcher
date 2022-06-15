@@ -417,4 +417,7 @@
   <data name="P069_Timeout" xml:space="preserve">
     <value>Command execution timeout.</value>
   </data>
+  <data name="P070_PathWowClient" xml:space="preserve">
+    <value>Specify the path to the WoW client (wow.exe)</value>
+  </data>
 </root>
