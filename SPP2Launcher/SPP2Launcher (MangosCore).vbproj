@@ -113,12 +113,18 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classes\ConsoleBuffer.vb" />
-    <Compile Include="Classes\ConsoleCommand.vb" />
     <Compile Include="Classes\GDI.vb" />
     <Compile Include="Classes\ProcessController.vb" />
     <Compile Include="Classes\EasyLog.vb" />
     <Compile Include="Classes\IniFiles.vb" />
     <Compile Include="Classes\GV.vb" />
+    <Compile Include="Classes\SRP6.vb" />
+    <Compile Include="Forms\AccountChange.Designer.vb">
+      <DependentUpon>AccountChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccountChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ChangePathRepack.Designer.vb">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </Compile>
@@ -216,6 +222,9 @@
     <Compile Include="MySQL\MySqlProvider.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AccountChange.resx">
+      <DependentUpon>AccountChange.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApacheSettings.en.resx">
       <DependentUpon>ApacheSettings.vb</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +328,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PostBuildEvent>start $(SolutionDir)create_debug_bin.bat</PostBuildEvent>
+    <PostBuildEvent>rem start $(SolutionDir)create_debug_bin.bat</PostBuildEvent>
   </PropertyGroup>
 </Project>

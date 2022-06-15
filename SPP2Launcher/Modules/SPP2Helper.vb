@@ -565,6 +565,13 @@ Module SPP2Helper
 
     End Sub
 
+    ' ПРИМЕР ИСПОЛЬЗОВАНИЯ WaitSuccessfull
+    ' Отправляем команду на создание аккаунта
+    'Dim cmd = String.Format(".account create {0} {1}", TextBox_UserName.Text.Trim, TextBox_Password.Text.Trim)
+    'Dim cm = New ConsoleCommand(cmd, ECommand.AccountCreate, AddressOf AccountCreated)
+    'Dim t As New Threading.Thread(AddressOf WaitSuccessfull) With {.IsBackground = True, .CurrentCulture = GV.CI, .CurrentUICulture = GV.CI}
+    't.Start(cm)
+
     ''' <summary>
     ''' Ожидание выполнения команды. При успешном выполнении возвращает True.
     ''' False следует считать как timeout.

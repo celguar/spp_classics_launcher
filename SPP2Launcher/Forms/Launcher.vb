@@ -108,6 +108,12 @@ Public Class Launcher
     Friend Property WorldON As Boolean
 
     ''' <summary>
+    ''' Флаг обнаружения включенного MySQL - БЕЗ РАЗНИЦЫ КАКОГО
+    ''' </summary>
+    ''' <returns></returns>
+    Friend Property MysqlON As Boolean
+
+    ''' <summary>
     ''' Флаг изоляции сервера MySQL.
     ''' </summary>
     ''' <returns></returns>
@@ -165,11 +171,6 @@ Public Class Launcher
     ''' Флаг запрета запуска Apache
     ''' </summary>
     Private _apacheSTOP As Boolean
-
-    ''' <summary>
-    ''' Флаг обнаружения включенного MySQL - БЕЗ РАЗНИЦЫ КАКОГО
-    ''' </summary>
-    Private _mysqlON As Boolean
 
 #End Region
 
@@ -378,16 +379,10 @@ Public Class Launcher
         If Not _mysqlON Then
             MessageBox.Show(My.Resources.P054_NeedMySQL,
                             My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
         Else
-            If Not GV.SPP2Launcher.WorldON Then
-                MessageBox.Show(String.Format(My.Resources.P037_WorldNotStarted),
-                                My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            End If
+            Dim fAccounts As New Accounts
+            Dim res = fAccounts.ShowDialog()
         End If
-        Dim fAccounts As New Accounts
-        Dim res = fAccounts.ShowDialog()
     End Sub
 
     ''' <summary>
@@ -1279,18 +1274,12 @@ Public Class Launcher
 
         ' Автоподсказки
         If CheckProcess(EProcess.mysqld) AndAlso HintCollection.Count = 0 Then
-            MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
-            If TextBox_Command.InvokeRequired Then
-                TextBox_Command.Invoke(Sub()
-                                           TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
-                                           TextBox_Command.AutoCompleteCustomSource = HintCollection
-                                           TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
-                                       End Sub)
-            Else
-                TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
-                TextBox_Command.AutoCompleteCustomSource = HintCollection
-                TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
-            End If
+            Me.Invoke(Sub()
+                          MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
+                          TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
+                          TextBox_Command.AutoCompleteCustomSource = HintCollection
+                          TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
+                      End Sub)
         End If
 
     End Sub

@@ -138,15 +138,16 @@ Public Class Splash
             End If
         Else
         Me.Hide()
-        ' Проверяем количество найденных модулей
-        If GV.Modules.Count = 0 Then
-            ' Нет ни одного модуля сервера WoW
-            GV.Log.WriteInfo(My.Resources.P005_Exiting)
-            Me.Close()
+            ' Проверяем количество найденных модулей
+            If GV.Modules.Count = 0 Then
+                ' Нет ни одного модуля сервера WoW
+                GV.Log.WriteInfo(My.Resources.P005_Exiting)
+                Me.Close()
             ElseIf GV.Modules.Count = 1 Then
                 ' У нас всего один сервер, его и запускаем
                 My.Settings.LastLoadedServerType = GV.Modules.Item(0).ModuleType.ToString
                 Dim fLauncher As New Launcher
+                GV.SPP2Launcher = fLauncher
                 fLauncher.ShowDialog()
                 If GV.NeedRestart Then Application.Restart()
             ElseIf My.Settings.LastLoadedServerType = "" Or My.Settings.LastLoadedServerType = GV.EModule.Restart.ToString Then

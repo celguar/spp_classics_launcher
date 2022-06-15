@@ -182,7 +182,7 @@ Public Class MySqlProvider
 
     ''' <summary>
     ''' Тест соединения с сервером MySQL.
-    ''' При учпешном подключении возвращает True.
+    ''' При уcпешном подключении возвращает True.
     ''' </summary>
     ''' <returns></returns>
     Friend Shared Function TestConnection() As Boolean
