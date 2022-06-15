@@ -36,7 +36,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\..\GAME\SERVER\WOW\SPP_Classics_V2\SPP2Launcher\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>SPP2Launcher.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
