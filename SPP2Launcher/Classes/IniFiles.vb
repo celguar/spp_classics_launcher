@@ -279,13 +279,15 @@ Public Class IniFiles
         End Try
     End Function
 
+#Region " === READ === "
+
     ''' <summary>
     ''' Получить строковое значение ключа.
     ''' </summary>
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение String. Nothing - если ключ пустой/не существует.</returns>
-    Public Overloads Function ReadString(ByVal Section As String, ByVal Key As String) As String
+    Public Function ReadString(ByVal Section As String, ByVal Key As String) As String
         Return ReadString(Section, Key, "")
     End Function
 
@@ -296,7 +298,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение String. Nothing - если ключ пустой/не существует.</returns>
-    Public Overloads Function ReadString(ByVal Section As String, ByVal Key As String, ByVal [Default] As String) As String
+    Public Function ReadString(ByVal Section As String, ByVal Key As String, ByVal [Default] As String) As String
         Try
             Dim ret = Treatment(InternalReadString(Section, Key, [Default], EIniAtoms.Key))
             If ret = "" Then Return ret
@@ -317,7 +319,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Boolean. False - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadBool(ByVal Section As String, ByVal Key As String) As Boolean
+    Public Function ReadBool(ByVal Section As String, ByVal Key As String) As Boolean
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -355,7 +357,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Boolean. False - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadBool(ByVal Section As String, ByVal Key As String, ByVal [Default] As Boolean) As Boolean
+    Public Function ReadBool(ByVal Section As String, ByVal Key As String, ByVal [Default] As Boolean) As Boolean
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -390,7 +392,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Byte. Ноль - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadByte(ByVal Section As String, ByVal Key As String) As Byte
+    Public Function ReadByte(ByVal Section As String, ByVal Key As String) As Byte
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -414,7 +416,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Byte. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadByte(ByVal Section As String, ByVal Key As String, ByVal [Default] As Byte) As Byte
+    Public Function ReadByte(ByVal Section As String, ByVal Key As String, ByVal [Default] As Byte) As Byte
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -437,7 +439,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Short. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt16(ByVal Section As String, ByVal Key As String) As Short
+    Public Function ReadInt16(ByVal Section As String, ByVal Key As String) As Short
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -461,7 +463,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Short. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt16(ByVal Section As String, ByVal Key As String, ByVal [Default] As Short) As Short
+    Public Function ReadInt16(ByVal Section As String, ByVal Key As String, ByVal [Default] As Short) As Short
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -484,7 +486,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение UInt16. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt16(ByVal Section As String, ByVal Key As String) As UInt16
+    Public Function ReadUInt16(ByVal Section As String, ByVal Key As String) As UInt16
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -508,7 +510,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение UInt16. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt16(ByVal Section As String, ByVal Key As String, ByVal [Default] As Short) As UInt16
+    Public Function ReadUInt16(ByVal Section As String, ByVal Key As String, ByVal [Default] As Short) As UInt16
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -531,7 +533,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Integer. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt32(ByVal Section As String, ByVal Key As String) As Integer
+    Public Function ReadInt32(ByVal Section As String, ByVal Key As String) As Integer
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -555,7 +557,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Integer. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt32(ByVal Section As String, ByVal Key As String, ByVal [Default] As Integer) As Integer
+    Public Function ReadInt32(ByVal Section As String, ByVal Key As String, ByVal [Default] As Integer) As Integer
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -578,7 +580,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение UInteger. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt32(ByVal Section As String, ByVal Key As String) As UInteger
+    Public Function ReadUInt32(ByVal Section As String, ByVal Key As String) As UInteger
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -602,7 +604,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение UInteger. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt32(ByVal Section As String, ByVal Key As String, ByVal [Default] As Integer) As UInteger
+    Public Function ReadUInt32(ByVal Section As String, ByVal Key As String, ByVal [Default] As Integer) As UInteger
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -625,7 +627,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Long. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt64(ByVal Section As String, ByVal Key As String) As Long
+    Public Function ReadInt64(ByVal Section As String, ByVal Key As String) As Long
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -649,7 +651,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Long. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadInt64(ByVal Section As String, ByVal Key As String, ByVal [Default] As Long) As Long
+    Public Function ReadInt64(ByVal Section As String, ByVal Key As String, ByVal [Default] As Long) As Long
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -672,7 +674,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение ULong. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt64(ByVal Section As String, ByVal Key As String) As ULong
+    Public Function ReadUInt64(ByVal Section As String, ByVal Key As String) As ULong
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -696,7 +698,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение ULong. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadUInt64(ByVal Section As String, ByVal Key As String, ByVal [Default] As Long) As ULong
+    Public Function ReadUInt64(ByVal Section As String, ByVal Key As String, ByVal [Default] As Long) As ULong
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -719,7 +721,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Double. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadDouble(ByVal Section As String, ByVal Key As String) As Double
+    Public Function ReadDouble(ByVal Section As String, ByVal Key As String) As Double
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -743,7 +745,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Double. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadDouble(ByVal Section As String, ByVal Key As String, ByVal [Default] As Double) As Double
+    Public Function ReadDouble(ByVal Section As String, ByVal Key As String, ByVal [Default] As Double) As Double
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -766,7 +768,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <returns>Значение Date. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadDate(ByVal Section As String, ByVal Key As String) As Date
+    Public Function ReadDate(ByVal Section As String, ByVal Key As String) As Date
         Try
             Dim ret = Treatment(ReadString(Section, Key))
             If ret = "" Then
@@ -790,7 +792,7 @@ Public Class IniFiles
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Default">Значение возвращаемое по умолчанию.</param>
     ''' <returns>Значение Date. Nothing - если ключ пустой/не существует, или преобразование невозможно.</returns>
-    Public Overloads Function ReadDate(ByVal Section As String, ByVal Key As String, ByVal [Default] As Date) As Date
+    Public Function ReadDate(ByVal Section As String, ByVal Key As String, ByVal [Default] As Date) As Date
         Try
             Dim ret = Treatment(ReadString(Section, Key, Convert.ToString([Default])))
             If ret = "" Then
@@ -815,9 +817,13 @@ Public Class IniFiles
     ''' <param name="Default">Значение по умолчанию.</param>
     ''' <param name="ReturnedValue">Полученное значение ключа.</param>
     ''' <returns>True - если было что-то прочитано.</returns>
-    Public Overloads Function ReadString(ByVal Section As String, ByVal Key As String, ByVal [Default] As String, ByRef ReturnedValue$) As Boolean
+    Public Function ReadString(ByVal Section As String, ByVal Key As String, ByVal [Default] As String, ByRef ReturnedValue$) As Boolean
         Return InternalReadString(Section, Key, [Default], ReturnedValue, EIniAtoms.Key)
     End Function
+
+#End Region
+
+#Region " === WRITE === "
 
     ''' <summary>
     ''' Изменить значение ключа в формате строки.
@@ -825,8 +831,8 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение String.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As String)
-        If [Imports].WritePrivateProfileString(Section, Key, Value, p_fullFileName) = 0 Then
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As String)
+        If [Imports].WritePrivateProfileString(Section, Key, " " & Value, p_fullFileName) = 0 Then
             GenerateError()
         End If
     End Sub
@@ -837,7 +843,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Boolean.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Boolean)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Boolean)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -847,7 +853,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Byte.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Byte)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Byte)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -857,7 +863,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Short.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Short)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Short)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -867,7 +873,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Integer.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Integer)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Integer)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -877,7 +883,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Long.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Long)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Long)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -887,7 +893,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Double.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Double)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Double)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -897,7 +903,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Date.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Date)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Date)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -907,7 +913,7 @@ Public Class IniFiles
     ''' <param name="Section">Секция.</param>
     ''' <param name="Key">Ключ.</param>
     ''' <param name="Value">Значение Object.</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Object)
+    Public Sub Write(ByVal Section As String, ByVal Key As String, ByVal Value As Object)
         Write(Section, Key, Convert.ToString(Value))
     End Sub
 
@@ -916,11 +922,13 @@ Public Class IniFiles
     ''' </summary>
     ''' <param name="Section">Секция.</param>
     ''' <param name="Values">Hashtable</param>
-    Public Overloads Sub Write(ByVal Section As String, ByVal Values As Hashtable)
+    Public Sub Write(ByVal Section As String, ByVal Values As Hashtable)
         For Each de As DictionaryEntry In Values
             Write(Section, de.Key.ToString, de.Value)
         Next
     End Sub
+
+#End Region
 
     ''' <summary>
     ''' Создать секцию.

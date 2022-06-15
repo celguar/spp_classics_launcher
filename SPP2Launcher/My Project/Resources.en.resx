@@ -420,4 +420,7 @@
   <data name="P070_PathWowClient" xml:space="preserve">
     <value>Specify the path to the WoW client (wow.exe)</value>
   </data>
+  <data name="P071_Saved" xml:space="preserve">
+    <value>Settings successfully saved!</value>
+  </data>
 </root>

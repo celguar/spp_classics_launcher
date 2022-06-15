@@ -1,5 +1,5 @@
 ﻿
-Public Class ServerSettings
+Public Class MangosSettings
 
     Sub New()
         InitializeComponent()

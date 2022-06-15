@@ -28,6 +28,12 @@ Public Class Launcher
     Friend ReadOnly Property IniPlayerBots As IniFiles
 
     ''' <summary>
+    ''' Файл конфигурации Auction House Bot.
+    ''' </summary>
+    ''' <returns></returns>
+    Friend ReadOnly Property IniAHBot As IniFiles
+
+    ''' <summary>
     ''' Флаг требования запуска сервера Realmd.
     ''' </summary>
     ''' <returns></returns>
@@ -375,6 +381,16 @@ Public Class Launcher
 #Region " === ЛАУНЧЕР === "
 
     ''' <summary>
+    ''' МЕНЮ - БОТЫ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub TSMI_Bots_Click(sender As Object, e As EventArgs) Handles TSMI_Bots.Click
+        Dim fBots As New BotSettings
+        fBots.ShowDialog()
+    End Sub
+
+    ''' <summary>
     ''' МЕНЮ - АККАУНТЫ
     ''' </summary>
     ''' <param name="sender"></param>
@@ -385,7 +401,7 @@ Public Class Launcher
                             My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
             Dim fAccounts As New Accounts
-            Dim res = fAccounts.ShowDialog()
+            fAccounts.ShowDialog()
         End If
     End Sub
 
@@ -527,6 +543,7 @@ Public Class Launcher
                 _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\aiplayerbot.conf")
+                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\vanilla\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\"
@@ -536,9 +553,10 @@ Public Class Launcher
 
             Case GV.EModule.Tbc.ToString
                 srv = "The Burning Crusade"
-                _iniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\realmd.conf")
+                _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\aiplayerbot.conf")
+                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\tbc\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\"
@@ -548,9 +566,10 @@ Public Class Launcher
 
             Case GV.EModule.Wotlk.ToString
                 srv = "Wrath of the Lich King"
-                _iniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\realmd.conf")
+                _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\aiplayerbot.conf")
+                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\wotlk\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\"

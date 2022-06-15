@@ -260,6 +260,7 @@ Partial Class Launcher
         '
         'TSMI_Bots
         '
+        Me.TSMI_Bots.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.bot
         Me.TSMI_Bots.Name = "TSMI_Bots"
         resources.ApplyResources(Me.TSMI_Bots, "TSMI_Bots")
         '

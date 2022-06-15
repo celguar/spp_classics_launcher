@@ -804,6 +804,7 @@ Module SPP2Helper
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
                     'GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd))
+                    GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd)
                 Else
                     ' Процесс завершился
                     GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(String.Format(My.Resources.P045_ServerStopped, "World")))

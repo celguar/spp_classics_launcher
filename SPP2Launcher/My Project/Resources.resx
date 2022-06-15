@@ -523,7 +523,13 @@
   <data name="P069_Timeout" xml:space="preserve">
     <value>Таймаут выполения команды.</value>
   </data>
+  <data name="bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="P070_PathWowClient" xml:space="preserve">
     <value>Укажите путь к клиенту WoW (wow.exe)</value>
+  </data>
+  <data name="P071_Saved" xml:space="preserve">
+    <value>Настройки успешно сохранены!</value>
   </data>
 </root>

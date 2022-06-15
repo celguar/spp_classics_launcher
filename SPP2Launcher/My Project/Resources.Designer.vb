@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property bot() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bot", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property close() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("close", resourceCulture)
@@ -1156,6 +1166,15 @@ Namespace My.Resources
         Friend ReadOnly Property P070_PathWowClient() As String
             Get
                 Return ResourceManager.GetString("P070_PathWowClient", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Настройки успешно сохранены!.
+        '''</summary>
+        Friend ReadOnly Property P071_Saved() As String
+            Get
+                Return ResourceManager.GetString("P071_Saved", resourceCulture)
             End Get
         End Property
         

@@ -125,6 +125,12 @@
     <Compile Include="Forms\AccountChange.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\BotSettings.Designer.vb">
+      <DependentUpon>BotSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BotSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ChangePathRepack.Designer.vb">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </Compile>
@@ -184,10 +190,10 @@
     <Compile Include="Forms\ServerSelector.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ServerSettings.Designer.vb">
-      <DependentUpon>ServerSettings.vb</DependentUpon>
+    <Compile Include="Forms\MangosSettings.Designer.vb">
+      <DependentUpon>MangosSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ServerSettings.vb">
+    <Compile Include="Forms\MangosSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Splash.Designer.vb">
@@ -231,6 +237,9 @@
     <EmbeddedResource Include="Forms\ApacheSettings.resx">
       <DependentUpon>ApacheSettings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BotSettings.resx">
+      <DependentUpon>BotSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePathRepack.en.resx">
       <DependentUpon>ChangePathRepack.vb</DependentUpon>
     </EmbeddedResource>
@@ -273,11 +282,11 @@
     <EmbeddedResource Include="Forms\ServerSelector.resx">
       <DependentUpon>ServerSelector.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ServerSettings.en.resx">
-      <DependentUpon>ServerSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\MangosSettings.en.resx">
+      <DependentUpon>MangosSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ServerSettings.resx">
-      <DependentUpon>ServerSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\MangosSettings.resx">
+      <DependentUpon>MangosSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Splash.resx">
       <DependentUpon>Splash.vb</DependentUpon>
