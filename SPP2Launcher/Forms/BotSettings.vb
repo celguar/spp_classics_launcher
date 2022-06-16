@@ -186,12 +186,17 @@ Public Class BotSettings
     ''' <param name="caller">TextBox вызвавший проверку.</param>
     ''' <returns></returns>
     Private Function IsInteger(caller As TextBox, min As Integer, max As Integer) As String
-        Dim res = CInt(caller.Text)
-        If res < min Or res > max Then
+        Try
+            Dim res = CInt(caller.Text)
+            If res < min Or res > max Then
+                caller.BackColor = Color.Coral
+                Throw New Exception(String.Format(My.Resources.P072_IllegalNumber, min, max))
+            End If
+            Return res.ToString
+        Catch ex As Exception
             caller.BackColor = Color.Coral
-            Throw New Exception(String.Format(My.Resources.P072_IllegalNumber, min, max))
-        End If
-        Return res.ToString
+            Throw New Exception(ex.Message)
+        End Try
     End Function
 
 End Class

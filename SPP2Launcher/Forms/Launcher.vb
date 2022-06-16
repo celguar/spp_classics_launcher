@@ -590,8 +590,8 @@ Public Class Launcher
         _CurrentWorldConsoleFilter = My.Settings.ConsoleMessageFilter
 
         ' Выводим имя в заголовок
-        Dim ass = Assembly.GetExecutingAssembly
-        Text = My.Resources.P010_LauncherCaption & " : " & srv
+        Dim fv = FileVersionInfo.GetVersionInfo(Application.ExecutablePath)
+        Text = My.Resources.P010_LauncherCaption & " (" & fv.FileVersion & ")" & " : " & srv
 
         ' Инициализируем MySQL
         GV.SQL = New MySqlProvider()
