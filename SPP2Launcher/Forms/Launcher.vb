@@ -1,4 +1,5 @@
 ﻿
+Imports System.Reflection
 Imports System.Threading
 
 Public Class Launcher
@@ -237,7 +238,7 @@ Public Class Launcher
         If Not IO.Directory.Exists(cat & "\Saves\wotlk") Then IO.Directory.CreateDirectory(cat & "\Saves\wotlk")
         If Not IO.Directory.Exists(cat & "\Saves\wotlk\autosave") Then IO.Directory.CreateDirectory(cat & "\Saves\wotlk\autosave")
 
-        ' Исправляем СТАРЫЕ параметры
+        ' Исправляем СТАРЫЕ параметры .cfg
         If My.Settings.ApacheClassicIntHost = "ANY" Then My.Settings.ApacheClassicIntHost = "0.0.0.0"
         If My.Settings.ApacheTbcIntHost = "ANY" Then My.Settings.ApacheTbcIntHost = "0.0.0.0"
         If My.Settings.ApacheWotlkIntHost = "ANY" Then My.Settings.ApacheWotlkIntHost = "0.0.0.0"
@@ -396,7 +397,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_Accounts_Click(sender As Object, e As EventArgs) Handles TSMI_Accounts.Click
-        If Not _mysqlON Then
+        If Not _MysqlON Then
             MessageBox.Show(My.Resources.P054_NeedMySQL,
                             My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
@@ -411,7 +412,7 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_QuickSettings_Click(sender As Object, e As EventArgs) Handles TSMI_QuickSettings.Click
-        If Not _mysqlON Then
+        If Not _MysqlON Then
             MessageBox.Show(My.Resources.P054_NeedMySQL,
                             My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
@@ -479,7 +480,7 @@ Public Class Launcher
         _NeedExitLauncher = False
         _NeedServerStop = True
         _MySqlLOCKED = False
-        _serversLOCKED = False
+        _ServersLOCKED = False
         If _ApacheLOCKED Then _ApacheLOCKED = False : ShutdownApache()
         ShutdownWorld(True)
         'Button_UnlockAll.Visible = False
@@ -543,7 +544,7 @@ Public Class Launcher
                 _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\aiplayerbot.conf")
-                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\vanilla\ahbot.conf")
+                _IniAhBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\vanilla\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\vanilla\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\vanilla\"
@@ -556,7 +557,7 @@ Public Class Launcher
                 _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\aiplayerbot.conf")
-                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\tbc\ahbot.conf")
+                _IniAhBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\tbc\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\tbc\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\tbc\"
@@ -569,7 +570,7 @@ Public Class Launcher
                 _IniRealmd = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\realmd.conf")
                 _IniWorld = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\mangosd.conf")
                 _IniPlayerBots = New IniFiles(My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\aiplayerbot.conf")
-                _IniAHBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\wotlk\ahbot.conf")
+                _IniAhBot = New IniFiles(My.Settings.DirSPP2 & "\" & "\" & SPP2SETTINGS & "\wotlk\ahbot.conf")
                 My.Settings.CurrentFileRealmd = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\realmd.exe"
                 My.Settings.CurrentFileWorld = My.Settings.DirSPP2 & "\" & SPP2CMANGOS & "\wotlk\Bin64\mangosd.exe"
                 My.Settings.CurrentServerSettings = My.Settings.DirSPP2 & "\" & SPP2SETTINGS & "\wotlk\"
@@ -589,6 +590,7 @@ Public Class Launcher
         _CurrentWorldConsoleFilter = My.Settings.ConsoleMessageFilter
 
         ' Выводим имя в заголовок
+        Dim ass = Assembly.GetExecutingAssembly
         Text = My.Resources.P010_LauncherCaption & " : " & srv
 
         ' Инициализируем MySQL
@@ -706,9 +708,9 @@ Public Class Launcher
 
                         ' Поверяем процесс World
                         If CheckProcess(EProcess.world) Then
-                            _serversLOCKED = True
+                            _ServersLOCKED = True
                         Else
-                            _serversLOCKED = False
+                            _ServersLOCKED = False
                             ' Однако проверим процесс Realmd и на всякий случай его кокнем
                             CheckProcess(EProcess.realmd, True)
                         End If
@@ -717,7 +719,7 @@ Public Class Launcher
                 End If
 
                 ' Обустраиваем вкладки
-                If _ApacheLOCKED Or _MySqlLOCKED Or _serversLOCKED Then
+                If _ApacheLOCKED Or _MySqlLOCKED Or _ServersLOCKED Then
                     TabPage_MySQL.Text = "Errors"
                     TabControl1.SelectedTab = TabPage_MySQL
                 Else
@@ -726,7 +728,7 @@ Public Class Launcher
 
                 ' Обустраиваем меню MySQL
                 If My.Settings.UseIntMySQL Then
-                    If _serversLOCKED Then
+                    If _ServersLOCKED Then
                         TSMI_MySqlStart.Enabled = False
                         TSMI_MySqlRestart.Enabled = False
                         TSMI_MySqlStop.Enabled = False
@@ -767,7 +769,7 @@ Public Class Launcher
                 End If
 
                 ' Обустраиваем меню Server
-                If MySqlLOCKED Or _serversLOCKED Then
+                If MySqlLOCKED Or _ServersLOCKED Then
                     TSMI_ServerStart.Enabled = False
                     TSMI_ServerStop.Enabled = False
                 Else
@@ -805,7 +807,7 @@ Public Class Launcher
                 End If
 
                 ' Отображение кнопки блокировки/разблокировки всех серверов
-                If MySqlLOCKED Or ApacheLOCKED Or _serversLOCKED Then
+                If MySqlLOCKED Or ApacheLOCKED Or _ServersLOCKED Then
                     RichTextBox_ConsoleMySQL.Clear()
                     Button_UnlockAll.Visible = True
                     ' Запрещаем доступ до сброса настроек
@@ -827,7 +829,7 @@ Public Class Launcher
                     GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked08 & vbCrLf, QCONSOLE))
                 End If
 
-                If _serversLOCKED Then
+                If _ServersLOCKED Then
                     GV.Log.WriteWarning(OutMySqlConsole(String.Format(My.Resources.P046_ProcessDetected, "mangosd.exe"), ECONSOLE))
                     GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked05, WCONSOLE))
                     GV.Log.WriteWarning(OutMySqlConsole(My.Resources.P047_Locked06, WCONSOLE))
@@ -892,7 +894,7 @@ Public Class Launcher
     ''' </summary>
     Private Sub Backup()
         Try
-            If _mysqlON Then
+            If _MysqlON Then
                 Dim suffix = Strings.Format(Date.Now, "yyyy-MM-dd HH-mm-ss")
                 UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "REALMD"), QCONSOLE)
                 MySqlDataBases.Backup.REALMD(suffix, True)
@@ -1209,16 +1211,16 @@ Public Class Launcher
 
             If Not ac.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1), False) Then
                 tcpClient.Close()
-                _mysqlON = False
+                _MysqlON = False
             Else
-                _mysqlON = True
+                _MysqlON = True
                 tcpClient.EndConnect(ac)
                 tcpClient.Close()
             End If
 
         Catch ex As Exception
             GV.Log.WriteException(ex)
-            _mysqlON = False
+            _MysqlON = False
 
         Finally
 
@@ -1231,13 +1233,13 @@ Public Class Launcher
                 If Not NeedServerStop Then
 
                     ' Автозапуск сервера Apache кроме как если не ручная остановка 
-                    If _mysqlON And My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not CheckProcess(EProcess.apache) Then
+                    If _MysqlON And My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not _apacheSTOP And Not CheckProcess(EProcess.apache) Then
                         ChangeApacheMenu(False, True, True)
                         StartApache()
                     End If
 
                     ' Поступил запрос на запуск серверов WoW
-                    If _NeedServerStart And _mysqlON Then
+                    If _NeedServerStart And _MysqlON Then
 
                         ' Автозапуск сервера Apache если конкретная команда запуска серверов
                         If My.Settings.UseIntApache And My.Settings.ApacheAutostart And Not CheckProcess(EProcess.apache) Then
@@ -1263,7 +1265,7 @@ Public Class Launcher
                         ' Выключаем флаг ручного запуска сервера
                         _NeedServerStart = False
 
-                    ElseIf My.Settings.UseIntMySQL And Not _mysqlON Then
+                    ElseIf My.Settings.UseIntMySQL And Not _MysqlON Then
 
                         ' Надо изменить меню MySQL - ВСЁ РАЗРЕШЕНО
                         ChangeMySqlMenu(True, True, True)
@@ -1284,7 +1286,7 @@ Public Class Launcher
             Else
 
                 ' Запуск если надо
-                If _needServerStart And _mysqlON Then
+                If _NeedServerStart And _MysqlON Then
                     Dim a = 1
                 Else
                     ' MySQL молчит!
@@ -1337,8 +1339,8 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheStart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheStart.Click
-        If Not _apacheLOCKED Then
-            If Not CheckProcess(EProcess.apache) And _mysqlON Then
+        If Not _ApacheLOCKED Then
+            If Not CheckProcess(EProcess.apache) And _MysqlON Then
                 _apacheSTOP = False
                 ' Изменяем меню
                 ChangeApacheMenu(False, True, True)
@@ -1356,10 +1358,10 @@ Public Class Launcher
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub TSMI_ApacheRestart_Click(sender As Object, e As EventArgs) Handles TSMI_ApacheRestart.Click
-        If Not _apacheLOCKED Then
+        If Not _ApacheLOCKED Then
             _apacheSTOP = False
             ShutdownApache()
-            If _mysqlON Then
+            If _MysqlON Then
                 If My.Settings.ApacheAutostart Then
                     ' Меняем меню
                     ChangeApacheMenu(False, False, True)
@@ -1412,7 +1414,7 @@ Public Class Launcher
     ''' Запускает сервер Apache.
     ''' </summary>
     Friend Sub StartApache()
-        If Not _ApacheLOCKED And Not _MySqlLOCKED And Not _serversLOCKED And Not _NeedExitLauncher Then
+        If Not _ApacheLOCKED And Not _MySqlLOCKED And Not _ServersLOCKED And Not _NeedExitLauncher Then
             If Not CheckProcess(EProcess.apache) Then
                 GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P042_ServerStart, "Apache"), CONSOLE))
                 ' Разбираемся с настройками Apache
@@ -1479,7 +1481,7 @@ Public Class Launcher
     ''' Выключает встренный сервер Apache.
     ''' </summary>
     Friend Sub ShutdownApache()
-        If Not _apacheLOCKED Then
+        If Not _ApacheLOCKED Then
             GV.Log.WriteInfo(UpdateMySQLConsole(String.Format(My.Resources.P044_ServerStop, "Apache"), CONSOLE))
             Try
                 ' Сначала так
@@ -1638,7 +1640,7 @@ Public Class Launcher
     ''' </summary>
     Friend Sub StartWorld(obj As Object)
         SyncLock lockWorld
-            If Not _worldON Then
+            If Not _WorldON Then
                 If CheckProcess(EProcess.mysqld) And Not _NeedExitLauncher And Not NeedServerStop And IsNothing(_WorldProcess) Then
 
                     Do
@@ -1741,11 +1743,11 @@ Public Class Launcher
                     End If
 
                     ' Правим файл конфигурации World
-                    _iniWorld.Write("MangosdConf", "LoginDatabaseInfo", login)
-                    _iniWorld.Write("MangosdConf", "WorldDatabaseInfo", world)
-                    _iniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
-                    _iniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
-                    _iniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
+                    _IniWorld.Write("MangosdConf", "LoginDatabaseInfo", login)
+                    _IniWorld.Write("MangosdConf", "WorldDatabaseInfo", world)
+                    _IniWorld.Write("MangosdConf", "CharacterDatabaseInfo", characters)
+                    _IniWorld.Write("MangosdConf", "LogsDatabaseInfo", logs)
+                    _IniWorld.Write("MangosdConf", "PlayerbotDatabaseInfo", playerbots)
 
                     ' Создаём информацию о процессе
                     Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileWorld) With {
@@ -1816,7 +1818,7 @@ Public Class Launcher
         Dim id = 0
 
         ' Если серверы заблокированы но надо выйти из приложения - не гасим серверы WoW!
-        If Not (_serversLOCKED And _NeedExitLauncher) Then
+        If Not (_ServersLOCKED And _NeedExitLauncher) Then
             ' Идём глядеть
             If pc.Count > 0 Then
                 For Each process In pc
@@ -1835,7 +1837,7 @@ Public Class Launcher
                                 If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
                                 Try
                                     process.Kill()
-                                    _worldON = False
+                                    _WorldON = False
                                     _WorldProcess = Nothing
                                 Catch
                                 End Try
@@ -1846,7 +1848,7 @@ Public Class Launcher
                     End Try
                 Next
             Else
-                _worldON = False
+                _WorldON = False
                 ' Удалям хандлеры, если таковые были
                 If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
                 _WorldProcess = Nothing
@@ -1869,9 +1871,9 @@ Public Class Launcher
     ''' </summary>
     Friend Sub CheckWorld()
         Try
-            Dim host = _iniWorld.ReadString("MangosdConf", "BindIP", "127.0.0.1")
+            Dim host = _IniWorld.ReadString("MangosdConf", "BindIP", "127.0.0.1")
             If host = "0.0.0.0" Then host = "127.0.0.1"
-            Dim port = _iniWorld.ReadString("MangosdConf", "WorldServerPort", "8085")
+            Dim port = _IniWorld.ReadString("MangosdConf", "WorldServerPort", "8085")
             Dim tcpClient = New Net.Sockets.TcpClient
             Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
 
@@ -1991,7 +1993,7 @@ Public Class Launcher
                     End If
 
                     ' Правим файл конфигурации Realmd
-                    _iniRealmd.Write("RealmdConf", "LoginDatabaseInfo", value)
+                    _IniRealmd.Write("RealmdConf", "LoginDatabaseInfo", value)
 
                     ' Создаём информацию о процессе
                     Dim startInfo = New ProcessStartInfo(My.Settings.CurrentFileRealmd) With {
@@ -2054,7 +2056,7 @@ Public Class Launcher
     ''' Останавливает сервер Realmd.
     ''' </summary>
     Friend Sub ShutdownRealmd()
-        If Not _serversLOCKED Then
+        If Not _ServersLOCKED Then
             CheckProcess(EProcess.realmd, True)
             _RealmdON = False
             ' Удаляем хандлеры, если таковые были
@@ -2069,9 +2071,9 @@ Public Class Launcher
     Friend Sub CheckRealmd()
         Try
             ' Сначала проверяем наличие процесса
-            Dim host = _iniRealmd.ReadString("RealmdConf", "BindIP", "127.0.0.1")
+            Dim host = _IniRealmd.ReadString("RealmdConf", "BindIP", "127.0.0.1")
             If host = "0.0.0.0" Then host = "127.0.0.1"
-            Dim port = _iniRealmd.ReadString("RealmdConf", "RealmServerPort", "3724")
+            Dim port = _IniRealmd.ReadString("RealmdConf", "RealmServerPort", "3724")
             Dim tcpClient = New Net.Sockets.TcpClient
             Dim ac = tcpClient.BeginConnect(host, CInt(port), Nothing, Nothing)
 
@@ -2129,7 +2131,7 @@ Public Class Launcher
     ''' <param name="e"></param>
     Private Sub TSMI_CloseLauncher_Click(sender As Object, e As EventArgs) Handles TSMI_CloseLauncher.Click
         ' Выводим предупреждение
-        Dim str = If(_MySqlLOCKED Or _apacheLOCKED Or _serversLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
+        Dim str = If(_MySqlLOCKED Or _ApacheLOCKED Or _ServersLOCKED, My.Resources.P050_Exit2, My.Resources.P050_Exit1)
         Dim result = MessageBox.Show(str, My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If result = DialogResult.Yes Then
             ShutdownAll(True)
@@ -2688,7 +2690,7 @@ Public Class Launcher
 
                             If Not _WorldON Then
 
-                                If _mysqlON Then
+                                If _MysqlON Then
 
                                     ' Запрещаем доступ к повторному запуску MySQL
                                     TSMI_MySqlStart.Enabled = False

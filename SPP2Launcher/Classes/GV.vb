@@ -196,11 +196,11 @@ Public Class GV
         Log.WriteInfo(My.Resources.P001_BaseInit)
 
         If IO.Directory.Exists(Application.StartupPath & "\SPP_Server") Then
-            My.Settings.DirSPP2 = Application.StartupPath & "\SPP_Server"
+            My.Settings.DirSPP2 = Application.StartupPath
             My.Settings.FirstStart = False
         Else
             Dim parent = IO.Path.GetDirectoryName(Application.StartupPath & ".txt")
-            If IO.Directory.Exists(parent) Then
+            If IO.Directory.Exists(parent & "\SPP_Server") Then
                 My.Settings.DirSPP2 = parent
                 My.Settings.FirstStart = False
             End If
