@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CheckBox_PlayerbotsEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 17</value>
+  </data>
+  <data name="CheckBox_PlayerbotsEnabled.Text" xml:space="preserve">
+    <value>Allow game random bots</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 13</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Number of accounts for bots:</value>
+  </data>
+  <data name="GroupBox_MainPB.Text" xml:space="preserve">
+    <value>Basic settings</value>
+  </data>
+  <data name="CheckBox_EnableGuildTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 17</value>
+  </data>
+  <data name="CheckBox_EnableGuildTasks.Text" xml:space="preserve">
+    <value>Enable Guild Quest System</value>
+  </data>
+  <data name="CheckBox_RandomBotJoinBG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 17</value>
+  </data>
+  <data name="CheckBox_RandomBotJoinBG.Text" xml:space="preserve">
+    <value>Allow Battlegrounds and Arenas for random bots</value>
+  </data>
+  <data name="CheckBox_RandomBotAutologin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 17</value>
+  </data>
+  <data name="CheckBox_RandomBotAutologin.Text" xml:space="preserve">
+    <value>Random connection of bots at startup</value>
+  </data>
+  <data name="CheckBox_RandomBotJoinLfg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
+  </data>
+  <data name="CheckBox_RandomBotJoinLfg.Text" xml:space="preserve">
+    <value>Allow groups (LFG) for random bots</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Min/Max bot level:</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 13</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Min/Max number of bots:</value>
+  </data>
+  <data name="GroupBox_OtherPB.Text" xml:space="preserve">
+    <value>Other settings</value>
+  </data>
+  <data name="GroupBox_MapsPB.Text" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="CheckBox_Eastern.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 17</value>
+  </data>
+  <data name="CheckBox_Eastern.Text" xml:space="preserve">
+    <value>Eastern Kingdoms</value>
+  </data>
+  <data name="CheckBox_Northrend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="CheckBox_Northrend.Text" xml:space="preserve">
+    <value>Northrend</value>
+  </data>
+  <data name="CheckBox_Kalimdor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 17</value>
+  </data>
+  <data name="CheckBox_Kalimdor.Text" xml:space="preserve">
+    <value>Kalimdor</value>
+  </data>
+  <data name="CheckBox_Outland.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 17</value>
+  </data>
+  <data name="CheckBox_Outland.Text" xml:space="preserve">
+    <value>Outlands</value>
+  </data>
+  <data name="CheckBox_AutoEquipUpgradeLoot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 17</value>
+  </data>
+  <data name="CheckBox_AutoEquipUpgradeLoot.Text" xml:space="preserve">
+    <value>Automatically use the best equipment</value>
+  </data>
+  <data name="CheckBox_RandomBotGroupNearby.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 17</value>
+  </data>
+  <data name="CheckBox_RandomBotGroupNearby.Text" xml:space="preserve">
+    <value>Allow bots to create their own groups</value>
+  </data>
+  <data name="CheckBox_EnableGreet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
+  <data name="CheckBox_EnableGreet.Text" xml:space="preserve">
+    <value>Allow bots to greet players</value>
+  </data>
+  <data name="CheckBox_GearScoreCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 17</value>
+  </data>
+  <data name="CheckBox_GearScoreCheck.Text" xml:space="preserve">
+    <value>Reject invitations from weaker players</value>
+  </data>
+  <data name="CheckBox_AhBotEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 17</value>
+  </data>
+  <data name="CheckBox_AhBotEnabled.Text" xml:space="preserve">
+    <value>Allow the use of the auction  house bot</value>
+  </data>
+  <data name="GroupBox_MainAhBot.Text" xml:space="preserve">
+    <value>Basic settings</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 17</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Text" xml:space="preserve">
+    <value>Allow items higher than epic</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 13</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>The chance of items spawning is higher than epic</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 13</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Min/Max auction duration:</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 13</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Min/Max starting price of items:</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 13</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>Chances of buying/selling items:</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Removing bots</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value> If you haven't rebooted the server yet, you can cancel the removal of bots. However, this command will not bring back already deleted bots!</value>
+  </data>
+  <data name="Button_CancelRemove.Text" xml:space="preserve">
+    <value>Cancel deletion</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value> Remove all random bots without excluding.</value>
+  </data>
+  <data name="Button_RemoveAllBots.Text" xml:space="preserve">
+    <value>Remove all bots</value>
+  </data>
+  <data name="Button_RemoveBots.Text" xml:space="preserve">
+    <value>Remove bots</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value> Deleting all bots, except those that are friends or belong to a guild created by the player (real guild).
+</value>
+  </data>
+  <data name="Button_Save.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAMAICAAAAEAIAAoEAAANgAAABgYAAABACAAKAkAAF4QAAAQEAAAAQAgACgEAACGGQAAKAAAACAA
+        AABAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAZmZmBVxcXC9ZWVlkWlpab1paWlhXV1cjAAAAAAAAAABcXFwkXV1dWFpa
+        Wm9ZWVlkV1dXL2ZmZgUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcXFxFW1tboltbW9ZbW1viWlpay1tbW3lYWFgaVVVVG1xc
+        XHpeXl7LW1tb4ltbW9ZaWlqiWlpaRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFtbW5FdXV3/XV1d/11dXf9fX1//W1tbzFpa
+        Wm5aWlpvW1tbzF9fX/9dXV3/XV1d/1xcXP9aWlqRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXFxckF5eXv9eXl7/XV1d/15e
+        Xv9ZWVnvWlpaxlpaWsZbW1vuXl5e/11dXf9eXl7/XV1d/1paWpEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABdXV1NWFhYx1xc
+        XP9dXV3/W1tb/1lZWf1aWlr4Wlpa+FtbW/xbW1v/XV1d/1tbW/9ZWVnIWVlZTQAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeXl4TWlpaNl1d
+        XTRYWFh3WVlZ5lxcXP5cXFz/W1tb/1xcXP9cXFz/W1tb/1xcXP9aWlr9WVlZ5FlZWXZdXV00WlpaNl5e
+        XhMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXV1dFlpa
+        WmlYWFiwW1tbV1tbW0xbW1vMWVlZ/V1dXf9bW1v/W1tb/1tbW/9bW1v/XV1d/1tbW/xaWlrJWFhYS1tb
+        W1dbW1uwXFxcaV1dXRYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABbW1tGWFhY2VpaWvhcXFxkW1tbTFpaWttcXFz/XFxc/1tbW/9bW1v/W1tb/1tbW/9cXFz/W1tb/ldX
+        V9pVVVVOXFxcZFxcXPhaWlrZWlpaRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAFhYWF1cXFz/X19f/1tbW3NZWVlTWVlZ0FtbW/xcXFz/W1tb/1xcXP9cXFz/W1tb/1xc
+        XP9cXFz8WVlZ0FtbW1RcXFxyYGBg/1xcXP9ZWVlfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAWVlZVllZWfZdXV3/WVlZklpaWl1ZWVmuWVlZ9GFhYf9eXl7/W1tb/1tb
+        W/9eXl7/YWFh/1lZWfRZWVmuXFxcXltbW5JdXV3/V1dX9FhYWFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYWFg6WVlZwVtbW/5bW1vGWlpak1tbW7ZaWlryXV1d8ltb
+        W9RaWlq1WlpatVtbW9RdXV3yW1tb81xcXLVaWlqTW1tbxltbW/5ZWVm/WFhYOgAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFVVVRJaWlpvW1tb6F9fX/lbW1vuXV1d8Vxc
+        XPxcXFy0XFxcTltbWxxbW1scXFxcTlxcXLRZWVn9XV1d8VtbW+5fX1/5W1tb6F1dXW5aWloRAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFpaWh9cXFyZW1tb92Nj
+        Y/9hYWH/XFxc/1lZWY9VVVUMAAAAAAAAAABVVVUMXFxcjltbW/9hYWH/ZGRk/1tbW/dbW1uYXV1dHgAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVVVVA1VVVRhaWloiW1tbHFlZ
+        WUJaWlqRXl5e1l1dXf5cXFz/XFxcv1tbW3tbW1toW1tbaFtbW3tbW1u+XFxc/1xcXP5eXl7WWlpakVxc
+        XEBbW1scWlpaIlVVVRhVVVUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgCFpaWiVdXV1SW1tbeVxc
+        XI1dXV18WlpaW1hYWF1bW1uoWlpa+19fX/9cXFz/WVlZ9FtbW+tbW1vrWVlZ9FxcXP9fX1//Wlpa+1tb
+        W6haWlpdWlpaW11dXXxcXFyNW1tbeVpaWlJaWlolYGBgCAAAAAAAAAAAAAAAAFVVVQZbW1tRW1tbs1pa
+        WuFcXFzrWlpa71xcXOtbW1vgWFhYx1lZWdFYWFj2Wlpa/lhYWOZaWlq8W1tboltbW6JaWlq8WVlZ5ltb
+        W/5bW1v2Wlpa0VhYWMdbW1vgXFxc61paWu9cXFzrWlpa4VhYWLNbW1tRSUlJBwAAAABVVVUDXFxcW1pa
+        WslaWlr9YWFh/2BgYP9fX1//YGBg/2BgYP9bW1v/WVlZ/FhYWN9aWlqOWVlZUFtbW0ZeXl5XW1tbV1tb
+        W0ZcXFxQXFxcjltbW99bW1v8XFxc/2BgYP9gYGD/X19f/2BgYP9hYWH/Wlpa/VpaWslaWlpbVVVVA11d
+        XTRaWlq5YGBg/11dXf9bW1v/W1tb/1tbW/9bW1v/XFxc/11dXf9ZWVnkV1dXflVVVRgAAAAAVVVVGFtb
+        W2tbW1trVVVVGAAAAABgYGAYW1tbfllZWeReXl7/W1tb/1tbW/9bW1v/W1tb/1xcXP9dXV3/X19f/1pa
+        WrhaWlozXV1dgVxcXOZeXl7/XFxc/1tbW/9bW1v/W1tb/1tbW/9cXFz/XFxc+FlZWZpdXV0WQEBABGZm
+        ZgVdXV0pWlpacVpaWnFbW1stVVVVBgAAAAFVVVUVV1dXm1xcXPhcXFz/W1tb/1tbW/9bW1v/W1tb/1xc
+        XP9eXl7/XFxc5VxcXIBbW1u2W1tb/VxcXP9bW1v/W1tb/1tbW/9bW1v/XFxc/1paWv9ZWVnTXV1dXVVV
+        VQZXV1cyXFxcTlxcXDJZWVkXWVlZF1xcXDJcXFxOV1dXMklJSQdaWlpeW1tb1FtbW/5cXFz/W1tb/1tb
+        W/9bW1v/W1tb/11dXf9bW1v9XFxctVpaWtFhYWH/W1tb/1tbW/9bW1v/W1tb/1tbW/9cXFz/Wlpa/1pa
+        WrxfX18+UFBQEFpaWnFaWlrJWlpafQAAAAAAAAAAXFxcTlpaWrpZWVmjXV1dHlxcXDpZWVm9Wlpa/1xc
+        XP9bW1v/W1tb/1tbW/9bW1v/W1tb/2FhYf9ZWVnQWlpa0WFhYf9bW1v/W1tb/1tbW/9bW1v/W1tb/1xc
+        XP9aWlr/WlpazFxcXE5AQEAEW1tbUVpaWrhaWlqCAAAAAAAAAABcXFw6W1tbollZWaBYWFgaXV1dR1pa
+        Ws5aWlr/XFxc/1tbW/9bW1v/W1tb/1tbW/9bW1v/YWFh/1lZWdBbW1u2W1tb/VxcXP9bW1v/W1tb/1tb
+        W/9bW1v/XFxc/1tbW/9bW1vuWlpahVVVVQkAAAAAXFxcL11dXSwAAAAAAAAAAAAAAAFaWloiV1dXLGFh
+        YRVcXFyCXFxc8FtbW/9cXFz/W1tb/1tbW/9bW1v/W1tb/11dXf9bW1v9XFxctVtbW4FZWVnmXl5e/1xc
+        XP9bW1v/W1tb/1tbW/9bW1v/XFxc/15eXv5aWlrKW1tbVGZmZgUAAAAAAAAAAQAAAAAAAAAAAAAAAAAA
+        AABVVVUMXFxcVltbW8leXl7/XFxc/1tbW/9bW1v/W1tb/1tbW/9cXFz/Xl5e/1tbW+VaWlqAWlpaM1tb
+        W7hgYGD/XV1d/1tbW/9bW1v/W1tb/1tbW/9bW1v/Xl5e/1tbW/1aWlrNXFxccl1dXSxVVVUDAAAAAAAA
+        AABJSUkHYGBgLVpaWm5bW1vMW1tb/V5eXv9bW1v/W1tb/1tbW/9bW1v/XFxc/11dXf9fX1//W1tbt1pa
+        WjNVVVUDW1tbWlhYWMdaWlr9YGBg/2BgYP9fX1//YGBg/2BgYP9cXFz/XFxc7llZWexaWlrhW1tbs11d
+        XYdbW1t2W1tbdl1dXYdcXFy0W1tb4FxcXOpcXFzuXV1d/2BgYP9gYGD/X19f/2BgYP9hYWH/Wlpa/VhY
+        WMdYWFhaVVVVAwAAAABVVVUGWVlZUFxcXLJaWlrhWlpa7FpaWvBaWlrsWVlZ5FlZWcJcXFyOWVlZh1lZ
+        WcFbW1viXFxc6ltbW+5bW1vuXFxc6ltbW+JYWFjAXFxchVxcXI5cXFzDWVlZ5FpaWuxaWlrwW1tb7Fpa
+        WuFaWlqyWVlZUFVVVQYAAAAAAAAAAAAAAABgYGAIWlpaJVxcXFZaWlqAWlpakFtbW4FaWlpgXFxcMl1d
+        XRZZWVkUXV1dLF1dXVhaWlp/W1tbkltbW5JaWlp/W1tbV1tbWy1ZWVkUXV1dFl5eXjFaWlpgW1tbgVpa
+        WpBcXFx/XV1dVVpaWiVgYGAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVVVVBltbWxxcXFwkW1tbHF1d
+        XQsAAAAAAAAAAAAAAAAAAAAAVVVVA11dXRZYWFggWFhYIF1dXRZVVVUDAAAAAAAAAAAAAAAAAAAAAF1d
+        XQtbW1scXFxcJF5eXhtmZmYFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAGAAAADAA
+        AAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFxcXDJbW1ujXFxctVpaWndAQEAEZmZmBVtb
+        W3lcXFy1W1tbo1paWjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAFtbW+VbW1v/W1tb/1tbW/9aWlpjW1tbZVtbW/9bW1v/W1tb/1hYWOMAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFtbW+VbW1v/W1tb/1tb
+        W/9bW1vWW1tb1ltbW/9bW1v/W1tb/1lZWeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAFpaWltaWlr7W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/WFhY+lxc
+        XFkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbW1s4W1tbtFpa
+        WiJaWlrAW1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/WlpauVdXVyNbW1u0XV1dNwAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYWFjeW1tb/15eXhtbW1vfW1tb/1tbW/9bW1v/W1tb/1tb
+        W/9bW1v/WFhY3lhYWB1bW1v/W1tb3QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABYWFj0W1tb/1lZWT9bW1u4W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1v/W1tbt1xcXEBbW1v/WVlZ8gAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZWVm/W1tb/1xcXIhaWlqbW1tb/1tb
+        W/9aWlrZWlpa2VtbW/9bW1v/XFxcmVtbW4lbW1v/WlpavAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAABbW1tGW1tb/ltbW/9bW1v/W1tb/1paWmYAAAAAAAAAAFtbW2hbW1v/W1tb/1tb
+        W/9bW1v+W1tbQwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWlpaf1tb
+        W/9bW1v/W1tb/1xcXE4AAAAAAAAAAFpaWk9bW1v/W1tb/1tbW/9aWlp8AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAABXFxcOlxcXG9aWlpuXV1dN1lZWWdbW1v5W1tb/1tbW/taWlr7Wlpa+1pa
+        WvtbW1v/Wlpa+FpaWmZbW1s4WlpablxcXG9ZWVk5AAAAAQAAAAAAAAAAAAAAAFpaWiJbW1vJW1tb/1tb
+        W/9bW1v/W1tb/1paWtlXV1fuWlpa/lpaWsBbW1uJW1tbiVtbW8FaWlr+W1tb7lpaWtlbW1v/W1tb/1tb
+        W/9bW1v/W1tbyFpaWiIAAAAAVVVVFVtbW+JbW1v/W1tb/1tbW/9bW1v/W1tb/1hYWP1ZWVnYWVlZKwAA
+        AABcXFxOWVlZTQAAAABbW1stW1tb2ltbW/xbW1v/W1tb/1tbW/9bW1v/W1tb/1paWuFZWVkUXFxcjltb
+        W/9bW1v/W1tb/1tbW/9bW1v/W1tb/1hYWPRdXV0eAAAAAAAAAABaWlqCW1tbgQAAAAAAAAAAWFhYIFpa
+        WvVbW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9cXFyLW1tb4FtbW/9bW1v/W1tb/1tbW/9bW1v/Wlpa/Fxc
+        XJwAAAAAXFxcTllZWU0AAAAAAAAAAFxcXE5ZWVlNAAAAAFtbW59bW1v8W1tb/1tbW/9bW1v/W1tb/1tb
+        W/9bW1vdW1tb+VtbW/9bW1v/W1tb/1tbW/9bW1v/WVlZ/VxcXIgAAAAAXFxcllhYWPEAAAAAAAAAAFxc
+        XJZYWFjxAAAAAFtbW4pYWFj9W1tb/1tbW/9bW1v/W1tb/1tbW/9aWlr4W1tb4FtbW/9bW1v/W1tb/1tb
+        W/9bW1v/W1tb/FtbW8gAAAAAYmJiDVlZWU0AAAAAAAAAAGJiYg1ZWVlNAAAAAFtbW8xbW1v8W1tb/1tb
+        W/9bW1v/W1tb/1tbW/9bW1vdXFxcjltbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9bW1tzAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAW1tbdltbW/9bW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/9cXFyLVVVVFVtb
+        W+JbW1v/W1tb/1tbW/9bW1v/W1tb/1tbW/5bW1v/XFxcpFlZWTxVVVUSVVVVElxcXD1cXFykW1tb/1tb
+        W/5bW1v/W1tb/1tbW/9bW1v/W1tb/1paWuFZWVkUAAAAAFpaWiJbW1vJW1tb/1tbW/9bW1v/W1tb/1pa
+        WslaWlqQWVlZ8ltbW/9bW1v/W1tb/1tbW/9YWFjxXFxcjlpaWstbW1v/W1tb/1tbW/9bW1v/W1tbyFpa
+        WiIAAAAAAAAAAAAAAAAAAAABXV1dQlpaWndcXFxvW1tbO4CAgAIAAAAAYmJiDVxcXEtbW1twW1tbcFpa
+        WkpiYmINAAAAAICAgAJbW1s7XFxcb1paWndaWlpBAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAABAA
+        AAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWlpaJVtb
+        WzUAAAAAAAAAAVpaWjZcXFwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXl5eOV1d
+        XeNdXV3wW1tbbVpaWm5dXV3wXFxc41tbWzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFtb
+        WzVdXV37YWFh/1paWu1aWlrtYGBg/1tbW/tXV1c1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF1d
+        XSxaWlpSWVlZnV5eXv9dXV3/XV1d/15eXv9ZWVmaWlpaUl1dXSwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AABZWVmrWlpauFpaWoVeXl7/Xl5e/15eXv9eXl7/WVlZhFpaWrpbW1upAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAWVlZmltbW99bW1uYW1tb+1tbW+BbW1vgWlpa+ltbW5hbW1vgW1tbmAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAFpaWh9YWFjbYWFh+1tbW89iYmINW1tbDltbW89hYWH7WFhY211dXR4AAAAAAAAAAAAA
+        AAAAAAAAQEBABFxcXD1eXl5MXFxcZ15eXuNdXV35W1tbo1paWqRdXV35XV1d4lpaWmZeXl5MXFxcPUBA
+        QAQAAAAAXV1dFlpaWq9cXFz4XFxc/FtbW+JWVlboWVlZrlxcXItbW1uKWlpar1hYWOlcXFzjXFxc/Fxc
+        XPhaWlqvXV1dFlxcXJZiYmL/XV1d/11dXf9fX1//WlpaiAAAAABcXFw9XFxcQAAAAABaWlqIYGBg/1xc
+        XP9dXV3/YmJi/1tbW5RaWlrlXl5e/1tbW/9dXV3/Wlpa4WJiYidYWFhrWlpaNlpaWiVaWlpxXFxcL1pa
+        WuJdXV3/W1tb/15eXv9ZWVnjWlpa5V5eXv9bW1v/XV1d/1tbW+1YWFg0XFxcSFdXVyxgYGAIW1tbV1xc
+        XEVbW1vtXV1d/1tbW/9eXl7/WVlZ41xcXJZiYmL/XV1d/1xcXP9hYWH/W1tbwVxcXCQAAAAAAAAAAFpa
+        WiVaWlrDYWFh/1xcXP9dXV3/YmJi/1tbW5RdXV0WWlpar11dXflcXFz+WVlZ6VtbW8FYWFjHWVlZrlpa
+        Wq9YWFjHXFxcwFpaWupcXFz+XV1d+VpaWq9dXV0WAAAAAEBAQARdXV1CXFxcWVdXVylmZmYFW1tbKlpa
+        WmNaWlpjXV1dKWZmZgVXV1cpXFxcWVlZWUJAQEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Random bot settings</value>
+  </data>
+</root>

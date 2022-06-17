@@ -1,4 +1,6 @@
 ﻿
+Imports System.Text.RegularExpressions
+
 Public Class BotSettings
 
     Sub New()
@@ -205,7 +207,24 @@ Public Class BotSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_RemoveBots_Click(sender As Object, e As EventArgs) Handles Button_RemoveBots.Click
-
+        Dim dr = MessageBox.Show(Regex.Unescape(My.Resources.P073_RemoveBots),
+                                 My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If dr = DialogResult.Yes Then
+            Dim res = MySqlDB.PLAYERBOTS.AI_PLAYERBOT_RANDOM_BOTS.DELETE_COMMAND_RESET()
+            If res.Item1 Then
+                MessageBox.Show(res.Item2,
+                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                res = MySqlDB.PLAYERBOTS.AI_PLAYERBOT_RANDOM_BOTS.INSERT_COMMAND_RESET(MySqlDB.PLAYERBOTS.ECommandRemoveBots.Exclude)
+                If res.Item1 Then
+                    MessageBox.Show(res.Item2,
+                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    MessageBox.Show(My.Resources.P076_CommandRemoveBotsApplayed,
+                                    My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -214,7 +233,24 @@ Public Class BotSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_RemoveAllBots_Click(sender As Object, e As EventArgs) Handles Button_RemoveAllBots.Click
-
+        Dim dr = MessageBox.Show(Regex.Unescape(My.Resources.P074_RemoveAllBots),
+                                 My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If dr = DialogResult.Yes Then
+            Dim res = MySqlDB.PLAYERBOTS.AI_PLAYERBOT_RANDOM_BOTS.DELETE_COMMAND_RESET()
+            If res.Item1 Then
+                MessageBox.Show(res.Item2,
+                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                res = MySqlDB.PLAYERBOTS.AI_PLAYERBOT_RANDOM_BOTS.INSERT_COMMAND_RESET(MySqlDB.PLAYERBOTS.ECommandRemoveBots.All)
+                If res.Item1 Then
+                    MessageBox.Show(res.Item2,
+                                    My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    MessageBox.Show(My.Resources.P076_CommandRemoveBotsApplayed,
+                                    My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        End If
     End Sub
 
     ''' <summary>
@@ -223,7 +259,18 @@ Public Class BotSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub Button_CancelRemove_Click(sender As Object, e As EventArgs) Handles Button_CancelRemove.Click
-
+        Dim dr = MessageBox.Show(My.Resources.P075_CancelRemoveBots,
+                                 My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If dr = DialogResult.Yes Then
+            Dim res = MySqlDB.PLAYERBOTS.AI_PLAYERBOT_RANDOM_BOTS.DELETE_COMMAND_RESET()
+            If res.Item1 Then
+                MessageBox.Show(res.Item2,
+                                My.Resources.E003_ErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                MessageBox.Show(My.Resources.P077_CommandRemoved,
+                                My.Resources.P007_MessageCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
     End Sub
 
 End Class

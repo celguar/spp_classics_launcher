@@ -421,9 +421,24 @@
     <value>Specify the path to the WoW client (wow.exe)</value>
   </data>
   <data name="P071_Saved" xml:space="preserve">
-    <value>Settings successfully saved!</value>
+    <value>The changes have been successfully saved and will take effect after the server is restarted!</value>
   </data>
   <data name="P072_IllegalNumber" xml:space="preserve">
     <value>Minimum value {0} maximum value {1}</value>
+  </data>
+  <data name="P073_RemoveBots" xml:space="preserve">
+    <value>Remove all bots that are not associated with real players and guilds?\nThis command will be executed after the server is restarted.</value>
+  </data>
+  <data name="P074_RemoveAllBots" xml:space="preserve">
+    <value>Remove all bots without exception?\nThis command will be executed after the server is restarted.</value>
+  </data>
+  <data name="P075_CancelRemoveBots" xml:space="preserve">
+    <value>Cancel command to remove bots after reboot?</value>
+  </data>
+  <data name="P076_CommandRemoveBotsApplayed" xml:space="preserve">
+    <value>The delete bots command has been added and is waiting for a server restart.</value>
+  </data>
+  <data name="P077_CommandRemoved" xml:space="preserve">
+    <value>Remove bots command canceled successfully.</value>
   </data>
 </root>

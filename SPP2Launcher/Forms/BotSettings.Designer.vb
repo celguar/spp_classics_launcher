@@ -66,14 +66,14 @@ Partial Class BotSettings
         Me.TextBox_ChanceSell = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button_Save = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button_RemoveBots = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button_RemoveAllBots = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button_CancelRemove = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Button_CancelRemove = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Button_RemoveAllBots = New System.Windows.Forms.Button()
+        Me.Button_RemoveBots = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button_Save = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage_PB1.SuspendLayout()
         Me.GroupBox_MainPB.SuspendLayout()
@@ -89,21 +89,21 @@ Partial Class BotSettings
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage_PB1)
         Me.TabControl1.Controls.Add(Me.TabPage_PB2)
         Me.TabControl1.Controls.Add(Me.TabPage_AHB)
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'TabPage_PB1
         '
+        resources.ApplyResources(Me.TabPage_PB1, "TabPage_PB1")
         Me.TabPage_PB1.Controls.Add(Me.CheckBox_PlayerbotsEnabled)
         Me.TabPage_PB1.Controls.Add(Me.TextBox_RandomBotAccountCount)
         Me.TabPage_PB1.Controls.Add(Me.Label5)
         Me.TabPage_PB1.Controls.Add(Me.GroupBox_MainPB)
-        resources.ApplyResources(Me.TabPage_PB1, "TabPage_PB1")
         Me.TabPage_PB1.Name = "TabPage_PB1"
         Me.TabPage_PB1.UseVisualStyleBackColor = True
         '
@@ -195,29 +195,29 @@ Partial Class BotSettings
         '
         'TabPage_PB2
         '
-        Me.TabPage_PB2.Controls.Add(Me.GroupBox_OtherPB)
         resources.ApplyResources(Me.TabPage_PB2, "TabPage_PB2")
+        Me.TabPage_PB2.Controls.Add(Me.GroupBox_OtherPB)
         Me.TabPage_PB2.Name = "TabPage_PB2"
         Me.TabPage_PB2.UseVisualStyleBackColor = True
         '
         'GroupBox_OtherPB
         '
+        resources.ApplyResources(Me.GroupBox_OtherPB, "GroupBox_OtherPB")
         Me.GroupBox_OtherPB.Controls.Add(Me.GroupBox_MapsPB)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_AutoEquipUpgradeLoot)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_RandomBotGroupNearby)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_EnableGreet)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_GearScoreCheck)
-        resources.ApplyResources(Me.GroupBox_OtherPB, "GroupBox_OtherPB")
         Me.GroupBox_OtherPB.Name = "GroupBox_OtherPB"
         Me.GroupBox_OtherPB.TabStop = False
         '
         'GroupBox_MapsPB
         '
+        resources.ApplyResources(Me.GroupBox_MapsPB, "GroupBox_MapsPB")
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Eastern)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Northrend)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Kalimdor)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Outland)
-        resources.ApplyResources(Me.GroupBox_MapsPB, "GroupBox_MapsPB")
         Me.GroupBox_MapsPB.Name = "GroupBox_MapsPB"
         Me.GroupBox_MapsPB.TabStop = False
         '
@@ -271,9 +271,9 @@ Partial Class BotSettings
         '
         'TabPage_AHB
         '
+        resources.ApplyResources(Me.TabPage_AHB, "TabPage_AHB")
         Me.TabPage_AHB.Controls.Add(Me.CheckBox_AhBotEnabled)
         Me.TabPage_AHB.Controls.Add(Me.GroupBox_MainAhBot)
-        resources.ApplyResources(Me.TabPage_AHB, "TabPage_AHB")
         Me.TabPage_AHB.Name = "TabPage_AHB"
         Me.TabPage_AHB.UseVisualStyleBackColor = True
         '
@@ -285,6 +285,7 @@ Partial Class BotSettings
         '
         'GroupBox_MainAhBot
         '
+        resources.ApplyResources(Me.GroupBox_MainAhBot, "GroupBox_MainAhBot")
         Me.GroupBox_MainAhBot.Controls.Add(Me.CheckBox_AllowLegendary)
         Me.GroupBox_MainAhBot.Controls.Add(Me.Label7)
         Me.GroupBox_MainAhBot.Controls.Add(Me.TrackBar1)
@@ -297,7 +298,6 @@ Partial Class BotSettings
         Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceBuy)
         Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceSell)
         Me.GroupBox_MainAhBot.Controls.Add(Me.Label6)
-        resources.ApplyResources(Me.GroupBox_MainAhBot, "GroupBox_MainAhBot")
         Me.GroupBox_MainAhBot.Name = "GroupBox_MainAhBot"
         Me.GroupBox_MainAhBot.TabStop = False
         '
@@ -364,50 +364,27 @@ Partial Class BotSettings
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
         resources.ApplyResources(Me.TabPage1, "TabPage1")
+        Me.TabPage1.Controls.Add(Me.GroupBox1)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Button_Save
-        '
-        resources.ApplyResources(Me.Button_Save, "Button_Save")
-        Me.Button_Save.Name = "Button_Save"
-        Me.Button_Save.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        resources.ApplyResources(Me.Label8, "Label8")
-        Me.Label8.Name = "Label8"
-        '
-        'Button_RemoveBots
-        '
-        resources.ApplyResources(Me.Button_RemoveBots, "Button_RemoveBots")
-        Me.Button_RemoveBots.Name = "Button_RemoveBots"
-        Me.Button_RemoveBots.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Button_CancelRemove)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Button_RemoveAllBots)
         Me.GroupBox1.Controls.Add(Me.Button_RemoveBots)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
-        'Button_RemoveAllBots
+        'Label10
         '
-        resources.ApplyResources(Me.Button_RemoveAllBots, "Button_RemoveAllBots")
-        Me.Button_RemoveAllBots.Name = "Button_RemoveAllBots"
-        Me.Button_RemoveAllBots.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        resources.ApplyResources(Me.Label9, "Label9")
-        Me.Label9.Name = "Label9"
+        resources.ApplyResources(Me.Label10, "Label10")
+        Me.Label10.Name = "Label10"
         '
         'Button_CancelRemove
         '
@@ -415,10 +392,33 @@ Partial Class BotSettings
         Me.Button_CancelRemove.Name = "Button_CancelRemove"
         Me.Button_CancelRemove.UseVisualStyleBackColor = True
         '
-        'Label10
+        'Label9
         '
-        resources.ApplyResources(Me.Label10, "Label10")
-        Me.Label10.Name = "Label10"
+        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.Name = "Label9"
+        '
+        'Button_RemoveAllBots
+        '
+        resources.ApplyResources(Me.Button_RemoveAllBots, "Button_RemoveAllBots")
+        Me.Button_RemoveAllBots.Name = "Button_RemoveAllBots"
+        Me.Button_RemoveAllBots.UseVisualStyleBackColor = True
+        '
+        'Button_RemoveBots
+        '
+        resources.ApplyResources(Me.Button_RemoveBots, "Button_RemoveBots")
+        Me.Button_RemoveBots.Name = "Button_RemoveBots"
+        Me.Button_RemoveBots.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.Name = "Label8"
+        '
+        'Button_Save
+        '
+        resources.ApplyResources(Me.Button_Save, "Button_Save")
+        Me.Button_Save.Name = "Button_Save"
+        Me.Button_Save.UseVisualStyleBackColor = True
         '
         'BotSettings
         '

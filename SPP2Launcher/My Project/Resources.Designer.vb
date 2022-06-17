@@ -1170,7 +1170,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Ищет локализованную строку, похожую на Настройки успешно сохранены!.
+        '''  Ищет локализованную строку, похожую на Изменения успешно сохранены и вступят в силу после перезагрузки сервера!.
         '''</summary>
         Friend ReadOnly Property P071_Saved() As String
             Get
@@ -1184,6 +1184,51 @@ Namespace My.Resources
         Friend ReadOnly Property P072_IllegalNumber() As String
             Get
                 Return ResourceManager.GetString("P072_IllegalNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Удалить всех ботов, не связанных с реальными игроками и гильдиями?\nДанная команда будет выполнена после перезагрузки сервера..
+        '''</summary>
+        Friend ReadOnly Property P073_RemoveBots() As String
+            Get
+                Return ResourceManager.GetString("P073_RemoveBots", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Удалить всех ботов без исключения?\nДанная команда будет выполнена после перезагрузки сервера..
+        '''</summary>
+        Friend ReadOnly Property P074_RemoveAllBots() As String
+            Get
+                Return ResourceManager.GetString("P074_RemoveAllBots", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Отменить команду удаления ботов после перезагрузки?.
+        '''</summary>
+        Friend ReadOnly Property P075_CancelRemoveBots() As String
+            Get
+                Return ResourceManager.GetString("P075_CancelRemoveBots", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Команда удаления ботов добавлена и ожидает перезагрузки сервера..
+        '''</summary>
+        Friend ReadOnly Property P076_CommandRemoveBotsApplayed() As String
+            Get
+                Return ResourceManager.GetString("P076_CommandRemoveBotsApplayed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Ищет локализованную строку, похожую на Команда удаления ботов успешно отменена..
+        '''</summary>
+        Friend ReadOnly Property P077_CommandRemoved() As String
+            Get
+                Return ResourceManager.GetString("P077_CommandRemoved", resourceCulture)
             End Get
         End Property
         

@@ -1155,6 +1155,9 @@ Public Class Launcher
                     Else
                         Close()
                     End If
+
+                Else a = EAction.UpdateMainMenu
+                    GV.SPP2Launcher.UpdateMainMenu(False)
                 End If
             End If
 

@@ -530,9 +530,24 @@
     <value>Укажите путь к клиенту WoW (wow.exe)</value>
   </data>
   <data name="P071_Saved" xml:space="preserve">
-    <value>Настройки успешно сохранены!</value>
+    <value>Изменения успешно сохранены и вступят в силу после перезагрузки сервера!</value>
   </data>
   <data name="P072_IllegalNumber" xml:space="preserve">
     <value>Минимальное значение {0} максимальное {1}</value>
+  </data>
+  <data name="P073_RemoveBots" xml:space="preserve">
+    <value>Удалить всех ботов, не связанных с реальными игроками и гильдиями?\nДанная команда будет выполнена после перезагрузки сервера.</value>
+  </data>
+  <data name="P074_RemoveAllBots" xml:space="preserve">
+    <value>Удалить всех ботов без исключения?\nДанная команда будет выполнена после перезагрузки сервера.</value>
+  </data>
+  <data name="P075_CancelRemoveBots" xml:space="preserve">
+    <value>Отменить команду удаления ботов после перезагрузки?</value>
+  </data>
+  <data name="P076_CommandRemoveBotsApplayed" xml:space="preserve">
+    <value>Команда удаления ботов добавлена и ожидает перезагрузки сервера.</value>
+  </data>
+  <data name="P077_CommandRemoved" xml:space="preserve">
+    <value>Команда удаления ботов успешно отменена.</value>
   </data>
 </root>

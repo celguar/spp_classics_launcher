@@ -800,7 +800,7 @@ Module SPP2Helper
                 ' Пишем в строку состояния - Идёт остановка серверов
                 GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(String.Format(My.Resources.P044_ServerStop, "World...")))
 
-                Threading.Thread.Sleep(500)
+                Threading.Thread.Sleep(1000)
                 If Not IsNothing(GV.SPP2Launcher.WorldProcess) Then
                     ' Процесс ещё продолжается - Дождитесь окончания...
                     'GV.Log.WriteInfo(GV.SPP2Launcher.UpdateMessageStatusStrip(My.Resources.P039_WaitEnd))

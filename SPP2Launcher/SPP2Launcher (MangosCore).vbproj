@@ -238,6 +238,9 @@
     <EmbeddedResource Include="Forms\ApacheSettings.resx">
       <DependentUpon>ApacheSettings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BotSettings.en.resx">
+      <DependentUpon>BotSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BotSettings.resx">
       <DependentUpon>BotSettings.vb</DependentUpon>
     </EmbeddedResource>
