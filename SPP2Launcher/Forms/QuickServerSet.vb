@@ -51,7 +51,7 @@ Public Class QuickServerSet
 
         ' Получаем список МИРОВ
         Dim _err = New Tuple(Of Boolean, String)(False, "OK")
-        Realms = MySqlDataBases.REALMD.REALMLIST.SELECT_REALMS(_err)
+        Realms = MySqlDB.REALMD.REALMLIST.SELECT_REALMS(_err)
         If _err.Item1 Then
             MessageBox.Show(_err.Item2,
                             My.Resources.P016_WarningCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -118,7 +118,7 @@ Public Class QuickServerSet
         End If
 
         ' Пытаемся изменить настройки в БД
-        Dim _err = MySqlDataBases.REALMD.REALMLIST.UPDATE_REALM(id:=ComboBox_RealmId.SelectedItem.ToString,
+        Dim _err = MySqlDB.REALMD.REALMLIST.UPDATE_REALM(id:=ComboBox_RealmId.SelectedItem.ToString,
                                                                 name:=TextBox_ServerName.Text,
                                                                 address:=ComboBox_BindIP.SelectedItem.ToString)
         If _err.Item1 = True Then

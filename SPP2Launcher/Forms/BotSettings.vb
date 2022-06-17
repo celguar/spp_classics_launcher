@@ -199,4 +199,31 @@ Public Class BotSettings
         End Try
     End Function
 
+    ''' <summary>
+    ''' КНОПКА - УДАЛИТЬ БОТОВ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_RemoveBots_Click(sender As Object, e As EventArgs) Handles Button_RemoveBots.Click
+
+    End Sub
+
+    ''' <summary>
+    ''' КНОПКА - УДАЛИТЬ ВСЕХ БОТОВ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_RemoveAllBots_Click(sender As Object, e As EventArgs) Handles Button_RemoveAllBots.Click
+
+    End Sub
+
+    ''' <summary>
+    ''' КНОПКА - ОТМЕНИТЬ УДАЛЕНИЕ БОТОВ
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Button_CancelRemove_Click(sender As Object, e As EventArgs) Handles Button_CancelRemove.Click
+
+    End Sub
+
 End Class

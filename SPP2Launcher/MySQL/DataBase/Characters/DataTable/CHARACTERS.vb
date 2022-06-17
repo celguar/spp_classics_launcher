@@ -2,7 +2,7 @@
 Imports DevCake.WoW.SPP2Launcher.MySqlProvider
 Imports MySql.Data.MySqlClient
 
-Namespace MySqlDataBases.CHARACTERS
+Namespace MySqlDB.CHARACTERS
 
     ''' <summary>
     ''' Таблица Caracters базы Characters

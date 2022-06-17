@@ -238,13 +238,13 @@
     <value>25, 135</value>
   </data>
   <data name="CheckBox_RandomBotJoinBG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 17</value>
+    <value>196, 17</value>
   </data>
   <data name="CheckBox_RandomBotJoinBG.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="CheckBox_RandomBotJoinBG.Text" xml:space="preserve">
-    <value>Разрешить БГ и Арены для случайных ботов</value>
+    <value>Разрешить БГ и Арены для ботов</value>
   </data>
   <data name="&gt;&gt;CheckBox_RandomBotJoinBG.Name" xml:space="preserve">
     <value>CheckBox_RandomBotJoinBG</value>
@@ -298,13 +298,13 @@
     <value>25, 112</value>
   </data>
   <data name="CheckBox_RandomBotJoinLfg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 17</value>
+    <value>203, 17</value>
   </data>
   <data name="CheckBox_RandomBotJoinLfg.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="CheckBox_RandomBotJoinLfg.Text" xml:space="preserve">
-    <value>Разрешить группы (LFG) для случайных ботов</value>
+    <value>Разрешить группы (LFG) для ботов</value>
   </data>
   <data name="&gt;&gt;CheckBox_RandomBotJoinLfg.Name" xml:space="preserve">
     <value>CheckBox_RandomBotJoinLfg</value>
@@ -507,300 +507,6 @@
   <data name="&gt;&gt;TabPage_PB1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Name" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Parent" xml:space="preserve">
-    <value>TabPage_PB2</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPage_PB2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_PB2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_PB2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 270</value>
-  </data>
-  <data name="TabPage_PB2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabPage_PB2.Text" xml:space="preserve">
-    <value>Other Playerbot</value>
-  </data>
-  <data name="&gt;&gt;TabPage_PB2.Name" xml:space="preserve">
-    <value>TabPage_PB2</value>
-  </data>
-  <data name="&gt;&gt;TabPage_PB2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_PB2.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_PB2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AhBotEnabled.Name" xml:space="preserve">
-    <value>CheckBox_AhBotEnabled</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AhBotEnabled.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AhBotEnabled.Parent" xml:space="preserve">
-    <value>TabPage_AHB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AhBotEnabled.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Name" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Parent" xml:space="preserve">
-    <value>TabPage_AHB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TabPage_AHB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage_AHB.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage_AHB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 270</value>
-  </data>
-  <data name="TabPage_AHB.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TabPage_AHB.Text" xml:space="preserve">
-    <value>Auction House Bot</value>
-  </data>
-  <data name="&gt;&gt;TabPage_AHB.Name" xml:space="preserve">
-    <value>TabPage_AHB</value>
-  </data>
-  <data name="&gt;&gt;TabPage_AHB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage_AHB.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage_AHB.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 270</value>
-  </data>
-  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="TabPage1.Text" xml:space="preserve">
-    <value>Warning!</value>
-  </data>
-  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
-    <value>TabPage1</value>
-  </data>
-  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabPage1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 2</value>
-  </data>
-  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 296</value>
-  </data>
-  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
-    <value>TabControl1</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Name" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AutoEquipUpgradeLoot.Name" xml:space="preserve">
-    <value>CheckBox_AutoEquipUpgradeLoot</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AutoEquipUpgradeLoot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AutoEquipUpgradeLoot.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AutoEquipUpgradeLoot.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_RandomBotGroupNearby.Name" xml:space="preserve">
-    <value>CheckBox_RandomBotGroupNearby</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_RandomBotGroupNearby.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_RandomBotGroupNearby.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_RandomBotGroupNearby.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_EnableGreet.Name" xml:space="preserve">
-    <value>CheckBox_EnableGreet</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_EnableGreet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_EnableGreet.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_EnableGreet.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_GearScoreCheck.Name" xml:space="preserve">
-    <value>CheckBox_GearScoreCheck</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_GearScoreCheck.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_GearScoreCheck.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_GearScoreCheck.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="GroupBox_OtherPB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 6</value>
-  </data>
-  <data name="GroupBox_OtherPB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 257</value>
-  </data>
-  <data name="GroupBox_OtherPB.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="GroupBox_OtherPB.Text" xml:space="preserve">
-    <value>Дополнительные настройки</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Name" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.Parent" xml:space="preserve">
-    <value>TabPage_PB2</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_OtherPB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Eastern.Name" xml:space="preserve">
-    <value>CheckBox_Eastern</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Eastern.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Eastern.Parent" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Eastern.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Northrend.Name" xml:space="preserve">
-    <value>CheckBox_Northrend</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Northrend.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Northrend.Parent" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Northrend.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Kalimdor.Name" xml:space="preserve">
-    <value>CheckBox_Kalimdor</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Kalimdor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Kalimdor.Parent" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Kalimdor.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Outland.Name" xml:space="preserve">
-    <value>CheckBox_Outland</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Outland.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Outland.Parent" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_Outland.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="GroupBox_MapsPB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 117</value>
-  </data>
-  <data name="GroupBox_MapsPB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 108</value>
-  </data>
-  <data name="GroupBox_MapsPB.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="GroupBox_MapsPB.Text" xml:space="preserve">
-    <value>Локации</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Name" xml:space="preserve">
-    <value>GroupBox_MapsPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.Parent" xml:space="preserve">
-    <value>GroupBox_OtherPB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MapsPB.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="CheckBox_Eastern.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -920,6 +626,30 @@
   </data>
   <data name="&gt;&gt;CheckBox_Outland.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="GroupBox_MapsPB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 117</value>
+  </data>
+  <data name="GroupBox_MapsPB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 108</value>
+  </data>
+  <data name="GroupBox_MapsPB.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="GroupBox_MapsPB.Text" xml:space="preserve">
+    <value>Локации</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MapsPB.Name" xml:space="preserve">
+    <value>GroupBox_MapsPB</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MapsPB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MapsPB.Parent" xml:space="preserve">
+    <value>GroupBox_OtherPB</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MapsPB.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="CheckBox_AutoEquipUpgradeLoot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1041,6 +771,57 @@
   <data name="&gt;&gt;CheckBox_GearScoreCheck.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="GroupBox_OtherPB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
+  </data>
+  <data name="GroupBox_OtherPB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 257</value>
+  </data>
+  <data name="GroupBox_OtherPB.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="GroupBox_OtherPB.Text" xml:space="preserve">
+    <value>Дополнительные настройки</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_OtherPB.Name" xml:space="preserve">
+    <value>GroupBox_OtherPB</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_OtherPB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_OtherPB.Parent" xml:space="preserve">
+    <value>TabPage_PB2</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_OtherPB.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage_PB2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TabPage_PB2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPage_PB2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 270</value>
+  </data>
+  <data name="TabPage_PB2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPage_PB2.Text" xml:space="preserve">
+    <value>Other Playerbot</value>
+  </data>
+  <data name="&gt;&gt;TabPage_PB2.Name" xml:space="preserve">
+    <value>TabPage_PB2</value>
+  </data>
+  <data name="&gt;&gt;TabPage_PB2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage_PB2.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage_PB2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="CheckBox_AhBotEnabled.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1071,6 +852,24 @@
   <data name="&gt;&gt;CheckBox_AhBotEnabled.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="CheckBox_AllowLegendary.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 112</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 17</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="CheckBox_AllowLegendary.Text" xml:space="preserve">
+    <value>Разрешить предметы выше эпичного</value>
+  </data>
   <data name="&gt;&gt;CheckBox_AllowLegendary.Name" xml:space="preserve">
     <value>CheckBox_AllowLegendary</value>
   </data>
@@ -1082,6 +881,24 @@
   </data>
   <data name="&gt;&gt;CheckBox_AllowLegendary.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label7.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 143</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 13</value>
+  </data>
+  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>Шанс появления предметов выше эпичного</value>
   </data>
   <data name="&gt;&gt;Label7.Name" xml:space="preserve">
     <value>Label7</value>
@@ -1095,6 +912,18 @@
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="TrackBar1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="TrackBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 164</value>
+  </data>
+  <data name="TrackBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>292, 45</value>
+  </data>
+  <data name="TrackBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
   <data name="&gt;&gt;TrackBar1.Name" xml:space="preserve">
     <value>TrackBar1</value>
   </data>
@@ -1106,138 +935,6 @@
   </data>
   <data name="&gt;&gt;TrackBar1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMax.Name" xml:space="preserve">
-    <value>TextBox_TimeMax</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMax.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMax.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMin.Name" xml:space="preserve">
-    <value>TextBox_TimeMin</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMin.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_TimeMin.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMax.Name" xml:space="preserve">
-    <value>TextBox_BidMax</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMax.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMax.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMin.Name" xml:space="preserve">
-    <value>TextBox_BidMin</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMin.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_BidMin.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceBuy.Name" xml:space="preserve">
-    <value>TextBox_ChanceBuy</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceBuy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceBuy.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceBuy.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceSell.Name" xml:space="preserve">
-    <value>TextBox_ChanceSell</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceSell.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceSell.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TextBox_ChanceSell.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
-  </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="GroupBox_MainAhBot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 43</value>
-  </data>
-  <data name="GroupBox_MainAhBot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 221</value>
-  </data>
-  <data name="GroupBox_MainAhBot.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="GroupBox_MainAhBot.Text" xml:space="preserve">
-    <value>Основные настройки</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Name" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.Parent" xml:space="preserve">
-    <value>TabPage_AHB</value>
-  </data>
-  <data name="&gt;&gt;GroupBox_MainAhBot.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="TextBox_TimeMax.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 23</value>
@@ -1455,6 +1152,281 @@
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="GroupBox_MainAhBot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 43</value>
+  </data>
+  <data name="GroupBox_MainAhBot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 221</value>
+  </data>
+  <data name="GroupBox_MainAhBot.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="GroupBox_MainAhBot.Text" xml:space="preserve">
+    <value>Основные настройки</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MainAhBot.Name" xml:space="preserve">
+    <value>GroupBox_MainAhBot</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MainAhBot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MainAhBot.Parent" xml:space="preserve">
+    <value>TabPage_AHB</value>
+  </data>
+  <data name="&gt;&gt;GroupBox_MainAhBot.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TabPage_AHB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TabPage_AHB.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPage_AHB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 270</value>
+  </data>
+  <data name="TabPage_AHB.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TabPage_AHB.Text" xml:space="preserve">
+    <value>Auction House Bot</value>
+  </data>
+  <data name="&gt;&gt;TabPage_AHB.Name" xml:space="preserve">
+    <value>TabPage_AHB</value>
+  </data>
+  <data name="&gt;&gt;TabPage_AHB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage_AHB.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage_AHB.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 163</value>
+  </data>
+  <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 79</value>
+  </data>
+  <data name="Label10.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value> Если вы ещё не делали перезагрузку сервера, то можно отменить удаление ботов.
+Однако, данная команда не вернёт уже удалённых ботов!</value>
+  </data>
+  <data name="&gt;&gt;Label10.Name" xml:space="preserve">
+    <value>Label10</value>
+  </data>
+  <data name="&gt;&gt;Label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label10.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Label10.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Button_CancelRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 163</value>
+  </data>
+  <data name="Button_CancelRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="Button_CancelRemove.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Button_CancelRemove.Text" xml:space="preserve">
+    <value>Отменить удаление</value>
+  </data>
+  <data name="&gt;&gt;Button_CancelRemove.Name" xml:space="preserve">
+    <value>Button_CancelRemove</value>
+  </data>
+  <data name="&gt;&gt;Button_CancelRemove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_CancelRemove.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Button_CancelRemove.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 94</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 32</value>
+  </data>
+  <data name="Label9.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value> Удалить всех ботов без исключения.</value>
+  </data>
+  <data name="&gt;&gt;Label9.Name" xml:space="preserve">
+    <value>Label9</value>
+  </data>
+  <data name="&gt;&gt;Label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label9.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Label9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Button_RemoveAllBots.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 94</value>
+  </data>
+  <data name="Button_RemoveAllBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 23</value>
+  </data>
+  <data name="Button_RemoveAllBots.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Button_RemoveAllBots.Text" xml:space="preserve">
+    <value>Удалить всех ботов</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveAllBots.Name" xml:space="preserve">
+    <value>Button_RemoveAllBots</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveAllBots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveAllBots.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveAllBots.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Button_RemoveBots.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 26</value>
+  </data>
+  <data name="Button_RemoveBots.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="Button_RemoveBots.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Button_RemoveBots.Text" xml:space="preserve">
+    <value>Удалить ботов</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveBots.Name" xml:space="preserve">
+    <value>Button_RemoveBots</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveBots.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveBots.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Button_RemoveBots.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 26</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 58</value>
+  </data>
+  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value> Удаление всех ботов, кроме тех, что находятся в друзьях или состоят в гильдии, созданной игроком (реальной гильдии).
+</value>
+  </data>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 258</value>
+  </data>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Удаление ботов</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 270</value>
+  </data>
+  <data name="TabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="TabPage1.Text" xml:space="preserve">
+    <value>Warning!</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Name" xml:space="preserve">
+    <value>TabPage1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabPage1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 2</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 296</value>
+  </data>
+  <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="Button_Save.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 302</value>
   </data>
@@ -1477,90 +1449,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Button_Save.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TrackBar1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TrackBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 164</value>
-  </data>
-  <data name="TrackBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 45</value>
-  </data>
-  <data name="TrackBar1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;TrackBar1.Name" xml:space="preserve">
-    <value>TrackBar1</value>
-  </data>
-  <data name="&gt;&gt;TrackBar1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TrackBar1.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;TrackBar1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label7.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 143</value>
-  </data>
-  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 13</value>
-  </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>Шанс появления предметов выше эпичного</value>
-  </data>
-  <data name="&gt;&gt;Label7.Name" xml:space="preserve">
-    <value>Label7</value>
-  </data>
-  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 112</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 17</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="CheckBox_AllowLegendary.Text" xml:space="preserve">
-    <value>Разрешить предметы выше эпичного</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AllowLegendary.Name" xml:space="preserve">
-    <value>CheckBox_AllowLegendary</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AllowLegendary.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AllowLegendary.Parent" xml:space="preserve">
-    <value>GroupBox_MainAhBot</value>
-  </data>
-  <data name="&gt;&gt;CheckBox_AllowLegendary.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -2,7 +2,7 @@
 Imports DevCake.WoW.SPP2Launcher.MySqlProvider
 Imports MySql.Data.MySqlClient
 
-Namespace MySqlDataBases.REALMD
+Namespace MySqlDB.REALMD
 
     Public Class REALMLIST
 

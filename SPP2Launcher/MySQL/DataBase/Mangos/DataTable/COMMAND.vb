@@ -2,7 +2,7 @@
 Imports DevCake.WoW.SPP2Launcher.MySqlProvider
 Imports MySql.Data.MySqlClient
 
-Namespace MySqlDataBases.MANGOS
+Namespace MySqlDB.MANGOS
 
     ''' <summary>
     ''' Таблица Command базы данных Mangos.

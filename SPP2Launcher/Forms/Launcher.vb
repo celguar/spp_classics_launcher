@@ -591,7 +591,7 @@ Public Class Launcher
 
         ' Выводим имя в заголовок
         Dim fv = FileVersionInfo.GetVersionInfo(Application.ExecutablePath)
-        Text = My.Resources.P010_LauncherCaption & " (" & fv.FileVersion & ")" & " : " & srv
+        Text = My.Resources.P010_LauncherCaption & " (v" & fv.FileVersion & ")" & " : " & srv
 
         ' Инициализируем MySQL
         GV.SQL = New MySqlProvider()
@@ -897,13 +897,13 @@ Public Class Launcher
             If _MysqlON Then
                 Dim suffix = Strings.Format(Date.Now, "yyyy-MM-dd HH-mm-ss")
                 UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "REALMD"), QCONSOLE)
-                MySqlDataBases.Backup.REALMD(suffix, True)
+                MySqlDB.Backup.REALMD(suffix, True)
                 Threading.Thread.Sleep(500)
                 UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "CHARACTERS"), QCONSOLE)
-                MySqlDataBases.Backup.CHARACTERS(suffix, True)
+                MySqlDB.Backup.CHARACTERS(suffix, True)
                 Threading.Thread.Sleep(500)
                 UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"), QCONSOLE)
-                MySqlDataBases.Backup.PLAYERBOTS(suffix, True)
+                MySqlDB.Backup.PLAYERBOTS(suffix, True)
                 Threading.Thread.Sleep(500)
                 UpdateMessageStatusStrip("")
             End If
@@ -1300,7 +1300,7 @@ Public Class Launcher
         ' Автоподсказки
         If CheckProcess(EProcess.mysqld) AndAlso HintCollection.Count = 0 Then
             Me.Invoke(Sub()
-                          MySqlDataBases.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
+                          MySqlDB.MANGOS.COMMAND.SELECT_COMMAND(HintCollection)
                           TextBox_Command.AutoCompleteSource = AutoCompleteSource.CustomSource
                           TextBox_Command.AutoCompleteCustomSource = HintCollection
                           TextBox_Command.AutoCompleteMode = If(My.Settings.UseCommandAutoHints, AutoCompleteMode.SuggestAppend, AutoCompleteMode.None)
@@ -2902,8 +2902,8 @@ Public Class Launcher
             Else
 
                 Dim online, total As String
-                online = MySqlDataBases.CHARACTERS.ACCOUNT.SELECT_ONLINE_CHARS()
-                total = MySqlDataBases.CHARACTERS.ACCOUNT.SELECT_TOTAL_CHARS()
+                online = MySqlDB.CHARACTERS.ACCOUNT.SELECT_ONLINE_CHARS()
+                total = MySqlDB.CHARACTERS.ACCOUNT.SELECT_TOTAL_CHARS()
                 TSSL_Count.Text = online
                 TSSL_Count.ToolTipText = String.Format(My.Resources.P011_AllChars, total)
 

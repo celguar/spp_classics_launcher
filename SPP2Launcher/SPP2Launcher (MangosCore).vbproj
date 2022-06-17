@@ -152,6 +152,7 @@
     <Compile Include="MySQL\DataBase\Characters\DataTable\CHARACTERS.vb" />
     <Compile Include="MySQL\DataBase\Characters\CHARACTERS.vb" />
     <Compile Include="MySQL\DataBase\Mangos\DataTable\COMMAND.vb" />
+    <Compile Include="MySQL\DataBase\PlayerBots\DataTable\AI_PLAYERBOT_RANDOM_BOTS.vb" />
     <Compile Include="MySQL\DataBase\PlayerBots\PLAYERBOTS.vb" />
     <Compile Include="MySQL\DataBase\Realmd\DataTable\ACCOUNT.vb" />
     <Compile Include="MySQL\DataBase\Realmd\DataTable\REALMD.vb" />
@@ -317,7 +318,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MySQL\DataBase\PlayerBots\DataTable\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

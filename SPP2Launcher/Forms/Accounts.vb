@@ -52,7 +52,7 @@ Public Class Accounts
 
             ' Получаем префикс бота
             Dim botPrefix = GV.SPP2Launcher.IniPlayerBots.ReadString("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountPrefix")
-            Dim accounts() = MySqlDataBases.REALMD.ACCOUNT.SELECT_REAL_ACCOUNT(botPrefix.ToUpper)
+            Dim accounts() = MySqlDB.REALMD.ACCOUNT.SELECT_REAL_ACCOUNT(botPrefix.ToUpper)
             If Not IsNothing(accounts) Then
                 ComboBox_AccountSearch.Items.AddRange(accounts)
             End If
@@ -201,7 +201,7 @@ Public Class Accounts
                     Dim srp = New SRP6(TextBox_UserName.Text.Trim.ToUpper, TextBox_Password.Text.Trim.ToUpper)
 
                     ' Создаём аккаунт
-                    Dim _err = MySqlDataBases.REALMD.ACCOUNT.INSERT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper,
+                    Dim _err = MySqlDB.REALMD.ACCOUNT.INSERT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper,
                                                                             srp.Verifier,
                                                                             srp.Salt,
                                                                             ComboBox_AccountType.SelectedIndex,
@@ -245,7 +245,7 @@ Public Class Accounts
             'Обновляем параметры пользователя
             DR("gmlevel") = ComboBox_AccountType.SelectedIndex
             DR("expansion") = ComboBox_Expansion.SelectedIndex
-            Dim _err = MySqlDataBases.REALMD.ACCOUNT.UPDATE_ACCOUNT(DR)
+            Dim _err = MySqlDB.REALMD.ACCOUNT.UPDATE_ACCOUNT(DR)
             If _err.Item1 Then
                 ' Ошибка
                 MessageBox.Show(_err.Item2,
@@ -270,7 +270,7 @@ Public Class Accounts
         Dim dr As DataRow = Nothing
         Do
             Dim _err = New Tuple(Of Boolean, String)(False, "OK")
-            dr = MySqlDataBases.REALMD.ACCOUNT.SELECT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper, _err)
+            dr = MySqlDB.REALMD.ACCOUNT.SELECT_ACCOUNT(TextBox_UserName.Text.Trim.ToUpper, _err)
             If _err.Item1 = True Then
                 ' Ошибка получения параметров аккаунта
                 Dim res = MessageBox.Show(_err.Item2 & vbCrLf & My.Resources.P057_Repeat,

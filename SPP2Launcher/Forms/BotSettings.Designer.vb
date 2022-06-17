@@ -53,6 +53,9 @@ Partial Class BotSettings
         Me.TabPage_AHB = New System.Windows.Forms.TabPage()
         Me.CheckBox_AhBotEnabled = New System.Windows.Forms.CheckBox()
         Me.GroupBox_MainAhBot = New System.Windows.Forms.GroupBox()
+        Me.CheckBox_AllowLegendary = New System.Windows.Forms.CheckBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.TextBox_TimeMax = New System.Windows.Forms.TextBox()
         Me.TextBox_TimeMin = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -64,9 +67,13 @@ Partial Class BotSettings
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Button_Save = New System.Windows.Forms.Button()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.CheckBox_AllowLegendary = New System.Windows.Forms.CheckBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button_RemoveBots = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button_RemoveAllBots = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Button_CancelRemove = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage_PB1.SuspendLayout()
         Me.GroupBox_MainPB.SuspendLayout()
@@ -76,6 +83,8 @@ Partial Class BotSettings
         Me.TabPage_AHB.SuspendLayout()
         Me.GroupBox_MainAhBot.SuspendLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -292,6 +301,22 @@ Partial Class BotSettings
         Me.GroupBox_MainAhBot.Name = "GroupBox_MainAhBot"
         Me.GroupBox_MainAhBot.TabStop = False
         '
+        'CheckBox_AllowLegendary
+        '
+        resources.ApplyResources(Me.CheckBox_AllowLegendary, "CheckBox_AllowLegendary")
+        Me.CheckBox_AllowLegendary.Name = "CheckBox_AllowLegendary"
+        Me.CheckBox_AllowLegendary.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        '
+        'TrackBar1
+        '
+        resources.ApplyResources(Me.TrackBar1, "TrackBar1")
+        Me.TrackBar1.Name = "TrackBar1"
+        '
         'TextBox_TimeMax
         '
         resources.ApplyResources(Me.TextBox_TimeMax, "TextBox_TimeMax")
@@ -339,6 +364,7 @@ Partial Class BotSettings
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.GroupBox1)
         resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -349,21 +375,50 @@ Partial Class BotSettings
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.UseVisualStyleBackColor = True
         '
-        'TrackBar1
+        'Label8
         '
-        resources.ApplyResources(Me.TrackBar1, "TrackBar1")
-        Me.TrackBar1.Name = "TrackBar1"
+        resources.ApplyResources(Me.Label8, "Label8")
+        Me.Label8.Name = "Label8"
         '
-        'Label7
+        'Button_RemoveBots
         '
-        resources.ApplyResources(Me.Label7, "Label7")
-        Me.Label7.Name = "Label7"
+        resources.ApplyResources(Me.Button_RemoveBots, "Button_RemoveBots")
+        Me.Button_RemoveBots.Name = "Button_RemoveBots"
+        Me.Button_RemoveBots.UseVisualStyleBackColor = True
         '
-        'CheckBox_AllowLegendary
+        'GroupBox1
         '
-        resources.ApplyResources(Me.CheckBox_AllowLegendary, "CheckBox_AllowLegendary")
-        Me.CheckBox_AllowLegendary.Name = "CheckBox_AllowLegendary"
-        Me.CheckBox_AllowLegendary.UseVisualStyleBackColor = True
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.Button_CancelRemove)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Button_RemoveAllBots)
+        Me.GroupBox1.Controls.Add(Me.Button_RemoveBots)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'Button_RemoveAllBots
+        '
+        resources.ApplyResources(Me.Button_RemoveAllBots, "Button_RemoveAllBots")
+        Me.Button_RemoveAllBots.Name = "Button_RemoveAllBots"
+        Me.Button_RemoveAllBots.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        resources.ApplyResources(Me.Label9, "Label9")
+        Me.Label9.Name = "Label9"
+        '
+        'Button_CancelRemove
+        '
+        resources.ApplyResources(Me.Button_CancelRemove, "Button_CancelRemove")
+        Me.Button_CancelRemove.Name = "Button_CancelRemove"
+        Me.Button_CancelRemove.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        resources.ApplyResources(Me.Label10, "Label10")
+        Me.Label10.Name = "Label10"
         '
         'BotSettings
         '
@@ -390,6 +445,8 @@ Partial Class BotSettings
         Me.GroupBox_MainAhBot.ResumeLayout(False)
         Me.GroupBox_MainAhBot.PerformLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -438,4 +495,11 @@ Partial Class BotSettings
     Friend WithEvents Label7 As Label
     Friend WithEvents TrackBar1 As TrackBar
     Friend WithEvents CheckBox_AllowLegendary As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Button_RemoveAllBots As Button
+    Friend WithEvents Button_RemoveBots As Button
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Button_CancelRemove As Button
 End Class
