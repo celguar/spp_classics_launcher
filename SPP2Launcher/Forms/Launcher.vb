@@ -591,7 +591,7 @@ Public Class Launcher
 
         ' Выводим имя в заголовок
         Dim fv = FileVersionInfo.GetVersionInfo(Application.ExecutablePath)
-        Text = My.Resources.P010_LauncherCaption & " (v" & fv.FileVersion & ")" & " : " & srv
+        Text = My.Resources.P010_LauncherCaption & " (" & fv.FileVersion & ")" & " : " & srv
 
         ' Инициализируем MySQL
         GV.SQL = New MySqlProvider()

@@ -45,7 +45,7 @@ Namespace MySqlDB.CHARACTERS
         ''' </summary>
         ''' <returns></returns>
         Shared Function SELECT_ONLINE_CHARS() As String
-            If CheckProcess(EProcess.mysqld) Then
+            If CheckProcess(EProcess.mysqld) And GV.SPP2Launcher.WorldON Then
                 Dim count As String = ""
                 Using sqlConn As New MySqlConnection(GetConnectionString(EDataBase.DbCharacters))
                     Using sqlComm As New MySqlCommand

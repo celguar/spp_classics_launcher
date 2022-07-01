@@ -65,7 +65,7 @@ Partial Class BotSettings
         Me.TextBox_ChanceBuy = New System.Windows.Forms.TextBox()
         Me.TextBox_ChanceSell = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage_Warning = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Button_CancelRemove = New System.Windows.Forms.Button()
@@ -74,6 +74,8 @@ Partial Class BotSettings
         Me.Button_RemoveBots = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button_Save = New System.Windows.Forms.Button()
+        Me.TabPage_PB3 = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage_PB1.SuspendLayout()
         Me.GroupBox_MainPB.SuspendLayout()
@@ -83,27 +85,29 @@ Partial Class BotSettings
         Me.TabPage_AHB.SuspendLayout()
         Me.GroupBox_MainAhBot.SuspendLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage1.SuspendLayout()
+        Me.TabPage_Warning.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage_PB3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage_PB1)
         Me.TabControl1.Controls.Add(Me.TabPage_PB2)
+        Me.TabControl1.Controls.Add(Me.TabPage_PB3)
         Me.TabControl1.Controls.Add(Me.TabPage_AHB)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage_Warning)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'TabPage_PB1
         '
-        resources.ApplyResources(Me.TabPage_PB1, "TabPage_PB1")
         Me.TabPage_PB1.Controls.Add(Me.CheckBox_PlayerbotsEnabled)
         Me.TabPage_PB1.Controls.Add(Me.TextBox_RandomBotAccountCount)
         Me.TabPage_PB1.Controls.Add(Me.Label5)
         Me.TabPage_PB1.Controls.Add(Me.GroupBox_MainPB)
+        resources.ApplyResources(Me.TabPage_PB1, "TabPage_PB1")
         Me.TabPage_PB1.Name = "TabPage_PB1"
         Me.TabPage_PB1.UseVisualStyleBackColor = True
         '
@@ -195,29 +199,29 @@ Partial Class BotSettings
         '
         'TabPage_PB2
         '
-        resources.ApplyResources(Me.TabPage_PB2, "TabPage_PB2")
         Me.TabPage_PB2.Controls.Add(Me.GroupBox_OtherPB)
+        resources.ApplyResources(Me.TabPage_PB2, "TabPage_PB2")
         Me.TabPage_PB2.Name = "TabPage_PB2"
         Me.TabPage_PB2.UseVisualStyleBackColor = True
         '
         'GroupBox_OtherPB
         '
-        resources.ApplyResources(Me.GroupBox_OtherPB, "GroupBox_OtherPB")
         Me.GroupBox_OtherPB.Controls.Add(Me.GroupBox_MapsPB)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_AutoEquipUpgradeLoot)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_RandomBotGroupNearby)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_EnableGreet)
         Me.GroupBox_OtherPB.Controls.Add(Me.CheckBox_GearScoreCheck)
+        resources.ApplyResources(Me.GroupBox_OtherPB, "GroupBox_OtherPB")
         Me.GroupBox_OtherPB.Name = "GroupBox_OtherPB"
         Me.GroupBox_OtherPB.TabStop = False
         '
         'GroupBox_MapsPB
         '
-        resources.ApplyResources(Me.GroupBox_MapsPB, "GroupBox_MapsPB")
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Eastern)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Northrend)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Kalimdor)
         Me.GroupBox_MapsPB.Controls.Add(Me.CheckBox_Outland)
+        resources.ApplyResources(Me.GroupBox_MapsPB, "GroupBox_MapsPB")
         Me.GroupBox_MapsPB.Name = "GroupBox_MapsPB"
         Me.GroupBox_MapsPB.TabStop = False
         '
@@ -271,9 +275,9 @@ Partial Class BotSettings
         '
         'TabPage_AHB
         '
-        resources.ApplyResources(Me.TabPage_AHB, "TabPage_AHB")
         Me.TabPage_AHB.Controls.Add(Me.CheckBox_AhBotEnabled)
         Me.TabPage_AHB.Controls.Add(Me.GroupBox_MainAhBot)
+        resources.ApplyResources(Me.TabPage_AHB, "TabPage_AHB")
         Me.TabPage_AHB.Name = "TabPage_AHB"
         Me.TabPage_AHB.UseVisualStyleBackColor = True
         '
@@ -285,7 +289,6 @@ Partial Class BotSettings
         '
         'GroupBox_MainAhBot
         '
-        resources.ApplyResources(Me.GroupBox_MainAhBot, "GroupBox_MainAhBot")
         Me.GroupBox_MainAhBot.Controls.Add(Me.CheckBox_AllowLegendary)
         Me.GroupBox_MainAhBot.Controls.Add(Me.Label7)
         Me.GroupBox_MainAhBot.Controls.Add(Me.TrackBar1)
@@ -298,6 +301,7 @@ Partial Class BotSettings
         Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceBuy)
         Me.GroupBox_MainAhBot.Controls.Add(Me.TextBox_ChanceSell)
         Me.GroupBox_MainAhBot.Controls.Add(Me.Label6)
+        resources.ApplyResources(Me.GroupBox_MainAhBot, "GroupBox_MainAhBot")
         Me.GroupBox_MainAhBot.Name = "GroupBox_MainAhBot"
         Me.GroupBox_MainAhBot.TabStop = False
         '
@@ -362,22 +366,22 @@ Partial Class BotSettings
         resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
         '
-        'TabPage1
+        'TabPage_Warning
         '
-        resources.ApplyResources(Me.TabPage1, "TabPage1")
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.TabPage_Warning.Controls.Add(Me.GroupBox1)
+        resources.ApplyResources(Me.TabPage_Warning, "TabPage_Warning")
+        Me.TabPage_Warning.Name = "TabPage_Warning"
+        Me.TabPage_Warning.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Button_CancelRemove)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Button_RemoveAllBots)
         Me.GroupBox1.Controls.Add(Me.Button_RemoveBots)
         Me.GroupBox1.Controls.Add(Me.Label8)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
@@ -420,6 +424,19 @@ Partial Class BotSettings
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.UseVisualStyleBackColor = True
         '
+        'TabPage_PB3
+        '
+        Me.TabPage_PB3.Controls.Add(Me.GroupBox2)
+        resources.ApplyResources(Me.TabPage_PB3, "TabPage_PB3")
+        Me.TabPage_PB3.Name = "TabPage_PB3"
+        Me.TabPage_PB3.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.TabStop = False
+        '
         'BotSettings
         '
         resources.ApplyResources(Me, "$this")
@@ -445,8 +462,9 @@ Partial Class BotSettings
         Me.GroupBox_MainAhBot.ResumeLayout(False)
         Me.GroupBox_MainAhBot.PerformLayout()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage_Warning.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
+        Me.TabPage_PB3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -480,7 +498,7 @@ Partial Class BotSettings
     Private WithEvents CheckBox_EnableGreet As CheckBox
     Private WithEvents CheckBox_GearScoreCheck As CheckBox
     Friend WithEvents Button_Save As Button
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage_Warning As TabPage
     Friend WithEvents CheckBox_AhBotEnabled As CheckBox
     Friend WithEvents GroupBox_MainAhBot As GroupBox
     Friend WithEvents TextBox_ChanceBuy As TextBox
@@ -502,4 +520,6 @@ Partial Class BotSettings
     Friend WithEvents Label8 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Button_CancelRemove As Button
+    Friend WithEvents TabPage_PB3 As TabPage
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

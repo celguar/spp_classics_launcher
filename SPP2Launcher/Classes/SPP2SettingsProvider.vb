@@ -1,9 +1,8 @@
 ﻿
 '########################################################
 '# (c) RafStudio inc. 2022
-'# Разрабатывалось мучительно, а поскольку творчески
-'# то и беспокоится о сохранении настроек - следует
-'# вручную. То есть Upgrade и Save - не забываем...
+'# Не забываем про Upgrade при запуске приложения
+'# и Save перед выходом их приложения.
 '########################################################
 
 Imports System.Collections.Specialized
@@ -131,22 +130,31 @@ Public Class SPP2SettingsProvider
     ''' Применяет этот поставщик параметров к каждому свойству имеющихся параметров.
     ''' </summary>
     ''' <param name="configFilePath">Полный путь к файлу конфигурации.</param>
+    ''' <param name="enableMyDocuments">При недоступности локального каталога разрешить сохранять файл конфигурации в папке Мои Документы?</param>
     ''' <param name="settingsList">Массив настроек.</param>
-    Public Shared Sub ApplyProvider(configFilePath As String, ParamArray settingsList() As ApplicationSettingsBase)
+    Public Shared Sub ApplyProvider(configFilePath As String,
+                                    enableMyDocuments As Boolean,
+                                    ParamArray settingsList() As ApplicationSettingsBase)
+        SetLanguage("ru-RU")
         Try
             ' Проверяем доступность каталога на запись
-            If Not IO.Directory.Exists(IO.Path.GetDirectoryName(configFilePath)) Then IO.Directory.CreateDirectory(SettingsFolder)
+            If Not IO.Directory.Exists(IO.Path.GetDirectoryName(configFilePath)) Then IO.Directory.CreateDirectory(IO.Path.GetDirectoryName(configFilePath))
             _SettingsFolder = IO.Path.GetDirectoryName(configFilePath)
-            IO.File.WriteAllText(IO.Path.GetDirectoryName(configFilePath) & "test.file", "")
-            IO.File.Delete(IO.Path.GetDirectoryName(configFilePath) & "test.file")
+            IO.File.WriteAllText(IO.Path.GetDirectoryName(configFilePath) & "\test.file", "")
+            IO.File.Delete(IO.Path.GetDirectoryName(configFilePath) & "\test.file")
             _SettingsFile = configFilePath
         Catch ex As Exception
-            ' Указанный каталог недоступен - сохраняем параметры в MyDocuments
-            _SettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
-            If Not IO.Directory.Exists(_SettingsFolder) Then IO.Directory.CreateDirectory(_SettingsFolder)
-            If Not IO.Directory.Exists(_SettingsFolder & "\Settings") Then IO.Directory.CreateDirectory(_SettingsFolder & "\Settings")
-            _SettingsFile = _SettingsFolder & "\Settings\" & IO.Path.GetFileName(configFilePath)
+            If enableMyDocuments Then
+                ' Указанный каталог недоступен - сохраняем параметры в MyDocuments
+                _SettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\" & Assembly.GetExecutingAssembly.FullName.Split(","c)(0)
+                If Not IO.Directory.Exists(_SettingsFolder) Then IO.Directory.CreateDirectory(_SettingsFolder)
+                If Not IO.Directory.Exists(_SettingsFolder & "\Settings") Then IO.Directory.CreateDirectory(_SettingsFolder & "\Settings")
+                _SettingsFile = _SettingsFolder & "\Settings\" & IO.Path.GetFileName(configFilePath)
+            Else
+                Throw New Exception(ex.Message)
+            End If
         End Try
+
         For Each settings In settingsList
             Dim provider = New SPP2SettingsProvider()
             settings.Providers.Add(provider)
@@ -159,9 +167,10 @@ Public Class SPP2SettingsProvider
 
     ''' <summary>
     ''' Сохраняет настройки используя объект settings в качестве контента.
+    ''' При ошибке возвращает True.
     ''' </summary>
     ''' <param name="settings">Контент новых настроек.</param>
-    Public Shared Function ReplaceSettings(settings As String) As Byte
+    Public Shared Function ReplaceSettings(settings As String, ByRef _err As String) As Boolean
         Dim xmlDoc As XDocument
         Try
             xmlDoc = XDocument.Parse(settings)
@@ -170,12 +179,15 @@ Public Class SPP2SettingsProvider
                 Using writer = XmlWriter.Create(SettingsFile, New XmlWriterSettings With {.NewLineHandling = NewLineHandling.Entitize, .Indent = True})
                     xmlDoc.Save(writer)
                 End Using
-                Return 0
+                _err = _lng.spr0000
+                Return False
             Catch
-                Return 2
+                _err = _lng.spr0001
+                Return True
             End Try
         Catch ex As Exception
-            Return 1
+            _err = _lng.spr0002
+            Return True
         End Try
     End Function
 
@@ -343,5 +355,107 @@ Public Class SPP2SettingsProvider
         Dim att = CType(prop.Attributes(GetType(SettingsDescriptionAttribute)), SettingsDescriptionAttribute)
         Return If(IsNothing(att), "", att.Description)
     End Function
+
+#Region " === ЛОКАЛИЗАЦИЯ === "
+
+    ''' <summary>
+    ''' Структура содержащая текущую локализацию.
+    ''' </summary>
+    Private Shared _lng As TLanguage
+
+#Region " === БАЗОВАЯ СТРУКТУРА СТРОК ЛОКАЛИЗАЦИИ === "
+
+    ''' <summary>
+    ''' Структура содержащая строки локализации класса SettingsProvider.
+    ''' </summary>
+    Private Structure TLanguage
+
+        ''' <summary>
+        ''' Короткое обозначение языка локализации.
+        ''' </summary>
+        Public Language As String
+
+        ''' <summary>
+        ''' Автор локализации.
+        ''' </summary>
+        Public Author As String
+
+        ''' <summary>
+        ''' Успешное применение полученной конфигурации.
+        ''' </summary>
+        Public spr0000 As String
+
+        ''' <summary>
+        ''' Недопустимая структура строки конфигурации.
+        ''' </summary>
+        Public spr0001 As String
+
+        ''' <summary>
+        ''' Исключение при сохранении файла конфигурации.
+        ''' </summary>
+        Public spr0002 As String
+
+    End Structure
+
+#End Region
+
+    ''' <summary>
+    ''' Возвращает текущую локализацию.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared ReadOnly Property CurrentLanguage As String
+        Get
+            Return _lng.Language
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Автор локализации.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared ReadOnly Property LocalizationAuthor As String
+        Get
+            Return _lng.Author
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Возвращает локализованную коллекцию строковых ключей и их значений.
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared ReadOnly Property LocalizedPairs As Dictionary(Of String, String)
+        Get
+            Dim _lng As New Dictionary(Of String, String)
+
+            Return _lng
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Устанавливает локализацию для класса EasyLog из встроенных в класс (RU, EN).
+    ''' </summary>
+    ''' <param name="language">Доступная локализация из коробки. В данном случае RU или EN.</param>
+    Public Shared Sub SetLanguage(ByVal language As String)
+        If IsNothing(language) Then language = "ru-RU"
+        Select Case UCase(language)
+            Case "RU-RU"
+                ' Локализация локализации :)
+                _lng.Language = "ru-RU"
+                _lng.Author = "© 2022 RafStudio inc."
+                _lng.spr0000 = "Успешное применение полученной конфигурации."
+                _lng.spr0001 = "Недопустимая структура строки конфигурации."
+                _lng.spr0002 = "Исключение при сохранении файла конфигурации."
+            Case Else
+                ' Локализация локализации :)
+                _lng.Language = "en-GB"
+                _lng.Author = "© 2022 RafStudio inc."
+                _lng.spr0000 = "Successful application of the received configuration."
+                _lng.spr0001 = "Invalid configuration string structure."
+                _lng.spr0002 = "Exception while saving configuration file."
+        End Select
+
+    End Sub
+
+#End Region
 
 End Class

@@ -162,7 +162,7 @@ Public Class GV
 
         Try
             ' Включаем локальные настройки
-            SPP2SettingsProvider.ApplyProvider(Application.StartupPath & "\SPP2.cfg", My.MySettings.Default)
+            SPP2SettingsProvider.ApplyProvider(Application.StartupPath & "\SPP2.cfg", True, My.MySettings.Default)
             ' Всякий раз проводим Upgrade на случай, если файл разрушен.
             My.Settings.Upgrade()
         Catch ex As Exception

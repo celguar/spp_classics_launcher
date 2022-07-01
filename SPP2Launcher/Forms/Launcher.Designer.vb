@@ -57,8 +57,8 @@ Partial Class Launcher
         Me.TSMI_Bots = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Accounts = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Saves = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TSMI_World = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_QuickSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_OpenSite = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_Updates = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,6 +86,7 @@ Partial Class Launcher
         Me.RichTextBox_ConsoleWorld = New System.Windows.Forms.RichTextBox()
         Me.Button_UnlockAll = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.НастройкиMangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip_SPP2.SuspendLayout()
         Me.MenuStrip_SPP2.SuspendLayout()
         Me.ContextMenu_SPP2.SuspendLayout()
@@ -254,7 +255,7 @@ Partial Class Launcher
         '
         'TSMI_Tools
         '
-        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Accounts, Me.TSMI_Saves, Me.TSMI_World, Me.TSMI_QuickSettings, Me.TSMI_OpenSite, Me.ToolStripMenuItem1, Me.TSMI_Updates})
+        Me.TSMI_Tools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_Bots, Me.TSMI_Accounts, Me.TSMI_Saves, Me.TSMI_QuickSettings, Me.ToolStripMenuItem3, Me.TSMI_OpenSite, Me.ToolStripMenuItem1, Me.TSMI_Updates})
         resources.ApplyResources(Me.TSMI_Tools, "TSMI_Tools")
         Me.TSMI_Tools.Name = "TSMI_Tools"
         '
@@ -274,15 +275,15 @@ Partial Class Launcher
         Me.TSMI_Saves.Name = "TSMI_Saves"
         resources.ApplyResources(Me.TSMI_Saves, "TSMI_Saves")
         '
-        'TSMI_World
-        '
-        Me.TSMI_World.Name = "TSMI_World"
-        resources.ApplyResources(Me.TSMI_World, "TSMI_World")
-        '
         'TSMI_QuickSettings
         '
         resources.ApplyResources(Me.TSMI_QuickSettings, "TSMI_QuickSettings")
         Me.TSMI_QuickSettings.Name = "TSMI_QuickSettings"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        resources.ApplyResources(Me.ToolStripMenuItem3, "ToolStripMenuItem3")
         '
         'TSMI_OpenSite
         '
@@ -301,7 +302,7 @@ Partial Class Launcher
         '
         'TSMI_Settings
         '
-        Me.TSMI_Settings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_LanguageTool, Me.TSMI_Launcher, Me.TSMI_S1, Me.TSMI_Reset})
+        Me.TSMI_Settings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_LanguageTool, Me.TSMI_Launcher, Me.НастройкиMangosToolStripMenuItem, Me.TSMI_S1, Me.TSMI_Reset})
         resources.ApplyResources(Me.TSMI_Settings, "TSMI_Settings")
         Me.TSMI_Settings.Name = "TSMI_Settings"
         '
@@ -457,6 +458,11 @@ Partial Class Launcher
         Me.ToolTip1.InitialDelay = 500
         Me.ToolTip1.ReshowDelay = 100
         '
+        'НастройкиMangosToolStripMenuItem
+        '
+        Me.НастройкиMangosToolStripMenuItem.Name = "НастройкиMangosToolStripMenuItem"
+        resources.ApplyResources(Me.НастройкиMangosToolStripMenuItem, "НастройкиMangosToolStripMenuItem")
+        '
         'Launcher
         '
         resources.ApplyResources(Me, "$this")
@@ -541,7 +547,6 @@ Partial Class Launcher
     Friend WithEvents TSSL_Count As ToolStripStatusLabel
     Friend WithEvents TSMI_WowAutoStart As ToolStripMenuItem
     Friend WithEvents TSMI_Bots As ToolStripMenuItem
-    Friend WithEvents TSMI_World As ToolStripMenuItem
     Friend WithEvents TSMI_S1 As ToolStripSeparator
     Friend WithEvents TSMI_Reset As ToolStripMenuItem
     Friend WithEvents Button_UnlockAll As Button
@@ -549,4 +554,6 @@ Partial Class Launcher
     Friend WithEvents TSMI_QuickSettings As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
     Friend WithEvents TSMI_OpenSite As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripSeparator
+    Friend WithEvents НастройкиMangosToolStripMenuItem As ToolStripMenuItem
 End Class
