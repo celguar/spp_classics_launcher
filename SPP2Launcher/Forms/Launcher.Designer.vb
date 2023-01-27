@@ -67,8 +67,10 @@ Partial Class Launcher
         Me.TSMI_English = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Russian = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_Launcher = New System.Windows.Forms.ToolStripMenuItem()
+        Me.НастройкиMangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSMI_S1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TSMI_Reset = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TSMI_Shutdown = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon_SPP2 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenu_SPP2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TSMI_OpenLauncher = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,7 +88,6 @@ Partial Class Launcher
         Me.RichTextBox_ConsoleWorld = New System.Windows.Forms.RichTextBox()
         Me.Button_UnlockAll = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.НастройкиMangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip_SPP2.SuspendLayout()
         Me.MenuStrip_SPP2.SuspendLayout()
         Me.ContextMenu_SPP2.SuspendLayout()
@@ -146,7 +147,7 @@ Partial Class Launcher
         '
         Me.MenuStrip_SPP2.BackColor = System.Drawing.Color.LightGray
         Me.MenuStrip_SPP2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_RunWow, Me.TSMI_Server, Me.TSMI_Tools, Me.TSMI_Settings})
+        Me.MenuStrip_SPP2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSMI_RunWow, Me.TSMI_Server, Me.TSMI_Tools, Me.TSMI_Settings, Me.TSMI_Shutdown})
         resources.ApplyResources(Me.MenuStrip_SPP2, "MenuStrip_SPP2")
         Me.MenuStrip_SPP2.Name = "MenuStrip_SPP2"
         '
@@ -327,6 +328,11 @@ Partial Class Launcher
         resources.ApplyResources(Me.TSMI_Launcher, "TSMI_Launcher")
         Me.TSMI_Launcher.Name = "TSMI_Launcher"
         '
+        'НастройкиMangosToolStripMenuItem
+        '
+        Me.НастройкиMangosToolStripMenuItem.Name = "НастройкиMangosToolStripMenuItem"
+        resources.ApplyResources(Me.НастройкиMangosToolStripMenuItem, "НастройкиMangosToolStripMenuItem")
+        '
         'TSMI_S1
         '
         Me.TSMI_S1.Name = "TSMI_S1"
@@ -336,6 +342,12 @@ Partial Class Launcher
         '
         resources.ApplyResources(Me.TSMI_Reset, "TSMI_Reset")
         Me.TSMI_Reset.Name = "TSMI_Reset"
+        '
+        'TSMI_Shutdown
+        '
+        Me.TSMI_Shutdown.Image = Global.DevCake.WoW.SPP2Launcher.My.Resources.Resources.close
+        Me.TSMI_Shutdown.Name = "TSMI_Shutdown"
+        resources.ApplyResources(Me.TSMI_Shutdown, "TSMI_Shutdown")
         '
         'NotifyIcon_SPP2
         '
@@ -458,11 +470,6 @@ Partial Class Launcher
         Me.ToolTip1.InitialDelay = 500
         Me.ToolTip1.ReshowDelay = 100
         '
-        'НастройкиMangosToolStripMenuItem
-        '
-        Me.НастройкиMangosToolStripMenuItem.Name = "НастройкиMangosToolStripMenuItem"
-        resources.ApplyResources(Me.НастройкиMangosToolStripMenuItem, "НастройкиMangosToolStripMenuItem")
-        '
         'Launcher
         '
         resources.ApplyResources(Me, "$this")
@@ -556,4 +563,5 @@ Partial Class Launcher
     Friend WithEvents TSMI_OpenSite As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripSeparator
     Friend WithEvents НастройкиMangosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TSMI_Shutdown As ToolStripMenuItem
 End Class

@@ -80,6 +80,8 @@ Public Class Launcher
     ''' <returns></returns>
     Friend ReadOnly Property NeedServerStop As Boolean
 
+    Friend Property ServerIsStarting As Boolean
+
     ''' <summary>
     ''' Флаг автоматического запуска сервера WoW. Он же контроль от падения. 
     ''' </summary>
@@ -902,9 +904,11 @@ Public Class Launcher
                 UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "CHARACTERS"), QCONSOLE)
                 MySqlDB.Backup.CHARACTERS(suffix, True)
                 Threading.Thread.Sleep(500)
-                UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"), QCONSOLE)
-                MySqlDB.Backup.PLAYERBOTS(suffix, True)
-                Threading.Thread.Sleep(500)
+                If My.Settings.BackupBotsDatabase Then
+                    UpdateMySQLConsole(String.Format(My.Resources.P048_Backup, "PLAYERBOTS"), QCONSOLE)
+                    MySqlDB.Backup.PLAYERBOTS(suffix, True)
+                    Threading.Thread.Sleep(500)
+                End If
                 UpdateMessageStatusStrip("")
             End If
         Catch ex As Exception
@@ -1656,6 +1660,8 @@ Public Class Launcher
                     ' Исключаем повторный запуск World
                     _WorldON = True
 
+                    ServerIsStarting = True
+
                     If ServerWowAutostart Then
                         ' Пишем - контроль включён
                         GV.SPP2Launcher.UpdateWorldConsole(My.Resources.P019_ControlEnabled, CONSOLE)
@@ -1833,8 +1839,8 @@ Public Class Launcher
                                 ' Сервер нас слышит, поэтому отправляем saveall и server shutdown  согласно требованиям разработчиков
                                 SendCommandToWorld(".saveall")
                                 ' Делаем паузу
-                                Threading.Thread.Sleep(1000)
-                                SendCommandToWorld("server shutdown 0")
+                                Threading.Thread.Sleep(5000)
+                                SendCommandToWorld("server shutdown 1")
                             Else
                                 ' Сервер не готов нас слушать, поэтому удаляем хандлеры и киллим процесс world
                                 If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
@@ -1913,6 +1919,39 @@ Public Class Launcher
             Else
                 ' Устанавливаем начальный уровень фильтрации сообщений консоли World
                 _CurrentWorldConsoleFilter = My.Settings.ConsoleMessageFilter
+
+                If Not IsNothing(_WorldProcess) And Not _NeedServerStart And Not _NeedExitLauncher And Not NeedServerStop And Not ServerIsStarting Then
+
+                    If Not IsNothing(_WorldProcess) Then WorldExited(Me, Nothing)
+                    Try
+                        _WorldProcess.Kill()
+                        _WorldON = False
+                        _WorldProcess = Nothing
+                        _WorldProcess.Dispose()
+                    Catch
+                    End Try
+                    'ShutdownWorld(False)
+
+                    WorldStartTime = 0
+                    GV.SPP2Launcher.UpdateMessageStatusStrip("")
+                    ' Сервер рухнул
+                    Dim msg = String.Format(My.Resources.P045_ServerStopped, "world",
+                                            If(GV.SPP2Launcher.ServerWowAutostart, My.Resources.P055_RestartIs, ""))
+                    GV.Log.WriteError(msg)
+                    GV.SPP2Launcher.UpdateWorldConsole(msg, Color.Red)
+                    ' Устанавливаем перезапуск (если автостарт или Ручной) через 10 секунд
+                    TimerStartWorld.Change(10000, 10000)
+                    'If ServerWowAutostart Then
+                    '    ' Запускаем поток
+                    '    Dim sq As New Threading.Thread(AddressOf StartWorld) With {
+                    '        .CurrentCulture = GV.CI,
+                    '        .CurrentUICulture = GV.CI,
+                    '        .IsBackground = True
+                    '    }
+                    '    sq.Start()
+                    'End If
+                    If ServerWowAutostart Then ServerIsStarting = True
+                End If
             End If
         End Try
     End Sub
@@ -2809,6 +2848,7 @@ Public Class Launcher
 
                                     TSMI_Reset.Enabled = False
                                     TSMI_ServerSwitcher.Enabled = False
+                                    ServerIsStarting = False
 
                                     ' Основное окно открыто
                                     TSSL_World.Image = My.Resources.green_ball
@@ -2911,6 +2951,15 @@ Public Class Launcher
                 TSSL_Count.ToolTipText = String.Format(My.Resources.P011_AllChars, total)
 
             End If
+        End If
+    End Sub
+
+    Private Sub ShutdownMainMenu_Click(sender As Object, e As EventArgs) Handles TSMI_Shutdown.Click
+        ' Выводим предупреждение
+        Dim str = My.Resources.P050_Exit1
+        Dim result = MessageBox.Show(str, My.Resources.P016_WarningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If result = DialogResult.Yes Then
+            ShutdownAll(True)
         End If
     End Sub
 

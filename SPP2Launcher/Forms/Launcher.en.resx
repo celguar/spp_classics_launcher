@@ -4400,4 +4400,10 @@ HTTP server is out of control!</value>
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="НастройкиMangosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mangos Settings</value>
+  </data>
+  <data name="TSMI_Shutdown.Text" xml:space="preserve">
+    <value>Shutdown Server</value>
+  </data>
 </root>

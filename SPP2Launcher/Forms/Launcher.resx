@@ -357,7 +357,7 @@
 </value>
   </data>
   <data name="TSMI_WowAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_WowAutoStart.Text" xml:space="preserve">
     <value>Защита серверов от падения</value>
@@ -385,7 +385,7 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_ServerStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_ServerStart.Text" xml:space="preserve">
     <value>Запустить</value>
@@ -402,13 +402,13 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_ServerStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_ServerStop.Text" xml:space="preserve">
     <value>Остановить</value>
   </data>
   <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 6</value>
+    <value>239, 6</value>
   </data>
   <data name="TSMI_MySqlStart.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -529,7 +529,7 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_MySQL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_MySQL.Text" xml:space="preserve">
     <value>MySQL</value>
@@ -666,13 +666,13 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_Apache.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_Apache.Text" xml:space="preserve">
     <value>Apache</value>
   </data>
   <data name="TSMI_Sever1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 6</value>
+    <value>239, 6</value>
   </data>
   <data name="TSMI_ServerSwitcher.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -702,7 +702,7 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_ServerSwitcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>246, 26</value>
+    <value>242, 22</value>
   </data>
   <data name="TSMI_ServerSwitcher.Text" xml:space="preserve">
     <value>Сменить расширение сервера</value>
@@ -1018,7 +1018,7 @@ HTTP сервер не контролируется!</value>
     <value>None</value>
   </data>
   <data name="TSMI_LanguageTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 26</value>
+    <value>189, 22</value>
   </data>
   <data name="TSMI_LanguageTool.Text" xml:space="preserve">
     <value>Язык интерфейса</value>
@@ -1036,19 +1036,22 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_Launcher.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 26</value>
+    <value>189, 22</value>
   </data>
   <data name="TSMI_Launcher.Text" xml:space="preserve">
     <value>Приложение</value>
   </data>
   <data name="НастройкиMangosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 26</value>
+    <value>189, 22</value>
   </data>
   <data name="НастройкиMangosToolStripMenuItem.Text" xml:space="preserve">
     <value>Настройки Mangos</value>
   </data>
+  <data name="НастройкиMangosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="TSMI_S1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 6</value>
+    <value>186, 6</value>
   </data>
   <data name="TSMI_Reset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1078,7 +1081,7 @@ HTTP сервер не контролируется!</value>
 </value>
   </data>
   <data name="TSMI_Reset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 26</value>
+    <value>189, 22</value>
   </data>
   <data name="TSMI_Reset.Text" xml:space="preserve">
     <value>Сброс всех настроек</value>
@@ -1114,6 +1117,12 @@ HTTP сервер не контролируется!</value>
   </data>
   <data name="TSMI_Settings.Text" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="TSMI_Shutdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 24</value>
+  </data>
+  <data name="TSMI_Shutdown.Text" xml:space="preserve">
+    <value>Выключить Сервер</value>
   </data>
   <data name="MenuStrip_SPP2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -4018,6 +4027,12 @@ HTTP сервер не контролируется!</value>
   <data name="&gt;&gt;TSMI_Launcher.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;НастройкиMangosToolStripMenuItem.Name" xml:space="preserve">
+    <value>НастройкиMangosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;НастройкиMangosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;TSMI_S1.Name" xml:space="preserve">
     <value>TSMI_S1</value>
   </data>
@@ -4028,6 +4043,12 @@ HTTP сервер не контролируется!</value>
     <value>TSMI_Reset</value>
   </data>
   <data name="&gt;&gt;TSMI_Reset.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Shutdown.Name" xml:space="preserve">
+    <value>TSMI_Shutdown</value>
+  </data>
+  <data name="&gt;&gt;TSMI_Shutdown.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;NotifyIcon_SPP2.Name" xml:space="preserve">
@@ -4065,12 +4086,6 @@ HTTP сервер не контролируется!</value>
   </data>
   <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;НастройкиMangosToolStripMenuItem.Name" xml:space="preserve">
-    <value>НастройкиMangosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;НастройкиMangosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Launcher</value>

@@ -922,20 +922,20 @@ Module SPP2Helper
                 GC.Collect()
             End If
 
-            ' Чекаем Http каждые 1 секунды
-            If Date.Now - _checkHttp > TimeSpan.FromSeconds(1) Then
+            ' Чекаем Http каждые 5 секунды
+            If Date.Now - _checkHttp > TimeSpan.FromSeconds(5) Then
                 _checkHttp = Date.Now
                 GV.SPP2Launcher.CheckHttp()
             End If
 
-            ' Чекаем Realmd согласно ChangeRealmdCheck
-            If Date.Now - _checkRealmd > TimeSpan.FromSeconds(ChangeRealmdCheck) Then
+            ' Чекаем Realmd каждые 5 секунды
+            If Date.Now - _checkRealmd > TimeSpan.FromSeconds(5) Then
                 _checkRealmd = Date.Now
                 GV.SPP2Launcher.CheckRealmd()
             End If
 
-            ' Чекаем World каждые 1.7 секунды
-            If Date.Now - _checkWorld > TimeSpan.FromSeconds(1.7) Then
+            ' Чекаем World каждые 5 секунды
+            If Date.Now - _checkWorld > TimeSpan.FromSeconds(5) Then
                 _checkWorld = Date.Now
                 GV.SPP2Launcher.CheckWorld()
             End If
