@@ -111,10 +111,10 @@ Public Class BotSettings
 #Region " === PLAYERBOTS === "
 
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.Enabled", BoolToStr(CheckBox_PlayerbotsEnabled.Checked))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountCount", IsInteger(TextBox_RandomBotAccountCount, 0, 1000))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAccountCount", IsInteger(TextBox_RandomBotAccountCount, 0, 2000))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotAutologin", BoolToStr(CheckBox_RandomBotAutologin.Checked))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MinRandomBots", IsInteger(TextBox_MinRandomBots, 0, 1000))
-            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MaxRandomBots", IsInteger(TextBox_MaxRandomBots, 0, 1000))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MinRandomBots", IsInteger(TextBox_MinRandomBots, 0, 10000))
+            GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.MaxRandomBots", IsInteger(TextBox_MaxRandomBots, 0, 10000))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMinLevel", IsInteger(TextBox_RandomBotMinLevel, 1, 80))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotMaxLevel", IsInteger(TextBox_RandomBotMaxLevel, 1, 80))
             GV.SPP2Launcher.IniPlayerBots.Write("AiPlayerbotConf", "AiPlayerbot.RandomBotJoinLfg", BoolToStr(CheckBox_RandomBotJoinLfg.Checked))
